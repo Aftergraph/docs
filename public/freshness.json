@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-09-06T23:46:18.866Z",
+  "entries": {
+    "Aftergraph/after-graph-governance": {
+      "pinned": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+      "live": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+      "status": "CURRENT"
+    },
+    "Aftergraph/aie": {
+      "pinned": "c9684e4d160f8ea59bd295807d45d2652258d003",
+      "live": "c9684e4d160f8ea59bd295807d45d2652258d003",
+      "status": "CURRENT"
+    },
+    "Aftergraph/intelligence-systems-research": {
+      "pinned": "72e115c642441e10dd88890edfac86b787315cf0",
+      "live": "72e115c642441e10dd88890edfac86b787315cf0",
+      "status": "CURRENT"
+    },
+    "Aftergraph/trust-gateway": {
+      "pinned": "8c74593175f686c6365b485ac2b5d05c5bd5252d",
+      "live": "8c74593175f686c6365b485ac2b5d05c5bd5252d",
+      "status": "CURRENT"
+    },
+    "Aftergraph/works-execution": {
+      "pinned": "85e9274651eaeeca3a31048a0ebd19e70316201e",
+      "live": "85e9274651eaeeca3a31048a0ebd19e70316201e",
+      "status": "CURRENT"
+    },
+    "Aftergraph/work-intelligence-v2": {
+      "pinned": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
+      "live": "730dcda4d3696568c4695bf17f35628a4b7991e2",
+      "status": "SOURCE_MOVED"
+    },
+    "Aftergraph/studio": {
+      "pinned": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9",
+      "live": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9",
+      "status": "CURRENT"
+    },
+    "Aftergraph/brand": {
+      "pinned": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
+      "live": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
+      "status": "CURRENT"
+    },
+    "Aftergraph/.github": {
+      "pinned": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
+      "live": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
+      "status": "CURRENT"
+    }
+  }
+}

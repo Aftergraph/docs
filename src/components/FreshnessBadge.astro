@@ -1,0 +1,5 @@
+---
+const { status = 'UNKNOWN' } = Astro.props;
+const cls = { CURRENT: 'fresh-current', SOURCE_MOVED: 'fresh-moved', STALE: 'fresh-stale', UNKNOWN: 'fresh-unknown' }[status] ?? 'fresh-unknown';
+---
+<span class={`freshness ${cls}`} title="Freshness: rendered SHA vs live canonical HEAD">● {status}</span>

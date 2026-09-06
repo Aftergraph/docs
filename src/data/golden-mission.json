@@ -1,0 +1,55 @@
+{
+  "route": "golden-mission",
+  "steps": [
+    {
+      "step": "Observation",
+      "owner": "Aftergraph/work-intelligence-v2",
+      "api": "POST /v1/observations"
+    },
+    {
+      "step": "WorkItem",
+      "owner": "Aftergraph/work-intelligence-v2",
+      "api": "GET /v1/work-items"
+    },
+    {
+      "step": "Approval",
+      "owner": "Aftergraph/studio",
+      "contract": "pairing/1.0"
+    },
+    {
+      "step": "Mission",
+      "owner": "Aftergraph/works-execution",
+      "contract": "kernel.lifecycle/1.0"
+    },
+    {
+      "step": "Authority",
+      "owner": "Aftergraph/aie",
+      "contract": "identity/1.0"
+    },
+    {
+      "step": "Trust Gateway",
+      "owner": "Aftergraph/trust-gateway",
+      "contract": "policy.token/1.0"
+    },
+    {
+      "step": "WORKS",
+      "owner": "Aftergraph/works-execution",
+      "contract": "shell.contracts/1.0"
+    },
+    {
+      "step": "Evidence",
+      "owner": "Aftergraph/works-execution",
+      "contract": "evidence.schema/1.1"
+    },
+    {
+      "step": "Verification",
+      "owner": "Aftergraph/intelligence-systems-research",
+      "contract": "rab/1.0"
+    },
+    {
+      "step": "Verified Outcome",
+      "owner": "Aftergraph/studio",
+      "contract": "evidence.schema/1.1"
+    }
+  ]
+}

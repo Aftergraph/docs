@@ -1,0 +1,4 @@
+# Aftergraph — research
+
+- Research overview: https://docs.aftergraph.dev/research/
+- Evidence + claim states: https://docs.aftergraph.dev/evidence/

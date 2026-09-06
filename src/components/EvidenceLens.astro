@@ -1,0 +1,7 @@
+---
+const { lens = 'SIGNAL', claimStatus } = Astro.props;
+const lensColor: Record<string,string> = { FACT: 'var(--ag-evidence)', SIGNAL: 'var(--ag-system)', SYNTHESIS: 'var(--ag-authority)', SPECULATION: 'var(--ag-decision)' };
+---
+<span class="evidence-lens" style={`--lens: ${lensColor[lens]}`}>
+  <span class="lens-dot" />{lens}{claimStatus ? ` · ${claimStatus}` : ''}
+</span>

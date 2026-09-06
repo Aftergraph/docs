@@ -1,0 +1,4 @@
+# Aftergraph — platform
+
+- Platform overview: https://docs.aftergraph.dev/platform/
+- Golden Mission route: https://docs.aftergraph.dev/platform/golden-mission/

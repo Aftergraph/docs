@@ -1,0 +1,19 @@
+---
+title: "Platform"
+description: "Systems that build, govern, execute, and verify."
+---
+import Provenance from '../../components/Provenance.astro';
+
+Four clocks apply to every entity: **source truth** (commit), **semantic truth**
+(spec/API version), **evidence truth** (cut/experiment date), **live truth** (remote state).
+
+| System | Owner repo | Key contracts |
+|---|---|---|
+| AIE (authority semantics) | `Aftergraph/aie` | `identity/1.0`, `brain.ns/1.0` |
+| Trust Gateway (enforcement) | `Aftergraph/trust-gateway` | `policy.token/1.0`, `secret.ref/1.0` |
+| WORKS (durable execution) | `Aftergraph/works-execution` | `shell.contracts/1.0`, `evidence.schema/1.1`, `kernel.budget/1.0` |
+| Work Intelligence | `Aftergraph/work-intelligence-v2` | API v0.2.0 (OpenAPI 3.1.0) |
+| Studio (operator experience) | `Aftergraph/studio` | consumes `evidence.schema/1.1` |
+
+
+<Provenance page="platform" />

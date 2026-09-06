@@ -1,0 +1,15 @@
+# Aftergraph Knowledge Plane
+
+> Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
+
+- [Platform overview](https://docs.aftergraph.dev/platform/)
+- [Golden Mission route](https://docs.aftergraph.dev/platform/golden-mission/)
+- [Research overview](https://docs.aftergraph.dev/research/)
+- [Evidence + claim states](https://docs.aftergraph.dev/evidence/)
+- [Standards overview](https://docs.aftergraph.dev/standards/)
+- [Contract Explorer (13 contracts)](https://docs.aftergraph.dev/standards/contracts/)
+- [Catalog](https://docs.aftergraph.dev/catalog/)
+- [Authority semantics via AIE contracts](https://docs.aftergraph.dev/standards/contracts/)
+- [identity/1.0 + brain.ns/1.0 owners](https://docs.aftergraph.dev/standards/contracts/)
+
+API reference: https://docs.aftergraph.dev/developers/api-reference/ (Scalar over canonical OpenAPI)

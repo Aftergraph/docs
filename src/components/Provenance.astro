@@ -1,0 +1,13 @@
+---
+import prov from '../data/provenance.json';
+const { page } = Astro.props;
+const p: any = (prov as any)[page];
+---
+{p && (
+  <aside class="provenance" aria-label="Page provenance">
+    <span class="prov-ver">{p.semantic_version}</span>
+    <span>Source: {p.repository.replace('Aftergraph/','')}@{p.commit.slice(0,8)}</span>
+    {p.evidence_cut && <span>Evidence cut: {p.evidence_cut}</span>}
+    <span>Owner: {p.canonical_owner}</span>
+  </aside>
+)}

@@ -1,0 +1,113 @@
+{
+  "repos": [
+    {
+      "repo": "Aftergraph/after-graph-governance",
+      "class": "Repository",
+      "role": "Cross-repo contracts, architecture, terminology, boundaries",
+      "sha": "57c681e9e4df56f5e2dd068e372d945392dc0007"
+    },
+    {
+      "repo": "Aftergraph/aie",
+      "class": "Repository",
+      "role": "Normative authority semantics (Agentic Institution Engineering)",
+      "sha": "c9684e4d160f8ea59bd295807d45d2652258d003"
+    },
+    {
+      "repo": "Aftergraph/intelligence-systems-research",
+      "class": "Repository",
+      "role": "Labs / evals / assurance research program (SPEC-001, MISSION-Bench)",
+      "sha": "72e115c642441e10dd88890edfac86b787315cf0"
+    },
+    {
+      "repo": "Aftergraph/trust-gateway",
+      "class": "Repository",
+      "role": "Fail-closed runtime enforcement plane",
+      "sha": "8c74593175f686c6365b485ac2b5d05c5bd5252d"
+    },
+    {
+      "repo": "Aftergraph/works-execution",
+      "class": "Repository",
+      "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
+      "sha": "85e9274651eaeeca3a31048a0ebd19e70316201e"
+    },
+    {
+      "repo": "Aftergraph/work-intelligence-v2",
+      "class": "Repository",
+      "role": "Source-neutral work intelligence (observations \u2192 WorkItems)",
+      "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d"
+    },
+    {
+      "repo": "Aftergraph/studio",
+      "class": "Repository",
+      "role": "Operator/product experience (missions, approvals, verified outcomes)",
+      "sha": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9"
+    },
+    {
+      "repo": "Aftergraph/brand",
+      "class": "Repository",
+      "role": "Brand OS + design system (tokens v1.0.0 provisional)",
+      "sha": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469"
+    }
+  ],
+  "systems": [
+    {
+      "name": "AIE",
+      "owner": "Aftergraph/aie",
+      "contracts": [
+        "identity/1.0",
+        "brain.ns/1.0"
+      ]
+    },
+    {
+      "name": "Trust Gateway",
+      "owner": "Aftergraph/trust-gateway",
+      "contracts": [
+        "policy.token/1.0",
+        "secret.ref/1.0"
+      ]
+    },
+    {
+      "name": "WORKS",
+      "owner": "Aftergraph/works-execution",
+      "contracts": [
+        "shell.contracts/1.0",
+        "link.wire/1.0",
+        "pairing/1.0",
+        "evidence.schema/1.1",
+        "kernel.budget/1.0"
+      ]
+    },
+    {
+      "name": "Work Intelligence",
+      "owner": "Aftergraph/work-intelligence-v2",
+      "api": "Aftergraph Work Intelligence v0.2.0 (OpenAPI 3.1.0)"
+    }
+  ],
+  "apis": [
+    {
+      "name": "Aftergraph Work Intelligence v0.2.0",
+      "source": "Aftergraph/work-intelligence-v2@370a0b2029fb0f694a62d36ffdc390f16bf1040d openapi.json",
+      "paths": 11,
+      "reference": "/developers/api-reference/"
+    }
+  ],
+  "specifications": [
+    {
+      "name": "SPEC-001 Mission Contracts",
+      "owner": "Aftergraph/intelligence-systems-research"
+    }
+  ],
+  "researchPrograms": [
+    {
+      "name": "Intelligence Systems Research",
+      "owner": "Aftergraph/intelligence-systems-research",
+      "audit": "AUDIT-EVID-001 (2026-09-04, maturity Level C+ / Provisional-D, submissions HELD)"
+    }
+  ],
+  "evidenceClasses": [
+    "simulated",
+    "methodological-pilot",
+    "live-validated",
+    "independently-reproduced"
+  ]
+}

@@ -1,0 +1,5 @@
+# Aftergraph — standards
+
+- Standards overview: https://docs.aftergraph.dev/standards/
+- Contract Explorer (13 contracts): https://docs.aftergraph.dev/standards/contracts/
+- Catalog: https://docs.aftergraph.dev/catalog/

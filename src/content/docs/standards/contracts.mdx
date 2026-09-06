@@ -1,0 +1,27 @@
+---
+title: "Contract Explorer V0"
+description: "contract → owner → version → consumers → source."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+Registry: `after-graph-governance@57c681e9 docs/cross-repo-contracts.md`.
+Full machine-readable map: `src/data/contracts.json` (13 contracts).
+
+| Contract | Owner | Consumers |
+|---|---|---|
+| `cpi/1.0` | ISR | TG, AIE, WE |
+| `rab/1.0` | ISR | TG, AIE, WE |
+| `identity/1.0` | AIE | TG, WE |
+| `policy.token/1.0` | TG | AIE, WE |
+| `secret.ref/1.0` | TG | AIE, WE |
+| `shell.contracts/1.0` | WE | TG, AIE |
+| `link.wire/1.0` | WE | TG, AIE |
+| `pairing/1.0` | WE | TG, AIE |
+| `brain.ns/1.0` | AIE | TG, WE |
+| `release.rings/1.0` | Governance | WE, AIE, TG |
+| `evidence.schema/1.1` | WE | TG, AIE, ISR |
+| `kernel.budget/1.0` | WE | TG, AIE |
+| `kernel.lifecycle/1.0` | ISR | TG, WE, AIE |
+
+
+<Provenance page="standards/contracts" />

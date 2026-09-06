@@ -1,0 +1,140 @@
+{
+  "registry": "Aftergraph/after-graph-governance@57c681e9e4df56f5e2dd068e372d945392dc0007 docs/cross-repo-contracts.md",
+  "contracts": [
+    {
+      "contract": "cpi/1.0",
+      "owner": "Aftergraph/intelligence-systems-research",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "rab/1.0",
+      "owner": "Aftergraph/intelligence-systems-research",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "identity/1.0",
+      "owner": "Aftergraph/aie",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "policy.token/1.0",
+      "owner": "Aftergraph/trust-gateway",
+      "consumers": [
+        "Aftergraph/aie",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "secret.ref/1.0",
+      "owner": "Aftergraph/trust-gateway",
+      "consumers": [
+        "Aftergraph/aie",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "shell.contracts/1.0",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "link.wire/1.0",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "pairing/1.0",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "brain.ns/1.0",
+      "owner": "Aftergraph/aie",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/works-execution"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "release.rings/1.0",
+      "owner": "Aftergraph/after-graph-governance",
+      "consumers": [
+        "Aftergraph/works-execution",
+        "Aftergraph/aie",
+        "Aftergraph/trust-gateway"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "evidence.schema/1.1",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie",
+        "Aftergraph/intelligence-systems-research"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "kernel.budget/1.0",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/aie"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "kernel.lifecycle/1.0",
+      "owner": "Aftergraph/intelligence-systems-research",
+      "consumers": [
+        "Aftergraph/trust-gateway",
+        "Aftergraph/works-execution",
+        "Aftergraph/aie"
+      ],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md"
+    }
+  ]
+}

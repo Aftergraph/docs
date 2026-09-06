@@ -1,0 +1,22 @@
+---
+title: "Evidence"
+description: "Claims with status, class, cut, and reproduction state."
+---
+import Provenance from '../../components/Provenance.astro';
+
+import EvidenceLens from '../../components/EvidenceLens.astro';
+
+Lens primitives: <EvidenceLens lens="FACT" /> <EvidenceLens lens="SIGNAL" />
+<EvidenceLens lens="SYNTHESIS" /> <EvidenceLens lens="SPECULATION" />
+
+Claim states: `SUPPORTED · PARTIALLY_SUPPORTED · CONTESTED · REFUTED · OBSOLETE`.
+Machine data: `src/data/claims.json` (registry: ISR `AUDIT-EVID-001`).
+
+| Claim | Status | Class | Cut | Reproduction |
+|---|---|---|---|---|
+| Sandbox-calibrated benchmarks (not live runs) | SUPPORTED | methodological-pilot | 2026-09-04 | not-independently-reproduced |
+| Finite-sample false-completion bound (Wilson 95% CI) | SUPPORTED | methodological-pilot | 2026-09-04 | not-independently-reproduced |
+| Maturity C+ / Provisional-D, submissions HELD | SUPPORTED | synthesis | 2026-09-04 | n/a |
+
+
+<Provenance page="evidence" />

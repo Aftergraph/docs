@@ -1,0 +1,1787 @@
+{
+
+  "openapi": "3.1.0",
+
+  "info": {
+
+    "title": "Aftergraph Work Intelligence",
+
+    "description": "Source-neutral observation \u2192 WorkItem inference, resolution, provenance, review, publication, and optional WORKS promotion.",
+
+    "version": "0.2.0"
+
+  },
+
+  "paths": {
+
+    "/healthz": {
+
+      "get": {
+
+        "summary": "Healthz",
+
+        "operationId": "healthz_healthz_get",
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "additionalProperties": {
+
+                    "type": "string"
+
+                  },
+
+                  "type": "object",
+
+                  "title": "Response Healthz Healthz Get"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/observations": {
+
+      "post": {
+
+        "summary": "Ingest Observation",
+
+        "operationId": "ingest_observation_v1_observations_post",
+
+        "parameters": [
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "requestBody": {
+
+          "required": true,
+
+          "content": {
+
+            "application/json": {
+
+              "schema": {
+
+                "$ref": "#/components/schemas/ObservationRequest"
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items": {
+
+      "get": {
+
+        "summary": "List Work Items",
+
+        "operationId": "list_work_items_v1_work_items_get",
+
+        "parameters": [
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "limit",
+
+            "in": "query",
+
+            "required": false,
+
+            "schema": {
+
+              "type": "integer",
+
+              "maximum": 1000,
+
+              "minimum": 1,
+
+              "default": 100,
+
+              "title": "Limit"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items/{work_item_id}": {
+
+      "get": {
+
+        "summary": "Get Work Item",
+
+        "operationId": "get_work_item_v1_work_items__work_item_id__get",
+
+        "parameters": [
+
+          {
+
+            "name": "work_item_id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "title": "Work Item Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items/{work_item_id}/review": {
+
+      "post": {
+
+        "summary": "Review Work Item",
+
+        "operationId": "review_work_item_v1_work_items__work_item_id__review_post",
+
+        "parameters": [
+
+          {
+
+            "name": "work_item_id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "title": "Work Item Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "requestBody": {
+
+          "required": true,
+
+          "content": {
+
+            "application/json": {
+
+              "schema": {
+
+                "$ref": "#/components/schemas/ReviewRequest"
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items/{work_item_id}/promote": {
+
+      "post": {
+
+        "summary": "Promote Work Item",
+
+        "operationId": "promote_work_item_v1_work_items__work_item_id__promote_post",
+
+        "parameters": [
+
+          {
+
+            "name": "work_item_id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "title": "Work Item Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "requestBody": {
+
+          "required": true,
+
+          "content": {
+
+            "application/json": {
+
+              "schema": {
+
+                "$ref": "#/components/schemas/PromoteRequest"
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items/{work_item_id}/publish": {
+
+      "post": {
+
+        "summary": "Publish Work Item",
+
+        "operationId": "publish_work_item_v1_work_items__work_item_id__publish_post",
+
+        "parameters": [
+
+          {
+
+            "name": "work_item_id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "title": "Work Item Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "requestBody": {
+
+          "required": true,
+
+          "content": {
+
+            "application/json": {
+
+              "schema": {
+
+                "$ref": "#/components/schemas/PublishRequest"
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "responses": {
+
+          "201": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/work-items/{work_item_id}/evidence": {
+
+      "get": {
+
+        "summary": "Get Evidence",
+
+        "operationId": "get_evidence_v1_work_items__work_item_id__evidence_get",
+
+        "parameters": [
+
+          {
+
+            "name": "work_item_id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "title": "Work Item Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "tenant_id",
+
+            "in": "query",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "string",
+
+              "minLength": 1,
+
+              "maxLength": 128,
+
+              "title": "Tenant Id"
+
+            }
+
+          },
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/version": {
+
+      "get": {
+
+        "summary": "Version",
+
+        "operationId": "version_v1_version_get",
+
+        "parameters": [
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "type": "object",
+
+                  "additionalProperties": true,
+
+                  "title": "Response Version V1 Version Get"
+
+                }
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/metrics": {
+
+      "get": {
+
+        "summary": "Metrics",
+
+        "operationId": "metrics_v1_metrics_get",
+
+        "parameters": [
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/v1/monitoring": {
+
+      "get": {
+
+        "summary": "Monitoring",
+
+        "description": "Comprehensive monitoring endpoint with system metrics.",
+
+        "operationId": "monitoring_v1_monitoring_get",
+
+        "parameters": [
+
+          {
+
+            "name": "authorization",
+
+            "in": "header",
+
+            "required": false,
+
+            "schema": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "null"
+
+                }
+
+              ],
+
+              "title": "Authorization"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Successful Response",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {}
+
+              }
+
+            }
+
+          },
+
+          "422": {
+
+            "description": "Validation Error",
+
+            "content": {
+
+              "application/json": {
+
+                "schema": {
+
+                  "$ref": "#/components/schemas/HTTPValidationError"
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  },
+
+  "components": {
+
+    "schemas": {
+
+      "HTTPValidationError": {
+
+        "properties": {
+
+          "detail": {
+
+            "items": {
+
+              "$ref": "#/components/schemas/ValidationError"
+
+            },
+
+            "type": "array",
+
+            "title": "Detail"
+
+          }
+
+        },
+
+        "type": "object",
+
+        "title": "HTTPValidationError"
+
+      },
+
+      "ObservationRequest": {
+
+        "properties": {
+
+          "tenant_id": {
+
+            "type": "string",
+
+            "maxLength": 128,
+
+            "minLength": 1,
+
+            "title": "Tenant Id"
+
+          },
+
+          "source": {
+
+            "type": "string",
+
+            "maxLength": 64,
+
+            "minLength": 1,
+
+            "title": "Source"
+
+          },
+
+          "text": {
+
+            "type": "string",
+
+            "maxLength": 100000,
+
+            "minLength": 1,
+
+            "title": "Text"
+
+          },
+
+          "external_id": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "maxLength": 512
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "External Id"
+
+          },
+
+          "actor": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "maxLength": 512
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Actor"
+
+          },
+
+          "occurred_at": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "format": "date-time"
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Occurred At"
+
+          },
+
+          "metadata": {
+
+            "additionalProperties": true,
+
+            "type": "object",
+
+            "title": "Metadata"
+
+          },
+
+          "title_hint": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "maxLength": 256
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Title Hint"
+
+          },
+
+          "owner_hint": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "maxLength": 256
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Owner Hint"
+
+          },
+
+          "due_hint": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "maxLength": 256
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Due Hint"
+
+          },
+
+          "priority_hint": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "pattern": "^(low|medium|high|critical)$"
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Priority Hint"
+
+          }
+
+        },
+
+        "additionalProperties": false,
+
+        "type": "object",
+
+        "required": [
+
+          "tenant_id",
+
+          "source",
+
+          "text"
+
+        ],
+
+        "title": "ObservationRequest"
+
+      },
+
+      "PromoteRequest": {
+
+        "properties": {
+
+          "actor": {
+
+            "type": "string",
+
+            "maxLength": 512,
+
+            "minLength": 1,
+
+            "title": "Actor"
+
+          },
+
+          "reason": {
+
+            "type": "string",
+
+            "maxLength": 2048,
+
+            "title": "Reason",
+
+            "default": ""
+
+          }
+
+        },
+
+        "additionalProperties": false,
+
+        "type": "object",
+
+        "required": [
+
+          "actor"
+
+        ],
+
+        "title": "PromoteRequest"
+
+      },
+
+      "PublishRequest": {
+
+        "properties": {
+
+          "destination": {
+
+            "type": "string",
+
+            "maxLength": 128,
+
+            "minLength": 1,
+
+            "title": "Destination"
+
+          }
+
+        },
+
+        "additionalProperties": false,
+
+        "type": "object",
+
+        "required": [
+
+          "destination"
+
+        ],
+
+        "title": "PublishRequest"
+
+      },
+
+      "ReviewRequest": {
+
+        "properties": {
+
+          "action": {
+
+            "type": "string",
+
+            "pattern": "^(approve|reject|snooze|cancel)$",
+
+            "title": "Action"
+
+          },
+
+          "actor": {
+
+            "type": "string",
+
+            "maxLength": 512,
+
+            "minLength": 1,
+
+            "title": "Actor"
+
+          },
+
+          "reason": {
+
+            "type": "string",
+
+            "maxLength": 2048,
+
+            "title": "Reason",
+
+            "default": ""
+
+          },
+
+          "resume_at": {
+
+            "anyOf": [
+
+              {
+
+                "type": "string",
+
+                "format": "date-time"
+
+              },
+
+              {
+
+                "type": "null"
+
+              }
+
+            ],
+
+            "title": "Resume At"
+
+          }
+
+        },
+
+        "additionalProperties": false,
+
+        "type": "object",
+
+        "required": [
+
+          "action",
+
+          "actor"
+
+        ],
+
+        "title": "ReviewRequest"
+
+      },
+
+      "ValidationError": {
+
+        "properties": {
+
+          "loc": {
+
+            "items": {
+
+              "anyOf": [
+
+                {
+
+                  "type": "string"
+
+                },
+
+                {
+
+                  "type": "integer"
+
+                }
+
+              ]
+
+            },
+
+            "type": "array",
+
+            "title": "Location"
+
+          },
+
+          "msg": {
+
+            "type": "string",
+
+            "title": "Message"
+
+          },
+
+          "type": {
+
+            "type": "string",
+
+            "title": "Error Type"
+
+          },
+
+          "input": {
+
+            "title": "Input"
+
+          },
+
+          "ctx": {
+
+            "type": "object",
+
+            "title": "Context"
+
+          }
+
+        },
+
+        "type": "object",
+
+        "required": [
+
+          "loc",
+
+          "msg",
+
+          "type"
+
+        ],
+
+        "title": "ValidationError"
+
+      }
+
+    }
+
+  }
+
+}

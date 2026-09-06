@@ -1,0 +1,27 @@
+/* Aftergraph Brand OS tokens (brand v1.0.0, provisional-not-trademark-cleared).
+   Semantic mapping: control→controlCyan evidence→evidenceTeal
+   authority→authorityViolet decision→decisionAmber infrastructure→systemBlue */
+:root {
+  --ag-control: #42C7E8;
+  --ag-evidence: #24C4AD;
+  --ag-authority: #7759E8;
+  --ag-decision: #F0A64A;
+  --ag-system: #4C8BD8;
+  --ag-canvas: #080C14;
+  --ag-canvas-raised: #0E1630;
+  --ag-text: #F5F7FA;
+  --ag-muted: #8993A4;
+}
+.provenance { display:flex; gap:.75rem; flex-wrap:wrap; font-size:.8rem; color:var(--ag-muted);
+  border:1px solid color-mix(in srgb, var(--ag-control) 40%, transparent);
+  border-radius:.5rem; padding:.5rem .75rem; margin:1rem 0; }
+.prov-ver { color:var(--ag-evidence); font-weight:600; }
+.freshness { font-size:.8rem; font-weight:600; }
+.fresh-current { color:var(--ag-evidence); } .fresh-moved { color:var(--ag-decision); }
+.fresh-stale { color:#FF6B7A; } .fresh-unknown { color:var(--ag-muted); }
+.evidence-lens { display:inline-flex; align-items:center; gap:.4rem; font-size:.8rem;
+  border:1px solid var(--lens, var(--ag-system)); border-radius:999px; padding:.15rem .6rem; }
+.lens-dot { width:.5rem; height:.5rem; border-radius:50%; background:var(--lens, var(--ag-system)); }
+table.contracts { width:100%; border-collapse:collapse; font-size:.85rem; }
+table.contracts th { color:var(--ag-control); text-align:left; border-bottom:1px solid var(--ag-muted); padding:.4rem; }
+table.contracts td { border-bottom:1px solid color-mix(in srgb, var(--ag-muted) 30%, transparent); padding:.4rem; }

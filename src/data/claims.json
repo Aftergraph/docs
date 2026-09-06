@@ -1,0 +1,36 @@
+{
+  "registry": "Aftergraph/intelligence-systems-research@72e115c642441e10dd88890edfac86b787315cf0 EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md (AUDIT-EVID-001)",
+  "note": "Authoritative source is the ISR registry/audit. This plane does not reinterpret claims.",
+  "claims": [
+    {
+      "claim": "Benchmark workloads are deterministic sandboxed runs with calibrated error baselines, not live cloud-API runs",
+      "status": "SUPPORTED",
+      "evidenceClass": "methodological-pilot",
+      "study": "JAR-EXP-0001 / MISSION-Bench",
+      "sample": "N bounded, Wilson 95% CI recomputed",
+      "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+      "reproduction": "not-independently-reproduced",
+      "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0"
+    },
+    {
+      "claim": "Zero observed false completions in finite sample implies bounded rate (Wilson 95% CI), not elimination",
+      "status": "SUPPORTED",
+      "evidenceClass": "methodological-pilot",
+      "study": "statistical audit recompute",
+      "sample": "N=100 \u2192 95% CI [0.0%, 4.93%]",
+      "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+      "reproduction": "not-independently-reproduced",
+      "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0"
+    },
+    {
+      "claim": "Program maturity Level C+ / Provisional-D; all external patent/IEEE/NIST/public-release submissions HELD",
+      "status": "SUPPORTED",
+      "evidenceClass": "synthesis",
+      "study": "AUDIT-EVID-001",
+      "sample": "program-wide",
+      "evidenceCut": "2026-09-04",
+      "reproduction": "not-applicable",
+      "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0"
+    }
+  ]
+}
