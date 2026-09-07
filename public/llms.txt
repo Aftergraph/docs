@@ -2,8 +2,8 @@
 
 > Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
 >
-> Provenance: generated 2026-09-07T01:08:51.995Z from site commit 9835ace78c08ad2ad110cf60f8eb358e0c91d021.
-> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T01:08:32.829Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 7 CURRENT
+> Provenance: generated 2026-09-07T01:13:24.040Z from site commit 9f3feb3c14946b30ff7daa4b1a228747466d671f.
+> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T01:08:52.202Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 7 CURRENT
 
 - [Platform overview](https://docs.aftergraph.org/platform/)
 - [Golden Mission route](https://docs.aftergraph.org/platform/golden-mission/)
