@@ -92,6 +92,14 @@ const TOOLS = {
     description: 'Get the ACC-shaped context pack for a page (portable bundle: topic, owner, source repo@sha, dependency contracts, related claims, next reading, freshness constraints). Route like "standards.contract-graph" or "index".',
     inputSchema: { type: 'object', properties: { route: { type: 'string' } }, required: ['route'], additionalProperties: false },
   },
+  docs_get_api_operation: {
+    description: 'Get one Work Intelligence API operation by method+path (e.g. "GET /v1/work-items"). Rendered from canonical OpenAPI at pinned SHA.',
+    inputSchema: { type: 'object', properties: { operation: { type: 'string', description: 'METHOD /path' } }, required: ['operation'], additionalProperties: false },
+  },
+  docs_get_conformance: {
+    description: 'Get the current conformance/verification state: gate list, freshness policy, contract register integrity.',
+    inputSchema: { type: 'object', properties: {}, additionalProperties: false },
+  },
 };
 
 function handle(name, args) {
@@ -135,6 +143,25 @@ function handle(name, args) {
     }
     case 'docs_get_catalog':
       return { repos: catalog.repos.map((r) => ({ repo: r.repo, role: r.role, sha: r.sha.slice(0, 8) })), site_commit: buildManifest?.site_commit };
+    case 'docs_get_api_operation': {
+      const api = JSON.parse(readFileSync(join(root, 'public/openapi.json'), 'utf8'));
+      const raw = String(args.operation || '');
+      const [method, path] = raw.split(/\s+/, 2);
+      const spec = api.paths?.[path]?.[method.toLowerCase()];
+      if (!spec) throw new Error(`operation not found: ${raw}. Available: ${Object.entries(api.paths || {}).flatMap(([p, m]) => Object.keys(m).filter(k => ['get','post','put','patch','delete'].includes(k)).map(k => k.toUpperCase() + ' ' + p)).join(', ')}`);
+      return { operation: raw, path, method: method.toLowerCase(), spec, site_commit: buildManifest?.site_commit };
+    }
+    case 'docs_get_conformance': {
+      const v = JSON.parse(readFileSync(root + '/.validation-pass.json', 'utf8'));
+      const status = JSON.parse(readFileSync(root + '/public/source-state.json', 'utf8'));
+      return {
+        gates: ['schema','links','ownership','provenance','private-leakage','openapi','catalog','graph','context-packs'],
+        last_validation: v,
+        freshness_policy: 'ADR-004',
+        source_state: { current: status.sources.filter(s => s.status === 'CURRENT').length, total: status.sources.length },
+        site_commit: buildManifest?.site_commit,
+      };
+    }
     case 'docs_get_context_pack': {
       const route = String(args.route || '').replace(/^\/+|\/+$/g, '');
       const file = join(root, 'dist/context', route + '.json');

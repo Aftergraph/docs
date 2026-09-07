@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T12:32:48.404Z",
+  "checked_at": "2026-09-07T12:34:34.550Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -67,8 +67,8 @@
     {
       "repository": "Aftergraph/sentinel",
       "pinned_sha": "beececfb4885d8055cc6694e8979b47759a212a4",
-      "remote_sha": "beececfb4885d8055cc6694e8979b47759a212a4",
-      "status": "CURRENT",
+      "remote_sha": "6240415a3957c823d0063ee85c78371327693acb",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     },
