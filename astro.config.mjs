@@ -44,6 +44,7 @@ export default defineConfig({
           { label: 'API Reference', slug: 'developers/api-reference' },
           { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'Docs MCP (read-only)', slug: 'developers/mcp-boundary' },
+          { label: 'Sentinel', slug: 'developers/sentinel' },
         ]},
         { label: 'Standards', items: [
           { label: 'Overview', slug: 'standards' },

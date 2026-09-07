@@ -103,7 +103,7 @@
       },
       {
         "id": "sentinel",
-        "role": "Sentinel — verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
+        "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs, no code yet)",
         "class": "Repository",
         "sha": "37d900cd22673447337770bb06c1ddd1c3cfc66b",
         "contract_count": 0,

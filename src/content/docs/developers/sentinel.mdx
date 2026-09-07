@@ -1,0 +1,45 @@
+---
+title: "Sentinel"
+description: "Verified code-review — PRs into merge-ready verdicts."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+**Product core:** Sentinel is a verified code-review product that turns pull
+requests into merge-ready verdicts.
+
+**First wedge:** CLI review on exact HEAD → SHIP / DO NOT SHIP verdict with
+cited evidence → GitHub App. **No code yet — strategy docs only.**
+
+## The differentiating contract
+
+AI review comments are cheap; merge confidence is not. Existing reviewers
+(CodeRabbit, Copilot, Sonar) comment probabilistically: they can review a
+stale HEAD, re-report fixed findings, and approve what they never verified.
+
+Sentinel's contract: **a verdict is only issued against the exact commit it
+verified, and a stale base invalidates the verdict automatically.**
+
+That is the same evidence discipline this Knowledge Plane runs on —
+[ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md)
+at product level.
+
+## Docs index (at pinned SHA)
+
+| Doc | What it decides |
+|---|---|
+| `market-research.md` | Who bleeds from bad merges, cost |
+| `competitor-analysis.md` | Governance-first comparison, moat |
+| `go-to-market.md` | CLI (free) → GitHub App → hosted team tier |
+| `brand-identity.md` | Naming, voice |
+| `personas.md` | CTO, staff engineer, solo maintainer, compliance lead |
+| `jobs-to-be-done.md` | The 6 jobs Sentinel is hired for |
+| `validation-plan.md` | Desk research + prototype validation |
+| `ui-flows.md` | CLI output, PR comment, verdict card |
+| `data-model-v0.md` | Review, Verdict, EvidenceRef, RulePack |
+| `risks.md` | What kills this product |
+
+Full docs at the pinned SHA: `Aftergraph/sentinel@c2126e06` — see provenance
+below. Nothing on this page upgrades Sentinel's maturity: it is **strategy
+docs, prototype-first, no code yet**.
+
+<Provenance page="developers/sentinel" />

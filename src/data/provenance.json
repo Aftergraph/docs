@@ -214,5 +214,13 @@
     "semantic_version": "V1.1 (changelog)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "developers/sentinel": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "37d900cd22673447337770bb06c1ddd1c3cfc66b",
+    "source": "README.md + docs/ (strategy docs, prototype-first)",
+    "semantic_version": "docs snapshot (no code yet)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
   }
 }
