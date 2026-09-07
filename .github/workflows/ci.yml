@@ -53,4 +53,4 @@ jobs:
           accountId: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           command: pages deploy dist --project-name=aftergraph-docs
       - name: Production smoke
-        run: node scripts/smoke.mjs "https://docs.aftergraph.dev"
+        run: node scripts/smoke.mjs "https://docs.aftergraph.org"
