@@ -1,0 +1,37 @@
+---
+title: "Brand"
+description: "Visual identity — semantic tokens, mark, and generated assets."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+Brand ownership lives in `Aftergraph/brand` (tokens v1.0.0, provisional — not
+trademark-cleared). This page renders the Knowledge Plane's visual identity:
+semantic tokens + generated marks.
+
+<h3>Mark</h3>
+
+Hub-and-spoke graph on institutional black: cyan hub (control), teal nodes
+(evidence), muted slate satellites. Generated via Cloudflare Workers AI
+(FLUX), 1024×1024.
+
+![Aftergraph mark — glowing hub-and-spoke graph on midnight canvas](/aftergraph-mark.jpg)
+
+<h3>OG / hero surface</h3>
+
+Knowledge-plane constellation, 16:9, used as the site's social preview.
+
+<h3>Semantic tokens</h3>
+
+| Token | Meaning |
+|---|---|
+| `institutionBlack` / `graphMidnight` | foundation + graph surface |
+| `controlCyan` | control plane (Trust Gateway) |
+| `evidenceTeal` | evidence (WORKS, ISR claims) |
+| `authorityViolet` | authority (AIE) |
+| `decisionAmber` | decisions / approvals |
+| `systemBlue` | infrastructure (WORKS) |
+
+Zero decorative fluff: every visual communicates state, boundary, or verified
+evidence.
+
+<Provenance page="company" />

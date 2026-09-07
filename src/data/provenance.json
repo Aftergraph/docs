@@ -158,5 +158,13 @@
     "semantic_version": "V0.3 (system map)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "company/brand": {
+    "repository": "Aftergraph/brand",
+    "commit": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
+    "source": "tokens.json + generated marks (Workers AI FLUX)",
+    "semantic_version": "tokens v1.0.0 (provisional)",
+    "evidence_cut": null,
+    "canonical_owner": "Brand OS"
   }
 }

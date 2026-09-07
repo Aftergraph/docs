@@ -21,6 +21,14 @@ export default defineConfig({
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' } },
         { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap' } },
         { tag: 'meta', attrs: { name: 'theme-color', content: '#080C14' } },
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://docs.aftergraph.org/og-image.jpg' } },
+        { tag: 'meta', attrs: { property: 'og:image:width', content: '1024' } },
+        { tag: 'meta', attrs: { property: 'og:image:height', content: '576' } },
+        { tag: 'meta', attrs: { property: 'og:image:alt', content: 'Aftergraph Knowledge Plane — glowing graph network on midnight canvas' } },
+        { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://docs.aftergraph.org/og-image.jpg' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' } },
+        { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/aftergraph-mark.jpg' } },
       ],
       sidebar: [
         { label: 'Platform', items: [
@@ -48,7 +56,10 @@ export default defineConfig({
           { label: 'Claim Graph', slug: 'evidence/claim-graph' },
         ]},
         { label: 'Catalog', items: [{ label: 'Overview', slug: 'catalog' }]},
-        { label: 'Company', items: [{ label: 'Overview', slug: 'company' }]},
+        { label: 'Company', items: [
+          { label: 'Overview', slug: 'company' },
+          { label: 'Brand', slug: 'company/brand' },
+        ]},
       ],
     }),
   ],
