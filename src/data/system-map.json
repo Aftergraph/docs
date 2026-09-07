@@ -13,6 +13,7 @@
         "aie",
         "brand",
         "intelligence-systems-research",
+        "sentinel",
         "studio",
         "trust-gateway",
         "work-intelligence-v2",
@@ -99,6 +100,16 @@
           "C-007",
           "C-008"
         ]
+      },
+      {
+        "id": "sentinel",
+        "role": "Sentinel — verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
+        "class": "Repository",
+        "sha": "c2126e060e35b0e3361c3c2f9f12e127cc3786fb",
+        "contract_count": 0,
+        "contracts": [],
+        "edges": 0,
+        "claims": []
       },
       {
         "id": "studio",

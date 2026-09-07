@@ -31,6 +31,12 @@
       "sha": "72e115c642441e10dd88890edfac86b787315cf0"
     },
     {
+      "repo": "Aftergraph/sentinel",
+      "class": "Repository",
+      "role": "Sentinel \u2014 verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
+      "sha": "c2126e060e35b0e3361c3c2f9f12e127cc3786fb"
+    },
+    {
       "repo": "Aftergraph/studio",
       "class": "Repository",
       "role": "Operator/product experience (missions, approvals, verified outcomes)",
@@ -45,7 +51,7 @@
     {
       "repo": "Aftergraph/work-intelligence-v2",
       "class": "Repository",
-      "role": "Source-neutral work intelligence (observations → WorkItems)",
+      "role": "Source-neutral work intelligence (observations \u2192 WorkItems)",
       "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d"
     },
     {

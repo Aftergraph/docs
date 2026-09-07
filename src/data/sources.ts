@@ -27,6 +27,7 @@ export const PUBLIC_ALLOWLIST = [
   'Aftergraph/studio',
   'Aftergraph/brand',
   'Aftergraph/aftergraph.org',
+  'Aftergraph/sentinel',
   'Aftergraph/.github',
 ] as const;
 
@@ -38,6 +39,7 @@ export const SOURCES: KnowledgeSource[] = [
   { repository: 'Aftergraph/works-execution', ref: 'main', commitSha: '9551eaae1d24160056b9b2937da3919ee7ca52ae', owner: 'WORKS', kind: 'contract', visibility: 'public' },
   { repository: 'Aftergraph/work-intelligence-v2', ref: 'main', commitSha: '370a0b2029fb0f694a62d36ffdc390f16bf1040d', owner: 'Work Intelligence', kind: 'api', visibility: 'public', maturity: 'OpenAPI 3.1.0 / API v0.2.0' },
   { repository: 'Aftergraph/studio', ref: 'main', commitSha: '942074abb02551629bbfb3e461a5050030313718', owner: 'Studio', kind: 'documentation', visibility: 'public' },
+  { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: 'c2126e060e35b0e3361c3c2f9f12e127cc3786fb', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
   { repository: 'Aftergraph/aftergraph.org', ref: 'main', commitSha: '3783195d527f62cc80204e33cb7c5b74b2aff837', owner: 'Platform Web', kind: 'documentation', visibility: 'public', maturity: 'public landing + launcher (v1.0.0)' },
   { repository: 'Aftergraph/brand', ref: 'main', commitSha: 'cc1a22fd425c9a0f49ac1f301723d4e84a3ba469', owner: 'Brand OS', kind: 'documentation', visibility: 'public', maturity: 'Brand tokens v1.0.0 (provisional-not-trademark-cleared)' },
   { repository: 'Aftergraph/.github', ref: 'main', commitSha: '551dafb51af91427fda1a246662b0487b1f303c6', owner: 'Governance', kind: 'documentation', visibility: 'public' },
