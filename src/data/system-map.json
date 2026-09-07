@@ -25,7 +25,7 @@
         "id": "after-graph-governance",
         "role": "Cross-repo contracts, architecture, terminology, boundaries",
         "class": "Repository",
-        "sha": "412b7065581a11607958be7f5d04ebcce36753c2",
+        "sha": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
         "contract_count": 1,
         "contracts": [
           "release.rings/1.0"
@@ -37,7 +37,7 @@
         "id": "aftergraph.org",
         "role": "Public platform surface: landing, launcher, health, agent llms.txt (aftergraph.org)",
         "class": "Repository",
-        "sha": "3783195d527f62cc80204e33cb7c5b74b2aff837",
+        "sha": "4c1e00fd358c3a2a42cc60490213bcac15d9c759",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,
@@ -47,7 +47,7 @@
         "id": "aie",
         "role": "Normative authority semantics (Agentic Institution Engineering)",
         "class": "Repository",
-        "sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
+        "sha": "7ab61a2aa3891e407eed8d0ff3a91fb6947ff744",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
@@ -81,7 +81,7 @@
         "id": "intelligence-systems-research",
         "role": "Labs / evals / assurance research program (SPEC-001, MISSION-Bench)",
         "class": "Repository",
-        "sha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "sha": "b8812ca338836b4bd272814d4626b8bc744d8fea",
         "contract_count": 4,
         "contracts": [
           "cpi/1.0",
@@ -105,7 +105,7 @@
         "id": "sentinel",
         "role": "Sentinel — verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
         "class": "Repository",
-        "sha": "c2126e060e35b0e3361c3c2f9f12e127cc3786fb",
+        "sha": "37d900cd22673447337770bb06c1ddd1c3cfc66b",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,
@@ -115,7 +115,7 @@
         "id": "studio",
         "role": "Operator/product experience (missions, approvals, verified outcomes)",
         "class": "Repository",
-        "sha": "942074abb02551629bbfb3e461a5050030313718",
+        "sha": "ca3da75e9cd3ecf783297c49ad79ed91a73d7120",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,
@@ -125,7 +125,7 @@
         "id": "trust-gateway",
         "role": "Fail-closed runtime enforcement plane",
         "class": "Repository",
-        "sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
+        "sha": "bfe126eb7e987ae607c7d1aae043b48f12b7d7e9",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
@@ -159,7 +159,7 @@
         "id": "works-execution",
         "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
         "class": "Repository",
-        "sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
+        "sha": "79914a514512766edd7032c9a74e63c0f9f87551",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
