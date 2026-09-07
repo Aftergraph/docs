@@ -115,8 +115,8 @@ for (const file of ['catalog.json', 'contracts.json', 'claims.json']) {
   }
 }
 const contracts = JSON.parse(readFileSync(join(root, 'src/data/contracts.json'), 'utf8'));
-if (contracts.contracts.length !== 13) fail('contracts count != 13');
-ok('catalog/contracts/claims: owners allowlisted, 13 contracts');
+if (contracts.contracts.length !== 17) fail('contracts count != 17');
+ok('catalog/contracts/claims: owners allowlisted, 17 contracts');
 
 // 6. llms.txt generated + scoped indexes referenced
 if (!existsSync(join(root, 'public/llms.txt'))) fail('public/llms.txt missing (run scripts/llms.mjs)');

@@ -4,8 +4,9 @@ description: "contract → owner → version → consumers → source."
 ---
 import Provenance from '../../../components/Provenance.astro';
 
-Registry: `after-graph-governance@57c681e9 docs/cross-repo-contracts.md`.
-Full machine-readable map: `src/data/contracts.json` (13 contracts).
+Registry: `after-graph-governance@d5972d12 docs/cross-repo-contracts.md`.
+Full machine-readable map: `src/data/contracts.json` (17 contracts, incl.
+4 Platform Convergence V2.1 families with no published consumers yet).
 
 | Contract | Owner | Consumers |
 |---|---|---|
@@ -22,6 +23,10 @@ Full machine-readable map: `src/data/contracts.json` (13 contracts).
 | `evidence.schema/1.1` | WE | TG, AIE, ISR |
 | `kernel.budget/1.0` | WE | TG, AIE |
 | `kernel.lifecycle/1.0` | ISR | TG, WE, AIE |
+| `principal/1.0` | AIE | — (V2.1, no published consumers) |
+| `tenant/1.0` | TG | — (V2.1, no published consumers) |
+| `execution-context/1.0` | WE | — (V2.1, no published consumers) |
+| `correlation/1.0` | Governance | — (V2.1, no published consumers) |
 
 
 <Provenance page="standards/contracts" />

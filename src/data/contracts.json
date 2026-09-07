@@ -135,6 +135,34 @@
       ],
       "normative": true,
       "source": "docs/cross-repo-contracts.md"
+    },
+    {
+      "contract": "principal/1.0",
+      "owner": "Aftergraph/aie",
+      "consumers": [],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md (Platform Convergence V2.1)"
+    },
+    {
+      "contract": "tenant/1.0",
+      "owner": "Aftergraph/trust-gateway",
+      "consumers": [],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md (Platform Convergence V2.1)"
+    },
+    {
+      "contract": "execution-context/1.0",
+      "owner": "Aftergraph/works-execution",
+      "consumers": [],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md (Platform Convergence V2.1)"
+    },
+    {
+      "contract": "correlation/1.0",
+      "owner": "Aftergraph/after-graph-governance",
+      "consumers": [],
+      "normative": true,
+      "source": "docs/cross-repo-contracts.md (Platform Convergence V2.1)"
     }
   ]
 }

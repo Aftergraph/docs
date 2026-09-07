@@ -20,7 +20,7 @@ const base = 'https://docs.aftergraph.org';
 const scopes = {
   platform: ['Platform overview', '/platform/', 'Golden Mission route', '/platform/golden-mission/', 'System Map (verified bindings)', '/platform/system-map/'],
   research: ['Research overview', '/research/', 'Evidence + claim states', '/evidence/'],
-  standards: ['Standards overview', '/standards/', 'Contract Explorer (13 contracts)', '/standards/contracts/', 'Contract Graph', '/standards/contract-graph/', 'Catalog', '/catalog/'],
+  standards: ['Standards overview', '/standards/', 'Contract Explorer (17 contracts)', '/standards/contracts/', 'Contract Graph', '/standards/contract-graph/', 'Catalog', '/catalog/'],
   aie: ['Authority semantics via AIE contracts', '/standards/contracts/', 'identity/1.0 + brain.ns/1.0 owners', '/standards/contracts/', 'Contract Graph (owner→consumer edges)', '/standards/contract-graph/'],
   research: ['Research overview', '/research/', 'Claim chains C-001..C-008 (registry-verbatim audit status)', '/evidence/claim-graph/'],
   agents: ['Quickstart (verify the plane itself)', '/developers/quickstart/', 'MCP tools (7, read-only)', '/developers/mcp-boundary/', 'How-to guides', '/developers/how-to/', 'Reference (contracts+claims+glossary)', '/developers/reference/', 'Context Packs (ACC-shaped, per page)', '/context/index.json', 'Build provenance', '/build-manifest.json', 'Live status', '/status.json'],
