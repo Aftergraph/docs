@@ -33,14 +33,14 @@ export const PUBLIC_ALLOWLIST = [
 
 export const SOURCES: KnowledgeSource[] = [
   { repository: 'Aftergraph/after-graph-governance', ref: 'main', commitSha: '412b7065581a11607958be7f5d04ebcce36753c2', owner: 'Governance', kind: 'contract', visibility: 'public' },
-  { repository: 'Aftergraph/aie', ref: 'main', commitSha: '4b4f921fa41aa1ba01162460f3aab66f1d420362', owner: 'AIE', kind: 'specification', visibility: 'public' },
-  { repository: 'Aftergraph/intelligence-systems-research', ref: 'main', commitSha: '72e115c642441e10dd88890edfac86b787315cf0', owner: 'ISR', kind: 'research', visibility: 'public', evidenceCut: 'AUDIT-EVID-001 (2026-09-04)' },
-  { repository: 'Aftergraph/trust-gateway', ref: 'main', commitSha: '6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3', owner: 'Trust Gateway', kind: 'documentation', visibility: 'public' },
-  { repository: 'Aftergraph/works-execution', ref: 'main', commitSha: '9551eaae1d24160056b9b2937da3919ee7ca52ae', owner: 'WORKS', kind: 'contract', visibility: 'public' },
+  { repository: 'Aftergraph/aie', ref: 'main', commitSha: '7ab61a2aa3891e407eed8d0ff3a91fb6947ff744', owner: 'AIE', kind: 'specification', visibility: 'public' },
+  { repository: 'Aftergraph/intelligence-systems-research', ref: 'main', commitSha: 'b8812ca338836b4bd272814d4626b8bc744d8fea', owner: 'ISR', kind: 'research', visibility: 'public', evidenceCut: 'AUDIT-EVID-001 (2026-09-04)' },
+  { repository: 'Aftergraph/trust-gateway', ref: 'main', commitSha: 'bfe126eb7e987ae607c7d1aae043b48f12b7d7e9', owner: 'Trust Gateway', kind: 'documentation', visibility: 'public' },
+  { repository: 'Aftergraph/works-execution', ref: 'main', commitSha: '79914a514512766edd7032c9a74e63c0f9f87551', owner: 'WORKS', kind: 'contract', visibility: 'public' },
   { repository: 'Aftergraph/work-intelligence-v2', ref: 'main', commitSha: '370a0b2029fb0f694a62d36ffdc390f16bf1040d', owner: 'Work Intelligence', kind: 'api', visibility: 'public', maturity: 'OpenAPI 3.1.0 / API v0.2.0' },
-  { repository: 'Aftergraph/studio', ref: 'main', commitSha: '942074abb02551629bbfb3e461a5050030313718', owner: 'Studio', kind: 'documentation', visibility: 'public' },
-  { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: 'c2126e060e35b0e3361c3c2f9f12e127cc3786fb', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
-  { repository: 'Aftergraph/aftergraph.org', ref: 'main', commitSha: '3783195d527f62cc80204e33cb7c5b74b2aff837', owner: 'Platform Web', kind: 'documentation', visibility: 'public', maturity: 'public landing + launcher (v1.0.0)' },
+  { repository: 'Aftergraph/studio', ref: 'main', commitSha: 'ca3da75e9cd3ecf783297c49ad79ed91a73d7120', owner: 'Studio', kind: 'documentation', visibility: 'public' },
+  { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: '37d900cd22673447337770bb06c1ddd1c3cfc66b', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
+  { repository: 'Aftergraph/aftergraph.org', ref: 'main', commitSha: '4c1e00fd358c3a2a42cc60490213bcac15d9c759', owner: 'Platform Web', kind: 'documentation', visibility: 'public', maturity: 'public landing + launcher (v1.0.0)' },
   { repository: 'Aftergraph/brand', ref: 'main', commitSha: 'cc1a22fd425c9a0f49ac1f301723d4e84a3ba469', owner: 'Brand OS', kind: 'documentation', visibility: 'public', maturity: 'Brand tokens v1.0.0 (provisional-not-trademark-cleared)' },
-  { repository: 'Aftergraph/.github', ref: 'main', commitSha: '551dafb51af91427fda1a246662b0487b1f303c6', owner: 'Governance', kind: 'documentation', visibility: 'public' },
+  { repository: 'Aftergraph/.github', ref: 'main', commitSha: '54eb680ea32c515b20c818cc3c2bda43c03bbb72', owner: 'Governance', kind: 'documentation', visibility: 'public' },
 ];

@@ -10,13 +10,13 @@
       "repo": "Aftergraph/aftergraph.org",
       "class": "Repository",
       "role": "Public platform surface: landing, launcher, health, agent llms.txt (aftergraph.org)",
-      "sha": "3783195d527f62cc80204e33cb7c5b74b2aff837"
+      "sha": "4c1e00fd358c3a2a42cc60490213bcac15d9c759"
     },
     {
       "repo": "Aftergraph/aie",
       "class": "Repository",
       "role": "Normative authority semantics (Agentic Institution Engineering)",
-      "sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362"
+      "sha": "7ab61a2aa3891e407eed8d0ff3a91fb6947ff744"
     },
     {
       "repo": "Aftergraph/brand",
@@ -28,37 +28,37 @@
       "repo": "Aftergraph/intelligence-systems-research",
       "class": "Repository",
       "role": "Labs / evals / assurance research program (SPEC-001, MISSION-Bench)",
-      "sha": "72e115c642441e10dd88890edfac86b787315cf0"
+      "sha": "b8812ca338836b4bd272814d4626b8bc744d8fea"
     },
     {
       "repo": "Aftergraph/sentinel",
       "class": "Repository",
-      "role": "Sentinel \u2014 verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
-      "sha": "c2126e060e35b0e3361c3c2f9f12e127cc3786fb"
+      "role": "Sentinel — verified code-review: PRs into merge-ready verdicts (strategy docs, prototype-first)",
+      "sha": "37d900cd22673447337770bb06c1ddd1c3cfc66b"
     },
     {
       "repo": "Aftergraph/studio",
       "class": "Repository",
       "role": "Operator/product experience (missions, approvals, verified outcomes)",
-      "sha": "942074abb02551629bbfb3e461a5050030313718"
+      "sha": "ca3da75e9cd3ecf783297c49ad79ed91a73d7120"
     },
     {
       "repo": "Aftergraph/trust-gateway",
       "class": "Repository",
       "role": "Fail-closed runtime enforcement plane",
-      "sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3"
+      "sha": "bfe126eb7e987ae607c7d1aae043b48f12b7d7e9"
     },
     {
       "repo": "Aftergraph/work-intelligence-v2",
       "class": "Repository",
-      "role": "Source-neutral work intelligence (observations \u2192 WorkItems)",
+      "role": "Source-neutral work intelligence (observations → WorkItems)",
       "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d"
     },
     {
       "repo": "Aftergraph/works-execution",
       "class": "Repository",
       "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
-      "sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae"
+      "sha": "79914a514512766edd7032c9a74e63c0f9f87551"
     }
   ],
   "systems": [

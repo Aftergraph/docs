@@ -9,7 +9,7 @@
   },
   "platform": {
     "repository": "Aftergraph/works-execution",
-    "commit": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
+    "commit": "79914a514512766edd7032c9a74e63c0f9f87551",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -17,7 +17,7 @@
   },
   "platform/golden-mission": {
     "repository": "Aftergraph/works-execution",
-    "commit": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
+    "commit": "79914a514512766edd7032c9a74e63c0f9f87551",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -81,7 +81,7 @@
   },
   "research": {
     "repository": "Aftergraph/intelligence-systems-research",
-    "commit": "72e115c642441e10dd88890edfac86b787315cf0",
+    "commit": "b8812ca338836b4bd272814d4626b8bc744d8fea",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -105,7 +105,7 @@
   },
   "evidence": {
     "repository": "Aftergraph/intelligence-systems-research",
-    "commit": "72e115c642441e10dd88890edfac86b787315cf0",
+    "commit": "b8812ca338836b4bd272814d4626b8bc744d8fea",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -145,7 +145,7 @@
   },
   "evidence/claim-graph": {
     "repository": "Aftergraph/intelligence-systems-research",
-    "commit": "72e115c642441e10dd88890edfac86b787315cf0",
+    "commit": "b8812ca338836b4bd272814d4626b8bc744d8fea",
     "source": "EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md",
     "semantic_version": "AUDIT-EVID-001",
     "evidence_cut": "2026-09-04",
