@@ -3,8 +3,8 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "path": "openapi.json",
-      "source_commit": "49f602145094e2b5dfcbfd712c6085653a765360",
-      "blob_sha": "c6094e7fbe154795531a92b70d19f0b8c6e76568",
+      "source_commit": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
+      "blob_sha": "f5ca4c818e76ca8c7d6cf347c4804d47cf657b37",
       "content_sha256": "be9576195277b545",
       "semantic_version": "OpenAPI 3.1.0 / API v0.2.0",
       "consumed_as": "public/openapi.json",

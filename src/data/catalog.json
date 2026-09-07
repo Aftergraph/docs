@@ -52,7 +52,7 @@
       "repo": "Aftergraph/work-intelligence-v2",
       "class": "Repository",
       "role": "Source-neutral work intelligence (observations → WorkItems)",
-      "sha": "49f602145094e2b5dfcbfd712c6085653a765360"
+      "sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0"
     },
     {
       "repo": "Aftergraph/works-execution",
@@ -98,8 +98,8 @@
   "apis": [
     {
       "name": "Aftergraph Work Intelligence v0.2.0",
-      "source": "Aftergraph/work-intelligence-v2@49f602145094e2b5dfcbfd712c6085653a765360 openapi.json",
-      "paths": 11,
+      "source": "Aftergraph/work-intelligence-v2@e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0 openapi.json",
+      "paths": 51,
       "reference": "/developers/api-reference/"
     }
   ],

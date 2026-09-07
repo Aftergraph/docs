@@ -65,7 +65,7 @@
   },
   "developers/api-reference": {
     "repository": "Aftergraph/work-intelligence-v2",
-    "commit": "49f602145094e2b5dfcbfd712c6085653a765360",
+    "commit": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,

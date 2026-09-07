@@ -1,12 +1,300 @@
 {
   "api": {
     "repository": "Aftergraph/work-intelligence-v2",
-    "commit": "49f602145094e2b5dfcbfd712c6085653a765360",
+    "commit": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
     "version": "0.2.0",
     "openapi": "3.1.0",
-    "paths": 11
+    "paths": 51
   },
   "schemas": [
+    {
+      "name": "AutonomyEvaluateRequest",
+      "required": [
+        "request_id",
+        "tenant_id",
+        "repository",
+        "ref",
+        "head_sha",
+        "event_key",
+        "capability",
+        "objective",
+        "impact_summary",
+        "evidence"
+      ],
+      "properties": [
+        {
+          "name": "request_id",
+          "type": "string",
+          "description": "Request Id",
+          "required": true
+        },
+        {
+          "name": "tenant_id",
+          "type": "string",
+          "description": "Tenant Id",
+          "required": true
+        },
+        {
+          "name": "repository",
+          "type": "string",
+          "description": "Repository",
+          "required": true
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": "Ref",
+          "required": true
+        },
+        {
+          "name": "head_sha",
+          "type": "string",
+          "description": "Head Sha",
+          "required": true
+        },
+        {
+          "name": "event_key",
+          "type": "string",
+          "description": "Event Key",
+          "required": true
+        },
+        {
+          "name": "capability",
+          "type": "string",
+          "description": "Capability",
+          "required": true
+        },
+        {
+          "name": "objective",
+          "type": "string",
+          "description": "Objective",
+          "required": true
+        },
+        {
+          "name": "impact_summary",
+          "type": "string",
+          "description": "Impact Summary",
+          "required": true
+        },
+        {
+          "name": "evidence",
+          "type": "array",
+          "description": "Evidence",
+          "required": true
+        },
+        {
+          "name": "tests_passed",
+          "type": "boolean",
+          "description": "Tests Passed",
+          "required": false
+        },
+        {
+          "name": "patch_release",
+          "type": "boolean",
+          "description": "Patch Release",
+          "required": false
+        },
+        {
+          "name": "exported_signatures_changed",
+          "type": "boolean",
+          "description": "Exported Signatures Changed",
+          "required": false
+        },
+        {
+          "name": "critical_file_touched",
+          "type": "boolean",
+          "description": "Critical File Touched",
+          "required": false
+        },
+        {
+          "name": "auth_or_secret_touched",
+          "type": "boolean",
+          "description": "Auth Or Secret Touched",
+          "required": false
+        },
+        {
+          "name": "proxy_or_ssl_touched",
+          "type": "boolean",
+          "description": "Proxy Or Ssl Touched",
+          "required": false
+        },
+        {
+          "name": "transient_ci_error",
+          "type": "boolean",
+          "description": "Transient Ci Error",
+          "required": false
+        },
+        {
+          "name": "canary_error_rate",
+          "type": "number | null",
+          "description": "Canary Error Rate",
+          "required": false
+        },
+        {
+          "name": "superseded_head",
+          "type": "boolean",
+          "description": "Superseded Head",
+          "required": false
+        },
+        {
+          "name": "stale_review",
+          "type": "boolean",
+          "description": "Stale Review",
+          "required": false
+        },
+        {
+          "name": "retry_count",
+          "type": "integer",
+          "description": "Retry Count",
+          "required": false
+        },
+        {
+          "name": "test_coverage_delta",
+          "type": "integer",
+          "description": "Test Coverage Delta",
+          "required": false
+        },
+        {
+          "name": "author_permission_tier",
+          "type": "integer",
+          "description": "Author Permission Tier",
+          "required": false
+        },
+        {
+          "name": "critical_path_penalty",
+          "type": "integer",
+          "description": "Critical Path Penalty",
+          "required": false
+        },
+        {
+          "name": "line_churn_penalty",
+          "type": "integer",
+          "description": "Line Churn Penalty",
+          "required": false
+        },
+        {
+          "name": "changed_files",
+          "type": "array",
+          "description": "Changed Files",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Body_create_api_key_v1_api_keys_post",
+      "required": [
+        "name"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name",
+          "required": true
+        },
+        {
+          "name": "permissions",
+          "type": "array",
+          "description": "Permissions",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Body_register_webhook_v1_webhooks_post",
+      "required": [
+        "url",
+        "events"
+      ],
+      "properties": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "Url",
+          "required": true
+        },
+        {
+          "name": "events",
+          "type": "array",
+          "description": "Events",
+          "required": true
+        },
+        {
+          "name": "secret",
+          "type": "string | null",
+          "description": "Secret",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Body_set_rate_limit_v1_rate_limit_post",
+      "required": [
+        "key",
+        "limit"
+      ],
+      "properties": [
+        {
+          "name": "key",
+          "type": "string",
+          "description": "Key",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "integer",
+          "description": "Limit",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Body_submit_task_v1_tasks_submit_post",
+      "required": [
+        "name"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name",
+          "required": true
+        },
+        {
+          "name": "args",
+          "type": "array",
+          "description": "Args",
+          "required": false
+        },
+        {
+          "name": "kwargs",
+          "type": "object",
+          "description": "Kwargs",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "BulkStatusRequest",
+      "required": [
+        "work_item_ids",
+        "tenant_id"
+      ],
+      "properties": [
+        {
+          "name": "work_item_ids",
+          "type": "array",
+          "description": "Work Item Ids",
+          "required": true
+        },
+        {
+          "name": "tenant_id",
+          "type": "string",
+          "description": "Tenant Id",
+          "required": true
+        }
+      ]
+    },
     {
       "name": "HTTPValidationError",
       "required": [],
@@ -15,6 +303,39 @@
           "name": "detail",
           "type": "array",
           "description": "Detail",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "MergeRequest",
+      "required": [
+        "actor",
+        "target_work_item_id"
+      ],
+      "properties": [
+        {
+          "name": "actor",
+          "type": "string",
+          "description": "Actor",
+          "required": true
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "description": "Reason",
+          "required": false
+        },
+        {
+          "name": "target_work_item_id",
+          "type": "string",
+          "description": "Target Work Item Id",
+          "required": true
+        },
+        {
+          "name": "idempotency_key",
+          "type": "string | null",
+          "description": "Idempotency Key",
           "required": false
         }
       ]
