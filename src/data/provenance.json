@@ -217,7 +217,7 @@
   },
   "developers/sentinel": {
     "repository": "Aftergraph/sentinel",
-    "commit": "37d900cd22673447337770bb06c1ddd1c3cfc66b",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
     "source": "README.md + docs/ (strategy docs, prototype-first)",
     "semantic_version": "docs snapshot (no code yet)",
     "evidence_cut": null,
