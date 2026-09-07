@@ -334,5 +334,21 @@
     "semantic_version": "docs snapshot (no code yet)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
+  },
+  "sentinel/roadmap-90-days": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/roadmap-90-days.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/todo": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/todo.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
   }
 }
