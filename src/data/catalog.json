@@ -10,7 +10,7 @@
       "repo": "Aftergraph/aie",
       "class": "Repository",
       "role": "Normative authority semantics (Agentic Institution Engineering)",
-      "sha": "c9684e4d160f8ea59bd295807d45d2652258d003"
+      "sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362"
     },
     {
       "repo": "Aftergraph/intelligence-systems-research",
@@ -22,7 +22,7 @@
       "repo": "Aftergraph/trust-gateway",
       "class": "Repository",
       "role": "Fail-closed runtime enforcement plane",
-      "sha": "8c74593175f686c6365b485ac2b5d05c5bd5252d"
+      "sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3"
     },
     {
       "repo": "Aftergraph/works-execution",
@@ -33,14 +33,14 @@
     {
       "repo": "Aftergraph/work-intelligence-v2",
       "class": "Repository",
-      "role": "Source-neutral work intelligence (observations \u2192 WorkItems)",
+      "role": "Source-neutral work intelligence (observations → WorkItems)",
       "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d"
     },
     {
       "repo": "Aftergraph/studio",
       "class": "Repository",
       "role": "Operator/product experience (missions, approvals, verified outcomes)",
-      "sha": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9"
+      "sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf"
     },
     {
       "repo": "Aftergraph/brand",
