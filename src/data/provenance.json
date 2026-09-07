@@ -382,5 +382,53 @@
     "semantic_version": "V1.2 (generated schemas)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "standards/bindings": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "table over contracts.json/catalog.json + MCP boundary + adopted OpenAPI (omitted rows lack evidence)",
+    "semantic_version": "V1.2 (standards hub)"
+  },
+  "standards/conformance": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "registry-verbatim C-005 + reproduction states from claims.json (AUDIT-EVID-001)",
+    "semantic_version": "V1.2 (conformance)"
+  },
+  "research/benchmarks": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "verbatim samples from claims.json (AUDIT-EVID-001 + STUDY-011 update)",
+    "semantic_version": "V1.2 (benchmarks)"
+  },
+  "examples": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "cards link existing tutorials/how-to/quickstart only; no new guides",
+    "semantic_version": "V1.2 (examples)"
+  },
+  "company/versions": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "CHANGELOG slices + semantic_version field semantics",
+    "semantic_version": "V1.2 (versions)"
+  },
+  "developers/agent-guide": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "evidence_cut": null,
+    "canonical_owner": "Governance",
+    "source": "llms.txt + scoped indexes + context packs + MCP boundary; placeholders, no hardcoded SHAs",
+    "semantic_version": "V1.2 (agent guide)"
   }
 }

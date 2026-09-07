@@ -1,0 +1,66 @@
+---
+title: "Benchmarks"
+description: "MISSION-Bench and live-study results, rendered verbatim from the claim registry."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+This page compiles benchmark results. Repos own truth: every number below
+is copied verbatim from the ISR claim registry at evidence cut
+**AUDIT-EVID-001 / 2026-09-04** (maturity **Level C+ / Provisional-D**,
+external submissions **HELD**). Full claim chains live on the
+[Claim Graph](/evidence/claim-graph/); program context on
+[Research](/research/).
+
+## MISSION-Bench
+
+Fault-injected evaluation of long-horizon systems. Registry claims
+evaluated on it:
+
+### C-001 — Evidence gating eliminates false completion
+
+- Registry status: `STRONGLY_SUPPORTED (SAMPLE-BOUNDED)`
+- Live update: `REFINED: REVERSED-DIRECTION CLARIFIED — models abstain 73-100% without assurance, so FCR(A)≈0 floors the comparison; assurance (F) converts abstention to action (success 76-95%). FCR=0 in baseline reflects ABSTENTION, not elimination.`
+- Sample: `FCR = 0.0% [0.0%, 3.89%] in N=100 (deterministic); STUDY-011: 470 LIVE_VALID, 8/8 cells ≥58`
+- Study: `JAR-EXP-0001 / MISSION-Bench; STUDY-011 live cross-provider`
+- Reproduction: `not-independently-reproduced (in-tree alternative only)`
+- Chain: [C-001 on the Claim Graph](/evidence/claim-graph/)
+
+### C-003 — Automated verification recovery inverts economics, reducing CPVO by 81%
+
+- Registry status: `CALIBRATED_ESTIMATE (SUPPORTED IN SIMULATION)`
+- Sample: `CPVO reduced 81.3% [74.2%, 87.5%]`
+- Limitation: relies on standard commercial pricing schedules; evaluated in simulation.
+- Reproduction: `not-independently-reproduced`
+- Chain: [C-003 on the Claim Graph](/evidence/claim-graph/)
+
+## STUDY-011 — live cross-provider confirmatory study
+
+Preregistered live cross-provider confirmatory study (470 LIVE_VALID
+runs); reversed two deterministic directions (C-001, C-007) and
+established C-008.
+
+### C-007 — Evidence gating is the causal prerequisite that enables retry loops to work
+
+- Registry status: `EMPIRICALLY_SUPPORTED (deterministic); STUDY-011 live: REVERSED (C alone insufficient)`
+- Sample: `McNemar test p < 0.0001; VSR +29.0% [18.2%, 39.1%] (deterministic)`
+- Live update: `H3 REVERSED — retry alone (C) does not add effect without assurance; deterministic-testbed support stands, live replication reversed the direction`
+- Reproduction: `not-independently-reproduced (deterministic); live direction reversed`
+- Chain: [C-007 on the Claim Graph](/evidence/claim-graph/)
+
+### C-008 — Full governance stack yields materially higher actual success than assurance alone
+
+- Registry status: `EMPIRICALLY_SUPPORTED (LIVE, p<0.001) — H2 SUPPORTED, McNemar p<0.001 both strata, h≈2.5`
+- Sample: `470 LIVE_VALID runs, 8/8 cells ≥58`
+- Limitation: hedge applied — assurance invocation (F) converts abstention; G's added value is the measured marginal H2 contrast, not an `unlock` claim.
+- Reproduction: `not-independently-reproduced (single research team)`
+- Chain: [C-008 on the Claim Graph](/evidence/claim-graph/)
+
+## Ablation ladder
+
+The ladder is described in research, but numeric results are not yet
+published on the portal.
+
+Portal lens note: a live REVERSED finding projects to CONTESTED on the
+claim graph, never away. Claims are never silently upgraded.
+
+<Provenance page="research/benchmarks" />

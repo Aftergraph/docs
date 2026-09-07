@@ -1,0 +1,81 @@
+---
+title: "Use these docs with your coding agent"
+description: "Copy-paste prompts that point coding agents at verified docs surfaces: llms.txt, scoped indexes, context packs, and the MCP boundary."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+This portal is a compiler, never an owner: point your agent at the compiled
+surfaces below, and let it verify claims against the source commits each page
+cites. Start agents at the [Developers overview](/developers/) and the
+[Quickstart](/developers/quickstart/) before going deeper.
+
+## The four surfaces to give your agent
+
+1. **Index** — `https://docs.aftergraph.org/llms.txt`: the whole plane in one
+   page, with the build commit and freshness boundary stamped at the top.
+2. **Scoped indexes** — one per area, same host under `/llms/`:
+   `llms/platform.txt`, `llms/research.txt`, `llms/standards.txt`,
+   `llms/aie.txt`, `llms/agents.txt`.
+3. **Context packs** — `https://docs.aftergraph.org/context/index.json`:
+   per-page portable bundles (one JSON pack per route).
+4. **MCP boundary** — [Docs MCP (read-only)](/developers/mcp-boundary/): the
+   read-only tools over the built site (count lives with the server, not
+   this page); every answer carries `site_commit`, and answers must not be
+   treated as fresher than that commit.
+
+Site search is Starlight's built-in Pagefind search (noted in
+`astro.config.mjs`); agents working from a checkout can also use it, but the
+four surfaces above are the scripted entry points.
+
+No official SDK or unified CLI ships with the plane yet, so prompts must not
+ask agents to install or import one — curl or server-side calls against the
+[API Reference](/developers/api-reference/), plus the [Reference](/developers/reference/)
+and [How-to guides](/developers/how-to/), are the documented path.
+
+## Template 1 — orient on the current docs
+
+```text
+You are working with the Aftergraph Knowledge Plane docs (a compiler over
+canonical repos, not the owner of any spec or claim).
+
+1. Fetch https://docs.aftergraph.org/llms.txt and note the site commit and
+   freshness boundary at the top. Substitute <SITE_COMMIT> below with it.
+2. Treat no page as fresher than <SITE_COMMIT>. Every page's provenance block
+   cites its source repo and commit — verify technical claims there, not from
+   memory.
+3. My question (against docs slice <DOCS_SLICE>): <YOUR QUESTION>
+```
+
+## Template 2 — scoped research with context packs
+
+```text
+Scope: <platform | research | standards | aie | agents> (docs slice <DOCS_SLICE>).
+
+1. Fetch https://docs.aftergraph.org/llms/<SCOPE>.txt and follow only the links
+   it lists.
+2. For any page you rely on, also fetch its context pack via
+   https://docs.aftergraph.org/context/index.json and cite the pack's
+   repository + commit for each claim.
+3. If a claim needs the read-only MCP, use only the tools documented at
+   /developers/mcp-boundary/ and report the site_commit from each response.
+4. Task: <YOUR TASK>
+```
+
+## Template 3 — verify before you assert
+
+```text
+Before stating any Aftergraph contract, claim, or endpoint:
+
+1. Check it in the Reference (/developers/reference/) or the API Reference
+   (/developers/api-reference/).
+2. Confirm the page provenance (source commit) is within docs slice
+   <DOCS_SLICE> / site commit <SITE_COMMIT>.
+3. If the docs say no SDK, CLI, or endpoint exists for it, report that
+   instead of inventing one.
+```
+
+`<SITE_COMMIT>`, `<DOCS_SLICE>`, `<SCOPE>`, and `<YOUR QUESTION>` /
+`<YOUR TASK>` are placeholders — fill them per run, never hardcode a commit
+SHA or version number into a saved prompt.
+
+<Provenance page="developers/agent-guide" />

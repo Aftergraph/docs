@@ -1,0 +1,28 @@
+---
+title: "Examples"
+description: "Every runnable guide on the portal — quickstart, tutorials, recipes."
+---
+import Provenance from '../../components/Provenance.astro';
+
+Every card below links to a real, existing guide. New here? Start with
+[Quickstart](/developers/quickstart/), then work through the
+[Tutorials](/developers/tutorials/) and [How-to](/developers/how-to/)
+guides.
+
+## Quickstart
+
+<div class="ag-deep-list"><a href="/developers/quickstart/"><strong>Quickstart</strong><span>First verified outcome in 10 minutes — clone a source, compare a pin, read provenance, consume a context pack.</span></a></div>
+
+## Tutorials
+
+<div class="ag-deep-list"><a href="/developers/tutorials/"><strong>Trace a claim to its registry commit</strong><span>Verify a portal claim character-for-character against the pinned ISR registry commit.</span></a><a href="/developers/tutorials/"><strong>Consume the plane via MCP</strong><span>Wire the read-only docs MCP server into any client; every answer carries site_commit.</span></a></div>
+
+## Recipes
+
+<div class="ag-deep-list"><a href="/developers/how-to/"><strong>Verify the freshness of any page</strong><span>Compare a page's pinned SHA to live remote HEAD and read the semantic verdict in status.json.</span></a><a href="/developers/how-to/"><strong>Adopt a moved source</strong><span>Explicit, reviewable pin adoption — pins are never auto-updated.</span></a><a href="/developers/how-to/"><strong>Wire the Docs MCP into your client</strong><span>Hermes and generic stdio-client setup for the read-only MCP server.</span></a><a href="/developers/how-to/"><strong>Consume context packs in your agent</strong><span>Fetch the index and per-page packs; a pack is never fresher than its site_commit.</span></a><a href="/developers/how-to/"><strong>Add a new canonical source</strong><span>Allowlist the repo, add provenance, build — validation blocks private leakage.</span></a></div>
+
+## Troubleshooting
+
+Stuck on any of the above? See [Troubleshooting](/company/troubleshooting/).
+
+<Provenance page="examples" />

@@ -50,6 +50,7 @@ export default defineConfig({
           { label: 'Schemas', slug: 'developers/schemas' },
           { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'Docs MCP (read-only)', slug: 'developers/mcp-boundary' },
+          { label: 'Agent Guide', slug: 'developers/agent-guide' },
         ]},
         { label: 'Sentinel', items: [
           { label: 'Overview', slug: 'sentinel' },
@@ -73,12 +74,18 @@ export default defineConfig({
           { label: 'Overview', slug: 'standards' },
           { label: 'Contracts', slug: 'standards/contracts' },
           { label: 'Contract Graph', slug: 'standards/contract-graph' },
+          { label: 'Bindings', slug: 'standards/bindings' },
+          { label: 'Conformance', slug: 'standards/conformance' },
         ]},
         { label: 'Evidence', items: [
           { label: 'Overview', slug: 'evidence' },
           { label: 'Claim Graph', slug: 'evidence/claim-graph' },
         ]},
-        { label: 'Research', items: [{ label: 'Overview', slug: 'research' }]},
+        { label: 'Research', items: [
+          { label: 'Overview', slug: 'research' },
+          { label: 'Benchmarks', slug: 'research/benchmarks' },
+          { label: 'Examples', slug: 'examples' },
+        ]},
         { label: 'Trust', items: [
           { label: 'Trust & Verification', slug: 'company/trust' },
           { label: 'Company', slug: 'company' },
@@ -87,6 +94,7 @@ export default defineConfig({
           { label: 'Troubleshooting', slug: 'company/troubleshooting' },
           { label: 'Brand', slug: 'company/brand' },
           { label: 'Changelog', slug: 'company/changelog' },
+          { label: 'Versions', slug: 'company/versions' },
         ]},
       ],
     }),

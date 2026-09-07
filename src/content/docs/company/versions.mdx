@@ -1,0 +1,39 @@
+---
+title: "Docs versions"
+description: "How portal versions work: changelog slices, not product releases, with per-page source commits."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+This portal is a compiler, never an owner: it renders source repositories at
+pinned commits and does not itself release products. Its "versions" are
+**portal slices** — labeled snapshots of what the docs compiled — not
+semantic versions of any product.
+
+The canonical record is the repository changelog: "versions are portal
+slices, not semver" (`CHANGELOG.md`). Slices to date run V0.0 (Foundation)
+through V1.1 (Docs parity), plus an Unreleased launcher slice. Each slice
+lists what the portal added or changed — never a product release number.
+
+## What `semantic_version` means here
+
+Each page carries a provenance block naming its source repository and commit.
+The `semantic_version` field in that block (`src/data/provenance.json`) is a
+human label for the portal slice the page was compiled from — for example
+"V0 (portal foundation)", "V1.1 (changelog)", or "register (13 contracts)".
+It tells you which docs slice a page belongs to; it is not a version of the
+owning product, and product repos remain authoritative for their own releases.
+
+## How to pin what you read
+
+- Newest-first slice history: [Changelog](/company/changelog/)
+- Live build provenance and per-source freshness: [Live Status](/status/)
+- Treat no page as fresher than the build commit its provenance block cites.
+
+## Frozen per-version docs
+
+Per-version frozen docs do not exist yet. Every route renders the current
+build; there are no archived snapshots to select between. If you need the
+state of the docs at an earlier slice, use the slice history and the cited
+source commits.
+
+<Provenance page="company/versions" />

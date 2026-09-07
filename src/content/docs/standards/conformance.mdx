@@ -1,0 +1,63 @@
+---
+title: "Conformance Center"
+description: "Current SPEC-001 conformance state — registry-verbatim numbers, reproduction states, and what is missing."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+This page renders the registry verbatim and never upgrades it. No
+conformance is claimed here — only the current state and what is missing
+before any conformance claim can be made.
+
+## SPEC-001 conformance (C-005), verbatim
+
+From the ISR registry at evidence cut **AUDIT-EVID-001 / 2026-09-04** —
+see the [Claim graph](/evidence/claim-graph/):
+
+- **Claim:** "SPEC-001 has been independently reproduced clean-room."
+- **Status:** DOWNGRADED TO SECOND IN-TREE IMPLEMENTATION (registry status
+  and audit status are identical here; the claim graph projects this claim
+  as PARTIALLY_SUPPORTED)
+- **Sample:** 100.0% Conformance (14/14 passed)
+- **Evidence class:** deterministic conformance (not independent)
+- **Study:** SPEC-001 conformance
+- **Reproduction:** in-tree second implementation, NOT independent reproduction
+- **Limitation:** implemented within same repository by research agent;
+  awaiting external third-party teams.
+
+The 14/14 figure is an in-tree second implementation, not an independent
+reproduction. It must not be quoted as a pass count without that
+qualification.
+
+## Reproduction states across the register
+
+| Claim | Reproduction state |
+|---|---|
+| C-001 | not-independently-reproduced (in-tree alternative only) |
+| C-002 | deterministic, independently checkable |
+| C-003 | not-independently-reproduced |
+| C-004 | not-applicable (no trials) |
+| C-005 | in-tree second implementation, NOT independent reproduction |
+| C-006 | deterministic, independently checkable |
+| C-007 | not-independently-reproduced (deterministic); live direction reversed |
+| C-008 | not-independently-reproduced (single research team) |
+
+Full chains with status, class, cut, and source SHA:
+[Claim graph](/evidence/claim-graph/).
+
+## Missing before any conformance claim
+
+- **External third-party reproduction** of SPEC-001 (C-005 limitation:
+  "awaiting external third-party teams").
+- **Independent reproduction** of all simulation and live findings
+  (C-001, C-003, C-007, C-008 remain single-team).
+- **Research maturity exit:** program stands at Level C+ / Provisional-D
+  with external submissions HELD — see [Research](/research/).
+- **Stability declaration:** nothing is declared stable before external
+  blind reproduction — see [Standards overview](/standards/) and
+  [Trust &amp; Verification](/company/trust/).
+
+## Explore
+
+<div class="ag-deep-list"><a href="/evidence/claim-graph/"><strong>Claim graph</strong><span>All 8 claim chains, verbatim from the registry.</span></a><a href="/research/"><strong>Research</strong><span>Program, studies, and evidence discipline.</span></a><a href="/company/trust/"><strong>Trust and verification</strong><span>How the plane earns belief.</span></a></div>
+
+<Provenance page="standards/conformance" />

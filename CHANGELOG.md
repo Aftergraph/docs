@@ -23,6 +23,16 @@ Format inspired by Keep a Changelog; versions are portal slices, not semver.
 - Honest status notes: no official SDK or unified CLI ships yet (see
   Developers hub); browser Try-it console blocked on missing CORS headers
   (probed 2026-09-07), curl/server-side only for now.
+- `/standards/bindings` (evidenced standards table), `/standards/conformance`
+  (registry-verbatim C-005 + reproduction states), `/research/benchmarks`
+  (verbatim MISSION-Bench/STUDY-011 samples), `/examples` (cards over real
+  guides only), `/company/versions` (portal-slice versioning),
+  `/developers/agent-guide` (copy-paste prompts with placeholders, no
+  hardcoded SHAs). Drafted in parallel by three agents; every number
+  re-verified against the registries before merge (fixed: 1 wrong import
+  depth, 1 projected status stated as registry status, 3 stale "7 tools"
+  references — server now exposes 10; tool counts are now phrased
+  count-free so they cannot rot again).
 
 ## [V1.1] — 2026-09-07 — Docs parity
 
