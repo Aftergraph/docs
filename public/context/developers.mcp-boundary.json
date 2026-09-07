@@ -16,8 +16,8 @@
   "next_reading": [
     "https://docs.aftergraph.org/developers/api-reference/"
   ],
-  "generated_at": "2026-09-07T01:14:27.329Z",
-  "site_commit": "c780c384b4b0b87e6f5ce977958632412d764ce0",
+  "generated_at": "2026-09-07T01:15:41.668Z",
+  "site_commit": "eb59a70303d731bcf2171c1e27dd056a7b34fc56",
   "constraints": [
     "Do not treat this pack as fresher than its site_commit.",
     "The owning repository (source_repository@source_commit) is authoritative over this rendering."
