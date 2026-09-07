@@ -1,0 +1,44 @@
+---
+title: "Sentinel"
+description: "Verified code-review — PRs into merge-ready verdicts."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+**Product core:** Sentinel is a verified code-review product that turns pull
+requests into merge-ready verdicts.
+
+**First wedge:** CLI review on exact HEAD → SHIP / DO NOT SHIP verdict with
+cited evidence → GitHub App. **No code yet — strategy docs only.**
+
+## The differentiating contract
+
+AI review comments are cheap; merge confidence is not. Existing reviewers
+comment probabilistically: they can review a stale HEAD, re-report fixed
+findings, and approve what they never verified.
+
+Sentinel's contract: **a verdict is only issued against the exact commit it
+verified, and a stale base invalidates the verdict automatically.** That is
+the same evidence discipline this Knowledge Plane runs on.
+
+## Strategy docs (13, pinned)
+
+| Doc | What it decides |
+|---|---|
+| [Market Research](/sentinel/market-research/) | Who bleeds from bad merges, cost |
+| [Competitor Analysis](/sentinel/competitor-analysis/) | Governance-first comparison, moat |
+| [Go-to-Market](/sentinel/go-to-market/) | CLI (free) → GitHub App → hosted tier |
+| [Brand Identity](/sentinel/brand-identity/) | Naming, voice |
+| [Personas](/sentinel/personas/) | CTO, staff engineer, solo maintainer, compliance |
+| [Jobs to be Done](/sentinel/jobs-to-be-done/) | The 6 jobs Sentinel is hired for |
+| [Validation Plan](/sentinel/validation-plan/) | Desk research + prototype validation |
+| [UI Flows](/sentinel/ui-flows/) | CLI output, PR comment, verdict card |
+| [Data Model v0](/sentinel/data-model-v0/) | Review, Verdict, EvidenceRef, RulePack |
+| [Risks](/sentinel/risks/) | What kills this product |
+| [CLI v0 Design](/sentinel/cli-v0-design/) | CLI architecture |
+| [CLI v0 Features](/sentinel/cli-v0-features/) | Feature set |
+| [Decisions](/sentinel/decisions/) | Locked decisions |
+
+Honest maturity: **strategy docs, prototype-first, no code yet.** Nothing
+here upgrades Sentinel's maturity.
+
+<Provenance page="sentinel/index" />

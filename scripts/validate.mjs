@@ -130,3 +130,40 @@ if (!process.exitCode) {
   writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
   console.log('VALIDATE PASS');
 }
+// 10. llms cross-surface consistency: docs-llms must reference the live
+// portal; the org llms.txt (fetched at validation time when reachable)
+// must reference the docs portal. Gate fails on divergence so the two
+// org-facing indexes cannot drift silently.
+const EXPECTED_PORTAL_LINKS = [
+  'https://docs.aftergraph.org/',
+  'https://docs.aftergraph.org/developers/quickstart/',
+  'https://docs.aftergraph.org/standards/contract-graph/',
+  'https://docs.aftergraph.org/evidence/claim-graph/',
+  'https://docs.aftergraph.org/developers/mcp-boundary/',
+  'https://docs.aftergraph.org/status.json',
+];
+{
+  const docsLlms = readFileSync(join(root, 'public/llms.txt'), 'utf8');
+  for (const link of EXPECTED_PORTAL_LINKS) {
+    if (!docsLlms.includes(link)) fail(`llms.txt missing expected portal link: ${link}`);
+  }
+  ok(`llms.txt: ${EXPECTED_PORTAL_LINKS.length} expected portal links present`);
+}
+
+// 10b. cross-surface: aftergraph.org llms.txt must reference the docs portal
+// (fetched over network when reachable; skipped offline so CI stays green
+// without egress). Gate runs in production smoke instead.
+if (process.argv.includes('--cross-llms')) {
+  const { execSync: ex } = await import('node:child_process');
+  try {
+    const orgLlms = ex('curl -sS --max-time 15 https://aftergraph.org/llms.txt', { encoding: 'utf8' });
+    if (!orgLlms.includes('docs.aftergraph.org')) fail('aftergraph.org/llms.txt does not reference the Knowledge Plane (docs.aftergraph.org)');
+    else ok('cross-llms: aftergraph.org/llms.txt references the Knowledge Plane');
+  } catch (e) {
+    console.warn('cross-llms: network unreachable, skipping (offline build)');
+  }
+}
+if (!process.exitCode) {
+  writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
+  console.log('VALIDATE PASS');
+}

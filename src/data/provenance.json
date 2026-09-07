@@ -222,5 +222,117 @@
     "semantic_version": "docs snapshot (no code yet)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
+  },
+  "sentinel/brand-identity": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/brand-identity.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/cli-v0-design": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/cli-v0-design.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/cli-v0-features": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/cli-v0-features.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/competitor-analysis": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/competitor-analysis.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/data-model-v0": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/data-model-v0.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/decisions": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/decisions.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/go-to-market": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/go-to-market.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/jobs-to-be-done": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/jobs-to-be-done.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/market-research": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/market-research.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/personas": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/personas.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/risks": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/risks.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/ui-flows": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/ui-flows.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/validation-plan": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "docs/validation-plan.md.md",
+    "semantic_version": "strategy docs (pinned beececfb)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
+  },
+  "sentinel/index": {
+    "repository": "Aftergraph/sentinel",
+    "commit": "beececfb4885d8055cc6694e8979b47759a212a4",
+    "source": "README.md + docs/ (strategy docs, prototype-first)",
+    "semantic_version": "docs snapshot (no code yet)",
+    "evidence_cut": null,
+    "canonical_owner": "Sentinel"
   }
 }
