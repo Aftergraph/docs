@@ -3,6 +3,20 @@
 All notable changes to the Aftergraph Knowledge Plane. Dates UTC.
 Format inspired by Keep a Changelog; versions are portal slices, not semver.
 
+## [Unreleased] — Launcher IA (vision A)
+
+### Added
+- Homepage task launcher ("What are you trying to do?") routing to six
+  verified surfaces; existing journey and deep-dive sections kept.
+- `/start`: path picker (quickstart/tutorials/how-to), local commands,
+  four personas with next steps.
+- `/concepts`: Intent → Verified Outcome chain as a navigational map over
+  golden-mission/platform/evidence/trust (no new normative claims).
+- `/products`: product directory with catalog role lines, owner-repo links,
+  and portal cross-links; per-product deep pages deferred to owner repos.
+- Sidebar `Start` group; provenance entries + context packs for all three
+  pages (47 pages / 47 packs).
+
 ## [V1.1] — 2026-09-07 — Docs parity
 
 Parity vs Claude/OpenAI/Hermes developer docs (feature list + DoD:

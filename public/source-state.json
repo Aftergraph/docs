@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-07T18:59:08.657Z",
-  "site_commit": "96eb4978824a3b870ee09b1b6250572fc2d2c39a",
+  "checked_at": "2026-09-07T19:13:57.252Z",
+  "site_commit": "b1387e0b31e999e1070a2b6b7264a038de5ae2e9",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -52,10 +52,17 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "pinned_sha": "49f602145094e2b5dfcbfd712c6085653a765360",
-      "remote_sha": "49f602145094e2b5dfcbfd712c6085653a765360",
-      "status": "CURRENT",
+      "remote_sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
+      "status": "SOURCE_MOVED_CONTENT_CHANGED",
       "distance": null,
-      "artifacts": []
+      "artifacts": [
+        {
+          "path": "openapi.json",
+          "pinned_blob": "c6094e7fbe154795531a92b70d19f0b8c6e76568",
+          "live_blob": "f5ca4c818e76ca8c7d6cf347c4804d47cf657b37",
+          "changed": true
+        }
+      ]
     },
     {
       "repository": "Aftergraph/studio",
@@ -68,7 +75,7 @@
     {
       "repository": "Aftergraph/sentinel",
       "pinned_sha": "4b0007cd6a62aa5599772387958b4d49905a56d4",
-      "remote_sha": "70628b5dc925b5a095f718007ca471774bdf8826",
+      "remote_sha": "29c136ac156b72b45ded57eaba17882e994ea18d",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -76,7 +83,7 @@
     {
       "repository": "Aftergraph/aftergraph.org",
       "pinned_sha": "4c1e00fd358c3a2a42cc60490213bcac15d9c759",
-      "remote_sha": "018f0d191959e695cfc6403486f1c84543677750",
+      "remote_sha": "4614e1c6ba8d4807eaf6f0261311565af16b8fed",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -84,10 +91,17 @@
     {
       "repository": "Aftergraph/brand",
       "pinned_sha": "fe7485a498abfc02fc5b74faada819140425acf8",
-      "remote_sha": "fe7485a498abfc02fc5b74faada819140425acf8",
-      "status": "CURRENT",
+      "remote_sha": "138f4746a716ac78fb5a60841cc9fa63026083c2",
+      "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
-      "artifacts": []
+      "artifacts": [
+        {
+          "path": "tokens.json",
+          "pinned_blob": "5931b40dd1933b9118bc28a07a87e0d4068587cc",
+          "live_blob": "5931b40dd1933b9118bc28a07a87e0d4068587cc",
+          "changed": false
+        }
+      ]
     },
     {
       "repository": "Aftergraph/.github",

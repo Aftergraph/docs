@@ -350,5 +350,29 @@
     "semantic_version": "strategy docs (pinned beececfb)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
+  },
+  "start": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "source": "routes to quickstart/tutorials/how-to + local commands (verified in quickstart)",
+    "semantic_version": "V1.2 (launcher IA)",
+    "evidence_cut": null,
+    "canonical_owner": "Governance"
+  },
+  "concepts": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "source": "navigational map over golden-mission/platform/evidence/trust (no new normative claims)",
+    "semantic_version": "V1.2 (launcher IA)",
+    "evidence_cut": null,
+    "canonical_owner": "Governance"
+  },
+  "products": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "source": "role lines from src/data/catalog.json; per-product deep pages deferred to owner repos",
+    "semantic_version": "V1.2 (launcher IA)",
+    "evidence_cut": null,
+    "canonical_owner": "Governance"
   }
 }

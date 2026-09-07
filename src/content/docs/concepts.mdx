@@ -1,0 +1,33 @@
+---
+title: "Concepts"
+description: "One chain — Intent to Verified Outcome — and where the portal covers each stage."
+---
+import Provenance from '../../components/Provenance.astro';
+
+Every path in this portal follows one chain. This page is a map, not a
+specification: each stage links to the surface that covers it, and the
+owning repos hold the truth.
+
+<ol class="ag-flow">
+  <li class="ag-step"><h4>Intent</h4><p>Declared goal a mission is bound to.</p><a href="/platform/golden-mission/">Golden Mission →</a></li>
+  <li class="ag-step"><h4>Mission</h4><p>Bounded unit of work the system admits.</p><a href="/platform/golden-mission/">Golden Mission →</a></li>
+  <li class="ag-step"><h4>Authority</h4><p>What the mission is allowed to spend and touch.</p><a href="/platform/">Platform →</a></li>
+  <li class="ag-step"><h4>Execution</h4><p>Durable work under authority and budget.</p><a href="/platform/">Platform →</a></li>
+  <li class="ag-step"><h4>Evidence</h4><p>Trace left behind, strength-labelled.</p><a href="/evidence/">Evidence →</a></li>
+  <li class="ag-step"><h4>Verification</h4><p>Independent checks: gates, contracts, claims.</p><a href="/company/trust/">Trust &amp; Verification →</a></li>
+  <li class="ag-step"><h4>Verified Outcome</h4><p>Completion that survived verification.</p><a href="/evidence/claim-graph/">Claim Graph →</a></li>
+</ol>
+
+## How the portal divides the chain
+
+- [Platform](/platform/) shows which system owns each stage.
+- [Golden Mission](/platform/golden-mission/) walks Observation → Verified
+  Outcome across the real bindings.
+- [Contract Explorer](/standards/contracts/) encodes the machine-readable
+  agreements between stages.
+- [Evidence](/evidence/) labels how strongly each claim holds.
+
+Declared completion never implies verified completion — that invariant is
+why the chain ends where it does.
+
+<Provenance page="concepts" />

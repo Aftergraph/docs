@@ -1,0 +1,46 @@
+---
+title: "Start here"
+description: "Pick a path: quickstart, tutorials, guides, or local development."
+---
+import Provenance from '../../components/Provenance.astro';
+
+Three paths in, one rule everywhere: **the plane renders truth, owning repos
+own it.** Pick the path that matches how much time you have.
+
+| I have… | Do this | Start with |
+|---|---|---|
+| 10 minutes | Verify the plane itself end to end | [Quickstart](/developers/quickstart/) |
+| An hour | Walk through real traces | [Tutorials](/developers/tutorials/) |
+| A specific task | Adoption, MCP wiring, context packs | [How-to Guides](/developers/how-to/) |
+
+## Run it locally
+
+Same commands the quickstart verifies:
+
+```bash
+git clone https://github.com/Aftergraph/docs.git
+cd docs && npm ci
+npm run build                              # 9 gates + 43 pages
+node scripts/freshness.mjs                 # pins vs live remote state
+```
+
+## Pick a persona
+
+- **Application developer** — integrate the Work Intelligence API:
+  [API Reference](/developers/api-reference/), then
+  [Reference](/developers/reference/).
+- **Agent builder** — give an agent programmatic access:
+  [Docs MCP](/developers/mcp-boundary/), then
+  [Context Packs via How-to](/developers/how-to/).
+- **Evaluator or researcher** — inspect what is actually supported:
+  [Evidence](/evidence/), then [Research](/research/).
+- **Platform operator** — understand responsibility splits and live state:
+  [Platform](/platform/), then [Live Status](/status/).
+
+## Next
+
+[Concepts](/concepts/) explains the Intent → Verified Outcome chain every
+path above follows. [Products](/products/) maps each capability to its
+owner repo and portal surface.
+
+<Provenance page="start" />

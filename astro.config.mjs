@@ -29,6 +29,11 @@ export default defineConfig({
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/aftergraph-mark.jpg' } },
       ],
       sidebar: [
+        { label: 'Start', items: [
+          { label: 'Start here', slug: 'start' },
+          { label: 'Concepts', slug: 'concepts' },
+          { label: 'Products', slug: 'products' },
+        ]},
         { label: 'Platform', items: [
           { label: 'Overview', slug: 'platform' },
           { label: 'Golden Mission', slug: 'platform/golden-mission' },
