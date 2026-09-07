@@ -2,7 +2,8 @@
 // Post-build emit: astro build wipes dist/, so /status.json is re-emitted here
 // from src/data/build-status.json + public/source-state.json (both survive).
 // Full artifact fingerprints ride in source-state; no network needed.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const bs = JSON.parse(readFileSync(root + '/src/data/build-status.json', 'utf8'));
