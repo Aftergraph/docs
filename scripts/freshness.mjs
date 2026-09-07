@@ -12,7 +12,9 @@ const src = readFileSync(root + '/src/data/sources.ts', 'utf8');
 const artifacts = JSON.parse(readFileSync(root + '/src/data/artifacts.json', 'utf8')).artifacts;
 const pins = [...src.matchAll(/repository: '(Aftergraph\/[^']+)'[\s\S]*?commitSha: '([0-9a-f]+)'/g)]
   .map((m) => ({ repo: m[1], sha: m[2] }));
-const out = { checked_at: new Date().toISOString(), sources: [] };
+let site_commit = null;
+try { site_commit = execSync('git rev-parse HEAD', { encoding: 'utf8', cwd: root }).trim(); } catch {}
+const out = { checked_at: new Date().toISOString(), site_commit, sources: [] };
 // Optional: --previous <file> promotes a repeat CONTENT_CHANGED to STALE,
 // giving genuine threshold semantics with history carried by CI artifacts.
 let previous = null;

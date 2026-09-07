@@ -40,15 +40,49 @@ const mdLinks = [];
 for (const f of walk(join(root, 'src/content/docs'))) {
   if (!f.endsWith('.mdx')) continue;
   const body = readFileSync(f, 'utf8');
-  for (const m of body.matchAll(/\[.*?\]\((\/[^)\s#]*)\)/g)) mdLinks.push([f, m[1]]);
+  for (const m of body.matchAll(/\[.*?\]\(((\/[^)\s#]*)?(#[^)\s]*)?)\)/g)) {
+    if (m[1]) mdLinks.push([f, m[1]]);
+  }
 }
+// Starlight heading ids follow github-slugger over the rendered heading text.
+const slugCounts = new Map();
+const slugify = (s) => {
+  const base = s.replace(/[`*_~\[\]()!]/g, '').trim().toLowerCase()
+    .replace(/[^a-z0-9\u00C0-\u024F\u1E00-\u1EFF ._-]/g, '').replace(/[. ]+/g, '-').replace(/-+/g, '-');
+  const n = slugCounts.get(base) ?? 0;
+  slugCounts.set(base, n + 1);
+  return n === 0 ? base : `${base}-${n}`;
+};
+const pageAnchors = new Map();
+const anchorsOf = (rel) => {
+  if (pageAnchors.has(rel)) return pageAnchors.get(rel);
+  const set = new Set();
+  const file = join(root, 'src/content/docs', rel);
+  if (existsSync(file)) {
+    slugCounts.clear();
+    const body = readFileSync(file, 'utf8');
+    for (const m of body.matchAll(/^#{1,6}\s+(.+)$/gm)) set.add(slugify(m[1].replace(/\s*\{#.*\}\s*$/, '')));
+    for (const m of body.matchAll(/id="([^"]+)"/g)) set.add(m[1]);
+  }
+  pageAnchors.set(rel, set);
+  return set;
+};
 for (const [f, link] of mdLinks) {
-  const target = link === '/' ? 'index.mdx' : link.replace(/^\//, '').replace(/\/$/, '') + '.mdx';
-  if (distTargets.includes(link.replace(/^\//, ''))) continue;
-  if (!existsSync(join(root, 'src/content/docs', target)) && !existsSync(join(root, 'public', link.replace(/^\//, ''))))
+  const [path, frag] = link.split('#');
+  const selfRel = f.split(/src[\\/]content[\\/]docs[\\/]/)[1].replace(/\\/g, '/');
+  const target = !path ? selfRel
+    : path === '/' ? 'index.mdx'
+    : path.replace(/^\//, '').replace(/\/$/, '') + '.mdx';
+  if (path && distTargets.includes(path.replace(/^\//, ''))) continue;
+  if (!existsSync(join(root, 'src/content/docs', target)) && !(path && existsSync(join(root, 'public', path.replace(/^\//, '')))))
     fail(`broken internal link ${link} in ${f}`);
+  if (frag !== undefined && frag !== '') {
+    const anchorTarget = !path ? selfRel : target;
+    if (existsSync(join(root, 'src/content/docs', anchorTarget)) && !anchorsOf(anchorTarget).has(frag))
+      fail(`broken anchor #${frag} in link ${link} in ${f}`);
+  }
 }
-ok(`links: ${mdLinks.length} internal links resolve`);
+ok(`links: ${mdLinks.length} internal links + anchors resolve`);
 
 // 4. OpenAPI valid + matches manifest
 const api = JSON.parse(readFileSync(join(root, 'public/openapi.json'), 'utf8'));
