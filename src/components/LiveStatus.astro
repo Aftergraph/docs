@@ -1,6 +1,8 @@
 ---
 // Live status tiles — client fetch of /status.json, build-time fallback.
-import status from '../../public/status.json';
+import status from '../data/build-status.json';
+// build-status.json (src/data, gitignored, regenerated per build) carries the
+// same summary — status.mjs writes both. Full status lives at /status.json.
 const s = (status as any).summary;
 const tiles = [
   { n: s.source_count, l: 'Sources', tone: 'neutral' },

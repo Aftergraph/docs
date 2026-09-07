@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T01:33:01.675Z",
+  "checked_at": "2026-09-07T01:38:30.295Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -51,7 +51,7 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "pinned_sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
-      "remote_sha": "a4fc87273be6ed7a9dbf4f8042eaaca0ecff8181",
+      "remote_sha": "4bd197442321e1e6017138bda84d987690e5a782",
       "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
       "artifacts": [

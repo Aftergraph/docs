@@ -35,7 +35,7 @@ const nextReading = {
   'status': ['catalog/'],
 };
 
-mkdirSync(root + '/public/context', { recursive: true });
+mkdirSync(root + '/dist/context', { recursive: true });
 const packs = [];
 for (const [page, p] of Object.entries(prov)) {
   const contracts = graph.contract_graph.edges
@@ -64,13 +64,13 @@ for (const [page, p] of Object.entries(prov)) {
     ].filter(Boolean),
   };
   const route = page === 'index' ? 'index' : page.replace(/\//g, '.');
-  writeFileSync(root + `/public/context/${route}.json`, JSON.stringify(pack, null, 2) + '\n');
+  writeFileSync(root + `/dist/context/${route}.json`, JSON.stringify(pack, null, 2) + '\n');
   packs.push(route);
 }
 // index of packs
-writeFileSync(root + '/public/context/index.json', JSON.stringify({
+writeFileSync(root + '/dist/context/index.json', JSON.stringify({
   packs: packs.map((r) => `https://docs.aftergraph.org/context/${r}.json`),
   note: 'ACC-shaped portable context packs. Read-only derivation; owning repos are authoritative.',
   generated_at: new Date().toISOString(),
 }, null, 2) + '\n');
-console.log(`context packs: ${packs.length} pages -> public/context/`);
+console.log(`context packs: ${packs.length} pages -> dist/context/`);

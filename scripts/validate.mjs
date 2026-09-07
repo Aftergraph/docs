@@ -34,7 +34,8 @@ for (const p of pages) {
 }
 ok(`provenance: ${pages.length} pages covered`);
 
-// 3. internal links resolve
+// 3. internal links resolve (dist-served JSON surfaces count as valid targets)
+const distTargets = ['status.json', 'source-state.json', 'build-manifest.json', 'llms.txt', 'openapi.json'];
 const mdLinks = [];
 for (const f of walk(join(root, 'src/content/docs'))) {
   if (!f.endsWith('.mdx')) continue;
@@ -43,6 +44,7 @@ for (const f of walk(join(root, 'src/content/docs'))) {
 }
 for (const [f, link] of mdLinks) {
   const target = link === '/' ? 'index.mdx' : link.replace(/^\//, '').replace(/\/$/, '') + '.mdx';
+  if (distTargets.includes(link.replace(/^\//, ''))) continue;
   if (!existsSync(join(root, 'src/content/docs', target)) && !existsSync(join(root, 'public', link.replace(/^\//, ''))))
     fail(`broken internal link ${link} in ${f}`);
 }
@@ -100,11 +102,11 @@ else {
 }
 
 // 9. context packs: one per provenance page, site_commit bounded
-if (!existsSync(join(root, 'public/context/index.json'))) fail('public/context/index.json missing (run scripts/context-packs.mjs)');
+if (!existsSync(join(root, 'dist/context/index.json'))) fail('dist/context/index.json missing (run scripts/context-packs.mjs)');
 else {
-  const idx = JSON.parse(readFileSync(join(root, 'public/context/index.json'), 'utf8'));
+  const idx = JSON.parse(readFileSync(join(root, 'dist/context/index.json'), 'utf8'));
   if (!idx.packs || idx.packs.length < Object.keys(prov).length) fail('context pack count < provenance pages');
-  const sample = JSON.parse(readFileSync(join(root, 'public/context/standards.contract-graph.json'), 'utf8'));
+  const sample = JSON.parse(readFileSync(join(root, 'dist/context/standards.contract-graph.json'), 'utf8'));
   if (sample.$schema !== 'aftergraph.context-pack.v0') fail('context pack: wrong $schema');
   if (!sample.source_commit || sample.source_commit.length !== 40) fail('context pack: bad source_commit');
   if (!sample.site_commit) fail('context pack: missing site_commit bound');

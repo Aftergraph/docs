@@ -97,7 +97,7 @@ const TOOLS = {
 function handle(name, args) {
   switch (name) {
     case 'docs_get_status': {
-      const status = JSON.parse(readFileSync(root + '/public/status.json', 'utf8'));
+      const status = JSON.parse(readFileSync(root + '/dist/status.json', 'utf8'));
       return { build: status.build, summary: status.summary, sources: status.sources.map((s) => ({ repository: s.repository, status: s.status, pinned: s.pinned_sha?.slice(0, 8), remote: s.remote_sha?.slice(0, 8) })) };
     }
     case 'docs_get_contract': {
@@ -137,8 +137,8 @@ function handle(name, args) {
       return { repos: catalog.repos.map((r) => ({ repo: r.repo, role: r.role, sha: r.sha.slice(0, 8) })), site_commit: buildManifest?.site_commit };
     case 'docs_get_context_pack': {
       const route = String(args.route || '').replace(/^\/+|\/+$/g, '');
-      const file = join(root, 'public/context', route + '.json');
-      if (!route.match(/^[a-z0-9.-]+$/) || !existsSync(file)) throw new Error(`context pack not found: ${route} (see public/context/index.json)`);
+      const file = join(root, 'dist/context', route + '.json');
+      if (!route.match(/^[a-z0-9.-]+$/) || !existsSync(file)) throw new Error(`context pack not found: ${route} (see dist/context/index.json)`);
       return JSON.parse(readFileSync(file, 'utf8'));
     }
     default:

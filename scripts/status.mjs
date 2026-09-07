@@ -30,7 +30,7 @@ const status = {
   artifact_fingerprints: artifacts,
   verification: summary.last_verification,
 };
-writeFileSync(root + '/public/status.json', JSON.stringify(status, null, 2) + '\n');
+writeFileSync(root + '/dist/status.json', JSON.stringify(status, null, 2) + '\n');
 writeFileSync(root + '/src/data/build-status.json', JSON.stringify({
   site_commit: site, verified_at: summary.last_verification, summary,
   page_line: summary.last_verification

@@ -30,5 +30,4 @@ const manifest = {
 };
 mkdirSync(root + '/dist', { recursive: true });
 writeFileSync(root + '/dist/build-manifest.json', JSON.stringify(manifest, null, 2) + '\n');
-writeFileSync(root + '/public/build-manifest.json', JSON.stringify(manifest, null, 2) + '\n');
 console.log('build-manifest written for', Object.keys(sources).length, 'sources');
