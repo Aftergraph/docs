@@ -23,7 +23,7 @@
         "id": "after-graph-governance",
         "role": "Cross-repo contracts, architecture, terminology, boundaries",
         "class": "Repository",
-        "sha": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+        "sha": "412b7065581a11607958be7f5d04ebcce36753c2",
         "contract_count": 1,
         "contracts": [
           "release.rings/1.0"
@@ -141,7 +141,7 @@
         "id": "studio",
         "role": "Operator/product experience (missions, approvals, verified outcomes)",
         "class": "Repository",
-        "sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
+        "sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,
