@@ -2,7 +2,7 @@
 // Builds public/status.json + HUMAN /status page (generated) + build-status.json.
 // Never needs network: reads public/source-state.json (UNKNOWN if absent).
 // Runs prebuild (and predev) so Astro always has the inputs.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -30,6 +30,7 @@ const status = {
   artifact_fingerprints: artifacts,
   verification: summary.last_verification,
 };
+mkdirSync(root + '/dist', { recursive: true });
 writeFileSync(root + '/dist/status.json', JSON.stringify(status, null, 2) + '\n');
 writeFileSync(root + '/src/data/build-status.json', JSON.stringify({
   site_commit: site, verified_at: summary.last_verification, summary,
