@@ -45,23 +45,28 @@ for (const f of walk(join(root, 'src/content/docs'))) {
   }
 }
 // Starlight heading ids follow github-slugger over the rendered heading text.
-const slugCounts = new Map();
-const slugify = (s) => {
-  const base = s.replace(/[`*_~\[\]()!]/g, '').trim().toLowerCase()
-    .replace(/[^a-z0-9\u00C0-\u024F\u1E00-\u1EFF ._-]/g, '').replace(/[. ]+/g, '-').replace(/-+/g, '-');
-  const n = slugCounts.get(base) ?? 0;
-  slugCounts.set(base, n + 1);
-  return n === 0 ? base : `${base}-${n}`;
-};
+// Same slugger Starlight uses (dependency present via @astrojs/starlight),
+// fresh instance per page for occurrence counting; markdown stripped first
+// since slugs derive from rendered text. Fenced code blocks are skipped —
+// `#` comments in code are not anchors.
+import GithubSlugger from 'github-slugger';
+const stripMd = (s) => s
+  .replace(/`([^`]*)`/g, '$1')
+  .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+  .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+  .replace(/[*_~]/g, '')
+  .replace(/<[^>]*>/g, '')
+  .replace(/\s*\{#.*\}\s*$/, '');
+const unfenced = (body) => body.split(/^```.*$/m).filter((_, i) => i % 2 === 0).join('\n');
 const pageAnchors = new Map();
 const anchorsOf = (rel) => {
   if (pageAnchors.has(rel)) return pageAnchors.get(rel);
   const set = new Set();
   const file = join(root, 'src/content/docs', rel);
   if (existsSync(file)) {
-    slugCounts.clear();
-    const body = readFileSync(file, 'utf8');
-    for (const m of body.matchAll(/^#{1,6}\s+(.+)$/gm)) set.add(slugify(m[1].replace(/\s*\{#.*\}\s*$/, '')));
+    const slugger = new GithubSlugger();
+    const body = unfenced(readFileSync(file, 'utf8'));
+    for (const m of body.matchAll(/^#{1,6}\s+(.+)$/gm)) set.add(slugger.slug(stripMd(m[1])));
     for (const m of body.matchAll(/id="([^"]+)"/g)) set.add(m[1]);
   }
   pageAnchors.set(rel, set);
@@ -89,6 +94,17 @@ const api = JSON.parse(readFileSync(join(root, 'public/openapi.json'), 'utf8'));
 if (!api.openapi?.startsWith('3.1')) fail('openapi not 3.1.x');
 if (Object.keys(api.paths ?? {}).length < 5) fail('openapi paths missing');
 ok(`openapi: ${api.info?.title} ${api.info?.version}, ${Object.keys(api.paths).length} paths`);
+
+// 4b. schemas.json parity: the Schemas page renders from derivation, so the
+// derivation must match the adopted spec + pin (Scalar reads openapi live;
+// a silent divergence would show two truths).
+{
+  const schemas = JSON.parse(readFileSync(join(root, 'src/data/schemas.json'), 'utf8'));
+  const wiPin = (src.match(/repository: 'Aftergraph\/work-intelligence-v2'[\s\S]*?commitSha: '([0-9a-f]{40})'/) || [])[1];
+  if (schemas.api?.commit !== wiPin) fail('schemas.json commit != WI pin (run scripts/schemas.mjs)');
+  if (schemas.api?.paths !== Object.keys(api.paths ?? {}).length) fail('schemas.json paths != openapi paths');
+  ok(`schemas: ${schemas.schemas.length} component schemas, pin + paths match`);
+}
 
 // 5. catalog/contract/claim consistency: owners must be allowlisted
 const allowRepos = [...src.matchAll(/'(Aftergraph\/[^']+)'/g)].map((m) => m[1]);

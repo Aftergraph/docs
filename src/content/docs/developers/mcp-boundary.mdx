@@ -28,6 +28,8 @@ Boundary (non-negotiable):
 | `docs_search(query)` | Text search across rendered pages |
 | `docs_get_catalog()` | Canonical repos with pinned SHAs |
 | `docs_get_context_pack(route)` | ACC-shaped portable context bundle per page (ADR-005) |
+| `docs_get_api_operation(operation)` | One operation by `METHOD /path` from canonical OpenAPI |
+| `docs_get_conformance()` | Gate list, freshness policy, contract register integrity |
 
 <h3>Wire into an MCP client</h3>
 
@@ -39,9 +41,8 @@ mcp_servers:
 ```
 
 The server serves the local build; run `npm run build` first. Deliberately
-not yet implemented (future contract): `get_api_operation`, `get_conformance`,
-`get_schema` as separate tools — OpenAPI answers already surface via
-`docs_get_page('developers/api-reference')`, and context packs via
-`docs_get_context_pack` (ADR-005).
+not yet implemented: `get_schema` as a separate tool — OpenAPI answers
+already surface via `docs_get_page('developers/api-reference')`, and context
+packs via `docs_get_context_pack` (ADR-005).
 
 <Provenance page="developers/mcp-boundary" />

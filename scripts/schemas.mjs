@@ -6,7 +6,13 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
-const api = JSON.parse(readFileSync(root + '/public/openapi.json', 'utf8'));
+let api;
+try {
+  api = JSON.parse(readFileSync(root + '/public/openapi.json', 'utf8'));
+} catch (e) {
+  console.error('schemas.mjs: cannot read public/openapi.json (adopt the artifact first)');
+  process.exit(1);
+}
 const src = readFileSync(root + '/src/data/sources.ts', 'utf8');
 const pin = src.match(/repository: 'Aftergraph\/work-intelligence-v2'[\s\S]*?commitSha: '([0-9a-f]{40})'/);
 if (!pin) { console.error('WI pin not found in sources.ts'); process.exit(1); }
@@ -17,7 +23,7 @@ const schemas = Object.entries(defs).map(([name, s]) => ({
   properties: Object.entries(s.properties ?? {}).map(([pname, p]) => ({
     name: pname,
     type: p.type ?? (p.anyOf ? p.anyOf.map((x) => x.type).join(' | ') : p.$ref?.split('/').pop() ?? 'object'),
-    description: p.description ?? '',
+    description: p.description ?? p.title ?? '',
     required: (s.required ?? []).includes(pname),
   })),
 }));

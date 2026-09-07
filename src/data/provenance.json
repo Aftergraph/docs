@@ -215,14 +215,6 @@
     "evidence_cut": null,
     "canonical_owner": "Governance"
   },
-  "developers/sentinel": {
-    "repository": "Aftergraph/sentinel",
-    "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
-    "source": "README.md + docs/ (strategy docs, prototype-first)",
-    "semantic_version": "docs snapshot (no code yet)",
-    "evidence_cut": null,
-    "canonical_owner": "Sentinel"
-  },
   "sentinel/brand-identity": {
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",

@@ -31,8 +31,18 @@ Format inspired by Keep a Changelog; versions are portal slices, not semver.
   hardcoded SHAs). Drafted in parallel by three agents; every number
   re-verified against the registries before merge (fixed: 1 wrong import
   depth, 1 projected status stated as registry status, 3 stale "7 tools"
-  references — server now exposes 10; tool counts are now phrased
+  references — server exposes 9; tool counts are now phrased
   count-free so they cannot rot again).
+- Finish-up sweep (4 agents: research, codebase, product, docs): sidebar
+  gains System Map, qualified overview labels, hub-first ordering;
+  orphan pages linked from their hubs; launcher copy differentiated from
+  the journey; MCP table updated to the 9-tool manifest; catalog API
+  source synced to the WI pin; schemas derivation falls back to OpenAPI
+  `title`; links gate uses real github-slugger, skips code fences, and
+  asserts schemas/pin/paths parity; context packs gain next-reading for
+  new routes; orphan provenance key removed; `.gitattributes` enforces
+  LF-only. Pin adoptions (WI, governance) left to verifier per
+  never-auto-pin policy.
 
 ## [V1.1] — 2026-09-07 — Docs parity
 

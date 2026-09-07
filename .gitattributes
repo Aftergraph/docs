@@ -1,0 +1,7 @@
+# Windows checkouts must not introduce CRLF: the build hard-fails on it.
+* text=auto
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.mdx text eol=lf
+*.json text eol=lf
+*.ts text eol=lf

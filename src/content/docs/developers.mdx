@@ -4,24 +4,26 @@ description: "Build with the Knowledge Plane — quickstart, tutorials, guides, 
 ---
 import Provenance from '../../components/Provenance.astro';
 
-Four ways in, one rule everywhere: **the plane renders truth, owning repos
+Nine ways in, one rule everywhere: **the plane renders truth, owning repos
 own it.**
 
 | I want to… | Start with |
 |---|---|
-| Verify the plane itself in 10 minutes | [Quickstart](/developers/quickstart/) |
+| Verify the plane itself in 10 minutes | [Quickstart](/developers/quickstart/) (all guides indexed in [Examples](/examples/)) |
 | Learn by walking through real traces | [Tutorials](/developers/tutorials/) |
 | Solve a specific task (adoption, MCP wiring, packs) | [How-to Guides](/developers/how-to/) |
 | Look up exact contracts, claims, terms | [Reference](/developers/reference/) |
 | Understand *why* it's built this way | [Explanation](/developers/explanation/) |
 | Integrate the Work Intelligence API | [API Reference](/developers/api-reference/) |
+| Look up request/response shapes | [Schemas](/developers/schemas/) |
 | Give an agent programmatic access | [Docs MCP](/developers/mcp-boundary/) |
+| Point a coding agent at these docs | [Agent Guide](/developers/agent-guide/) |
 
 ## The 30-second version
 
 ```bash
 git clone https://github.com/Aftergraph/docs && cd docs && npm ci
-npm run build                              # 9 gates + 28 pages
+npm run build                              # 9 gates (page count grows; see sidebar)
 node scripts/freshness.mjs                 # pins vs live remote state
 node scripts/smoke.mjs http://localhost:4321
 ```

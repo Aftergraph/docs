@@ -1,7 +1,8 @@
 // @ts-nocheck
 // Live Truth verifier: pinned SHA vs canonical remote HEAD + artifact blob compare.
 // Policy (ADR-004): CURRENT | SOURCE_MOVED_CONTENT_UNCHANGED |
-// SOURCE_MOVED_CONTENT_CHANGED | STALE | UNKNOWN. UNKNOWN never counts as CURRENT.
+// SOURCE_MOVED_CONTENT_CHANGED | SOURCE_MOVED | STALE | UNKNOWN.
+// UNKNOWN never counts as CURRENT.
 // Writes public/source-state.json (CI artifact: knowledge-plane-source-state.json).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';

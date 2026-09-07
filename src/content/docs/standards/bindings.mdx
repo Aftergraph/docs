@@ -3,8 +3,9 @@ title: "Standards Bindings"
 description: "External standards Aftergraph binds to — every row traced to repo data or a pinned page."
 ---
 import Provenance from '../../../components/Provenance.astro';
+import schemas from '../../../data/schemas.json';
 
-This page is a compiler, not an owner. Each row below traces to either
+This page is a compiler, not an owner. Each row below traces to
 `src/data/*.json` or an existing page. Standards with no such trace are
 not listed here.
 
@@ -12,7 +13,7 @@ not listed here.
 |---|---|---|---|
 | MCP (stdio, read-only) | Agent interface | Docs MCP server (V0.4, read-only over the built site) | [Docs MCP boundary](/developers/mcp-boundary/) |
 | JSON-RPC | Transport | Wire protocol of the Docs MCP server (newline-delimited over stdio) | [Developer how-to](/developers/how-to/) |
-| OpenAPI 3.1 | HTTP API description | Work Intelligence v0.2.0 — 11 paths, rendered reference | [API reference](/developers/api-reference/) |
+| OpenAPI 3.1 | HTTP API description | Work Intelligence v{schemas.api.version} — {schemas.api.paths} paths, rendered reference | [API reference](/developers/api-reference/) |
 | RFC 8693 | Delegation envelope | Token-exchange envelope for authority delegation; the attenuation rule itself is Aftergraph's own normative constraint (C-006), not the RFC's | [Claim graph](/evidence/claim-graph/) |
 
 Aftergraph's own tracks (AIE semantics, cross-repo contracts, SPEC-001) are

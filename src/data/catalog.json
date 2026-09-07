@@ -98,7 +98,7 @@
   "apis": [
     {
       "name": "Aftergraph Work Intelligence v0.2.0",
-      "source": "Aftergraph/work-intelligence-v2@370a0b2029fb0f694a62d36ffdc390f16bf1040d openapi.json",
+      "source": "Aftergraph/work-intelligence-v2@49f602145094e2b5dfcbfd712c6085653a765360 openapi.json",
       "paths": 11,
       "reference": "/developers/api-reference/"
     }
