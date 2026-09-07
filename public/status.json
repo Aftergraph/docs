@@ -1,7 +1,7 @@
 {
   "build": {
-    "site_commit": "a9e4abec4e7cbaf9abf897d9974add2ddde13d87",
-    "generated_at": "2026-09-07T00:55:38.789Z"
+    "site_commit": "0e9d5540c2c18407dda54994d208f0572d08e5f9",
+    "generated_at": "2026-09-07T00:56:47.694Z"
   },
   "summary": {
     "source_count": 9,
@@ -11,7 +11,7 @@
     "source_moved": 0,
     "stale": 0,
     "unknown": 0,
-    "last_verification": "2026-09-07T00:55:33.302Z"
+    "last_verification": "2026-09-07T00:56:41.678Z"
   },
   "sources": [
     {
@@ -139,5 +139,5 @@
       ]
     }
   ],
-  "verification": "2026-09-07T00:55:33.302Z"
+  "verification": "2026-09-07T00:56:41.678Z"
 }

@@ -16,8 +16,8 @@
   "next_reading": [
     "https://docs.aftergraph.org/catalog/"
   ],
-  "generated_at": "2026-09-07T00:55:42.465Z",
-  "site_commit": "a9e4abec4e7cbaf9abf897d9974add2ddde13d87",
+  "generated_at": "2026-09-07T00:56:50.870Z",
+  "site_commit": "0e9d5540c2c18407dda54994d208f0572d08e5f9",
   "constraints": [
     "Do not treat this pack as fresher than its site_commit.",
     "The owning repository (source_repository@source_commit) is authoritative over this rendering."
