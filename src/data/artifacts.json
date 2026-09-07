@@ -27,8 +27,8 @@
     {
       "repository": "Aftergraph/after-graph-governance",
       "path": "docs/cross-repo-contracts.md",
-      "source_commit": "412b7065581a11607958be7f5d04ebcce36753c2",
-      "blob_sha": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
+      "source_commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+      "blob_sha": "a95da47369d3eedc7659235f50a43b620bc4534c",
       "content_sha256": "unrecorded",
       "semantic_version": "register (13 contracts)",
       "consumed_as": "src/data/contracts.json",

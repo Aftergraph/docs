@@ -32,7 +32,7 @@ export const PUBLIC_ALLOWLIST = [
 ] as const;
 
 export const SOURCES: KnowledgeSource[] = [
-  { repository: 'Aftergraph/after-graph-governance', ref: 'main', commitSha: '412b7065581a11607958be7f5d04ebcce36753c2', owner: 'Governance', kind: 'contract', visibility: 'public' },
+  { repository: 'Aftergraph/after-graph-governance', ref: 'main', commitSha: '21b4fe4f6385620ca07f01a56aac7b09d87e0be2', owner: 'Governance', kind: 'contract', visibility: 'public' },
   { repository: 'Aftergraph/aie', ref: 'main', commitSha: '7ab61a2aa3891e407eed8d0ff3a91fb6947ff744', owner: 'AIE', kind: 'specification', visibility: 'public' },
   { repository: 'Aftergraph/intelligence-systems-research', ref: 'main', commitSha: 'b8812ca338836b4bd272814d4626b8bc744d8fea', owner: 'ISR', kind: 'research', visibility: 'public', evidenceCut: 'AUDIT-EVID-001 (2026-09-04)' },
   { repository: 'Aftergraph/trust-gateway', ref: 'main', commitSha: 'bfe126eb7e987ae607c7d1aae043b48f12b7d7e9', owner: 'Trust Gateway', kind: 'documentation', visibility: 'public' },
