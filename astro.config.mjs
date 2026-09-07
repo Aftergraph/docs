@@ -1,11 +1,9 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// ponytail: sidebar mirrors the canonical IA (Platform Developers Research
-// Standards Evidence Catalog Company). No generic "Docs" top-level —
-// ADR-003. Search is Starlight Pagefind (default, no hosted dependency).
-// ThemeSelect is overridden (components.ThemeSelect) to default to dark —
-// Starlight 0.42 has no `defaultTheme` option.
+// V2 IA: Start (homepage) → Platform → Build → Standards → Evidence → Research → Trust.
+// URLs remain stable. Search is Starlight Pagefind; source ownership remains unchanged.
+// ThemeSelect is overridden to default to dark; Starlight 0.42 has no defaultTheme option.
 export default defineConfig({
   site: 'https://docs.aftergraph.org',
   integrations: [
@@ -24,7 +22,7 @@ export default defineConfig({
         { tag: 'meta', attrs: { property: 'og:image', content: 'https://docs.aftergraph.org/og-image.jpg' } },
         { tag: 'meta', attrs: { property: 'og:image:width', content: '1024' } },
         { tag: 'meta', attrs: { property: 'og:image:height', content: '576' } },
-        { tag: 'meta', attrs: { property: 'og:image:alt', content: 'Aftergraph Knowledge Plane — glowing graph network on midnight canvas' } },
+        { tag: 'meta', attrs: { property: 'og:image:alt', content: 'Aftergraph Knowledge Plane — graph network on midnight canvas' } },
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
         { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://docs.aftergraph.org/og-image.jpg' } },
         { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' } },
@@ -34,19 +32,19 @@ export default defineConfig({
         { label: 'Platform', items: [
           { label: 'Overview', slug: 'platform' },
           { label: 'Golden Mission', slug: 'platform/golden-mission' },
+          { label: 'Catalog', slug: 'catalog' },
           { label: 'Live Status', slug: 'status' },
         ]},
-        { label: 'Developers', items: [
+        { label: 'Build', items: [
           { label: 'Quickstart', slug: 'developers/quickstart' },
           { label: 'Overview', slug: 'developers' },
           { label: 'Tutorials', slug: 'developers/tutorials' },
           { label: 'How-to Guides', slug: 'developers/how-to' },
           { label: 'Reference', slug: 'developers/reference' },
-          { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'API Reference', slug: 'developers/api-reference' },
+          { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'Docs MCP (read-only)', slug: 'developers/mcp-boundary' },
         ]},
-        { label: 'Research', items: [{ label: 'Overview', slug: 'research' }]},
         { label: 'Standards', items: [
           { label: 'Overview', slug: 'standards' },
           { label: 'Contracts', slug: 'standards/contracts' },
@@ -56,14 +54,14 @@ export default defineConfig({
           { label: 'Overview', slug: 'evidence' },
           { label: 'Claim Graph', slug: 'evidence/claim-graph' },
         ]},
-        { label: 'Catalog', items: [{ label: 'Overview', slug: 'catalog' }]},
-        { label: 'Company', items: [
-          { label: 'Overview', slug: 'company' },
+        { label: 'Research', items: [{ label: 'Overview', slug: 'research' }]},
+        { label: 'Trust', items: [
           { label: 'Trust & Verification', slug: 'company/trust' },
-          { label: 'Brand', slug: 'company/brand' },
+          { label: 'Company', slug: 'company' },
           { label: 'Contributing', slug: 'company/contributing' },
           { label: 'FAQ', slug: 'company/faq' },
           { label: 'Troubleshooting', slug: 'company/troubleshooting' },
+          { label: 'Brand', slug: 'company/brand' },
           { label: 'Changelog', slug: 'company/changelog' },
         ]},
       ],
