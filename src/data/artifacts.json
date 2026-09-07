@@ -3,7 +3,7 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "path": "openapi.json",
-      "source_commit": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
+      "source_commit": "a926f26b99b6aa265c02590249fa32b85941b73d",
       "blob_sha": "f5ca4c818e76ca8c7d6cf347c4804d47cf657b37",
       "content_sha256": "be9576195277b545",
       "semantic_version": "OpenAPI 3.1.0 / API v0.2.0",
@@ -15,7 +15,7 @@
     {
       "repository": "Aftergraph/brand",
       "path": "tokens.json",
-      "source_commit": "fe7485a498abfc02fc5b74faada819140425acf8",
+      "source_commit": "138f4746a716ac78fb5a60841cc9fa63026083c2",
       "blob_sha": "5931b40dd1933b9118bc28a07a87e0d4068587cc",
       "content_sha256": "unrecorded",
       "semantic_version": "tokens v1.0.0",
@@ -27,7 +27,7 @@
     {
       "repository": "Aftergraph/after-graph-governance",
       "path": "docs/cross-repo-contracts.md",
-      "source_commit": "d5972d1240cc2d0347f3a2ea6c0493bcd2f6577c",
+      "source_commit": "f8a777d0210eda5f6d82d2c33df3a1a47b3b99f7",
       "blob_sha": "6a613e7b229c937ce5955a7abe0c58fbbf3168da",
       "content_sha256": "unrecorded",
       "semantic_version": "register (17 contracts)",

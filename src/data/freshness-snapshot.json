@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026-09-07T20:16:53.593Z",
+  "site_commit": "4906c30013e143e211971871995c8a75063bc330",
+  "counts": {
+    "CURRENT": 10,
+    "SOURCE_MOVED": 1
+  },
+  "rows": [
+    {
+      "repository": "after-graph-governance",
+      "status": "CURRENT",
+      "pinned": "f8a777d0",
+      "remote": "f8a777d0"
+    },
+    {
+      "repository": "aie",
+      "status": "CURRENT",
+      "pinned": "29f6a9b8",
+      "remote": "29f6a9b8"
+    },
+    {
+      "repository": "intelligence-systems-research",
+      "status": "CURRENT",
+      "pinned": "08c98464",
+      "remote": "08c98464"
+    },
+    {
+      "repository": "trust-gateway",
+      "status": "CURRENT",
+      "pinned": "d207485f",
+      "remote": "d207485f"
+    },
+    {
+      "repository": "works-execution",
+      "status": "SOURCE_MOVED",
+      "pinned": "79914a51",
+      "remote": "372bc3fa"
+    },
+    {
+      "repository": "work-intelligence-v2",
+      "status": "CURRENT",
+      "pinned": "a926f26b",
+      "remote": "a926f26b"
+    },
+    {
+      "repository": "studio",
+      "status": "CURRENT",
+      "pinned": "ca3da75e",
+      "remote": "ca3da75e"
+    },
+    {
+      "repository": "sentinel",
+      "status": "CURRENT",
+      "pinned": "1a8692b9",
+      "remote": "1a8692b9"
+    },
+    {
+      "repository": "aftergraph.org",
+      "status": "CURRENT",
+      "pinned": "8276285a",
+      "remote": "8276285a"
+    },
+    {
+      "repository": "brand",
+      "status": "CURRENT",
+      "pinned": "138f4746",
+      "remote": "138f4746"
+    },
+    {
+      "repository": ".github",
+      "status": "CURRENT",
+      "pinned": "56d70aac",
+      "remote": "56d70aac"
+    }
+  ]
+}

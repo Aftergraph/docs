@@ -55,4 +55,20 @@ for (const { repo, sha } of pins) {
   out.sources.push(entry);
 }
 writeFileSync(root + '/public/source-state.json', JSON.stringify(out, null, 2) + '\n');
+// Build-time snapshot for the Status page (live-view pattern): the page
+// renders this instead of a hand-maintained table, so counts and SHAs
+// cannot rot between verifications. src/data is committed; dist is not.
+const counts = {};
+for (const e of out.sources) counts[e.status] = (counts[e.status] ?? 0) + 1;
+writeFileSync(root + '/src/data/freshness-snapshot.json', JSON.stringify({
+  checked_at: out.checked_at,
+  site_commit: out.site_commit,
+  counts,
+  rows: out.sources.map((e) => ({
+    repository: e.repository.replace('Aftergraph/', ''),
+    status: e.status,
+    pinned: (e.pinned_sha || '').slice(0, 8),
+    remote: (e.remote_sha || '').slice(0, 8),
+  })),
+}, null, 2) + '\n');
 for (const e of out.sources) console.log(`${e.status} ${e.repository}`);

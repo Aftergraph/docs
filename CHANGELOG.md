@@ -51,6 +51,13 @@ Format inspired by Keep a Changelog; versions are portal slices, not semver.
   rate-limit) with CORS-failure UX; live use needs
   [wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59)
   merged + deployed.
+- All-current sync: adopted governance/WI/brand/aie/ISR/TG/sentinel/
+  aftergraph.org HEADs (each content-verified: additive or identical),
+  added sentinel decision #10 verbatim, killed the hand-maintained
+  Status table (now rendered from `freshness-snapshot.json` at build
+  time) — 11/11 CURRENT, 53/53 provenance 1:1.
+- Try-it goes live: #59 merged, VDS deployed (`a926f26`), ACAO verified
+  public, evil denied, journal clean; CORS notes flipped to live.
 
 ## [V1.1] — 2026-09-07 — Docs parity
 

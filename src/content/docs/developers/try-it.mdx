@@ -6,11 +6,11 @@ import Provenance from '../../../components/Provenance.astro';
 
 Three read-only `GET` endpoints against production
 (`https://work-intelligence.aftergraph.org`, paths from the adopted
-OpenAPI). No keys, no signup, nothing is written. If a call fails with a
-network error, the browser is blocking it: the API's CORS allow-list must
-include this origin — tracked in
-[wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59). Until
-that deploys, use the curl fallback shown under each result.
+OpenAPI). No keys, no signup, nothing is written. The API allow-lists
+this origin (live since the
+[wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59)
+deploy) — if a call still fails with a network error, use the curl
+fallback shown under the result.
 
 <div class="ag-deep-list" id="tryit-buttons">
   <a href="#try-version" id="btn-version"><strong>GET /api/v1/version</strong><span>Build version and maturity.</span></a>
@@ -34,9 +34,8 @@ that deploys, use the curl fallback shown under each result.
       catch { body = text; }
       out.textContent = 'HTTP ' + res.status + '\\n' + body;
     } catch (e) {
-      out.textContent = 'NETWORK ERROR — the browser blocked the request. '
-        + 'This means the CORS allow-list has not deployed yet '
-        + '(wi-backend#59). Fallback:\\n'
+      out.textContent = 'NETWORK ERROR — the browser blocked the request '
+        + '(allow-list regression or connectivity). Fallback:\\n'
         + 'curl ' + base + path;
     }
   }

@@ -4,37 +4,37 @@
       "repo": "Aftergraph/after-graph-governance",
       "class": "Repository",
       "role": "Cross-repo contracts, architecture, terminology, boundaries",
-      "sha": "d5972d1240cc2d0347f3a2ea6c0493bcd2f6577c"
+      "sha": "f8a777d0210eda5f6d82d2c33df3a1a47b3b99f7"
     },
     {
       "repo": "Aftergraph/aftergraph.org",
       "class": "Repository",
       "role": "Public platform surface: landing, launcher, health, agent llms.txt (aftergraph.org)",
-      "sha": "4c1e00fd358c3a2a42cc60490213bcac15d9c759"
+      "sha": "8276285aea2bee0f51765145097b4103f9671c83"
     },
     {
       "repo": "Aftergraph/aie",
       "class": "Repository",
       "role": "Normative authority semantics (Agentic Institution Engineering)",
-      "sha": "7ab61a2aa3891e407eed8d0ff3a91fb6947ff744"
+      "sha": "29f6a9b8247d53beeabf59fb941069f380890906"
     },
     {
       "repo": "Aftergraph/brand",
       "class": "Repository",
       "role": "Brand OS + design system (tokens v1.0.0 provisional)",
-      "sha": "fe7485a498abfc02fc5b74faada819140425acf8"
+      "sha": "138f4746a716ac78fb5a60841cc9fa63026083c2"
     },
     {
       "repo": "Aftergraph/intelligence-systems-research",
       "class": "Repository",
       "role": "Labs / evals / assurance research program (SPEC-001, MISSION-Bench)",
-      "sha": "b8812ca338836b4bd272814d4626b8bc744d8fea"
+      "sha": "08c98464a58cf16bb1a70f4f0c5516ad1410bd33"
     },
     {
       "repo": "Aftergraph/sentinel",
       "class": "Repository",
       "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs + prototype rule implementation)",
-      "sha": "4b0007cd6a62aa5599772387958b4d49905a56d4"
+      "sha": "1a8692b93cb3eb664e51bca7b43f5366244b30fa"
     },
     {
       "repo": "Aftergraph/studio",
@@ -46,13 +46,13 @@
       "repo": "Aftergraph/trust-gateway",
       "class": "Repository",
       "role": "Fail-closed runtime enforcement plane",
-      "sha": "bfe126eb7e987ae607c7d1aae043b48f12b7d7e9"
+      "sha": "d207485f84cad550d3a5306581c82d3328b15ec8"
     },
     {
       "repo": "Aftergraph/work-intelligence-v2",
       "class": "Repository",
       "role": "Source-neutral work intelligence (observations → WorkItems)",
-      "sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0"
+      "sha": "a926f26b99b6aa265c02590249fa32b85941b73d"
     },
     {
       "repo": "Aftergraph/works-execution",
