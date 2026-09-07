@@ -1,12 +1,14 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 
-const read = (path) => fs.readFileSync(path, 'utf8');
+/** @param {string} filePath */
+const read = (filePath) => fs.readFileSync(filePath, 'utf8');
 const hero = read('src/components/Hero.astro');
 const index = read('src/content/docs/index.mdx');
 const config = read('astro.config.mjs');
 const css = read('src/styles/brand.css');
 
+/** @param {string} source @param {string} needle @param {string} [label] */
 const includes = (source, needle, label = needle) =>
   assert.ok(source.includes(needle), `missing ${label}`);
 
