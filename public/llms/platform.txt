@@ -2,3 +2,4 @@
 
 - Platform overview: https://docs.aftergraph.org/platform/
 - Golden Mission route: https://docs.aftergraph.org/platform/golden-mission/
+- System Map (verified bindings): https://docs.aftergraph.org/platform/system-map/

@@ -45,10 +45,13 @@ title: "Status"
 description: "Live build provenance and source freshness for this deployment."
 ---
 import Provenance from '../../components/Provenance.astro';
+import LiveStatus from '../../components/LiveStatus.astro';
 
 Site commit: \`${site}\`
 Built at: \`${status.build.generated_at}\`
 Last source verification: \`${summary.last_verification || 'pending'}\`
+
+<LiveStatus />
 
 | Metric | Count |
 |---|---|

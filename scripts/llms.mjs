@@ -18,7 +18,7 @@ try {
 } catch {}
 const base = 'https://docs.aftergraph.org';
 const scopes = {
-  platform: ['Platform overview', '/platform/', 'Golden Mission route', '/platform/golden-mission/'],
+  platform: ['Platform overview', '/platform/', 'Golden Mission route', '/platform/golden-mission/', 'System Map (verified bindings)', '/platform/system-map/'],
   research: ['Research overview', '/research/', 'Evidence + claim states', '/evidence/'],
   standards: ['Standards overview', '/standards/', 'Contract Explorer (13 contracts)', '/standards/contracts/', 'Catalog', '/catalog/'],
   aie: ['Authority semantics via AIE contracts', '/standards/contracts/', 'identity/1.0 + brain.ns/1.0 owners', '/standards/contracts/', 'Contract Graph (owner→consumer edges)', '/standards/contract-graph/'],

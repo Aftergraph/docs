@@ -35,7 +35,7 @@ export default defineConfig({
           { label: 'Reference', slug: 'developers/reference' },
           { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'API Reference', slug: 'developers/api-reference' },
-          { label: 'MCP Boundary (future)', slug: 'developers/mcp-boundary' },
+          { label: 'Docs MCP (read-only)', slug: 'developers/mcp-boundary' },
         ]},
         { label: 'Research', items: [{ label: 'Overview', slug: 'research' }]},
         { label: 'Standards', items: [

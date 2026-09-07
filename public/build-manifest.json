@@ -1,7 +1,7 @@
 {
-  "site_commit": "e4a70f38aa5548de91d98bf59ae99406c34b3a79",
+  "site_commit": "235d46bf6b95bf71230b7b750ead3e8f7f5f4e70",
   "build_id": "local",
-  "generated_at": "2026-09-07T00:41:14.196Z",
+  "generated_at": "2026-09-07T00:47:15.846Z",
   "environment": "local",
   "sources": {
     "Aftergraph/after-graph-governance": "57c681e9e4df56f5e2dd068e372d945392dc0007",
@@ -16,6 +16,6 @@
   },
   "validation": {
     "status": "passed",
-    "validated_at": "2026-09-07T00:41:03.993Z"
+    "validated_at": "2026-09-07T00:47:04.827Z"
   }
 }

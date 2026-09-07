@@ -1,12 +1,45 @@
 ---
-title: "Docs MCP Boundary (future)"
-description: "Read-only future interface — contract only, no privileged writes."
+title: "Docs MCP (read-only)"
+description: "V0.4 shipped: stdio MCP server over the built site — no writes, no shell, no network."
 ---
 import Provenance from '../../../components/Provenance.astro';
 
-Future read-only tools (contract, not implementation): `search`, `get_page`,
-`get_contract`, `get_schema`, `get_api_operation`, `get_claim`, `get_evidence`,
-`get_repo_state`, `get_conformance`. No writes. No privileged access.
+The Docs MCP is **shipped** (`scripts/docs-mcp-server.mjs`) as a
+newline-delimited JSON-RPC stdio server. It reads the exact built `dist/` +
+`public/` artifacts of this site — so every answer carries the build's
+provenance and freshness boundary, never live-reinterpreted content.
 
+Boundary (non-negotiable):
+
+- **Read-only.** No writes, no shell, no network. Sources of truth remain the
+  owning repositories.
+- **Build-bounded.** Responses include `site_commit` from
+  `dist/build-manifest.json`; agents must not treat answers as fresher than
+  that commit.
+
+<h3>Tools</h3>
+
+| Tool | Purpose |
+|---|---|
+| `docs_get_status()` | Build provenance + per-source freshness summary |
+| `docs_get_contract(name)` | Contract by name + graph edges + provenance |
+| `docs_get_claim(id)` | Claim chain (C-001..) with status/class/cut/reproduction |
+| `docs_get_page(route)` | One rendered page as text + page provenance |
+| `docs_search(query)` | Text search across rendered pages |
+| `docs_get_catalog()` | Canonical repos with pinned SHAs |
+
+<h3>Wire into an MCP client</h3>
+
+```
+mcp_servers:
+  aftergraph-docs:
+    command: node
+    args: ["C:/Users/empir/workspace/docs/scripts/docs-mcp-server.mjs"]
+```
+
+The server serves the local build; run `npm run build` first. Deliberately
+not yet implemented (future contract): `get_api_operation`, `get_conformance`,
+`get_schema` as separate tools — OpenAPI answers already surface via
+`docs_get_page('developers/api-reference')`.
 
 <Provenance page="developers/mcp-boundary" />
