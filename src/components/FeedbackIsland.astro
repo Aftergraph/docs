@@ -1,0 +1,58 @@
+---
+// Per-page feedback: "was this helpful?" → prefill a GitHub issue.
+// No backend, no tracking, privacy-clean. Receives the plane's page id.
+const { pageId } = Astro.props;
+const pid = pageId ?? 'unknown';
+const route = pid === 'unknown' ? '' : pid.split('--').join('/');
+const title = encodeURIComponent('[docs feedback] ' + pid);
+const body = encodeURIComponent(
+  'Page: https://docs.aftergraph.org/' + route +
+  '\n\nFeedback:\n\n(via page feedback widget — no analytics, just this issue)'
+);
+const issueUrl = 'https://github.com/Aftergraph/docs/issues/new?title=' + title + '&body=' + body;
+---
+<div class="ag-feedback" data-feedback data-page={pid}>
+  <span class="q">Was this page helpful?</span>
+  <button data-vote="yes" aria-label="Yes, this page was helpful">Yes</button>
+  <button data-vote="no" aria-label="No, this page needs work">No</button>
+  <a data-issue href={issueUrl} style="display:none">Open an issue instead →</a>
+</div>
+
+<script>
+  // ponytail: no backend by design — "no" routes to a prefilled issue;
+  // upgrade path = a tiny worker if real signal is ever needed.
+  const el = document.querySelector('[data-feedback]');
+  if (el) {
+    const issue = el.querySelector('[data-issue]');
+    const q = el.querySelector('.q');
+    el.querySelectorAll('[data-vote]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const yes = b.getAttribute('data-vote') === 'yes';
+        el.querySelectorAll('button').forEach((x) => (x.disabled = true));
+        if (q) q.textContent = yes ? 'Thanks — feedback noted locally.' : 'Thanks — help us fix it:';
+        if (issue) issue.style.display = yes ? 'none' : 'inline';
+      });
+    });
+  }
+</script>
+
+<style>
+  .ag-feedback {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(137, 147, 164, 0.2);
+    font-size: 0.85rem;
+  }
+  .ag-feedback button {
+    padding: 0.15rem 0.8rem;
+    border: 1px solid rgba(137, 147, 164, 0.4);
+    border-radius: 0.4rem;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .ag-feedback button:hover:not(:disabled) { border-color: #22d3ee; }
+</style>

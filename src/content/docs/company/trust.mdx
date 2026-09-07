@@ -1,0 +1,62 @@
+---
+title: "Trust & Verification"
+description: "How this plane earns trust — gates, evidence discipline, and what it will not do."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+Trust here is mechanical, not rhetorical. Every page carries the receipts.
+
+## What the plane guarantees (structurally)
+
+1. **Ownership is exact.** Every page binds to `owner-repo@<full-sha>`.
+   Rendered views cannot outlive their provenance.
+2. **Private content cannot leak.** A build-time allowlist + a scan of every
+   served byte fail the build on any private-repo reference.
+3. **Claims are verbatim.** The claim register is copied from the ISR
+   evidence audit — statuses, limitations, reproduction states. The plane
+   renders claims; it never strengthens them. Projection can only weaken
+   (live REVERSED → CONTESTED), never upgrade.
+4. **Staleness is visible.** Freshness verdicts distinguish harmless
+   repository churn from real semantic drift; `UNKNOWN` fails honest, never
+   optimistic ([ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md)).
+5. **Agents get the same truth.** The Docs MCP is read-only, build-bounded,
+   and carries `site_commit` in every answer.
+
+## The nine gates
+
+`npm run build` runs them all; CI runs them remotely; the smoke suite runs
+against production after deploy:
+
+| # | Gate | Catches |
+|---|---|---|
+| 1 | Source manifest schema | Non-full SHAs, non-public visibility |
+| 2 | Provenance coverage | Pages without owner bindings |
+| 3 | Internal links | Dangling references |
+| 4 | OpenAPI validity | Broken/absent canonical API artifact |
+| 5 | Ownership allowlist | Cross-registry contamination |
+| 6 | llms.txt presence | Missing agent surface |
+| 7 | Artifact fingerprints | Tampered/uncertain consumed artifacts |
+| 8 | Graph consistency | Edges to unknown nodes, non-canonical claim states |
+| 9 | Context packs | Packs missing provenance/freshness bounds |
+
+## What the plane will not do
+
+- Upgrade, soften or reinterpret a claim — the registry is authoritative.
+- Auto-pin a moved source — adoption is a human-reviewed commit.
+- Serve a fresher view than its build — every surface states its boundary.
+- Host canonical specs or claims — owning repositories do that.
+
+## Verify us, don't trust us
+
+- Reproduce the freshness verdict: `node scripts/freshness.mjs` against live
+  GitHub state.
+- Diff a claim against the registry at the pinned commit
+  ([Tutorial 1](/developers/tutorials/)).
+- Point an MCP client at the plane and query it yourself
+  ([Tutorial 2](/developers/tutorials/)).
+
+Contradictory prior art or a failing invariant? Open an issue on
+[`Aftergraph/docs`](https://github.com/Aftergraph/docs/issues) — criticism
+that can falsify a claim is worth more than agreement that cannot.
+
+<Provenance page="company/trust" />

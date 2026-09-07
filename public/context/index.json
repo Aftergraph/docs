@@ -20,8 +20,14 @@
     "https://docs.aftergraph.org/context/standards.contract-graph.json",
     "https://docs.aftergraph.org/context/evidence.claim-graph.json",
     "https://docs.aftergraph.org/context/platform.system-map.json",
-    "https://docs.aftergraph.org/context/company.brand.json"
+    "https://docs.aftergraph.org/context/company.brand.json",
+    "https://docs.aftergraph.org/context/developers.quickstart.json",
+    "https://docs.aftergraph.org/context/company.faq.json",
+    "https://docs.aftergraph.org/context/company.troubleshooting.json",
+    "https://docs.aftergraph.org/context/company.trust.json",
+    "https://docs.aftergraph.org/context/company.contributing.json",
+    "https://docs.aftergraph.org/context/company.changelog.json"
   ],
   "note": "ACC-shaped portable context packs. Read-only derivation; owning repos are authoritative.",
-  "generated_at": "2026-09-07T01:16:42.415Z"
+  "generated_at": "2026-09-07T01:31:55.406Z"
 }

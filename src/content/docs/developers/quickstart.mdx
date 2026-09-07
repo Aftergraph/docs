@@ -1,0 +1,90 @@
+---
+title: "Quickstart"
+description: "First verified outcome in 10 minutes — dogfood the plane on itself."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+This quickstart uses the Knowledge Plane to verify the Knowledge Plane. By the
+end you will have: cloned a canonical source, compared a pinned SHA against
+live remote state, read a provenance block, and consumed a machine-readable
+context pack — the exact loop every Aftergraph consumer runs.
+
+## Prerequisites
+
+- Git, Node.js 24, and [`gh`](https://cli.github.com/) authenticated
+  (`gh auth status` succeeds).
+- 10 minutes.
+
+## 1. Clone the plane
+
+```bash
+git clone https://github.com/Aftergraph/docs.git
+cd docs
+npm ci
+```
+
+## 2. Read the source registry
+
+Every canonical source is pinned at a full 40-character SHA in
+`src/data/sources.ts`. Each pin carries owner, kind and visibility — private
+repos are allowlist-blocked at build time.
+
+```bash
+cat src/data/sources.ts
+```
+
+## 3. Verify freshness against live remote state
+
+```bash
+node scripts/freshness.mjs
+```
+
+Output is one line per source:
+
+```
+CURRENT                           Aftergraph/aie
+SOURCE_MOVED_CONTENT_UNCHANGED    Aftergraph/work-intelligence-v2
+```
+
+Statuses follow [ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md):
+repository movement is not semantic movement — only consumed-artifact blob
+changes count as content drift. `UNKNOWN` never counts as `CURRENT`.
+
+## 4. Read a page's provenance
+
+Open any page on [docs.aftergraph.org](https://docs.aftergraph.org) and find
+the provenance block (owner · source repo@SHA · semantic version · evidence
+cut). It is machine-readable too:
+
+```bash
+curl -s https://docs.aftergraph.org/status.json | head -20
+```
+
+## 5. Consume a context pack (the agent surface)
+
+```bash
+curl -s https://docs.aftergraph.org/context/index.json
+curl -s https://docs.aftergraph.org/context/standards.contract-graph.json
+```
+
+Each pack carries the page's owner, source commit, dependency contracts,
+related claims and freshness constraints — a portable, provenance-complete
+bundle (ADR-005).
+
+## 6. Build and verify the gates yourself
+
+```bash
+npm run build
+node scripts/smoke.mjs http://localhost:4321
+```
+
+All nine validation gates must pass: schema, links, ownership, provenance,
+private leakage, OpenAPI, catalog, graph consistency, context packs.
+
+## Next
+
+- [Tutorials](/developers/tutorials/) — trace a claim to its registry commit
+- [How-to guides](/developers/how-to/) — adopt a moved source, wire the MCP
+- [Contract Graph](/standards/contract-graph/) — the governance edges
+
+<Provenance page="developers/quickstart" />

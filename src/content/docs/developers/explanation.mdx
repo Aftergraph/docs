@@ -1,9 +1,65 @@
 ---
 title: "Explanation"
-description: "Why the plane is a compiler, not an owner."
+description: "Why the plane is a compiler, not an owner — and the four clocks."
 ---
 import Provenance from '../../../components/Provenance.astro';
 
-Owning repos hold specs, claims, and runtime contracts. Governance holds boundaries. Evidence holds claim strength. This plane resolves pinned SHAs and renders them with provenance and freshness — see ADR-002.
+## Why a compiler, not an owner
+
+Documentation drifts because portals copy truth. When a spec moves, the copy
+stays — silently wrong. The Knowledge Plane inverts the model: repositories
+own truth, governance owns boundaries, evidence owns claim strength. This
+plane only **resolves pins and renders**. It cannot be silently wrong about
+ownership because it ships the exact SHA it rendered from — and its build
+fails if that SHA leaves the public allowlist or a link dangles.
+
+Full boundary decision: [ADR-002 — source-of-truth
+boundaries](https://github.com/Aftergraph/docs/blob/main/docs/ADR-002-source-of-truth-boundaries.md).
+
+## The four clocks
+
+Any statement about a system answers four different time questions, and
+conflating them is how documentation lies:
+
+1. **Source truth** — which commit contains this artifact? (pinned SHA)
+2. **Semantic truth** — which spec/API version does it describe? (e.g.
+   OpenAPI 3.1.0 / API v0.2.0, Draft 0.3)
+3. **Evidence truth** — which evidence cut supports the claim? (e.g.
+   AUDIT-EVID-001 2026-09-04)
+4. **Live truth** — what is the remote state right now? (freshness verdict)
+
+Every page, status surface and context pack states which clock it speaks
+from. A page can be `CURRENT` in source terms while its claim's evidence cut
+is months old — that is not a contradiction, it is the design.
+
+## Repository movement is not semantic movement
+
+The first live verification taught this: several pinned repos had advanced
+(dependabot, feature commits) while the Work Intelligence OpenAPI artifact —
+the thing this plane actually consumes — was byte-identical. Treating git
+movement as documentation drift produces alarm fatigue; treating pins as
+eternal produces silent rot. The policy splits the two:
+`SOURCE_MOVED_CONTENT_UNCHANGED` for harmless churn,
+`SOURCE_MOVED_CONTENT_CHANGED` escalating to `STALE` for real drift, and
+adoption is always an explicit human-reviewed commit
+([ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md)).
+
+## Why claims carry two statuses
+
+The ISR registry speaks in audit language ("STRONGLY_SUPPORTED
+(SAMPLE-BOUNDED)", "REVERSED", "UNTESTED"). Agent-facing tooling needs a
+closed vocabulary (`SUPPORTED / PARTIALLY_SUPPORTED / CONTESTED / REFUTED /
+OBSOLETE`). The plane projects one onto the other and **keeps both**: the
+canonical state for filtering, the verbatim audit wording for truth. The
+projection can only weaken confidence (live REVERSED → CONTESTED), never
+strengthen it. See [ADR-005](https://github.com/Aftergraph/docs/blob/main/docs/ADR-005-context-packs.md).
+
+## Why read-only MCP
+
+Docs surfaces that let agents *write* create a second, unofficial source of
+truth. The Docs MCP is structurally incapable: it reads built artifacts, has
+no shell, no network, no write path — and every answer carries the
+`site_commit` it was served from, so consumers can never over-trust
+freshness.
 
 <Provenance page="developers/explanation" />

@@ -1,9 +1,49 @@
 ---
 title: "Reference"
-description: "Exact technical reference (links to canonical sources)."
+description: "Exact technical reference — contracts, claims, glossary, links to canonical sources."
 ---
 import Provenance from '../../../components/Provenance.astro';
+import graph from '../../../data/graph.json';
 
-Reference is exact: contracts live in [Contract Explorer](/standards/contracts/), endpoints in [API Reference](/developers/api-reference/). Nothing is hand-duplicated.
+Reference is exact. Contracts and claims below are generated views over
+canonical registries; endpoints live in the [API
+Reference](/developers/api-reference/). Nothing is hand-duplicated.
+
+## Cross-repo contracts ({graph.contract_graph.edges.length} edges, {graph.contract_graph.nodes.length} repos)
+
+| Contract | Owner | Consumers |
+|---|---|---|
+{graph.contract_graph.edges.map((e) => `| \`${e.contract}\` | \`${e.from}\` | \`${e.to}\` |`).join('\n')}
+
+Full detail with normative flags: [Contract Explorer](/standards/contracts/) ·
+graph view: [Contract Graph](/standards/contract-graph/).
+
+## Claim register (C-001..C-008)
+
+| ID | Claim (verbatim) | Canonical status | Reproduction |
+|---|---|---|---|
+{graph.claim_graph.claims.map((c) => `| \`${c.id}\` | ${c.claim} | ${c.auditStatus.split(';')[0]} | ${c.reproduction} |`).join('\n')}
+
+Authoritative registry: ISR `AUDIT-EVID-001` at the SHA shown in each
+claim's provenance. Status vocabulary and projection rules:
+[ADR-005](https://github.com/Aftergraph/docs/blob/main/docs/ADR-005-context-packs.md).
+
+## Glossary
+
+| Term | Meaning |
+|---|---|
+| **Knowledge Plane** | This portal: a compiler/rendering/discovery layer over canonical sources. Owns no truth. |
+| **Canonical source** | The owning repository at a pinned full SHA — the only authority for its content. |
+| **Provenance** | Page-level binding to owner repo@commit + semantic version + evidence cut. |
+| **Four clocks** | Source truth (commit), semantic truth (spec version), evidence truth (cut), live truth (remote state). |
+| **Freshness status** | `CURRENT` / `SOURCE_MOVED_CONTENT_UNCHANGED` / `SOURCE_MOVED_CONTENT_CHANGED` / `STALE` / `UNKNOWN` — ADR-004 policy. |
+| **Evidence class** | Deterministic, methodological-pilot, live_valid, synthesis — never interchangeable. |
+| **Evidence cut** | The audit/date snapshot a claim's evidence was taken at (e.g. `AUDIT-EVID-001 2026-09-04`). |
+| **Context pack** | ACC-shaped portable JSON bundle per page: owner, source commit, dependency contracts, related claims, next reading. |
+| **Adoption** | Explicit, reviewable pin update via `adopt-source.mjs`. Never automatic. |
+| **Private leakage** | Any private-repo reference in public build output — structurally blocked by allowlist + scan gates. |
+
+Canonical terminology beyond this table lives in
+[`after-graph-governance`](https://github.com/Aftergraph/after-graph-governance).
 
 <Provenance page="developers/reference" />

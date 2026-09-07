@@ -1,0 +1,60 @@
+---
+title: "FAQ"
+description: "Frequently asked questions — answered from the boundary rules."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+## Is AIE an industry standard?
+
+No. AIE is a **Research Draft / experimental standards track**. The plane
+marks it as such everywhere it renders. Claims about maturity levels come
+from the ISR audit registry and are never upgraded by this portal.
+
+## Can this portal lie?
+
+It can render a stale view, and it says so when it does (freshness statuses,
+per-page provenance, `site_commit` bounds). It cannot silently misattribute
+ownership — every page binds to its source repo@SHA, and builds fail on
+dangling links, non-allowlisted repos, or private leakage.
+
+## Why do some sources show SOURCE_MOVED?
+
+A pinned repository advanced after the pin was taken. That alone is not
+drift: if every consumed artifact is byte-identical, status is
+`SOURCE_MOVED_CONTENT_UNCHANGED` (dependabot churn — harmless). Only consumed
+artifact changes count as semantic drift. Policy:
+[ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md).
+
+## Who updates the pins?
+
+Humans, explicitly, via `scripts/adopt-source.mjs` + a reviewable commit.
+The scheduled verifier reports drift and opens adoption issues; it never
+auto-pins.
+
+## Is the Docs MCP write-capable?
+
+No — structurally. It reads built artifacts only: no shell, no network, no
+write path. Every response carries the build's `site_commit`. Boundary:
+[Docs MCP](/developers/mcp-boundary/).
+
+## What is a context pack?
+
+A portable JSON bundle per page (schema `aftergraph.context-pack.v0`):
+canonical owner, source commit, dependency contracts, related claims, next
+reading, freshness constraints — designed for agents (ACC-shaped). Fetch from
+`/context/index.json`. Spec: [ADR-005](https://github.com/Aftergraph/docs/blob/main/docs/ADR-005-context-packs.md).
+
+## Are benchmark results "live" results?
+
+No — the ISR audit reclassified benchmark workloads as deterministic
+sandboxed runs with calibrated error baselines. Live cross-provider results
+exist (STUDY-011) and are tracked as a separate evidence class. The claim
+register preserves both, verbatim.
+
+## Can I use the Aftergraph brand?
+
+The brand tokens are v1.0.0, **provisional — not trademark-cleared**. See
+[Brand](/company/brand/) and the `Aftergraph/brand` repository for current
+status.
+
+<Provenance page="company/faq" />

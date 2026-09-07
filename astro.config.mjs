@@ -37,6 +37,7 @@ export default defineConfig({
           { label: 'Live Status', slug: 'status' },
         ]},
         { label: 'Developers', items: [
+          { label: 'Quickstart', slug: 'developers/quickstart' },
           { label: 'Overview', slug: 'developers' },
           { label: 'Tutorials', slug: 'developers/tutorials' },
           { label: 'How-to Guides', slug: 'developers/how-to' },
@@ -58,7 +59,12 @@ export default defineConfig({
         { label: 'Catalog', items: [{ label: 'Overview', slug: 'catalog' }]},
         { label: 'Company', items: [
           { label: 'Overview', slug: 'company' },
+          { label: 'Trust & Verification', slug: 'company/trust' },
           { label: 'Brand', slug: 'company/brand' },
+          { label: 'Contributing', slug: 'company/contributing' },
+          { label: 'FAQ', slug: 'company/faq' },
+          { label: 'Troubleshooting', slug: 'company/troubleshooting' },
+          { label: 'Changelog', slug: 'company/changelog' },
         ]},
       ],
     }),

@@ -1,0 +1,79 @@
+---
+title: "Troubleshooting"
+description: "Build gates, freshness states, MCP connection — diagnosed."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+## Build fails: `VALIDATE FAIL: missing provenance: <page>`
+
+Every docs page needs a provenance entry. Add one to
+`src/data/provenance.json` with the page's canonical source:
+
+```json
+"<page-route>": {
+  "repository": "Aftergraph/<owner-repo>",
+  "commit": "<full-40-sha>",
+  "source": "<path-in-owning-repo>",
+  "semantic_version": "<spec or content version>",
+  "evidence_cut": null,
+  "canonical_owner": "<owner>"
+}
+```
+
+## Build fails: `private-source reference '<name>'`
+
+Something referenced a repo outside `PUBLIC_ALLOWLIST`. This is the
+structural leakage gate — remove the reference, do not widen the allowlist
+unless the repo is genuinely public and canonical for the content.
+
+## Build fails: `claim <id>: non-canonical status`
+
+Claim statuses must project onto the closed 5-state vocabulary
+(`SUPPORTED / PARTIALLY_SUPPORTED / CONTESTED / REFUTED / OBSOLETE`), with
+the verbatim registry wording preserved in `auditStatus`. Fix the projection
+in `scripts/graph.mjs` — never edit the registry wording.
+
+## Freshness shows UNKNOWN
+
+Remote state could not be verified (GitHub API down, rate limit). `UNKNOWN`
+never counts as `CURRENT` — the system fails honest. Re-run
+`node scripts/freshness.mjs` later, or check `gh api rate_limit`.
+
+## Page says SOURCE_MOVED_CONTENT_CHANGED
+
+Real semantic drift: a consumed artifact changed at the remote. Nothing is
+auto-updated. Review the change, then adopt explicitly
+([H2](/developers/how-to/)). Two consecutive content-changed verifications
+escalate the status to `STALE`.
+
+## MCP client cannot connect
+
+1. Built the site? The MCP serves `dist/` — run `npm run build` first.
+2. Absolute path in config? Relative paths break when the client spawns the
+   process elsewhere.
+3. Hand-test the transport:
+
+   ```bash
+   printf '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}\n' | node scripts/docs-mcp-server.mjs
+   ```
+
+4. Protocol is newline-delimited JSON-RPC over stdio — one message per line.
+
+## Scalar API reference empty
+
+It loads `/openapi.json` from the deployed origin. Locally, use the preview
+server (`npx astro preview`), not the raw file — CDN-based Scalar needs the
+JSON served over HTTP.
+
+## CRLF errors from scan-public
+
+Windows tooling wrote `\r\n` into the tree. Fix before committing:
+
+```bash
+sed -i 's/\r$//' <files>
+```
+
+Pagefind's vendor CSS is exempt (third-party bytes — leakage scan still
+covers it).
+
+<Provenance page="company/troubleshooting" />

@@ -1,9 +1,83 @@
 ---
 title: "Tutorials"
-description: "Learning-oriented walkthroughs."
+description: "Learning-oriented walkthroughs — real, runnable, verified."
 ---
 import Provenance from '../../../components/Provenance.astro';
 
-First tutorial: trace one observation to one verified outcome using the [Golden Mission](/platform/golden-mission/) route and the [API Reference](/developers/api-reference/).
+Learning-oriented. Each tutorial is a complete, runnable walkthrough — start
+with [Quickstart](/developers/quickstart/) if you have not done the 10-minute
+loop yet.
+
+## Tutorial 1 — Trace a claim to its registry commit
+
+Goal: take a claim rendered on this portal and verify it, character for
+character, against the authoritative ISR registry at the pinned commit.
+
+1. Open the [Claim Graph](/evidence/claim-graph/) and pick a claim — say
+   `C-002` ("Control plane token footprint is capped under 300 tokens").
+   Note its **Source** SHA (`72e115c6…`).
+2. Fetch the authoritative registry at exactly that commit:
+
+   ```bash
+   gh api "repos/Aftergraph/intelligence-systems-research/contents/EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md?ref=72e115c642441e10dd88890edfac86b787315cf0" \
+     --jq '.content' | base64 -d | grep "C-002"
+   ```
+
+3. Compare: the portal's `auditStatus` for C-002 is `VERIFIED` — the same
+   string the registry row carries. The plane renders, never reinterprets.
+   If they ever diverge, the registry wins and the plane's build is stale.
+4. Check the freshness of that pin:
+
+   ```bash
+   curl -s https://docs.aftergraph.org/status.json | python -m json.tool | grep -A4 intelligence-systems-research
+   ```
+
+**What you learned:** every claim on this portal resolves to a byte-exact
+registry row at a pinned commit, and the freshness system tells you whether
+that pin still matches live remote state.
+
+## Tutorial 2 — Consume the plane via MCP
+
+The plane ships a read-only MCP server (`scripts/docs-mcp-server.mjs`) that
+serves the built site. Wire it into any MCP client:
+
+1. Build the site locally (the MCP serves the built artifacts):
+
+   ```bash
+   npm run build
+   ```
+
+2. Register the server (Hermes example):
+
+   ```yaml
+   mcp_servers:
+     aftergraph-docs:
+       command: node
+       args: ["/absolute/path/to/docs/scripts/docs-mcp-server.mjs"]
+   ```
+
+   Claude Code and other stdio-MCP clients use the equivalent
+   `command`/`args` shape in their own config.
+
+3. Verify the tool surface:
+
+   ```bash
+   printf '{"jsonrpc":"2.0","id":1,"method":"tools/list"}\n' | node scripts/docs-mcp-server.mjs
+   ```
+
+   Seven tools: `docs_get_status`, `docs_get_contract`, `docs_get_claim`,
+   `docs_get_page`, `docs_search`, `docs_get_catalog`,
+   `docs_get_context_pack`.
+
+4. Ask it something real:
+
+   ```bash
+   printf '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"docs_get_claim","arguments":{"id":"C-008"}}}\n' \
+     | node scripts/docs-mcp-server.mjs
+   ```
+
+**What you learned:** agents consume the same provenance-bounded truth as
+humans — every MCP answer carries the build's `site_commit`, so an agent can
+never mistake a rendered view for a fresher source.
 
 <Provenance page="developers/tutorials" />

@@ -2,8 +2,8 @@
 
 > Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
 >
-> Provenance: generated 2026-09-07T01:16:32.423Z from site commit 189552db22ac0c0bbf3f2c82a80304f8801fa433.
-> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T01:16:17.276Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 7 CURRENT
+> Provenance: generated 2026-09-07T01:31:45.196Z from site commit ecee0563a5b38aa5526a307c533d937a5e7b0474.
+> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T01:31:01.631Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 5 CURRENT, 2 SOURCE_MOVED
 
 - [Platform overview](https://docs.aftergraph.org/platform/)
 - [Golden Mission route](https://docs.aftergraph.org/platform/golden-mission/)
@@ -12,10 +12,15 @@
 - [Claim chains C-001..C-008 (registry-verbatim audit status)](https://docs.aftergraph.org/evidence/claim-graph/)
 - [Standards overview](https://docs.aftergraph.org/standards/)
 - [Contract Explorer (13 contracts)](https://docs.aftergraph.org/standards/contracts/)
+- [Contract Graph](https://docs.aftergraph.org/standards/contract-graph/)
 - [Catalog](https://docs.aftergraph.org/catalog/)
 - [Authority semantics via AIE contracts](https://docs.aftergraph.org/standards/contracts/)
 - [identity/1.0 + brain.ns/1.0 owners](https://docs.aftergraph.org/standards/contracts/)
 - [Contract Graph (owner→consumer edges)](https://docs.aftergraph.org/standards/contract-graph/)
+- [Quickstart (verify the plane itself)](https://docs.aftergraph.org/developers/quickstart/)
+- [MCP tools (7, read-only)](https://docs.aftergraph.org/developers/mcp-boundary/)
+- [How-to guides](https://docs.aftergraph.org/developers/how-to/)
+- [Reference (contracts+claims+glossary)](https://docs.aftergraph.org/developers/reference/)
 - [Context Packs (ACC-shaped, per page)](https://docs.aftergraph.org/context/index.json)
 - [Build provenance](https://docs.aftergraph.org/build-manifest.json)
 - [Live status](https://docs.aftergraph.org/status.json)

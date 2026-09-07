@@ -1,0 +1,6 @@
+---
+import FeedbackIsland from './FeedbackIsland.astro';
+const { page } = Astro.props;
+const pageId = page ?? 'unknown';
+---
+<FeedbackIsland pageId={pageId} />

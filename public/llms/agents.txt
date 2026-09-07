@@ -1,5 +1,9 @@
 # Aftergraph — agents
 
+- Quickstart (verify the plane itself): https://docs.aftergraph.org/developers/quickstart/
+- MCP tools (7, read-only): https://docs.aftergraph.org/developers/mcp-boundary/
+- How-to guides: https://docs.aftergraph.org/developers/how-to/
+- Reference (contracts+claims+glossary): https://docs.aftergraph.org/developers/reference/
 - Context Packs (ACC-shaped, per page): https://docs.aftergraph.org/context/index.json
 - Build provenance: https://docs.aftergraph.org/build-manifest.json
 - Live status: https://docs.aftergraph.org/status.json

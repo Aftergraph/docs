@@ -14,8 +14,8 @@
   ],
   "related_claims": [],
   "next_reading": [],
-  "generated_at": "2026-09-07T01:16:42.404Z",
-  "site_commit": "189552db22ac0c0bbf3f2c82a80304f8801fa433",
+  "generated_at": "2026-09-07T01:31:55.393Z",
+  "site_commit": "ecee0563a5b38aa5526a307c533d937a5e7b0474",
   "constraints": [
     "Do not treat this pack as fresher than its site_commit.",
     "The owning repository (source_repository@source_commit) is authoritative over this rendering."

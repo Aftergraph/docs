@@ -1,9 +1,72 @@
 ---
 title: "How-to Guides"
-description: "Task-oriented guides."
+description: "Task-oriented guides for common plane operations."
 ---
 import Provenance from '../../../components/Provenance.astro';
 
-How-to: pin a page to its source SHA, read its provenance block, and re-verify freshness against the live canonical HEAD.
+Task-oriented. Each guide solves one concrete task. Prerequisites from the
+[Quickstart](/developers/quickstart/) assumed.
+
+## H1 — Verify the freshness of any page
+
+1. Find the page's provenance block (owner · repo@SHA).
+2. Compare the pinned SHA to live remote HEAD:
+
+   ```bash
+   gh api repos/Aftergraph/<repo>/commits/main --jq '.sha'
+   ```
+
+3. If they differ, check `/status.json` for the semantic verdict:
+   `SOURCE_MOVED_CONTENT_UNCHANGED` (dependabot churn, artifacts identical —
+   harmless) vs `SOURCE_MOVED_CONTENT_CHANGED` (semantic drift, adoption
+   pending). See [ADR-004](https://github.com/Aftergraph/docs/blob/main/docs/ADR-004-live-truth-and-freshness.md).
+
+## H2 — Adopt a moved source (explicit, reviewable)
+
+Pins are never auto-updated. After review:
+
+```bash
+node scripts/adopt-source.mjs Aftergraph/<repo> <new-full-40-sha>
+```
+
+The script updates pins, provenance, catalog and artifact fingerprints, then
+runs all validation gates. Commit + push; the scheduled verifier (6h cadence)
+picks up the new state.
+
+## H3 — Wire the Docs MCP into your client
+
+Hermes:
+
+```bash
+hermes config set mcp_servers.aftergraph-docs.command node
+hermes config set mcp_servers.aftergraph-docs.args '["/path/to/docs/scripts/docs-mcp-server.mjs"]'
+```
+
+Generic stdio client: run `node scripts/docs-mcp-server.mjs` and speak
+newline-delimited JSON-RPC (`initialize` → `tools/list` → `tools/call`).
+The server is read-only and bounded to the built `dist/` — run
+`npm run build` first. Boundary details: [Docs MCP](/developers/mcp-boundary/).
+
+## H4 — Consume context packs in your agent
+
+Fetch the index, then per-page packs:
+
+```bash
+curl -s https://docs.aftergraph.org/context/index.json
+curl -s https://docs.aftergraph.org/context/platform.system-map.json
+```
+
+Each pack carries `source_repository@source_commit`, dependency contracts,
+related claims, `next_reading` and freshness constraints. Treat the pack as
+never fresher than its `site_commit`. Schema invariants:
+[ADR-005](https://github.com/Aftergraph/docs/blob/main/docs/ADR-005-context-packs.md).
+
+## H5 — Add a new canonical source
+
+1. Add the repo to `PUBLIC_ALLOWLIST` and `SOURCES` in `src/data/sources.ts`
+   (full SHA, owner, kind, visibility).
+2. Add a provenance entry for any page that renders from it.
+3. `npm run build` — validation fails on non-allowlisted references, so
+   private leakage is structurally impossible.
 
 <Provenance page="developers/how-to" />

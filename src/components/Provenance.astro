@@ -1,9 +1,12 @@
 ---
 import prov from '../data/provenance.json';
 import buildStatus from '../data/build-status.json';
+import Feedback from './Feedback.astro';
 const { page } = Astro.props;
 const p: any = (prov as any)[page];
 const bs: any = buildStatus as any;
+const editUrl = p ? `https://github.com/Aftergraph/docs/blob/main/CHANGELOG.md` : null;
+const pageId: string = page ?? 'unknown';
 ---
 {p && (
   <aside class="provenance" aria-label="Page provenance">
@@ -12,5 +15,11 @@ const bs: any = buildStatus as any;
     {p.evidence_cut && <span>Evidence cut: {p.evidence_cut}</span>}
     <span>Owner: {p.canonical_owner}</span>
     {bs && bs.verified_at && <span>{bs.page_line}</span>}
+    <span class="prov-links">
+      <a href="https://github.com/Aftergraph/docs/blob/main/CHANGELOG.md">Changelog</a>
+      · <a href="https://github.com/Aftergraph/docs/blob/main/README.md">Contributing</a>
+      · <a href={`https://github.com/Aftergraph/docs/issues/new?title=${encodeURIComponent('[docs] ' + pageId)}`}>Report an issue</a>
+    </span>
   </aside>
 )}
+{p && <Feedback page={page} />}

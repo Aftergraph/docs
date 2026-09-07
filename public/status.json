@@ -1,17 +1,17 @@
 {
   "build": {
-    "site_commit": "189552db22ac0c0bbf3f2c82a80304f8801fa433",
-    "generated_at": "2026-09-07T01:16:38.631Z"
+    "site_commit": "ecee0563a5b38aa5526a307c533d937a5e7b0474",
+    "generated_at": "2026-09-07T01:31:51.348Z"
   },
   "summary": {
     "source_count": 9,
-    "current": 7,
+    "current": 5,
     "source_moved_unchanged": 2,
     "source_moved_changed": 0,
-    "source_moved": 0,
+    "source_moved": 2,
     "stale": 0,
     "unknown": 0,
-    "last_verification": "2026-09-07T01:16:32.695Z"
+    "last_verification": "2026-09-07T01:31:45.456Z"
   },
   "sources": [
     {
@@ -64,7 +64,7 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "pinned_sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
-      "remote_sha": "a64d9352985413ccedbd40f87eea419ca3c0bffc",
+      "remote_sha": "a4fc87273be6ed7a9dbf4f8042eaaca0ecff8181",
       "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
       "artifacts": [
@@ -79,8 +79,8 @@
     {
       "repository": "Aftergraph/studio",
       "pinned_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
-      "remote_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
-      "status": "CURRENT",
+      "remote_sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     },
@@ -95,8 +95,8 @@
     {
       "repository": "Aftergraph/.github",
       "pinned_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
-      "remote_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
-      "status": "CURRENT",
+      "remote_sha": "62223d55c4f7fe451667411808ddb7badc90926d",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     }
@@ -139,5 +139,5 @@
       ]
     }
   ],
-  "verification": "2026-09-07T01:16:32.695Z"
+  "verification": "2026-09-07T01:31:45.456Z"
 }
