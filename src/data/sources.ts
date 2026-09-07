@@ -39,7 +39,7 @@ export const SOURCES: KnowledgeSource[] = [
   { repository: 'Aftergraph/works-execution', ref: 'main', commitSha: '79914a514512766edd7032c9a74e63c0f9f87551', owner: 'WORKS', kind: 'contract', visibility: 'public' },
   { repository: 'Aftergraph/work-intelligence-v2', ref: 'main', commitSha: '370a0b2029fb0f694a62d36ffdc390f16bf1040d', owner: 'Work Intelligence', kind: 'api', visibility: 'public', maturity: 'OpenAPI 3.1.0 / API v0.2.0' },
   { repository: 'Aftergraph/studio', ref: 'main', commitSha: 'ca3da75e9cd3ecf783297c49ad79ed91a73d7120', owner: 'Studio', kind: 'documentation', visibility: 'public' },
-  { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: 'beececfb4885d8055cc6694e8979b47759a212a4', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
+  { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: '4b0007cd6a62aa5599772387958b4d49905a56d4', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
   { repository: 'Aftergraph/aftergraph.org', ref: 'main', commitSha: '4c1e00fd358c3a2a42cc60490213bcac15d9c759', owner: 'Platform Web', kind: 'documentation', visibility: 'public', maturity: 'public landing + launcher (v1.0.0)' },
   { repository: 'Aftergraph/brand', ref: 'main', commitSha: 'cc1a22fd425c9a0f49ac1f301723d4e84a3ba469', owner: 'Brand OS', kind: 'documentation', visibility: 'public', maturity: 'Brand tokens v1.0.0 (provisional-not-trademark-cleared)' },
   { repository: 'Aftergraph/.github', ref: 'main', commitSha: '56d70aace61364978e23cd75c9925a54aa706e18', owner: 'Governance', kind: 'documentation', visibility: 'public' },
