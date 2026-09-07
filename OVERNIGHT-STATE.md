@@ -56,3 +56,29 @@ Release = tag + GitHub Release with notes + CHANGELOG alignment + green CI
 Overnight progress reported per iteration block: what shipped (commit),
 gates result, deployment state, next gap. No pooled "everything green"
 claims without per-item verification.
+
+---
+
+# CONTINUOUS OVERNIGHT MODE — ROUND 2 (v1.1.0 production hardening)
+
+## Release target
+
+v1.1.0 — production hardening: system-level UX, agent-surface depth,
+operational polish. Tag + GitHub Release when CI green + deploy verified.
+
+## OPEN QUESTIONS (Q-1xx)
+- Q-101: /research and /standards and /catalog and /company overview pages
+  are thin stubs vs parity bar (Claude/OpenAI have real overviews). Build
+  real overview pages with live derived data (graph/claims/catalog).
+- Q-102: Golden Mission page is a route list, not a walkthrough. Upgrade:
+  each step links to owner page + contract + evidence (bindings exist in
+  system-map.json — render them).
+- Q-103: No 404-page customization (Starlight default). Add brand 404 with
+  search pointer.
+- Q-104: Docs MCP lacks docs_search excerpts context-pack route in
+  tools/list description accuracy check — audit tools/list output vs
+  actual capabilities.
+- Q-105: sitemap/robots.txt — verify robots.txt exists and sitemap is
+  referenced; SEO parity.
+- Q-106: hero CTA links: verify all hero buttons resolve (manual curl).
+- Q-107: /developers overview page is a stub — make it the Diátaxis hub.
