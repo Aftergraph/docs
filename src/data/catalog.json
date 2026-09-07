@@ -28,7 +28,7 @@
       "repo": "Aftergraph/works-execution",
       "class": "Repository",
       "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
-      "sha": "85e9274651eaeeca3a31048a0ebd19e70316201e"
+      "sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae"
     },
     {
       "repo": "Aftergraph/work-intelligence-v2",

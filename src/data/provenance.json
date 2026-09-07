@@ -9,7 +9,7 @@
   },
   "platform": {
     "repository": "Aftergraph/works-execution",
-    "commit": "85e9274651eaeeca3a31048a0ebd19e70316201e",
+    "commit": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -17,7 +17,7 @@
   },
   "platform/golden-mission": {
     "repository": "Aftergraph/works-execution",
-    "commit": "85e9274651eaeeca3a31048a0ebd19e70316201e",
+    "commit": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,

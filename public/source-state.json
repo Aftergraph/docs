@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T00:54:26.655Z",
+  "checked_at": "2026-09-07T00:54:55.254Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -18,9 +18,9 @@
     },
     {
       "repository": "Aftergraph/aie",
-      "pinned_sha": "c9684e4d160f8ea59bd295807d45d2652258d003",
+      "pinned_sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
       "remote_sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
@@ -34,9 +34,9 @@
     },
     {
       "repository": "Aftergraph/trust-gateway",
-      "pinned_sha": "8c74593175f686c6365b485ac2b5d05c5bd5252d",
+      "pinned_sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
       "remote_sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
@@ -65,9 +65,9 @@
     },
     {
       "repository": "Aftergraph/studio",
-      "pinned_sha": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9",
+      "pinned_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
       "remote_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
@@ -81,9 +81,9 @@
     },
     {
       "repository": "Aftergraph/.github",
-      "pinned_sha": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
+      "pinned_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
       "remote_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     }
