@@ -10,7 +10,7 @@ export default defineConfig({
     starlight({
       title: 'Aftergraph Knowledge Plane',
       description: 'Compiler over canonical sources — build, govern, execute, verify.',
-      customCss: ['./src/styles/brand.css'],
+      customCss: ['./src/styles/brand.css', './src/styles/v2.css'],
       components: {
         ThemeSelect: './src/components/overlays/ThemeSelect.astro',
       },
