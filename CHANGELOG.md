@@ -3,6 +3,30 @@
 All notable changes to the Aftergraph Knowledge Plane. Dates UTC.
 Format inspired by Keep a Changelog; versions are portal slices, not semver.
 
+## [V1.1] — 2026-09-07 — Docs parity
+
+Parity vs Claude/OpenAI/Hermes developer docs (feature list + DoD:
+`docs/PARITY-FEATURES.md`). 28 pages, 27 context packs.
+
+### Added
+- Quickstart (10-min verified loop dogfooding the plane), 2 runnable
+  tutorials, 5 how-to guides, auto-generated Reference (contracts table +
+  C-001..C-008 register + glossary), Explanation (four clocks, two-status
+  projection, compiler-not-owner).
+- Trust & Verification page (9 mechanical gates), FAQ, Troubleshooting,
+  Contributing, Changelog page + canonical CHANGELOG.md.
+- Per-page feedback widget ("was this helpful?" → prefilled GitHub issue;
+  no backend, no tracking) + Changelog/Contributing/issue links in every
+  provenance block.
+- Brand assets: generated mark + OG image (Cloudflare Workers AI FLUX),
+  favicon.svg, OG/twitter meta. /company/brand page.
+
+### Changed
+- Generated surfaces (build manifest, 27 context packs, status.json) emit
+  to dist/ only — git tree stays clean across builds; freshness state files
+  stay committed as evidence. Validate split: pre-build soft-skips
+  dist-checks, post-build hard-fails (emit-status-dist runs it).
+
 ## [V1.0] — 2026-09-07 — Collection
 
 The plane is complete as originally scoped: provenance-stamped human docs +
