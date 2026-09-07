@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T03:20:18.905Z",
+  "checked_at": "2026-09-07T03:24:20.944Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -58,17 +58,17 @@
     },
     {
       "repository": "Aftergraph/studio",
-      "pinned_sha": "2d1a49b8c52c8e374ba5f1b7cb61bdade7d553b6",
+      "pinned_sha": "942074abb02551629bbfb3e461a5050030313718",
       "remote_sha": "942074abb02551629bbfb3e461a5050030313718",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
     {
       "repository": "Aftergraph/aftergraph.org",
-      "pinned_sha": "2b2c3d7426a45932e3470757b6bab92a25a1ce96",
+      "pinned_sha": "c185f51dd3ddf644a3a079a5d4046f12ea4f7452",
       "remote_sha": "c185f51dd3ddf644a3a079a5d4046f12ea4f7452",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },

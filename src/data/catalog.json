@@ -10,7 +10,7 @@
       "repo": "Aftergraph/aftergraph.org",
       "class": "Repository",
       "role": "Public platform surface: landing, launcher, health, agent llms.txt (aftergraph.org)",
-      "sha": "2b2c3d7426a45932e3470757b6bab92a25a1ce96"
+      "sha": "c185f51dd3ddf644a3a079a5d4046f12ea4f7452"
     },
     {
       "repo": "Aftergraph/aie",
@@ -34,7 +34,7 @@
       "repo": "Aftergraph/studio",
       "class": "Repository",
       "role": "Operator/product experience (missions, approvals, verified outcomes)",
-      "sha": "2d1a49b8c52c8e374ba5f1b7cb61bdade7d553b6"
+      "sha": "942074abb02551629bbfb3e461a5050030313718"
     },
     {
       "repo": "Aftergraph/trust-gateway",
