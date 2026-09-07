@@ -1,4 +1,5 @@
 # Aftergraph — aie
 
-- Authority semantics via AIE contracts: https://docs.aftergraph.dev/standards/contracts/
-- identity/1.0 + brain.ns/1.0 owners: https://docs.aftergraph.dev/standards/contracts/
+- Authority semantics via AIE contracts: https://docs.aftergraph.org/standards/contracts/
+- identity/1.0 + brain.ns/1.0 owners: https://docs.aftergraph.org/standards/contracts/
+- Contract Graph (owner→consumer edges): https://docs.aftergraph.org/standards/contract-graph/

@@ -1,0 +1,28 @@
+---
+title: "Contract Graph"
+description: "Owner → contract → consumer edges across canonical repos."
+---
+import Provenance from '../../../components/Provenance.astro';
+import graph from '../../../data/graph.json';
+
+Registry: `after-graph-governance@57c681e9 docs/cross-repo-contracts.md` — derived locally by `scripts/graph.mjs` into `src/data/graph.json`. The graph is a *view*; governance owns the edges.
+
+{graph.contract_graph.nodes.map((n) => <span class="graph-node">{n.id}</span>)}
+
+<h3>Edges ({graph.contract_graph.edges.length})</h3>
+
+<table>
+  <thead><tr><th>Owner</th><th>Contract</th><th>Consumer</th><th>Normative</th></tr></thead>
+  <tbody>
+    {graph.contract_graph.edges.map((e) => (
+      <tr>
+        <td><code>{e.from}</code></td>
+        <td><code>{e.contract}</code></td>
+        <td><code>{e.to}</code></td>
+        <td>{e.normative ? 'yes' : 'no'}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<Provenance page="standards/contract-graph" />

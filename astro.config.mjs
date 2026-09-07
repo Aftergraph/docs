@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 // Standards Evidence Catalog Company). No generic "Docs" top-level —
 // ADR-003. Search is Starlight Pagefind (default, no hosted dependency).
 export default defineConfig({
-  site: 'https://docs.aftergraph.dev',
+  site: 'https://docs.aftergraph.org',
   integrations: [
     starlight({
       title: 'Aftergraph Knowledge Plane',
@@ -28,9 +28,13 @@ export default defineConfig({
         { label: 'Research', items: [{ label: 'Overview', slug: 'research' }]},
         { label: 'Standards', items: [
           { label: 'Overview', slug: 'standards' },
-          { label: 'Contract Explorer', slug: 'standards/contracts' },
+          { label: 'Contracts', slug: 'standards/contracts' },
+          { label: 'Contract Graph', slug: 'standards/contract-graph' },
         ]},
-        { label: 'Evidence', items: [{ label: 'Overview', slug: 'evidence' }]},
+        { label: 'Evidence', items: [
+          { label: 'Overview', slug: 'evidence' },
+          { label: 'Claim Graph', slug: 'evidence/claim-graph' },
+        ]},
         { label: 'Catalog', items: [{ label: 'Overview', slug: 'catalog' }]},
         { label: 'Company', items: [{ label: 'Overview', slug: 'company' }]},
       ],

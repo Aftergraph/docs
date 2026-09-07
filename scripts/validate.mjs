@@ -79,6 +79,23 @@ for (const a of arts) {
   if (!existsSync(join(root, a.consumed_as))) fail(`artifacts.json: consumed path missing ${a.consumed_as}`);
 }
 ok(`artifacts: ${arts.length} fingerprints valid`);
+
+// 8. graph.json: derivable, consistent with contracts.json + claims.json
+if (!existsSync(join(root, 'src/data/graph.json'))) fail('src/data/graph.json missing (run scripts/graph.mjs)');
+else {
+  const g = JSON.parse(readFileSync(join(root, 'src/data/graph.json'), 'utf8'));
+  if (g.contract_graph.edges.length < 20) fail('contract graph edges suspiciously low');
+  const ids = new Set(g.contract_graph.nodes.map((n) => n.id));
+  for (const e of g.contract_graph.edges) {
+    if (!ids.has(e.from) || !ids.has(e.to)) fail(`contract graph edge references unknown node: ${e.from} → ${e.to}`);
+  }
+  for (const c of g.claim_graph.claims) {
+    if (!['SUPPORTED', 'PARTIALLY_SUPPORTED', 'CONTESTED', 'REFUTED', 'OBSOLETE'].includes(c.status))
+      fail(`claim ${c.id}: non-canonical status ${c.status}`);
+    if (!/^[0-9a-f]{40}$/.test(c.sourceSha || '')) fail(`claim ${c.id}: bad sourceSha`);
+  }
+  ok(`graph: ${g.contract_graph.nodes.length} nodes, ${g.contract_graph.edges.length} edges, ${g.claim_graph.claims.length} claim chains`);
+}
 if (!process.exitCode) {
   writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
   console.log('VALIDATE PASS');

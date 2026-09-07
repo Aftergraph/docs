@@ -4,7 +4,7 @@
   "description": "Aftergraph Knowledge Plane \u2014 public compiler/rendering/discovery layer over canonical sources. Owns no specs, claims, contracts or product docs.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/llms.mjs && node scripts/validate.mjs && node scripts/freshness.mjs && node scripts/status.mjs && astro build && node scripts/build-manifest.mjs",
+    "build": "node scripts/llms.mjs && node scripts/graph.mjs && node scripts/validate.mjs && node scripts/freshness.mjs && node scripts/status.mjs && astro build && node scripts/build-manifest.mjs",
     "check": "tsc --noEmit",
     "validate": "node scripts/validate.mjs",
     "freshness": "node scripts/freshness.mjs",

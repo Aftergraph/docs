@@ -16,12 +16,13 @@ try {
   for (const e of st.sources) counts[e.status] = (counts[e.status] || 0) + 1;
   boundary = `${st.checked_at} · ` + Object.entries(counts).map(([k, v]) => `${v} ${k}`).join(', ');
 } catch {}
-const base = 'https://docs.aftergraph.dev';
+const base = 'https://docs.aftergraph.org';
 const scopes = {
   platform: ['Platform overview', '/platform/', 'Golden Mission route', '/platform/golden-mission/'],
   research: ['Research overview', '/research/', 'Evidence + claim states', '/evidence/'],
   standards: ['Standards overview', '/standards/', 'Contract Explorer (13 contracts)', '/standards/contracts/', 'Catalog', '/catalog/'],
-  aie: ['Authority semantics via AIE contracts', '/standards/contracts/', 'identity/1.0 + brain.ns/1.0 owners', '/standards/contracts/'],
+  aie: ['Authority semantics via AIE contracts', '/standards/contracts/', 'identity/1.0 + brain.ns/1.0 owners', '/standards/contracts/', 'Contract Graph (owner→consumer edges)', '/standards/contract-graph/'],
+  research: ['Research overview', '/research/', 'Claim chains (status, evidence class, cut)', '/evidence/claim-graph/'],
 };
 let index = `# Aftergraph Knowledge Plane\n\n> Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.\n>\n> Provenance: generated ${new Date().toISOString()} from site commit ${site}.\n> Freshness boundary (do not treat this index as fresher than its build): ${boundary}\n\n`;
 for (const [name, items] of Object.entries(scopes)) {

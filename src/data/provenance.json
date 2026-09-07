@@ -134,5 +134,21 @@
     "semantic_version": "V0.1 (live truth)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "standards/contract-graph": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "source": "docs/cross-repo-contracts.md",
+    "semantic_version": "register (13 contracts)",
+    "evidence_cut": null,
+    "canonical_owner": "Governance"
+  },
+  "evidence/claim-graph": {
+    "repository": "Aftergraph/intelligence-systems-research",
+    "commit": "72e115c642441e10dd88890edfac86b787315cf0",
+    "source": "EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md",
+    "semantic_version": "AUDIT-EVID-001",
+    "evidence_cut": "2026-09-04",
+    "canonical_owner": "ISR"
   }
 }

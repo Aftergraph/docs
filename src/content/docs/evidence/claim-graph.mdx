@@ -1,0 +1,27 @@
+---
+title: "Claim Graph"
+description: "Claim → status → evidence → study → cut → reproduction."
+---
+import Provenance from '../../../components/Provenance.astro';
+import graph from '../../../data/graph.json';
+
+Registry: ISR `AUDIT-EVID-001` — the Knowledge Plane renders claims, never reinterprets them. Click-through depth (hypothesis/objection/dataset) lives in ISR's own registries and lands here in a later slice.
+
+<h3>Claim chains</h3>
+
+{graph.claim_graph.claims.map((c) => (
+  <article class="claim">
+    <p class="claim-id"><code>{c.id}</code> <strong>{c.status}</strong> <span class={`lens lens-${c.evidenceClass}`}>{c.evidenceClass}</span></p>
+    <blockquote>{c.claim}</blockquote>
+    <ul>
+      <li><strong>Study</strong> <code>{c.study}</code></li>
+      <li><strong>Sample</strong> {c.sample}</li>
+      <li><strong>Evidence cut</strong> {c.evidenceCut}</li>
+      <li><strong>Reproduction</strong> <code>{c.reproduction}</code></li>
+      <li><strong>Source</strong> <code>{c.sourceSha.slice(0, 8)}</code></li>
+    </ul>
+    <p class="chain">{c.chain.join(' → ')}</p>
+  </article>
+))}
+
+<Provenance page="evidence/claim-graph" />

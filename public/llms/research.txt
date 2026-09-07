@@ -1,4 +1,4 @@
 # Aftergraph — research
 
-- Research overview: https://docs.aftergraph.dev/research/
-- Evidence + claim states: https://docs.aftergraph.dev/evidence/
+- Research overview: https://docs.aftergraph.org/research/
+- Claim chains (status, evidence class, cut): https://docs.aftergraph.org/evidence/claim-graph/

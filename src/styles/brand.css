@@ -25,3 +25,30 @@
 table.contracts { width:100%; border-collapse:collapse; font-size:.85rem; }
 table.contracts th { color:var(--ag-control); text-align:left; border-bottom:1px solid var(--ag-muted); padding:.4rem; }
 table.contracts td { border-bottom:1px solid color-mix(in srgb, var(--ag-muted) 30%, transparent); padding:.4rem; }
+
+/* V0.2 graph pages */
+.graph-node {
+  display: inline-block;
+  margin: 0.15rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid #155e75;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+}
+.claim {
+  border-left: 3px solid #0f766e;
+  padding-left: 0.9rem;
+  margin: 1.2rem 0;
+}
+.lens {
+  font-size: 0.75rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 0.3rem;
+}
+.lens-methodological-pilot { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
+.lens-synthesis { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+.chain {
+  font-family: monospace;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}

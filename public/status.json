@@ -1,31 +1,38 @@
 {
   "build": {
-    "site_commit": "2d3ff5a866a64f4dc077753065f0c9351b63f9df",
-    "generated_at": "2026-09-07T00:23:33.922Z"
+    "site_commit": "25994c4dadd66b385525149092449234c2d6d0d7",
+    "generated_at": "2026-09-07T00:33:00.652Z"
   },
   "summary": {
     "source_count": 9,
-    "current": 4,
-    "source_moved_unchanged": 1,
+    "current": 2,
+    "source_moved_unchanged": 2,
     "source_moved_changed": 0,
-    "source_moved": 4,
+    "source_moved": 5,
     "stale": 0,
     "unknown": 0,
-    "last_verification": "2026-09-07T00:23:28.547Z"
+    "last_verification": "2026-09-07T00:32:54.560Z"
   },
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
       "pinned_sha": "57c681e9e4df56f5e2dd068e372d945392dc0007",
-      "remote_sha": "57c681e9e4df56f5e2dd068e372d945392dc0007",
-      "status": "CURRENT",
+      "remote_sha": "412b7065581a11607958be7f5d04ebcce36753c2",
+      "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
-      "artifacts": []
+      "artifacts": [
+        {
+          "path": "docs/cross-repo-contracts.md",
+          "pinned_blob": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
+          "live_blob": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
+          "changed": false
+        }
+      ]
     },
     {
       "repository": "Aftergraph/aie",
       "pinned_sha": "c9684e4d160f8ea59bd295807d45d2652258d003",
-      "remote_sha": "064d32981a4d8f86b6b56f0f66d990851a90ba35",
+      "remote_sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -41,7 +48,7 @@
     {
       "repository": "Aftergraph/trust-gateway",
       "pinned_sha": "8c74593175f686c6365b485ac2b5d05c5bd5252d",
-      "remote_sha": "9026426781f19241ffda9eaa0a182a1a396562f1",
+      "remote_sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -49,8 +56,8 @@
     {
       "repository": "Aftergraph/works-execution",
       "pinned_sha": "85e9274651eaeeca3a31048a0ebd19e70316201e",
-      "remote_sha": "85e9274651eaeeca3a31048a0ebd19e70316201e",
-      "status": "CURRENT",
+      "remote_sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     },
@@ -72,7 +79,7 @@
     {
       "repository": "Aftergraph/studio",
       "pinned_sha": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9",
-      "remote_sha": "d3055a83ba3455f069eae4be9e34a0ce5ef33f4a",
+      "remote_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -132,5 +139,5 @@
       ]
     }
   ],
-  "verification": "2026-09-07T00:23:28.547Z"
+  "verification": "2026-09-07T00:32:54.560Z"
 }

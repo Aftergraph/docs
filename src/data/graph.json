@@ -1,0 +1,305 @@
+{
+  "generated_from": {
+    "contracts": "Aftergraph/after-graph-governance@57c681e9e4df56f5e2dd068e372d945392dc0007 docs/cross-repo-contracts.md",
+    "claims": "Aftergraph/intelligence-systems-research@72e115c642441e10dd88890edfac86b787315cf0 EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md (AUDIT-EVID-001)"
+  },
+  "contract_graph": {
+    "nodes": [
+      {
+        "id": "after-graph-governance"
+      },
+      {
+        "id": "aie"
+      },
+      {
+        "id": "intelligence-systems-research"
+      },
+      {
+        "id": "trust-gateway"
+      },
+      {
+        "id": "works-execution"
+      }
+    ],
+    "edges": [
+      {
+        "from": "intelligence-systems-research",
+        "contract": "cpi/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "cpi/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "cpi/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "rab/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "rab/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "rab/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "aie",
+        "contract": "identity/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "aie",
+        "contract": "identity/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "trust-gateway",
+        "contract": "policy.token/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "trust-gateway",
+        "contract": "policy.token/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "trust-gateway",
+        "contract": "secret.ref/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "trust-gateway",
+        "contract": "secret.ref/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "shell.contracts/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "shell.contracts/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "link.wire/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "link.wire/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "pairing/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "pairing/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "aie",
+        "contract": "brain.ns/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "aie",
+        "contract": "brain.ns/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "after-graph-governance",
+        "contract": "release.rings/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "after-graph-governance",
+        "contract": "release.rings/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "after-graph-governance",
+        "contract": "release.rings/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "evidence.schema/1.1",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "evidence.schema/1.1",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "evidence.schema/1.1",
+        "to": "intelligence-systems-research",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "kernel.budget/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "works-execution",
+        "contract": "kernel.budget/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "kernel.lifecycle/1.0",
+        "to": "trust-gateway",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "kernel.lifecycle/1.0",
+        "to": "works-execution",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      },
+      {
+        "from": "intelligence-systems-research",
+        "contract": "kernel.lifecycle/1.0",
+        "to": "aie",
+        "normative": true,
+        "source": "docs/cross-repo-contracts.md"
+      }
+    ]
+  },
+  "claim_graph": {
+    "claims": [
+      {
+        "id": "C-001",
+        "claim": "Benchmark workloads are deterministic sandboxed runs with calibrated error baselines, not live cloud-API runs",
+        "status": "SUPPORTED",
+        "evidenceClass": "methodological-pilot",
+        "study": "JAR-EXP-0001 / MISSION-Bench",
+        "sample": "N bounded, Wilson 95% CI recomputed",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "not-independently-reproduced",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:SUPPORTED",
+          "evidence:methodological-pilot",
+          "study:JAR-EXP-0001 / MISSION-Bench",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:not-independently-reproduced"
+        ]
+      },
+      {
+        "id": "C-002",
+        "claim": "Zero observed false completions in finite sample implies bounded rate (Wilson 95% CI), not elimination",
+        "status": "SUPPORTED",
+        "evidenceClass": "methodological-pilot",
+        "study": "statistical audit recompute",
+        "sample": "N=100 → 95% CI [0.0%, 4.93%]",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "not-independently-reproduced",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:SUPPORTED",
+          "evidence:methodological-pilot",
+          "study:statistical audit recompute",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:not-independently-reproduced"
+        ]
+      },
+      {
+        "id": "C-003",
+        "claim": "Program maturity Level C+ / Provisional-D; all external patent/IEEE/NIST/public-release submissions HELD",
+        "status": "SUPPORTED",
+        "evidenceClass": "synthesis",
+        "study": "AUDIT-EVID-001",
+        "sample": "program-wide",
+        "evidenceCut": "2026-09-04",
+        "reproduction": "not-applicable",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:SUPPORTED",
+          "evidence:synthesis",
+          "study:AUDIT-EVID-001",
+          "cut:2026-09-04",
+          "reproduction:not-applicable"
+        ]
+      }
+    ]
+  }
+}
