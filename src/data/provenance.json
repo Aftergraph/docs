@@ -219,7 +219,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/brand-identity.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -227,7 +227,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/cli-v0-design.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -235,7 +235,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/cli-v0-features.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -243,7 +243,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/competitor-analysis.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -251,7 +251,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/data-model-v0.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -259,7 +259,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/decisions.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -267,7 +267,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/go-to-market.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -275,7 +275,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/jobs-to-be-done.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -283,7 +283,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/market-research.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -291,7 +291,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/personas.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -299,7 +299,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/risks.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -307,7 +307,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/ui-flows.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -315,7 +315,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/validation-plan.md.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -323,7 +323,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "README.md + docs/ (strategy docs, prototype-first)",
-    "semantic_version": "docs snapshot (no code yet)",
+    "semantic_version": "docs snapshot + prototype rules (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -331,7 +331,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/roadmap-90-days.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },
@@ -339,7 +339,7 @@
     "repository": "Aftergraph/sentinel",
     "commit": "4b0007cd6a62aa5599772387958b4d49905a56d4",
     "source": "docs/todo.md",
-    "semantic_version": "strategy docs (pinned beececfb)",
+    "semantic_version": "strategy docs (pinned 4b0007cd)",
     "evidence_cut": null,
     "canonical_owner": "Sentinel"
   },

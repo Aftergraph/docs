@@ -33,7 +33,7 @@
     {
       "repo": "Aftergraph/sentinel",
       "class": "Repository",
-      "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs, no code yet)",
+      "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs + prototype rule implementation)",
       "sha": "4b0007cd6a62aa5599772387958b4d49905a56d4"
     },
     {

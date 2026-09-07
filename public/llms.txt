@@ -2,8 +2,8 @@
 
 > Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
 >
-> Provenance: generated 2026-09-07T19:41:51.148Z from site commit bbe8dbe7fb3749116a39156ab778075cfbb94597.
-> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T19:29:47.004Z · 2 SOURCE_MOVED_CONTENT_CHANGED, 5 SOURCE_MOVED, 3 CURRENT, 1 SOURCE_MOVED_CONTENT_UNCHANGED
+> Provenance: generated 2026-09-07T19:48:12.212Z from site commit 85eda6633f338cd39b6dd7d84ab593b9046cb025.
+> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T19:41:51.879Z · 2 SOURCE_MOVED_CONTENT_CHANGED, 5 SOURCE_MOVED, 3 CURRENT, 1 SOURCE_MOVED_CONTENT_UNCHANGED
 
 - [Platform overview](https://docs.aftergraph.org/platform/)
 - [Golden Mission route](https://docs.aftergraph.org/platform/golden-mission/)
@@ -11,7 +11,7 @@
 - [Research overview](https://docs.aftergraph.org/research/)
 - [Claim chains C-001..C-008 (registry-verbatim audit status)](https://docs.aftergraph.org/evidence/claim-graph/)
 - [Standards overview](https://docs.aftergraph.org/standards/)
-- [Contract Explorer (13 contracts)](https://docs.aftergraph.org/standards/contracts/)
+- [Contract Explorer (17 contracts)](https://docs.aftergraph.org/standards/contracts/)
 - [Contract Graph](https://docs.aftergraph.org/standards/contract-graph/)
 - [Catalog](https://docs.aftergraph.org/catalog/)
 - [Authority semantics via AIE contracts](https://docs.aftergraph.org/standards/contracts/)

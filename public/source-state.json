@@ -1,21 +1,14 @@
 {
-  "checked_at": "2026-09-07T19:41:51.879Z",
-  "site_commit": "bbe8dbe7fb3749116a39156ab778075cfbb94597",
+  "checked_at": "2026-09-07T19:48:12.903Z",
+  "site_commit": "85eda6633f338cd39b6dd7d84ab593b9046cb025",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
-      "pinned_sha": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+      "pinned_sha": "d5972d1240cc2d0347f3a2ea6c0493bcd2f6577c",
       "remote_sha": "d5972d1240cc2d0347f3a2ea6c0493bcd2f6577c",
-      "status": "SOURCE_MOVED_CONTENT_CHANGED",
+      "status": "CURRENT",
       "distance": null,
-      "artifacts": [
-        {
-          "path": "docs/cross-repo-contracts.md",
-          "pinned_blob": "a95da47369d3eedc7659235f50a43b620bc4534c",
-          "live_blob": "6a613e7b229c937ce5955a7abe0c58fbbf3168da",
-          "changed": true
-        }
-      ]
+      "artifacts": []
     },
     {
       "repository": "Aftergraph/aie",
@@ -51,18 +44,11 @@
     },
     {
       "repository": "Aftergraph/work-intelligence-v2",
-      "pinned_sha": "49f602145094e2b5dfcbfd712c6085653a765360",
+      "pinned_sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
       "remote_sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
-      "status": "SOURCE_MOVED_CONTENT_CHANGED",
+      "status": "CURRENT",
       "distance": null,
-      "artifacts": [
-        {
-          "path": "openapi.json",
-          "pinned_blob": "c6094e7fbe154795531a92b70d19f0b8c6e76568",
-          "live_blob": "f5ca4c818e76ca8c7d6cf347c4804d47cf657b37",
-          "changed": true
-        }
-      ]
+      "artifacts": []
     },
     {
       "repository": "Aftergraph/studio",
@@ -75,7 +61,7 @@
     {
       "repository": "Aftergraph/sentinel",
       "pinned_sha": "4b0007cd6a62aa5599772387958b4d49905a56d4",
-      "remote_sha": "1fadb8811210b1db8dee4ff383f1b34d7f2dacb1",
+      "remote_sha": "90601ab923853d3f608f61730a047842104d6966",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []

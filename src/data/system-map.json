@@ -25,7 +25,7 @@
         "id": "after-graph-governance",
         "role": "Cross-repo contracts, architecture, terminology, boundaries",
         "class": "Repository",
-        "sha": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+        "sha": "d5972d1240cc2d0347f3a2ea6c0493bcd2f6577c",
         "contract_count": 1,
         "contracts": [
           "release.rings/1.0"
@@ -103,7 +103,7 @@
       },
       {
         "id": "sentinel",
-        "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs, no code yet)",
+        "role": "Sentinel — verified code-review product: PRs into merge-ready verdicts (strategy docs + prototype rule implementation)",
         "class": "Repository",
         "sha": "4b0007cd6a62aa5599772387958b4d49905a56d4",
         "contract_count": 0,
@@ -149,7 +149,7 @@
         "id": "work-intelligence-v2",
         "role": "Source-neutral work intelligence (observations → WorkItems)",
         "class": "Repository",
-        "sha": "49f602145094e2b5dfcbfd712c6085653a765360",
+        "sha": "e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,

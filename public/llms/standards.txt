@@ -1,6 +1,6 @@
 # Aftergraph — standards
 
 - Standards overview: https://docs.aftergraph.org/standards/
-- Contract Explorer (13 contracts): https://docs.aftergraph.org/standards/contracts/
+- Contract Explorer (17 contracts): https://docs.aftergraph.org/standards/contracts/
 - Contract Graph: https://docs.aftergraph.org/standards/contract-graph/
 - Catalog: https://docs.aftergraph.org/catalog/
