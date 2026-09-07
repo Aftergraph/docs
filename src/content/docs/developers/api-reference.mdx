@@ -11,9 +11,10 @@ Reference below is rendered from `{schemas.api.repository}@{schemas.api.commit.s
 <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@latest/dist/browser/standalone.js"></script>
 <scalar-api-reference data-url="/openapi.json" />
 
-There is no browser console on this page: the API currently sends no CORS
-allow-list for browser origins (probed 2026-09-07), so `fetch()` from this
-origin is refused by the browser. Use curl or a server-side client, or the
-[Docs MCP](/developers/mcp-boundary/) for agent access.
+Browser calls live on the [Try-it](/developers/try-it/) page — but they
+only succeed once the API's CORS allow-list includes this origin
+([wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59),
+probed absent 2026-09-07). Until that deploys, use curl or a server-side
+client, or the [Docs MCP](/developers/mcp-boundary/) for agent access.
 
 <Provenance page="developers/api-reference" />

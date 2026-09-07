@@ -1,0 +1,49 @@
+---
+title: "Try it"
+description: "Call read-only Work Intelligence endpoints from your browser. No keys, no signup."
+---
+import Provenance from '../../../components/Provenance.astro';
+
+Three read-only `GET` endpoints against production
+(`https://work-intelligence.aftergraph.org`, paths from the adopted
+OpenAPI). No keys, no signup, nothing is written. If a call fails with a
+network error, the browser is blocking it: the API's CORS allow-list must
+include this origin — tracked in
+[wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59). Until
+that deploys, use the curl fallback shown under each result.
+
+<div class="ag-deep-list" id="tryit-buttons">
+  <a href="#try-version" id="btn-version"><strong>GET /api/v1/version</strong><span>Build version and maturity.</span></a>
+  <a href="#try-migrations" id="btn-migrations"><strong>GET /api/v1/migrations</strong><span>Applied migration chain.</span></a>
+  <a href="#try-ratelimit" id="btn-ratelimit"><strong>GET /api/v1/rate-limit</strong><span>Current rate-limit state.</span></a>
+</div>
+
+<pre id="tryit-out">Press a button above — the response lands here.</pre>
+
+<script>{`
+(function () {
+  const base = 'https://work-intelligence.aftergraph.org';
+  const out = document.getElementById('tryit-out');
+  async function call(path) {
+    out.textContent = 'GET ' + base + path + ' …';
+    try {
+      const res = await fetch(base + path);
+      const text = await res.text();
+      let body;
+      try { body = JSON.stringify(JSON.parse(text), null, 2); }
+      catch { body = text; }
+      out.textContent = 'HTTP ' + res.status + '\\n' + body;
+    } catch (e) {
+      out.textContent = 'NETWORK ERROR — the browser blocked the request. '
+        + 'This means the CORS allow-list has not deployed yet '
+        + '(wi-backend#59). Fallback:\\n'
+        + 'curl ' + base + path;
+    }
+  }
+  document.getElementById('btn-version').addEventListener('click', function (e) { e.preventDefault(); call('/api/v1/version'); });
+  document.getElementById('btn-migrations').addEventListener('click', function (e) { e.preventDefault(); call('/api/v1/migrations'); });
+  document.getElementById('btn-ratelimit').addEventListener('click', function (e) { e.preventDefault(); call('/api/v1/rate-limit'); });
+})();
+`}</script>
+
+<Provenance page="developers/try-it" />

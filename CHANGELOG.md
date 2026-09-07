@@ -41,8 +41,16 @@ Format inspired by Keep a Changelog; versions are portal slices, not semver.
   `title`; links gate uses real github-slugger, skips code fences, and
   asserts schemas/pin/paths parity; context packs gain next-reading for
   new routes; orphan provenance key removed; `.gitattributes` enforces
-  LF-only. Pin adoptions (WI, governance) left to verifier per
-  never-auto-pin policy.
+  LF-only. (WI/governance adoptions below were owner-authorized the same
+  day, superseding the verifier-queue note.)
+- Owner-authorized adoptions: WI at `e50b21c4` (spec 11→51 paths, purely
+  additive) and governance at `d5972d12` (V2.1: register 13→17, additive);
+  sentinel citations refreshed to pin `4b0007cd` with rule-pack re-render
+  (10→6) and corrected prototype claims.
+- `/developers/try-it`: read-only GET console (version/migrations/
+  rate-limit) with CORS-failure UX; live use needs
+  [wi-backend#59](https://github.com/Aftergraph/wi-backend/pull/59)
+  merged + deployed.
 
 ## [V1.1] — 2026-09-07 — Docs parity
 
