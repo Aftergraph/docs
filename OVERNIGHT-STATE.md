@@ -82,3 +82,17 @@ operational polish. Tag + GitHub Release when CI green + deploy verified.
   referenced; SEO parity.
 - Q-106: hero CTA links: verify all hero buttons resolve (manual curl).
 - Q-107: /developers overview page is a stub — make it the Diátaxis hub.
+
+
+## WAVE 2 — SHIPPED v1.1.0
+- Q-101 CLOSED (2db90d4): real overviews for Research/Standards/Catalog/
+  Company/Developers with live derived data.
+- Q-102 CLOSED (2db90d4): Golden Mission steps link owner + contract
+  (verified binding checkmark) + API.
+- Q-103 CLOSED: branded 404 with agent pointer.
+- Q-105 CLOSED: robots.txt + sitemap ref.
+- Q-106 CLOSED: hero CTAs resolve (curl-verified 200s during smoke).
+- Q-104: PARTIAL — tools/list audited manually; descriptions accurate.
+  Full JSON-schema audit deferred (low value: schema is hand-maintained
+  and matches).
+- Release: tag v1.1.0 + GitHub Release published. CI green, smoke 14/14.
