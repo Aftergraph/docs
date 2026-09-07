@@ -14,7 +14,7 @@
         {
           "name": "detail",
           "type": "array",
-          "description": "",
+          "description": "Detail",
           "required": false
         }
       ]
@@ -30,67 +30,67 @@
         {
           "name": "tenant_id",
           "type": "string",
-          "description": "",
+          "description": "Tenant Id",
           "required": true
         },
         {
           "name": "source",
           "type": "string",
-          "description": "",
+          "description": "Source",
           "required": true
         },
         {
           "name": "text",
           "type": "string",
-          "description": "",
+          "description": "Text",
           "required": true
         },
         {
           "name": "external_id",
           "type": "string | null",
-          "description": "",
+          "description": "External Id",
           "required": false
         },
         {
           "name": "actor",
           "type": "string | null",
-          "description": "",
+          "description": "Actor",
           "required": false
         },
         {
           "name": "occurred_at",
           "type": "string | null",
-          "description": "",
+          "description": "Occurred At",
           "required": false
         },
         {
           "name": "metadata",
           "type": "object",
-          "description": "",
+          "description": "Metadata",
           "required": false
         },
         {
           "name": "title_hint",
           "type": "string | null",
-          "description": "",
+          "description": "Title Hint",
           "required": false
         },
         {
           "name": "owner_hint",
           "type": "string | null",
-          "description": "",
+          "description": "Owner Hint",
           "required": false
         },
         {
           "name": "due_hint",
           "type": "string | null",
-          "description": "",
+          "description": "Due Hint",
           "required": false
         },
         {
           "name": "priority_hint",
           "type": "string | null",
-          "description": "",
+          "description": "Priority Hint",
           "required": false
         }
       ]
@@ -104,13 +104,13 @@
         {
           "name": "actor",
           "type": "string",
-          "description": "",
+          "description": "Actor",
           "required": true
         },
         {
           "name": "reason",
           "type": "string",
-          "description": "",
+          "description": "Reason",
           "required": false
         }
       ]
@@ -124,7 +124,7 @@
         {
           "name": "destination",
           "type": "string",
-          "description": "",
+          "description": "Destination",
           "required": true
         }
       ]
@@ -139,25 +139,25 @@
         {
           "name": "action",
           "type": "string",
-          "description": "",
+          "description": "Action",
           "required": true
         },
         {
           "name": "actor",
           "type": "string",
-          "description": "",
+          "description": "Actor",
           "required": true
         },
         {
           "name": "reason",
           "type": "string",
-          "description": "",
+          "description": "Reason",
           "required": false
         },
         {
           "name": "resume_at",
           "type": "string | null",
-          "description": "",
+          "description": "Resume At",
           "required": false
         }
       ]
@@ -173,31 +173,31 @@
         {
           "name": "loc",
           "type": "array",
-          "description": "",
+          "description": "Location",
           "required": true
         },
         {
           "name": "msg",
           "type": "string",
-          "description": "",
+          "description": "Message",
           "required": true
         },
         {
           "name": "type",
           "type": "string",
-          "description": "",
+          "description": "Error Type",
           "required": true
         },
         {
           "name": "input",
           "type": "object",
-          "description": "",
+          "description": "Input",
           "required": false
         },
         {
           "name": "ctx",
           "type": "object",
-          "description": "",
+          "description": "Context",
           "required": false
         }
       ]
