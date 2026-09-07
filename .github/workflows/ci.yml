@@ -34,7 +34,9 @@ jobs:
 
   deploy:
     needs: gates
-    if: "github.event_name == 'push' && github.ref == 'refs/heads/main'"
+    # Deploy stays opt-in: set repo variable ENABLE_DEPLOY=true + secrets
+    # CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID (CI-only, least privilege).
+    if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true'"
     runs-on: ubuntu-latest
     environment: production
     steps:
