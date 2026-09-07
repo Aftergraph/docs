@@ -3,15 +3,15 @@ title: "Golden Mission"
 description: "Canonical end-to-end route data model (V0: route, not animation)."
 ---
 import Provenance from '../../../components/Provenance.astro';
+import MissionFlow from '../../../components/MissionFlow.astro';
 
 V0 ships the route and its data model (`src/data/golden-mission.json`).
 Every step links owner → contract → API → schema → implementation → evidence
 as those bindings land.
 
-`Observation → WorkItem → Approval → Mission → Authority → Trust Gateway → WORKS → Evidence → Verification → Verified Outcome → Studio`
+<MissionFlow />
 
 Step owners and bindings are declared in the data file; the full matrix is
 tracked in the [Contract Explorer](/standards/contracts/).
-
 
 <Provenance page="platform/golden-mission" />

@@ -1,0 +1,34 @@
+---
+// Hero for the landing page — canvas gradient, animated title, live stats.
+import prov from '../data/provenance.json';
+import buildStatus from '../data/build-status.json';
+import contracts from '../data/contracts.json';
+import graph from '../data/graph.json';
+
+const stats = [
+  { n: String(contracts.contracts.length), l: 'Canonical contracts' },
+  { n: String(graph.contract_graph.edges.length), l: 'Governance edges' },
+  { n: String(graph.claim_graph.claims.length), l: 'Audited claims' },
+  { n: '4', l: 'Truth clocks' },
+];
+const verified = buildStatus?.page_line ?? '';
+---
+<div class="ag-hero">
+  <span class="ag-hero-kicker">Knowledge Plane · {prov.index.semantic_version}</span>
+  <h1>Build intelligence that can act.<br />Govern what it may do. Verify what actually happened.</h1>
+  <p class="lede">
+    This portal is a <strong>compiler / rendering / discovery layer</strong>.
+    Repositories own truth, governance owns boundaries, evidence owns claim strength.
+    The plane resolves and renders — it owns no truth.
+  </p>
+  <div class="ag-hero-ctas">
+    <a class="ag-btn" href="/platform/">Explore the Platform →</a>
+    <a class="ag-btn ghost" href="/standards/contracts/">Contract Explorer</a>
+    <a class="ag-btn ghost" href="/developers/api-reference/">API Reference</a>
+    <a class="ag-btn ghost" href="/evidence/claim-graph/">Evidence</a>
+  </div>
+  <div class="ag-hero-stats">
+    {stats.map((s) => <div class="ag-stat"><b>{s.n}</b><span>{s.l}</span></div>)}
+  </div>
+  {verified && <p class="ag-live-note" style="margin:.9rem 0 0">{verified}</p>}
+</div>

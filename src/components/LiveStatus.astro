@@ -1,0 +1,49 @@
+---
+// Live status tiles — client fetch of /status.json, build-time fallback.
+import status from '../../public/status.json';
+const s = (status as any).summary;
+const tiles = [
+  { n: s.source_count, l: 'Sources', tone: 'neutral' },
+  { n: s.current, l: 'Current', tone: 'ok' },
+  { n: s.source_moved_unchanged + s.source_moved_changed, l: 'Moved · pinned', tone: 'warn' },
+  { n: s.source_moved, l: 'Moved · unverified', tone: 'warn' },
+  { n: s.stale + s.unknown, l: 'Stale/Unknown', tone: s.stale + s.unknown > 0 ? 'bad' : 'ok' },
+];
+---
+<div class="ag-live" data-live>
+  {tiles.map((t) => (
+    <div class="tile" data-tone={t.tone}>
+      <b>{t.n}</b><span>{t.l}</span>
+    </div>
+  ))}
+</div>
+<p class="ag-live-note" data-live-note>
+  Pinned build values — live refresh from /status.json on the deployed site.
+</p>
+<script>
+  // ponytail: naive fetch+render; ceiling = no polling/websocket, upgrade path = SSE.
+  (async () => {
+    const grid = document.querySelector('[data-live]');
+    const note = document.querySelector('[data-live-note]');
+    if (!grid || !location.protocol.startsWith('http')) return;
+    try {
+      const r = await fetch('/status.json', { cache: 'no-store' });
+      if (!r.ok) return;
+      const s = (await r.json()).summary;
+      const vals = [
+        { n: s.source_count, tone: 'neutral' },
+        { n: s.current, tone: 'ok' },
+        { n: s.source_moved_unchanged + s.source_moved_changed, tone: 'warn' },
+        { n: s.source_moved, tone: 'warn' },
+        { n: s.stale + s.unknown, tone: s.stale + s.unknown > 0 ? 'bad' : 'ok' },
+      ];
+      grid.querySelectorAll('.tile').forEach((el, i) => {
+        const v = vals[i];
+        if (!v) return;
+        el.querySelector('b').textContent = String(v.n);
+        el.dataset.tone = v.tone;
+      });
+      if (note) note.textContent = `Live from /status.json · verified ${s.last_verification}`;
+    } catch { /* pinned fallback already rendered */ }
+  })();
+</script>

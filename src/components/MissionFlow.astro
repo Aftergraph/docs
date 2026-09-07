@@ -1,0 +1,14 @@
+---
+// Golden Mission as a numbered flow grid (10 steps, owner → binding chips).
+import mission from '../data/golden-mission.json';
+---
+<div class="ag-flow">
+  {mission.steps.map((s, i) => (
+    <div class="ag-step" style={`--i:${i}`}>
+      <h4>{s.step}</h4>
+      <span class="owner">{s.owner.replace('Aftergraph/', '')}</span>
+      {s.api && <span class="binding">{s.api}</span>}
+      {s.contract && <span class="binding">{s.contract}</span>}
+    </div>
+  ))}
+</div>

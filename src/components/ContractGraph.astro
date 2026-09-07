@@ -1,0 +1,109 @@
+---
+// Interactive contract graph: SVG pentagon layout, hover node → highlight
+// edges, contract chips filter. Vanilla JS, no dependencies.
+import graph from '../data/graph.json';
+
+const nodeColors = {
+  'after-graph-governance': 'var(--ag-authority)',
+  aie: 'var(--ag-authority)',
+  'intelligence-systems-research': 'var(--ag-evidence)',
+  'trust-gateway': 'var(--ag-control)',
+  'works-execution': 'var(--ag-system)',
+};
+const nodes = graph.contract_graph.nodes;
+const edges = graph.contract_graph.edges;
+const contractsList = [...new Set(edges.map((e) => e.contract))];
+
+// Pentagon layout, 320×300 viewBox with center hub (governance).
+const cx = 160, cy = 152, R = 118;
+const pos = new Map();
+nodes.forEach((n, i) => {
+  const a = -Math.PI / 2 + (i * 2 * Math.PI) / nodes.length;
+  pos.set(n.id, { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) });
+});
+function curve(p1, p2) {
+  const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  const nx = -dy / 2 * 0.14, ny = dx / 2 * 0.14;
+  return `M ${p1.x} ${p1.y} Q ${mx + nx} ${my + ny} ${p2.x} ${p2.y}`;
+}
+---
+<div class="ag-graph-shell">
+  <div class="ag-graph-filters" role="group" aria-label="Filter edges by contract">
+    <button class="ag-chip" data-contract="*" aria-pressed="true">all 31</button>
+    {contractsList.map((c) => (
+      <button class="ag-chip" data-contract={c} aria-pressed="false">{c}</button>
+    ))}
+  </div>
+  <svg class="ag-graph-svg" viewBox="0 0 320 304" role="img" aria-label="Contract graph: owners to consumers across canonical repos">
+    {edges.map((e, i) => {
+      const p1 = pos.get(e.from), p2 = pos.get(e.to);
+      const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
+      const dx = p2.x - p1.x, dy = p2.y - p1.y;
+      const lx = mx - dy * 0.07, ly = my + dx * 0.07;
+      return (
+        <g class="edge-g" data-from={e.from} data-to={e.to} data-contract={e.contract}>
+          <path class="edge" d={curve(p1, p2)} marker-end="url(#arrow)" />
+          <text class="edge-label" x={lx} y={ly} text-anchor="middle">{e.contract}</text>
+        </g>
+      );
+    })}
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(137,147,164,0.5)" />
+      </marker>
+    </defs>
+    {nodes.map((n) => (
+      <g class="node" data-id={n.id} style={`--nc:${nodeColors[n.id] ?? 'var(--ag-system)'}`}>
+        <circle cx={pos.get(n.id).x} cy={pos.get(n.id).y} r="9" />
+        <text x={pos.get(n.id).x} y={pos.get(n.id).y + 24}>{n.id}</text>
+      </g>
+    ))}
+  </svg>
+</div>
+
+<script>
+  const shell = document.currentScript?.parentElement as HTMLElement | null;
+  const root = shell?.querySelector('.ag-graph-shell') ?? document.querySelector('.ag-graph-shell');
+  if (root) {
+    const groups = root.querySelectorAll<SVGGraphicsElement>('.edge-g');
+    const nodesEl = root.querySelectorAll<SVGGraphicsElement>('.node');
+    const chips = root.querySelectorAll<HTMLButtonElement>('.ag-chip');
+    let active: string = '*';
+
+    function apply(hoverId?: string) {
+      groups.forEach((g) => {
+        const hit = hoverId
+          ? g.dataset.from === hoverId || g.dataset.to === hoverId
+          : active === '*' || g.dataset.contract === active;
+        g.querySelector('.edge')?.classList.toggle('hi', hit);
+        g.querySelector('.edge')?.classList.toggle('dim', !hit);
+        g.querySelector('.edge-label')?.classList.toggle('hi', hit);
+        g.querySelector('.edge-label')?.classList.toggle('dim', !hit);
+      });
+      nodesEl.forEach((n) => {
+        const hit = hoverId
+          ? n.dataset.id === hoverId ||
+            [...groups].some((g) =>
+              (g.dataset.from === hoverId && g.dataset.to === n.dataset.id) ||
+              (g.dataset.to === hoverId && g.dataset.from === n.dataset.id))
+          : active === '*' || [...groups].some((g) => g.dataset.contract === active && (g.dataset.from === n.dataset.id || g.dataset.to === n.dataset.id));
+        n.classList.toggle('hi', hit);
+        n.classList.toggle('dim', !hit);
+      });
+    }
+    nodesEl.forEach((n) => {
+      n.addEventListener('mouseenter', () => apply(n.dataset.id));
+      n.addEventListener('mouseleave', () => apply());
+      n.addEventListener('focus', () => apply(n.dataset.id));
+      n.addEventListener('blur', () => apply());
+    });
+    chips.forEach((c) => {
+      c.addEventListener('click', () => {
+        active = c.dataset.contract ?? '*';
+        chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+        apply();
+      });
+    });
+  }
+</script>

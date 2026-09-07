@@ -1,0 +1,40 @@
+---
+title: "System Map"
+description: "Zoomable system model: Aftergraph → systems → contracts/claims."
+---
+import Provenance from '../../../components/Provenance.astro';
+import map from '../../../data/system-map.json';
+
+Derived view (`scripts/system-map.mjs` → `src/data/system-map.json`) over the
+canonical registries: catalog + contract graph + claim graph + golden mission.
+Every binding is verified against the contract graph — an unbound contract
+fails the build.
+
+<h3>Level 1 — Aftergraph</h3>
+<p>{map.map.systems.length} systems participate in the contract graph.</p>
+
+<h3>Level 2 — Systems</h3>
+<ul>
+  {map.map.systems.map((s) => (
+    <li>
+      <strong>{s.id}</strong> — {s.role}
+      {' '}<span class="meta">· {s.contract_count} contracts · {s.edges} edges{s.claims.length ? ` · claims ${s.claims.join(', ')}` : ''}</span>
+    </li>
+  ))}
+</ul>
+
+<h3>Level 3 — Golden Mission bindings (verified)</h3>
+<ul>
+  {map.map.golden_mission.map((m) => (
+    <li>
+      {m.order}. <strong>{m.step}</strong> — <code>{m.owner}</code>
+      {m.contract && (
+        <span class="meta"> · contract <code>{m.contract}</code> (owner <code>{m.contract_owner}</code>)
+        {m.verified_binding ? ' ✓' : ' ✗ unbound'}</span>
+      )}
+      {m.api && <span class="meta"> · <code>{m.api}</code></span>}
+    </li>
+  ))}
+</ul>
+
+<Provenance page="platform/system-map" />

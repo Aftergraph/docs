@@ -4,12 +4,24 @@ import starlight from '@astrojs/starlight';
 // ponytail: sidebar mirrors the canonical IA (Platform Developers Research
 // Standards Evidence Catalog Company). No generic "Docs" top-level —
 // ADR-003. Search is Starlight Pagefind (default, no hosted dependency).
+// ThemeSelect is overridden (components.ThemeSelect) to default to dark —
+// Starlight 0.42 has no `defaultTheme` option.
 export default defineConfig({
   site: 'https://docs.aftergraph.org',
   integrations: [
     starlight({
       title: 'Aftergraph Knowledge Plane',
+      description: 'Compiler over canonical sources — build, govern, execute, verify.',
       customCss: ['./src/styles/brand.css'],
+      components: {
+        ThemeSelect: './src/components/overlays/ThemeSelect.astro',
+      },
+      head: [
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' } },
+        { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap' } },
+        { tag: 'meta', attrs: { name: 'theme-color', content: '#080C14' } },
+      ],
       sidebar: [
         { label: 'Platform', items: [
           { label: 'Overview', slug: 'platform' },
