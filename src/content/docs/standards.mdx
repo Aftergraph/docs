@@ -1,12 +1,37 @@
 ---
 title: "Standards"
-description: "AIE specifications, conformance, interoperability."
+description: "AIE specifications, cross-repo contracts, conformance, interoperability."
 ---
 import Provenance from '../../components/Provenance.astro';
+import graph from '../../data/graph.json';
 
 Normative semantics live in `Aftergraph/aie`; cross-repo boundaries in
-`Aftergraph/after-graph-governance`. Machine-readable relationships first:
-[Contract Explorer](/standards/contracts/).
+`Aftergraph/after-graph-governance`. Status: **Research Draft /
+experimental standards track** — not a declared industry standard.
 
+## What's on the standards track
+
+| Track | Owner | State |
+|---|---|---|
+| AIE (Agentic Institution Engineering) | `Aftergraph/aie` | Draft 0.3 — authority, delegation, revocation, budgets, evidence semantics |
+| Cross-repo contracts | `after-graph-governance` | {graph.contract_graph.edges.length} edges over {graph.contract_graph.nodes.length} repos, all normative |
+| SPEC-001 / Mission Contract | ISR | Research prototype; conformance in-tree (C-005: second in-tree implementation, **not** independent reproduction) |
+
+## Explore
+
+- [Contract Explorer](/standards/contracts/) — all 13 contracts with owners
+  and consumers
+- [Contract Graph](/standards/contract-graph/) — interactive owner→contract→consumer
+  graph
+- [System Map](/platform/system-map/) — verified bindings from Golden
+  Mission steps to owning contracts
+
+## Interoperability position
+
+Aftergraph composes existing standards where they solve a problem (RFC 8693
+for exchange envelopes, RFC 3161/Rekor for anchoring) and invents only the
+layer the industry is missing: institution semantics for autonomous agents.
+Nothing here is declared stable before external blind reproduction —
+see [C-005](/evidence/claim-graph/) for the current honest state.
 
 <Provenance page="standards" />

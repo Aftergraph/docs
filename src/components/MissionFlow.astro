@@ -1,14 +1,36 @@
 ---
-// Golden Mission as a numbered flow grid (10 steps, owner → binding chips).
+// Golden Mission walkthrough: 10 steps, each linking owner page + contract
+// (resolved to owner via system-map verified bindings) + API anchor.
 import mission from '../data/golden-mission.json';
+import map from '../data/system-map.json';
+const contractOwners = Object.fromEntries(
+  map.map.golden_mission.map((m) => [m.step, m])
+);
+const repoPages = {
+  'work-intelligence-v2': '/developers/api-reference/',
+  'studio': '/platform/',
+  'works-execution': '/standards/contracts/',
+  'aie': '/standards/contracts/',
+  'trust-gateway': '/standards/contracts/',
+  'intelligence-systems-research': '/evidence/claim-graph/',
+};
 ---
-<div class="ag-flow">
-  {mission.steps.map((s, i) => (
-    <div class="ag-step" style={`--i:${i}`}>
-      <h4>{s.step}</h4>
-      <span class="owner">{s.owner.replace('Aftergraph/', '')}</span>
-      {s.api && <span class="binding">{s.api}</span>}
-      {s.contract && <span class="binding">{s.contract}</span>}
-    </div>
-  ))}
-</div>
+<ol class="ag-flow">
+  {mission.steps.map((s) => {
+    const m = contractOwners[s.step];
+    return (
+      <li class="ag-step">
+        <h4>{s.step}</h4>
+        <a class="owner" href={repoPages[s.owner.replace('Aftergraph/', '')] ?? '/catalog/'}>
+          {s.owner.replace('Aftergraph/', '')}
+        </a>
+        {s.api && <a class="binding" href="/developers/api-reference/">{s.api}</a>}
+        {s.contract && (
+          <a class="binding" href="/standards/contracts/" title={`owner: ${m?.contract_owner ?? 'unknown'} (verified ${m?.verified_binding ? '✓' : '✗'})`}>
+            {s.contract} {m?.verified_binding ? '✓' : '✗'}
+          </a>
+        )}
+      </li>
+    );
+  })}
+</ol>

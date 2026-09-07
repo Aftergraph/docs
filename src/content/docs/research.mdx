@@ -3,13 +3,43 @@ title: "Research"
 description: "ISR program, studies, benchmarks — claims never reinterpreted."
 ---
 import Provenance from '../../components/Provenance.astro';
+import graph from '../../data/graph.json';
 
 Source registry and evidence audit remain authoritative
 (`Aftergraph/intelligence-systems-research`, evidence cut **AUDIT-EVID-001 / 2026-09-04**,
 maturity **Level C+ / Provisional-D**, external submissions **HELD**).
 
-Simulated, methodological-pilot, live-validated, and independently-reproduced
-evidence stay distinguishable — see [Evidence](/evidence/).
+## The research program
 
+ISR investigates a vendor-neutral systems contract connecting human intent
+to persistent, governed, verifiable outcomes. Current public work:
+
+- **SPEC-001 / Mission Contract** — machine-readable mission, state,
+  capability, authority, budget, trajectory, evidence and verifier semantics.
+- **MISSION-Bench** — fault-injected evaluation of long-horizon systems.
+- **Evidence-gated completion** — `Complete ≠ Verified` as a normative
+  invariant.
+- **STUDY-011** — preregistered live cross-provider confirmatory study
+  (470 LIVE_VALID runs); reversed two deterministic directions (C-001,
+  C-007) and established C-008 (full governance stack > assurance alone).
+
+## Evidence discipline
+
+Evidence classes are never interchangeable:
+
+| Class | Meaning | Count in register |
+|---|---|---|
+| deterministic | sandboxed, calibrated baselines | {graph.claim_graph.claims.filter((c) => c.evidenceClass.includes('deterministic')).length} |
+| live_valid | real provider runs, preregistered | {graph.claim_graph.claims.filter((c) => c.evidenceClass.includes('live')).length} |
+| synthesis | program-level assessment | 1 (maturity) |
+| prototype-only | design hypothesis, N=0 | {graph.claim_graph.claims.filter((c) => c.evidenceClass.includes('prototype')).length} |
+
+Every claim on this portal carries its class, its evidence cut, its
+reproduction state, and the registry SHA it came from. The plane renders
+claims verbatim — it cannot strengthen them, only surface weaknesses
+(a live REVERSED finding projects to CONTESTED, never away).
+
+Where to go: [Claim Graph](/evidence/claim-graph/) for all 8 chains ·
+[Trust & Verification](/company/trust/) for how the plane earns belief.
 
 <Provenance page="research" />

@@ -1,15 +1,36 @@
 ---
 title: "Catalog"
-description: "Unified machine-readable catalog (public repos only)."
+description: "Unified machine-readable catalog — public repos, systems, entities."
 ---
 import Provenance from '../../components/Provenance.astro';
+import catalog from '../../data/catalog.json';
+import graph from '../../data/graph.json';
+import map from '../../data/system-map.json';
 
 Machine data: `src/data/catalog.json` — entity classes Repository, System,
 Product, Specification, Contract, API, Schema, ResearchProgram, Paper, Study,
 Experiment, Benchmark, EvidenceArtifact, Model, Skill.
 
-Initial repo map: after-graph-governance, aie, intelligence-systems-research,
-trust-gateway, works-execution, work-intelligence-v2, studio, brand.
+## Canonical repositories ({catalog.repos.length})
 
+| Repo | Role | Pinned SHA |
+|---|---|---|
+{catalog.repos.map((r) => `| [\`${r.repo.replace('Aftergraph/', '')}\`](https://github.com/${r.repo}) | ${r.role} | \`${r.sha.slice(0, 8)}\` |`).join('\n')}
+
+## System view ({map.map.systems.length} systems)
+
+| System | Contracts | Graph edges |
+|---|---|---|
+{map.map.systems.map((s) => `| \`${s.id}\` | ${s.contract_count} | ${s.edges} |`).join('\n')}
+
+Full graph: [Contract Graph](/standards/contract-graph/) · bindings:
+[System Map](/platform/system-map/).
+
+## Entity classes
+
+The catalog schema supports: Repository, System, Product, Specification,
+Contract, API, Schema, ResearchProgram, Paper, Study, Experiment, Benchmark,
+EvidenceArtifact, Model, Skill. Repos are populated first; the remaining
+classes fill as owning repos publish machine-readable metadata.
 
 <Provenance page="catalog" />
