@@ -29,8 +29,8 @@
     "https://docs.aftergraph.org/platform/system-map/",
     "https://docs.aftergraph.org/standards/contracts/"
   ],
-  "generated_at": "2026-09-07T01:13:33.901Z",
-  "site_commit": "9f3feb3c14946b30ff7daa4b1a228747466d671f",
+  "generated_at": "2026-09-07T01:13:51.054Z",
+  "site_commit": "2719227d39322d7348cf6a73a14f17493b82734c",
   "constraints": [
     "Do not treat this pack as fresher than its site_commit.",
     "The owning repository (source_repository@source_commit) is authoritative over this rendering."
