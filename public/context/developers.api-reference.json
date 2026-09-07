@@ -14,8 +14,8 @@
   "next_reading": [
     "https://docs.aftergraph.org/developers/mcp-boundary/"
   ],
-  "generated_at": "2026-09-07T00:53:27.993Z",
-  "site_commit": "decf044e46851c44304f04430c88082ba6eff408",
+  "generated_at": "2026-09-07T00:55:42.461Z",
+  "site_commit": "a9e4abec4e7cbaf9abf897d9974add2ddde13d87",
   "constraints": [
     "Do not treat this pack as fresher than its site_commit.",
     "The owning repository (source_repository@source_commit) is authoritative over this rendering."

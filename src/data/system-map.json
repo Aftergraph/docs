@@ -35,7 +35,7 @@
         "id": "aie",
         "role": "Normative authority semantics (Agentic Institution Engineering)",
         "class": "Repository",
-        "sha": "c9684e4d160f8ea59bd295807d45d2652258d003",
+        "sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
@@ -83,7 +83,7 @@
         "id": "trust-gateway",
         "role": "Fail-closed runtime enforcement plane",
         "class": "Repository",
-        "sha": "8c74593175f686c6365b485ac2b5d05c5bd5252d",
+        "sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
@@ -107,7 +107,7 @@
         "id": "works-execution",
         "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
         "class": "Repository",
-        "sha": "85e9274651eaeeca3a31048a0ebd19e70316201e",
+        "sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
         "contract_count": 13,
         "contracts": [
           "cpi/1.0",
@@ -141,7 +141,7 @@
         "id": "studio",
         "role": "Operator/product experience (missions, approvals, verified outcomes)",
         "class": "Repository",
-        "sha": "968a44e8cd7f6e7724fcf44e2bef0093220a91f9",
+        "sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,

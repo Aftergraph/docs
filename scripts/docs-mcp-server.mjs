@@ -88,6 +88,10 @@ const TOOLS = {
     description: 'List canonical Aftergraph repos with pinned commit SHAs (the source registry).',
     inputSchema: { type: 'object', properties: {}, additionalProperties: false },
   },
+  docs_get_context_pack: {
+    description: 'Get the ACC-shaped context pack for a page (portable bundle: topic, owner, source repo@sha, dependency contracts, related claims, next reading, freshness constraints). Route like "standards.contract-graph" or "index".',
+    inputSchema: { type: 'object', properties: { route: { type: 'string' } }, required: ['route'], additionalProperties: false },
+  },
 };
 
 function handle(name, args) {
@@ -131,6 +135,12 @@ function handle(name, args) {
     }
     case 'docs_get_catalog':
       return { repos: catalog.repos.map((r) => ({ repo: r.repo, role: r.role, sha: r.sha.slice(0, 8) })), site_commit: buildManifest?.site_commit };
+    case 'docs_get_context_pack': {
+      const route = String(args.route || '').replace(/^\/+|\/+$/g, '');
+      const file = join(root, 'public/context', route + '.json');
+      if (!route.match(/^[a-z0-9.-]+$/) || !existsSync(file)) throw new Error(`context pack not found: ${route} (see public/context/index.json)`);
+      return JSON.parse(readFileSync(file, 'utf8'));
+    }
     default:
       throw new Error(`unknown tool ${name}`);
   }
