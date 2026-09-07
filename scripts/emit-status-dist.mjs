@@ -16,4 +16,5 @@ const status = {
   verification: bs.verified_at,
 };
 writeFileSync(root + '/dist/status.json', JSON.stringify(status, null, 2) + '\n');
+execSync('node scripts/validate.mjs --post-build', { encoding: 'utf8', cwd: root, stdio: 'inherit' });
 console.log('dist/status.json emitted (post-build)');

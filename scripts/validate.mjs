@@ -101,16 +101,30 @@ else {
   ok(`graph: ${g.contract_graph.nodes.length} nodes, ${g.contract_graph.edges.length} edges, ${g.claim_graph.claims.length} claim chains`);
 }
 
-// 9. context packs: one per provenance page, site_commit bounded
-if (!existsSync(join(root, 'dist/context/index.json'))) fail('dist/context/index.json missing (run scripts/context-packs.mjs)');
-else {
-  const idx = JSON.parse(readFileSync(join(root, 'dist/context/index.json'), 'utf8'));
-  if (!idx.packs || idx.packs.length < Object.keys(prov).length) fail('context pack count < provenance pages');
-  const sample = JSON.parse(readFileSync(join(root, 'dist/context/standards.contract-graph.json'), 'utf8'));
-  if (sample.$schema !== 'aftergraph.context-pack.v0') fail('context pack: wrong $schema');
-  if (!sample.source_commit || sample.source_commit.length !== 40) fail('context pack: bad source_commit');
-  if (!sample.site_commit) fail('context pack: missing site_commit bound');
-  ok(`context packs: ${idx.packs.length} packs, schema + provenance bounded`);
+// 9. context packs: one per provenance page, site_commit bounded.
+// ponytail: packs are written by context-packs.mjs AFTER astro build — during
+// the pre-build validate pass (fresh checkout) they legitimately don't exist
+// yet. Soft-skip pre-build, hard-fail via emit-status-dist.mjs post-build.
+if (process.argv.includes('--post-build')) {
+  if (!existsSync(join(root, 'dist/context/index.json'))) fail('dist/context/index.json missing (run scripts/context-packs.mjs)');
+  else {
+    const idx = JSON.parse(readFileSync(join(root, 'dist/context/index.json'), 'utf8'));
+    if (!idx.packs || idx.packs.length < Object.keys(prov).length) fail('context pack count < provenance pages');
+    const sample = JSON.parse(readFileSync(join(root, 'dist/context/standards.contract-graph.json'), 'utf8'));
+    if (sample.$schema !== 'aftergraph.context-pack.v0') fail('context pack: wrong $schema');
+    if (!sample.source_commit || sample.source_commit.length !== 40) fail('context pack: bad source_commit');
+    if (!sample.site_commit) fail('context pack: missing site_commit bound');
+    ok(`context packs: ${idx.packs.length} packs, schema + provenance bounded`);
+  }
+  if (!process.exitCode) console.log('POST-BUILD VALIDATE PASS');
+} else {
+  if (existsSync(join(root, 'dist/context/index.json'))) {
+    const idx = JSON.parse(readFileSync(join(root, 'dist/context/index.json'), 'utf8'));
+    if (idx.packs && idx.packs.length < Object.keys(prov).length) fail('context pack count < provenance pages');
+    ok('context packs: pre-build phase, consistency checked (full check post-build)');
+  } else {
+    ok('context packs: pre-build phase (full check runs post-build)');
+  }
 }
 if (!process.exitCode) {
   writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
