@@ -1,12 +1,13 @@
 {
   "name": "@aftergraph/docs",
   "version": "0.1.0",
-  "description": "Aftergraph Knowledge Plane \u2014 public compiler/rendering/discovery layer over canonical sources. Owns no specs, claims, contracts or product docs.",
+  "description": "Aftergraph Knowledge Plane — public compiler/rendering/discovery layer over canonical sources. Owns no specs, claims, contracts or product docs.",
   "type": "module",
   "scripts": {
     "build": "node scripts/llms.mjs && node scripts/graph.mjs && node scripts/system-map.mjs && node scripts/validate.mjs && node scripts/freshness.mjs && node scripts/status.mjs && astro build && node scripts/build-manifest.mjs && node scripts/context-packs.mjs && node scripts/emit-status-dist.mjs",
     "check": "tsc --noEmit",
     "validate": "node scripts/validate.mjs",
+    "verify:v2-ui": "node scripts/verify-v2-ui.mjs",
     "freshness": "node scripts/freshness.mjs",
     "predev": "node scripts/status.mjs"
   },

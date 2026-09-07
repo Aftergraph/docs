@@ -1,5 +1,5 @@
 ---
-// Hero for the landing page — canvas gradient, animated title, live stats.
+// Developer-first Knowledge Plane entry point. Data remains source-derived.
 import prov from '../data/provenance.json';
 import buildStatus from '../data/build-status.json';
 import contracts from '../data/contracts.json';
@@ -14,21 +14,21 @@ const stats = [
 const verified = buildStatus?.page_line ?? '';
 ---
 <div class="ag-hero">
-  <span class="ag-hero-kicker">Knowledge Plane · {prov.index.semantic_version}</span>
-  <h1>Build intelligence that can act.<br />Govern what it may do. Verify what actually happened.</h1>
+  <p class="ag-hero-meta">Knowledge Plane · {prov.index.semantic_version}</p>
+  <h1>Build systems that can act. Verify what actually happened.</h1>
   <p class="lede">
-    This portal is a <strong>compiler / rendering / discovery layer</strong>.
-    Repositories own truth, governance owns boundaries, evidence owns claim strength.
-    The plane resolves and renders — it owns no truth.
+    Repositories own truth. Governance owns boundaries. Evidence owns claim strength.
+    This portal resolves those sources into one developer and research surface — it does not become their source of truth.
   </p>
   <div class="ag-hero-ctas">
-    <a class="ag-btn" href="/platform/">Explore the Platform →</a>
+    <a class="ag-btn" href="/developers/quickstart/">Start building →</a>
+    <a class="ag-btn ghost" href="/platform/">Platform</a>
     <a class="ag-btn ghost" href="/standards/contracts/">Contract Explorer</a>
     <a class="ag-btn ghost" href="/developers/api-reference/">API Reference</a>
-    <a class="ag-btn ghost" href="/evidence/claim-graph/">Evidence</a>
+    <a class="ag-btn ghost" href="/evidence/">Evidence</a>
   </div>
-  <div class="ag-hero-stats">
+  <div class="ag-hero-stats" aria-label="Source-derived Knowledge Plane counts">
     {stats.map((s) => <div class="ag-stat"><b>{s.n}</b><span>{s.l}</span></div>)}
   </div>
-  {verified && <p class="ag-live-note" style="margin:.9rem 0 0">{verified}</p>}
+  {verified && <p class="ag-live-note">{verified}</p>}
 </div>

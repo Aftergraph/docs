@@ -7,37 +7,30 @@ import Hero from '../../components/Hero.astro';
 
 <Hero />
 
-<div class="ag-grid">
-  <a class="ag-card" href="/platform/">
-    <span class="tag">Platform</span>
-    <h3>Five systems, four clocks</h3>
-    <p>Source, semantic, evidence, and live truth — mapped to AIE, Trust Gateway, WORKS, Work Intelligence, and Studio.</p>
-  </a>
-  <a class="ag-card" href="/standards/contracts/">
-    <span class="tag">Standards</span>
-    <h3>Contract Explorer</h3>
-    <p>13 canonical contracts, machine-readable first — with an interactive governance graph.</p>
-  </a>
-  <a class="ag-card" href="/developers/api-reference/">
-    <span class="tag">Developers</span>
-    <h3>API Reference</h3>
-    <p>Rendered from canonical OpenAPI 3.1 — never hand-duplicated.</p>
-  </a>
-  <a class="ag-card" href="/evidence/">
-    <span class="tag">Evidence</span>
-    <h3>Claims with strength</h3>
-    <p>Every claim carries evidence class, cut, and reproduction state — audited, not asserted.</p>
-  </a>
-  <a class="ag-card" href="/platform/golden-mission/">
-    <span class="tag">Platform</span>
-    <h3>Golden Mission</h3>
-    <p>Observation → Verified Outcome: the end-to-end route data model across five systems.</p>
-  </a>
-  <a class="ag-card" href="/status/">
-    <span class="tag">Live</span>
-    <h3>Build provenance</h3>
-    <p>Source freshness and verification state, rendered from pinned artifacts.</p>
-  </a>
-</div>
+<section class="ag-journey" aria-labelledby="journey-title">
+  <p class="ag-section-meta">Developer path</p>
+  <h2 id="journey-title">Start with one verified path</h2>
+  <p>Learn the system in the order it executes, verifies, and exposes evidence. The portal resolves source-owned material; it does not silently rewrite it.</p>
+
+  <ol class="ag-journey-list">
+    <li><a href="/developers/quickstart/"><strong>Quickstart</strong><span>Run the first useful developer path.</span><small>01</small></a></li>
+    <li><a href="/platform/golden-mission/"><strong>Golden Mission</strong><span>Follow Observation → Verified Outcome across the system.</span><small>02</small></a></li>
+    <li><a href="/standards/contracts/"><strong>Contract Explorer</strong><span>Inspect machine-readable contracts and ownership.</span><small>03</small></a></li>
+    <li><a href="/developers/api-reference/"><strong>API Reference</strong><span>Use the canonical OpenAPI-rendered surface.</span><small>04</small></a></li>
+    <li><a href="/evidence/"><strong>Evidence</strong><span>Inspect claim strength, provenance and reproduction state.</span><small>05</small></a></li>
+  </ol>
+</section>
+
+<section class="ag-deep-dives" aria-labelledby="deep-title">
+  <p class="ag-section-meta">Go deeper</p>
+  <h2 id="deep-title">Trace the system, then inspect the proof.</h2>
+  <div class="ag-deep-list">
+    <a href="/platform/"><strong>Platform system map</strong><span>Understand how AIE, Trust Gateway, WORKS, Work Intelligence and Studio divide responsibility.</span></a>
+    <a href="/standards/contract-graph/"><strong>Contract graph</strong><span>Follow contract ownership and governance edges.</span></a>
+    <a href="/research/"><strong>Research</strong><span>Review evidence-labelled research without promoting it into runtime authority.</span></a>
+    <a href="/company/trust/"><strong>Trust &amp; Verification</strong><span>See provenance, freshness, verification and evidence boundaries.</span></a>
+    <a href="/status/"><strong>Live build status</strong><span>Inspect pinned source state and the current build provenance surface.</span></a>
+  </div>
+</section>
 
 <Provenance page="index" />

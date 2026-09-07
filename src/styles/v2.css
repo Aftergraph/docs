@@ -1,0 +1,152 @@
+/* Aftergraph Knowledge Plane V2: calm, developer-first presentation layer.
+   Brand semantics remain in brand.css; this file owns only V2 composition. */
+
+.ag-hero {
+  position: relative;
+  overflow: visible;
+  border: 1px solid rgba(137, 147, 164, 0.18);
+  border-radius: .9rem;
+  background: rgba(10, 16, 28, 0.72);
+  padding: clamp(1.5rem, 4vw, 2.6rem);
+  margin: 0 0 2rem;
+  box-shadow: none;
+}
+.ag-hero::after { display: none; }
+.ag-hero-meta,
+.ag-section-meta {
+  margin: 0 0 .75rem;
+  color: var(--ag-muted);
+  font: 600 .72rem/1.4 var(--sl-font-mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.ag-hero h1 {
+  max-width: 48rem;
+  margin: 0 0 .75rem;
+  font-size: clamp(2.2rem, 5vw, 3.35rem);
+  line-height: 1.04;
+  color: var(--ag-text);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  animation: none !important;
+  text-wrap: balance;
+}
+.ag-hero .lede {
+  max-width: 46rem;
+  margin: 0 0 1.35rem;
+  color: var(--ag-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.ag-hero .lede strong { color: var(--ag-text); }
+.ag-hero-ctas { gap: .6rem; margin-bottom: 1.55rem; }
+.ag-btn {
+  border-radius: .5rem;
+  padding: .58rem .95rem;
+  box-shadow: none;
+  background: rgba(66, 199, 232, 0.08);
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+.ag-btn:hover {
+  transform: none;
+  box-shadow: none;
+  background: rgba(66, 199, 232, 0.14);
+  border-color: rgba(66, 199, 232, 0.58);
+}
+.ag-btn.ghost { background: transparent; }
+.ag-btn.ghost:hover { box-shadow: none; }
+.ag-hero-stats {
+  padding-top: 1rem;
+  border-top: 1px solid var(--sl-color-hairline);
+  gap: 1.8rem;
+}
+.ag-stat b {
+  color: var(--ag-text);
+  text-shadow: none;
+  font-size: 1.22rem;
+}
+.ag-stat span { letter-spacing: .04em; }
+.ag-live-note {
+  margin: .9rem 0 0;
+  color: var(--ag-muted);
+  font: 500 .72rem/1.5 var(--sl-font-mono);
+}
+
+.ag-journey { margin: 2.2rem 0 2.8rem; }
+.ag-journey > h2,
+.ag-deep-dives > h2 {
+  margin-bottom: .45rem;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+}
+.ag-journey > p:not(.ag-section-meta),
+.ag-deep-dives > p:not(.ag-section-meta) {
+  max-width: 46rem;
+  color: var(--ag-muted);
+}
+.ag-journey-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.35rem 0 0;
+  border-top: 1px solid var(--sl-color-hairline);
+}
+.ag-journey-list li { border-bottom: 1px solid var(--sl-color-hairline); }
+.ag-journey-list a {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, .7fr) minmax(0, 1.55fr) auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem .15rem;
+  color: inherit;
+  text-decoration: none;
+}
+.ag-journey-list strong { color: var(--ag-text); font-size: .95rem; }
+.ag-journey-list span { color: var(--ag-muted); font-size: .88rem; }
+.ag-journey-list small {
+  color: var(--sl-color-gray-3);
+  font: 600 .66rem/1 var(--sl-font-mono);
+  letter-spacing: .08em;
+}
+.ag-journey-list a:hover strong { color: var(--ag-control); }
+
+.ag-deep-dives { margin: 0 0 2.8rem; }
+.ag-deep-list {
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--sl-color-hairline);
+}
+.ag-deep-list a {
+  display: grid;
+  grid-template-columns: minmax(10rem, .75fr) minmax(0, 1.6fr);
+  gap: 1rem;
+  padding: .9rem .15rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  text-decoration: none;
+}
+.ag-deep-list strong { color: var(--ag-text); font-size: .88rem; }
+.ag-deep-list span { color: var(--ag-muted); font-size: .82rem; }
+.ag-deep-list a:hover strong { color: var(--ag-control); }
+
+/* V2 deliberately lowers ambient decoration without mutating Brand OS. */
+.ag-card,
+.ag-step,
+.contract-node,
+.claim-node { box-shadow: none; }
+.ag-card:hover,
+.ag-step:hover { box-shadow: none; transform: translateY(-1px); }
+
+@media (max-width: 42rem) {
+  .ag-hero { padding: 1.35rem 1.15rem; border-radius: .75rem; }
+  .ag-hero h1 { font-size: clamp(2rem, 11vw, 2.75rem); }
+  .ag-hero-ctas { display: grid; grid-template-columns: 1fr; }
+  .ag-btn { min-height: 2.75rem; justify-content: center; }
+  .ag-hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .ag-journey-list a,
+  .ag-deep-list a { grid-template-columns: 1fr; gap: .25rem; }
+  .ag-journey-list small { grid-row: 1; justify-self: end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-btn,
+  .ag-card,
+  .ag-step { transition: none !important; transform: none !important; }
+}
