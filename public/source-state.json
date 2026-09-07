@@ -1,20 +1,13 @@
 {
-  "checked_at": "2026-09-07T01:46:50.034Z",
+  "checked_at": "2026-09-07T01:48:14.426Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
-      "pinned_sha": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+      "pinned_sha": "412b7065581a11607958be7f5d04ebcce36753c2",
       "remote_sha": "412b7065581a11607958be7f5d04ebcce36753c2",
-      "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
+      "status": "CURRENT",
       "distance": null,
-      "artifacts": [
-        {
-          "path": "docs/cross-repo-contracts.md",
-          "pinned_blob": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
-          "live_blob": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
-          "changed": false
-        }
-      ]
+      "artifacts": []
     },
     {
       "repository": "Aftergraph/aie",
@@ -65,9 +58,9 @@
     },
     {
       "repository": "Aftergraph/studio",
-      "pinned_sha": "e4534f87dddc307f1b5b841aad880b1f36b421cf",
+      "pinned_sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
       "remote_sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
@@ -81,9 +74,9 @@
     },
     {
       "repository": "Aftergraph/.github",
-      "pinned_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
+      "pinned_sha": "62223d55c4f7fe451667411808ddb7badc90926d",
       "remote_sha": "62223d55c4f7fe451667411808ddb7badc90926d",
-      "status": "SOURCE_MOVED",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     }

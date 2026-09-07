@@ -1,7 +1,7 @@
 {
   "index": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -25,7 +25,7 @@
   },
   "developers": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -33,7 +33,7 @@
   },
   "developers/tutorials": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -41,7 +41,7 @@
   },
   "developers/how-to": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -49,7 +49,7 @@
   },
   "developers/reference": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -57,7 +57,7 @@
   },
   "developers/explanation": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -73,7 +73,7 @@
   },
   "developers/mcp-boundary": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -89,7 +89,7 @@
   },
   "standards": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -97,7 +97,7 @@
   },
   "standards/contracts": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -113,7 +113,7 @@
   },
   "catalog": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -121,7 +121,7 @@
   },
   "company": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
@@ -129,7 +129,7 @@
   },
   "status": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "generated at build from source-state.json",
     "semantic_version": "V0.1 (live truth)",
     "evidence_cut": null,
@@ -137,7 +137,7 @@
   },
   "standards/contract-graph": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "docs/cross-repo-contracts.md",
     "semantic_version": "register (13 contracts)",
     "evidence_cut": null,
@@ -153,7 +153,7 @@
   },
   "platform/system-map": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "catalog + contract graph + claims + golden-mission (derived)",
     "semantic_version": "V0.3 (system map)",
     "evidence_cut": null,
@@ -169,7 +169,7 @@
   },
   "developers/quickstart": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "dogfood loop over src/data/sources.ts + scripts/freshness.mjs",
     "semantic_version": "V1.1 (quickstart)",
     "evidence_cut": null,
@@ -177,7 +177,7 @@
   },
   "company/faq": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V1.1 (faq)",
     "evidence_cut": null,
@@ -185,7 +185,7 @@
   },
   "company/troubleshooting": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V1.1 (troubleshooting)",
     "evidence_cut": null,
@@ -193,7 +193,7 @@
   },
   "company/trust": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V1.1 (trust & verification)",
     "evidence_cut": null,
@@ -201,7 +201,7 @@
   },
   "company/contributing": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V1.1 (contributing)",
     "evidence_cut": null,
@@ -209,7 +209,7 @@
   },
   "company/changelog": {
     "repository": "Aftergraph/after-graph-governance",
-    "commit": "57c681e9e4df56f5e2dd068e372d945392dc0007",
+    "commit": "412b7065581a11607958be7f5d04ebcce36753c2",
     "source": "canonical repo HEAD 2026-09-06",
     "semantic_version": "V1.1 (changelog)",
     "evidence_cut": null,
