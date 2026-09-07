@@ -16,6 +16,13 @@ Format inspired by Keep a Changelog; versions are portal slices, not semver.
   and portal cross-links; per-product deep pages deferred to owner repos.
 - Sidebar `Start` group; provenance entries + context packs for all three
   pages (47 pages / 47 packs).
+- `/developers/schemas`: request/response tables generated at build time
+  from the adopted OpenAPI (`scripts/schemas.mjs` → `src/data/schemas.json`,
+  wired into `npm run build`); API Reference header now renders the live pin
+  SHA instead of a hand-written one (fixed stale `370a0b20`).
+- Honest status notes: no official SDK or unified CLI ships yet (see
+  Developers hub); browser Try-it console blocked on missing CORS headers
+  (probed 2026-09-07), curl/server-side only for now.
 
 ## [V1.1] — 2026-09-07 — Docs parity
 

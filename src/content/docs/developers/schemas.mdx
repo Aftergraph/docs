@@ -1,0 +1,26 @@
+---
+title: "Schemas"
+description: "Request and response schemas, generated from canonical OpenAPI."
+---
+import Provenance from '../../../components/Provenance.astro';
+import schemas from '../../../data/schemas.json';
+
+Every table below is generated at build time from `{schemas.api.repository}@{schemas.api.commit.slice(0, 8)} openapi.json`
+(API v{schemas.api.version}). Field text is never hand-duplicated. Full
+endpoint shapes live in the [API Reference](/developers/api-reference/).
+
+{schemas.schemas.map((s) => (
+  <>
+  <h2>{s.name}</h2>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      {s.properties.map((p) => (
+        <tr><td><code>{p.name}</code></td><td><code>{p.type}</code></td><td>{p.required ? 'yes' : '—'}</td><td>{p.description}</td></tr>
+      ))}
+    </tbody>
+  </table>
+  </>
+))}
+
+<Provenance page="developers/schemas" />

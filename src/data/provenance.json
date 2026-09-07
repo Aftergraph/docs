@@ -374,5 +374,13 @@
     "semantic_version": "V1.2 (launcher IA)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "developers/schemas": {
+    "repository": "Aftergraph/after-graph-governance",
+    "commit": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
+    "source": "generated view over src/data/schemas.json (derived from adopted openapi.json)",
+    "semantic_version": "V1.2 (generated schemas)",
+    "evidence_cut": null,
+    "canonical_owner": "Governance"
   }
 }

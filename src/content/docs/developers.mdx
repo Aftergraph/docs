@@ -30,4 +30,15 @@ Everything the portal renders is derivable from the pinned sources; the
 build fails on leakage, broken links, or provenance gaps — see
 [Trust & Verification](/company/trust/).
 
+## SDKs & CLI
+
+No official SDK or unified CLI ships yet — this is the honest state, not a
+gap in this page. Integrate today via
+[REST](/developers/api-reference/) (see [Schemas](/developers/schemas/)
+for request shapes) or the read-only
+[Docs MCP](/developers/mcp-boundary/) for agent access. The commands that
+do exist and are verified are this repo's own: `npm run build` (9 gates),
+`node scripts/freshness.mjs` (pins vs live remotes),
+`node scripts/smoke.mjs` (route checks).
+
 <Provenance page="developers" />

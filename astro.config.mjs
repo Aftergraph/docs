@@ -47,6 +47,7 @@ export default defineConfig({
           { label: 'How-to Guides', slug: 'developers/how-to' },
           { label: 'Reference', slug: 'developers/reference' },
           { label: 'API Reference', slug: 'developers/api-reference' },
+          { label: 'Schemas', slug: 'developers/schemas' },
           { label: 'Explanation', slug: 'developers/explanation' },
           { label: 'Docs MCP (read-only)', slug: 'developers/mcp-boundary' },
         ]},

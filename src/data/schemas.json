@@ -1,0 +1,206 @@
+{
+  "api": {
+    "repository": "Aftergraph/work-intelligence-v2",
+    "commit": "49f602145094e2b5dfcbfd712c6085653a765360",
+    "version": "0.2.0",
+    "openapi": "3.1.0",
+    "paths": 11
+  },
+  "schemas": [
+    {
+      "name": "HTTPValidationError",
+      "required": [],
+      "properties": [
+        {
+          "name": "detail",
+          "type": "array",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "ObservationRequest",
+      "required": [
+        "tenant_id",
+        "source",
+        "text"
+      ],
+      "properties": [
+        {
+          "name": "tenant_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "external_id",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "actor",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "occurred_at",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "title_hint",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "owner_hint",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "due_hint",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "priority_hint",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "PromoteRequest",
+      "required": [
+        "actor"
+      ],
+      "properties": [
+        {
+          "name": "actor",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "PublishRequest",
+      "required": [
+        "destination"
+      ],
+      "properties": [
+        {
+          "name": "destination",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "ReviewRequest",
+      "required": [
+        "action",
+        "actor"
+      ],
+      "properties": [
+        {
+          "name": "action",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "actor",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "resume_at",
+          "type": "string | null",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "ValidationError",
+      "required": [
+        "loc",
+        "msg",
+        "type"
+      ],
+      "properties": [
+        {
+          "name": "loc",
+          "type": "array",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "msg",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "input",
+          "type": "object",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "ctx",
+          "type": "object",
+          "description": "",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

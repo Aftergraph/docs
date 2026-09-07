@@ -1,14 +1,19 @@
 ---
 title: "API Reference"
-description: "Aftergraph Work Intelligence v0.2.0 — rendered from canonical OpenAPI."
+description: "Aftergraph Work Intelligence — rendered from canonical OpenAPI."
 ---
 import Provenance from '../../../components/Provenance.astro';
+import schemas from '../../../data/schemas.json';
 
-Reference below is rendered from `Aftergraph/work-intelligence-v2@370a0b20 openapi.json`
-(OpenAPI 3.1.0, 11 paths). Endpoint text is never hand-duplicated.
+Reference below is rendered from `{schemas.api.repository}@{schemas.api.commit.slice(0, 8)} openapi.json`
+(OpenAPI {schemas.api.openapi}, {schemas.api.paths} paths). Endpoint text is never hand-duplicated.
 
 <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@latest/dist/browser/standalone.js"></script>
 <scalar-api-reference data-url="/openapi.json" />
 
+No browser console lives on this page: the API currently sends no CORS
+allow-list for browser origins (probed 2026-09-07), so `fetch()` from this
+origin is refused by the browser. Use curl or a server-side client, or the
+[Docs MCP](/developers/mcp-boundary/) for agent access.
 
 <Provenance page="developers/api-reference" />
