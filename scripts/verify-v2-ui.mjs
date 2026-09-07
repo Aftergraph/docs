@@ -15,6 +15,8 @@ const includes = (source, needle, label = needle) =>
 
 includes(hero, 'Start building', 'developer-first hero CTA');
 includes(hero, '/developers/quickstart/', 'Quickstart hero route');
+includes(hero, 'href="/platform/"', 'Platform hero route');
+includes(hero, 'href="/evidence/"', 'Evidence hero route');
 includes(index, 'Golden Mission', 'Golden Mission homepage step');
 includes(index, 'Contract Explorer', 'Contract Explorer homepage step');
 includes(index, 'API Reference', 'API Reference homepage step');
