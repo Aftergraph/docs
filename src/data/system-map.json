@@ -9,13 +9,14 @@
       "label": "Aftergraph",
       "children": [
         "after-graph-governance",
+        "aftergraph.org",
         "aie",
+        "brand",
         "intelligence-systems-research",
-        "trust-gateway",
-        "works-execution",
-        "work-intelligence-v2",
         "studio",
-        "brand"
+        "trust-gateway",
+        "work-intelligence-v2",
+        "works-execution"
       ]
     },
     "systems": [
@@ -29,6 +30,16 @@
           "release.rings/1.0"
         ],
         "edges": 3,
+        "claims": []
+      },
+      {
+        "id": "aftergraph.org",
+        "role": "Public platform surface: landing, launcher, health, agent llms.txt (aftergraph.org)",
+        "class": "Repository",
+        "sha": "2b2c3d7426a45932e3470757b6bab92a25a1ce96",
+        "contract_count": 0,
+        "contracts": [],
+        "edges": 0,
         "claims": []
       },
       {
@@ -56,6 +67,16 @@
         "claims": []
       },
       {
+        "id": "brand",
+        "role": "Brand OS + design system (tokens v1.0.0 provisional)",
+        "class": "Repository",
+        "sha": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
+        "contract_count": 0,
+        "contracts": [],
+        "edges": 0,
+        "claims": []
+      },
+      {
         "id": "intelligence-systems-research",
         "role": "Labs / evals / assurance research program (SPEC-001, MISSION-Bench)",
         "class": "Repository",
@@ -78,6 +99,16 @@
           "C-007",
           "C-008"
         ]
+      },
+      {
+        "id": "studio",
+        "role": "Operator/product experience (missions, approvals, verified outcomes)",
+        "class": "Repository",
+        "sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
+        "contract_count": 0,
+        "contracts": [],
+        "edges": 0,
+        "claims": []
       },
       {
         "id": "trust-gateway",
@@ -104,6 +135,16 @@
         "claims": []
       },
       {
+        "id": "work-intelligence-v2",
+        "role": "Source-neutral work intelligence (observations → WorkItems)",
+        "class": "Repository",
+        "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
+        "contract_count": 0,
+        "contracts": [],
+        "edges": 0,
+        "claims": []
+      },
+      {
         "id": "works-execution",
         "role": "Durable execution plane (missions, WorkGraph, leases, budgets)",
         "class": "Repository",
@@ -125,36 +166,6 @@
           "kernel.lifecycle/1.0"
         ],
         "edges": 19,
-        "claims": []
-      },
-      {
-        "id": "work-intelligence-v2",
-        "role": "Source-neutral work intelligence (observations → WorkItems)",
-        "class": "Repository",
-        "sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
-        "contract_count": 0,
-        "contracts": [],
-        "edges": 0,
-        "claims": []
-      },
-      {
-        "id": "studio",
-        "role": "Operator/product experience (missions, approvals, verified outcomes)",
-        "class": "Repository",
-        "sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
-        "contract_count": 0,
-        "contracts": [],
-        "edges": 0,
-        "claims": []
-      },
-      {
-        "id": "brand",
-        "role": "Brand OS + design system (tokens v1.0.0 provisional)",
-        "class": "Repository",
-        "sha": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
-        "contract_count": 0,
-        "contracts": [],
-        "edges": 0,
         "claims": []
       }
     ],

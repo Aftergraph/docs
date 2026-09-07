@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T01:57:32.895Z",
+  "checked_at": "2026-09-07T02:14:23.530Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -44,7 +44,7 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "pinned_sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
-      "remote_sha": "cfa08b282694104515659db5a3bbfcb808b6155f",
+      "remote_sha": "50a42d471155bba99a19fd14fa86bf38bbf89ac8",
       "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
       "artifacts": [
@@ -59,7 +59,15 @@
     {
       "repository": "Aftergraph/studio",
       "pinned_sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
-      "remote_sha": "f24cf4789b834654857d5e4a0f45ffeb6d3770b2",
+      "remote_sha": "16c767a121f4b717236a05808f7b383067c1e646",
+      "status": "SOURCE_MOVED",
+      "distance": null,
+      "artifacts": []
+    },
+    {
+      "repository": "Aftergraph/aftergraph.org",
+      "pinned_sha": "2b2c3d7426a45932e3470757b6bab92a25a1ce96",
+      "remote_sha": "2b2c3d7426a45932e3470757b6bab92a25a1ce96",
       "status": "CURRENT",
       "distance": null,
       "artifacts": []
