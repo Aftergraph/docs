@@ -17,6 +17,7 @@ jobs:
       - run: npm ci
       - run: npx astro sync
       - run: npx tsc --noEmit
+      - run: npm run verify:v2-ui
       - run: npm run build
       - run: node scripts/scan-public.mjs
       - name: Local smoke (built dist via preview server)
