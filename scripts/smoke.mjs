@@ -18,13 +18,14 @@ const get = (path) => {
 
 const routes = ['/', '/developers/', '/research/', '/standards/', '/evidence/', '/catalog/',
   '/llms.txt', '/build-manifest.json', '/status/', '/status.json', '/source-state.json',
-  '/standards/contracts/', '/developers/api-reference/'];
+  '/standards/contracts/', '/developers/api-reference/', '/context/index.json'];
 for (const r of routes) {
   const { code, body } = get(r);
   if (code !== 200) { fail(`${r} -> HTTP ${code}`); continue; }
   if (r === '/llms.txt' && !/freshness boundary/i.test(body)) fail('/llms.txt missing freshness boundary');
   if (r === '/status.json' && !/"site_commit"/.test(body)) fail('/status.json missing site_commit');
   if (r === '/build-manifest.json' && !/"site_commit"/.test(body)) fail('/build-manifest.json missing site_commit');
+  if (r === '/context/index.json' && !/"packs"/.test(body)) fail('/context/index.json missing pack list');
   if (r.endsWith('/') && body.toLowerCase().includes('skills-vault')) fail(`/ leaks private source name ${r}`);
 }
 if (!process.exitCode) console.log(`SMOKE PASS (${routes.length} routes, ${base})`);

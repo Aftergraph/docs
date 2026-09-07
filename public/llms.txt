@@ -2,19 +2,22 @@
 
 > Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
 >
-> Provenance: generated 2026-09-07T00:51:00.338Z from site commit 944bc58a9de2f12b61a326e18c11ed0c9efce52d.
-> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T00:48:08.172Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 5 SOURCE_MOVED, 2 CURRENT
+> Provenance: generated 2026-09-07T00:52:10.429Z from site commit be5ef48b575ee34e46a5fcf1be384e4333ff5a12.
+> Freshness boundary (do not treat this index as fresher than its build): 2026-09-07T00:51:39.064Z · 2 SOURCE_MOVED_CONTENT_UNCHANGED, 5 SOURCE_MOVED, 2 CURRENT
 
 - [Platform overview](https://docs.aftergraph.org/platform/)
 - [Golden Mission route](https://docs.aftergraph.org/platform/golden-mission/)
 - [System Map (verified bindings)](https://docs.aftergraph.org/platform/system-map/)
 - [Research overview](https://docs.aftergraph.org/research/)
-- [Claim chains (status, evidence class, cut)](https://docs.aftergraph.org/evidence/claim-graph/)
+- [Claim chains C-001..C-008 (registry-verbatim audit status)](https://docs.aftergraph.org/evidence/claim-graph/)
 - [Standards overview](https://docs.aftergraph.org/standards/)
 - [Contract Explorer (13 contracts)](https://docs.aftergraph.org/standards/contracts/)
 - [Catalog](https://docs.aftergraph.org/catalog/)
 - [Authority semantics via AIE contracts](https://docs.aftergraph.org/standards/contracts/)
 - [identity/1.0 + brain.ns/1.0 owners](https://docs.aftergraph.org/standards/contracts/)
 - [Contract Graph (owner→consumer edges)](https://docs.aftergraph.org/standards/contract-graph/)
+- [Context Packs (ACC-shaped, per page)](https://docs.aftergraph.org/context/index.json)
+- [Build provenance](https://docs.aftergraph.org/build-manifest.json)
+- [Live status](https://docs.aftergraph.org/status.json)
 
 API reference: https://docs.aftergraph.org/developers/api-reference/ (Scalar over canonical OpenAPI)

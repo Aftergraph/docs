@@ -1,4 +1,4 @@
 # Aftergraph — research
 
 - Research overview: https://docs.aftergraph.org/research/
-- Claim chains (status, evidence class, cut): https://docs.aftergraph.org/evidence/claim-graph/
+- Claim chains C-001..C-008 (registry-verbatim audit status): https://docs.aftergraph.org/evidence/claim-graph/

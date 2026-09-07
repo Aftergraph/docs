@@ -22,7 +22,8 @@ const scopes = {
   research: ['Research overview', '/research/', 'Evidence + claim states', '/evidence/'],
   standards: ['Standards overview', '/standards/', 'Contract Explorer (13 contracts)', '/standards/contracts/', 'Catalog', '/catalog/'],
   aie: ['Authority semantics via AIE contracts', '/standards/contracts/', 'identity/1.0 + brain.ns/1.0 owners', '/standards/contracts/', 'Contract Graph (owner→consumer edges)', '/standards/contract-graph/'],
-  research: ['Research overview', '/research/', 'Claim chains (status, evidence class, cut)', '/evidence/claim-graph/'],
+  research: ['Research overview', '/research/', 'Claim chains C-001..C-008 (registry-verbatim audit status)', '/evidence/claim-graph/'],
+  agents: ['Context Packs (ACC-shaped, per page)', '/context/index.json', 'Build provenance', '/build-manifest.json', 'Live status', '/status.json'],
 };
 let index = `# Aftergraph Knowledge Plane\n\n> Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.\n>\n> Provenance: generated ${new Date().toISOString()} from site commit ${site}.\n> Freshness boundary (do not treat this index as fresher than its build): ${boundary}\n\n`;
 for (const [name, items] of Object.entries(scopes)) {

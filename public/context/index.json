@@ -1,0 +1,26 @@
+{
+  "packs": [
+    "https://docs.aftergraph.org/context/index.json",
+    "https://docs.aftergraph.org/context/platform.json",
+    "https://docs.aftergraph.org/context/platform.golden-mission.json",
+    "https://docs.aftergraph.org/context/developers.json",
+    "https://docs.aftergraph.org/context/developers.tutorials.json",
+    "https://docs.aftergraph.org/context/developers.how-to.json",
+    "https://docs.aftergraph.org/context/developers.reference.json",
+    "https://docs.aftergraph.org/context/developers.explanation.json",
+    "https://docs.aftergraph.org/context/developers.api-reference.json",
+    "https://docs.aftergraph.org/context/developers.mcp-boundary.json",
+    "https://docs.aftergraph.org/context/research.json",
+    "https://docs.aftergraph.org/context/standards.json",
+    "https://docs.aftergraph.org/context/standards.contracts.json",
+    "https://docs.aftergraph.org/context/evidence.json",
+    "https://docs.aftergraph.org/context/catalog.json",
+    "https://docs.aftergraph.org/context/company.json",
+    "https://docs.aftergraph.org/context/status.json",
+    "https://docs.aftergraph.org/context/standards.contract-graph.json",
+    "https://docs.aftergraph.org/context/evidence.claim-graph.json",
+    "https://docs.aftergraph.org/context/platform.system-map.json"
+  ],
+  "note": "ACC-shaped portable context packs. Read-only derivation; owning repos are authoritative.",
+  "generated_at": "2026-09-07T00:52:20.230Z"
+}

@@ -98,6 +98,18 @@ else {
   }
   ok(`graph: ${g.contract_graph.nodes.length} nodes, ${g.contract_graph.edges.length} edges, ${g.claim_graph.claims.length} claim chains`);
 }
+
+// 9. context packs: one per provenance page, site_commit bounded
+if (!existsSync(join(root, 'public/context/index.json'))) fail('public/context/index.json missing (run scripts/context-packs.mjs)');
+else {
+  const idx = JSON.parse(readFileSync(join(root, 'public/context/index.json'), 'utf8'));
+  if (!idx.packs || idx.packs.length < Object.keys(prov).length) fail('context pack count < provenance pages');
+  const sample = JSON.parse(readFileSync(join(root, 'public/context/standards.contract-graph.json'), 'utf8'));
+  if (sample.$schema !== 'aftergraph.context-pack.v0') fail('context pack: wrong $schema');
+  if (!sample.source_commit || sample.source_commit.length !== 40) fail('context pack: bad source_commit');
+  if (!sample.site_commit) fail('context pack: missing site_commit bound');
+  ok(`context packs: ${idx.packs.length} packs, schema + provenance bounded`);
+}
 if (!process.exitCode) {
   writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
   console.log('VALIDATE PASS');

@@ -1,0 +1,23 @@
+{
+  "$schema": "aftergraph.context-pack.v0",
+  "topic": "developers · api-reference",
+  "site": "https://docs.aftergraph.org",
+  "canonical_owner": "Work Intelligence",
+  "source_repository": "Aftergraph/work-intelligence-v2",
+  "source_commit": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
+  "source_path": "canonical repo HEAD 2026-09-06",
+  "semantic_version": "V0 (portal foundation)",
+  "evidence_cut": null,
+  "status": "portal-rendered-view (repo owns truth; governance owns boundaries; evidence owns claim strength)",
+  "depends_on_contracts": [],
+  "related_claims": [],
+  "next_reading": [
+    "https://docs.aftergraph.org/developers/mcp-boundary/"
+  ],
+  "generated_at": "2026-09-07T00:52:20.223Z",
+  "site_commit": "be5ef48b575ee34e46a5fcf1be384e4333ff5a12",
+  "constraints": [
+    "Do not treat this pack as fresher than its site_commit.",
+    "The owning repository (source_repository@source_commit) is authoritative over this rendering."
+  ]
+}

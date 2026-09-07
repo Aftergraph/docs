@@ -1,0 +1,5 @@
+# Aftergraph — agents
+
+- Context Packs (ACC-shaped, per page): https://docs.aftergraph.org/context/index.json
+- Build provenance: https://docs.aftergraph.org/build-manifest.json
+- Live status: https://docs.aftergraph.org/status.json

@@ -1,0 +1,38 @@
+{
+  "$schema": "aftergraph.context-pack.v0",
+  "topic": "evidence · claim-graph",
+  "site": "https://docs.aftergraph.org",
+  "canonical_owner": "ISR",
+  "source_repository": "Aftergraph/intelligence-systems-research",
+  "source_commit": "72e115c642441e10dd88890edfac86b787315cf0",
+  "source_path": "EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md",
+  "semantic_version": "AUDIT-EVID-001",
+  "evidence_cut": "2026-09-04",
+  "status": "portal-rendered-view (repo owns truth; governance owns boundaries; evidence owns claim strength)",
+  "depends_on_contracts": [
+    "cpi/1.0",
+    "evidence.schema/1.1",
+    "kernel.lifecycle/1.0",
+    "rab/1.0"
+  ],
+  "related_claims": [
+    "C-001",
+    "C-002",
+    "C-003",
+    "C-004",
+    "C-005",
+    "C-006",
+    "C-007",
+    "C-008"
+  ],
+  "next_reading": [
+    "https://docs.aftergraph.org/research/"
+  ],
+  "generated_at": "2026-09-07T00:52:20.227Z",
+  "site_commit": "be5ef48b575ee34e46a5fcf1be384e4333ff5a12",
+  "constraints": [
+    "Do not treat this pack as fresher than its site_commit.",
+    "The owning repository (source_repository@source_commit) is authoritative over this rendering.",
+    "Claims are registry-verbatim; evidence classes and reproduction states must be preserved."
+  ]
+}
