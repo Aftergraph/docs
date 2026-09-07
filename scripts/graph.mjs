@@ -10,6 +10,18 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const short = { TG: 'trust-gateway', AIE: 'aie', WE: 'works-execution', ISR: 'intelligence-systems-research' };
 const shortOf = (repo) => repo.replace('Aftergraph/', '');
 
+// Canonical 5-state mapping from registry audit wording. The verbatim
+// registry status is preserved in auditStatus — this map only projects onto
+// the canonical vocabulary, never upgrades or reinterprets.
+const canonical = (audit) => {
+  const a = audit.toUpperCase();
+  if (a.includes('UNTESTED') || a.includes('HYPOTHESIZED')) return 'PARTIALLY_SUPPORTED';
+  if (a.includes('REVERSED')) return 'CONTESTED';
+  if (a.includes('DOWNGRADED')) return 'PARTIALLY_SUPPORTED';
+  if (a.includes('SUPPORTED') || a.includes('VERIFIED') || a.includes('EMPIRICAL')) return 'SUPPORTED';
+  return 'PARTIALLY_SUPPORTED';
+};
+
 // 1. Contract graph
 const { contracts } = JSON.parse(readFileSync(root + '/src/data/contracts.json', 'utf8'));
 // consumer short-names appear in the MDX table; contracts.json consumers carry
@@ -33,14 +45,17 @@ const reg = JSON.parse(readFileSync(root + '/src/data/claims.json', 'utf8'));
 const claims = reg.claims.map((c, i) => ({
   id: `C-${String(i + 1).padStart(3, '0')}`,
   claim: c.claim,
-  status: c.status,
+  status: canonical(c.auditStatus || c.status),
+  auditStatus: c.auditStatus || c.status,
   evidenceClass: c.evidenceClass,
   study: c.study,
   sample: c.sample,
+  evidenceSources: c.evidenceSources || [],
+  limitations: c.limitations || null,
   evidenceCut: c.evidenceCut,
   reproduction: c.reproduction,
   sourceSha: c.sourceSha,
-  chain: ['claim', 'status:' + c.status, 'evidence:' + c.evidenceClass, 'study:' + c.study, 'cut:' + c.evidenceCut, 'reproduction:' + c.reproduction],
+  chain: ['claim', 'status:' + canonical(c.auditStatus || c.status), 'evidence:' + c.evidenceClass, 'study:' + c.study, 'cut:' + c.evidenceCut, 'reproduction:' + c.reproduction],
 }));
 
 const out = {

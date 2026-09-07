@@ -92,6 +92,8 @@ else {
   for (const c of g.claim_graph.claims) {
     if (!['SUPPORTED', 'PARTIALLY_SUPPORTED', 'CONTESTED', 'REFUTED', 'OBSOLETE'].includes(c.status))
       fail(`claim ${c.id}: non-canonical status ${c.status}`);
+    if (!c.auditStatus || typeof c.auditStatus !== 'string' || c.auditStatus.length < 5)
+      fail(`claim ${c.id}: missing verbatim auditStatus (registry wording required)`);
     if (!/^[0-9a-f]{40}$/.test(c.sourceSha || '')) fail(`claim ${c.id}: bad sourceSha`);
   }
   ok(`graph: ${g.contract_graph.nodes.length} nodes, ${g.contract_graph.edges.length} edges, ${g.claim_graph.claims.length} claim chains`);

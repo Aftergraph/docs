@@ -1,7 +1,7 @@
 {
   "generated_from": {
     "contracts": "Aftergraph/after-graph-governance@57c681e9e4df56f5e2dd068e372d945392dc0007 docs/cross-repo-contracts.md",
-    "claims": "Aftergraph/intelligence-systems-research@72e115c642441e10dd88890edfac86b787315cf0 EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md (AUDIT-EVID-001)"
+    "claims": "Aftergraph/intelligence-systems-research@72e115c642441e10dd88890edfac86b787315cf0 EVIDENCE-AUDIT-AND-CLAIM-REGISTRY.md (AUDIT-EVID-001, incl. section 5 STUDY-011 live update)"
   },
   "contract_graph": {
     "nodes": [
@@ -245,59 +245,200 @@
     "claims": [
       {
         "id": "C-001",
-        "claim": "Benchmark workloads are deterministic sandboxed runs with calibrated error baselines, not live cloud-API runs",
-        "status": "SUPPORTED",
-        "evidenceClass": "methodological-pilot",
-        "study": "JAR-EXP-0001 / MISSION-Bench",
-        "sample": "N bounded, Wilson 95% CI recomputed",
-        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
-        "reproduction": "not-independently-reproduced",
+        "claim": "Evidence gating eliminates false completion.",
+        "status": "CONTESTED",
+        "auditStatus": "STRONGLY_SUPPORTED (SAMPLE-BOUNDED); STUDY-011 live update: REFINED: REVERSED-DIRECTION CLARIFIED — models abstain 73-100% without assurance, so FCR(A)≈0 floors the comparison; assurance (F) converts abstention to action (success 76-95%). FCR=0 in baseline reflects ABSTENTION, not elimination.",
+        "evidenceClass": "deterministic + live_valid (STUDY-011)",
+        "study": "JAR-EXP-0001 / MISSION-Bench; STUDY-011 live cross-provider",
+        "sample": "FCR = 0.0% [0.0%, 3.89%] in N=100 (deterministic); STUDY-011: 470 LIVE_VALID, 8/8 cells ≥58",
+        "evidenceSources": [
+          "data/results_mission_bench.csv",
+          "data/results_confounder_analysis.csv"
+        ],
+        "limitations": null,
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04 + STUDY-011 update 2026-09-04",
+        "reproduction": "not-independently-reproduced (in-tree alternative only)",
         "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
         "chain": [
           "claim",
-          "status:SUPPORTED",
-          "evidence:methodological-pilot",
-          "study:JAR-EXP-0001 / MISSION-Bench",
-          "cut:AUDIT-EVID-001 2026-09-04",
-          "reproduction:not-independently-reproduced"
+          "status:CONTESTED",
+          "evidence:deterministic + live_valid (STUDY-011)",
+          "study:JAR-EXP-0001 / MISSION-Bench; STUDY-011 live cross-provider",
+          "cut:AUDIT-EVID-001 2026-09-04 + STUDY-011 update 2026-09-04",
+          "reproduction:not-independently-reproduced (in-tree alternative only)"
         ]
       },
       {
         "id": "C-002",
-        "claim": "Zero observed false completions in finite sample implies bounded rate (Wilson 95% CI), not elimination",
+        "claim": "Control plane token footprint is capped under 300 tokens.",
         "status": "SUPPORTED",
-        "evidenceClass": "methodological-pilot",
-        "study": "statistical audit recompute",
-        "sample": "N=100 → 95% CI [0.0%, 4.93%]",
+        "auditStatus": "VERIFIED",
+        "evidenceClass": "deterministic",
+        "study": "mission token audit",
+        "sample": "Exact 227 tokens [220, 235]",
+        "evidenceSources": [
+          "schemas/mission.v0alpha1.json",
+          "prototype/progressive.py"
+        ],
+        "limitations": "Applies strictly to Tier 1 core payload; custom tool manifests increase size.",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "deterministic, independently checkable",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:SUPPORTED",
+          "evidence:deterministic",
+          "study:mission token audit",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:deterministic, independently checkable"
+        ]
+      },
+      {
+        "id": "C-003",
+        "claim": "Automated verification recovery inverts economics, reducing CPVO by 81%.",
+        "status": "SUPPORTED",
+        "auditStatus": "CALIBRATED_ESTIMATE (SUPPORTED IN SIMULATION)",
+        "evidenceClass": "deterministic (simulation)",
+        "study": "CPVO economics analysis",
+        "sample": "CPVO reduced 81.3% [74.2%, 87.5%]",
+        "evidenceSources": [
+          "data/results_mission_bench.csv"
+        ],
+        "limitations": "Relies on standard commercial pricing schedules; evaluated in simulation.",
         "evidenceCut": "AUDIT-EVID-001 2026-09-04",
         "reproduction": "not-independently-reproduced",
         "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
         "chain": [
           "claim",
           "status:SUPPORTED",
-          "evidence:methodological-pilot",
-          "study:statistical audit recompute",
+          "evidence:deterministic (simulation)",
+          "study:CPVO economics analysis",
           "cut:AUDIT-EVID-001 2026-09-04",
           "reproduction:not-independently-reproduced"
         ]
       },
       {
-        "id": "C-003",
-        "claim": "Program maturity Level C+ / Provisional-D; all external patent/IEEE/NIST/public-release submissions HELD",
+        "id": "C-004",
+        "claim": "Operators prefer mission-centric exception UX over chat-only interfaces.",
+        "status": "PARTIALLY_SUPPORTED",
+        "auditStatus": "UNTESTED / HYPOTHESIZED (PREREGISTERED ONLY); STUDY-011: unchanged — STUDY-006 recruitment pending",
+        "evidenceClass": "prototype design only (N=0)",
+        "study": "STUDY-006-HCI-PREREGISTRATION",
+        "sample": "N=0 human trial participants",
+        "evidenceSources": [
+          "prototype/dashboard.py",
+          "STUDY-006-HCI-PREREGISTRATION.md"
+        ],
+        "limitations": null,
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "not-applicable (no trials)",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:PARTIALLY_SUPPORTED",
+          "evidence:prototype design only (N=0)",
+          "study:STUDY-006-HCI-PREREGISTRATION",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:not-applicable (no trials)"
+        ]
+      },
+      {
+        "id": "C-005",
+        "claim": "SPEC-001 has been independently reproduced clean-room.",
+        "status": "PARTIALLY_SUPPORTED",
+        "auditStatus": "DOWNGRADED TO SECOND IN-TREE IMPLEMENTATION",
+        "evidenceClass": "deterministic conformance (not independent)",
+        "study": "SPEC-001 conformance",
+        "sample": "100.0% Conformance (14/14 passed)",
+        "evidenceSources": [
+          "validation/independent_runtime.py",
+          "tests/test_validation.py"
+        ],
+        "limitations": "Implemented within same repository by research agent; awaiting external third-party teams.",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "in-tree second implementation, NOT independent reproduction",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:PARTIALLY_SUPPORTED",
+          "evidence:deterministic conformance (not independent)",
+          "study:SPEC-001 conformance",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:in-tree second implementation, NOT independent reproduction"
+        ]
+      },
+      {
+        "id": "C-006",
+        "claim": "Authority delegation strictly attenuates authority across sub-agents.",
         "status": "SUPPORTED",
-        "evidenceClass": "synthesis",
-        "study": "AUDIT-EVID-001",
-        "sample": "program-wide",
-        "evidenceCut": "2026-09-04",
-        "reproduction": "not-applicable",
+        "auditStatus": "VERIFIED NORMATIVE RULE",
+        "evidenceClass": "deterministic security suite",
+        "study": "security suite",
+        "sample": "100% blocked on out-of-scope attempts",
+        "evidenceSources": [
+          "security/test_security_suite.py",
+          "schemas/delegation.v0alpha1.json"
+        ],
+        "limitations": "RFC 8693 provides exchange envelope; attenuation is our normative constraint.",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "deterministic, independently checkable",
         "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
         "chain": [
           "claim",
           "status:SUPPORTED",
-          "evidence:synthesis",
-          "study:AUDIT-EVID-001",
-          "cut:2026-09-04",
-          "reproduction:not-applicable"
+          "evidence:deterministic security suite",
+          "study:security suite",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:deterministic, independently checkable"
+        ]
+      },
+      {
+        "id": "C-007",
+        "claim": "Evidence gating is the causal prerequisite that enables retry loops to work.",
+        "status": "CONTESTED",
+        "auditStatus": "EMPIRICALLY_SUPPORTED; STUDY-011 live update: H3 REVERSED — retry alone (C) does not add effect without assurance; deterministic-testbed support stands, live replication reversed the direction",
+        "evidenceClass": "deterministic + live_valid (STUDY-011)",
+        "study": "STUDY-005; STUDY-011 live cross-provider",
+        "sample": "McNemar test p < 0.0001; VSR +29.0% [18.2%, 39.1%] (deterministic)",
+        "evidenceSources": [
+          "experiments/confounder_analysis.py",
+          "STUDY-005"
+        ],
+        "limitations": null,
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04 + STUDY-011 update 2026-09-04",
+        "reproduction": "not-independently-reproduced (deterministic); live direction reversed",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:CONTESTED",
+          "evidence:deterministic + live_valid (STUDY-011)",
+          "study:STUDY-005; STUDY-011 live cross-provider",
+          "cut:AUDIT-EVID-001 2026-09-04 + STUDY-011 update 2026-09-04",
+          "reproduction:not-independently-reproduced (deterministic); live direction reversed"
+        ]
+      },
+      {
+        "id": "C-008",
+        "claim": "Full governance stack (assurance + authority + budget) yields materially higher actual success than assurance alone.",
+        "status": "SUPPORTED",
+        "auditStatus": "EMPIRICALLY_SUPPORTED (LIVE, p<0.001) — H2 SUPPORTED, McNemar p<0.001 both strata, h≈2.5",
+        "evidenceClass": "live_valid (STUDY-011, preregistered)",
+        "study": "STUDY-011 live cross-provider confirmatory",
+        "sample": "470 LIVE_VALID runs, 8/8 cells ≥58",
+        "evidenceSources": [
+          "STUDY-011 frozen analysis (Amendment 011 canonical dataset)"
+        ],
+        "limitations": "Hedge applied: assurance invocation (F) converts abstention; G's added value is the measured marginal H2 contrast, not an 'unlock' claim.",
+        "evidenceCut": "AUDIT-EVID-001 2026-09-04",
+        "reproduction": "not-independently-reproduced (single research team)",
+        "sourceSha": "72e115c642441e10dd88890edfac86b787315cf0",
+        "chain": [
+          "claim",
+          "status:SUPPORTED",
+          "evidence:live_valid (STUDY-011, preregistered)",
+          "study:STUDY-011 live cross-provider confirmatory",
+          "cut:AUDIT-EVID-001 2026-09-04",
+          "reproduction:not-independently-reproduced (single research team)"
         ]
       }
     ]
