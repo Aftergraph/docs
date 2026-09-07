@@ -1,17 +1,17 @@
 {
   "build": {
-    "site_commit": "2dea3af1131b5748480ed7d67feb88c0cb8afde5",
-    "generated_at": "2026-09-07T00:04:11.337Z"
+    "site_commit": "2d3ff5a866a64f4dc077753065f0c9351b63f9df",
+    "generated_at": "2026-09-07T00:23:33.922Z"
   },
   "summary": {
     "source_count": 9,
-    "current": 5,
+    "current": 4,
     "source_moved_unchanged": 1,
     "source_moved_changed": 0,
-    "source_moved": 3,
+    "source_moved": 4,
     "stale": 0,
     "unknown": 0,
-    "last_verification": "2026-09-07T00:04:05.733Z"
+    "last_verification": "2026-09-07T00:23:28.547Z"
   },
   "sources": [
     {
@@ -88,8 +88,8 @@
     {
       "repository": "Aftergraph/.github",
       "pinned_sha": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
-      "remote_sha": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
-      "status": "CURRENT",
+      "remote_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     }
@@ -132,5 +132,5 @@
       ]
     }
   ],
-  "verification": "2026-09-07T00:04:05.733Z"
+  "verification": "2026-09-07T00:23:28.547Z"
 }

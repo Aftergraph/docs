@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-07T00:04:05.733Z",
+  "checked_at": "2026-09-07T00:23:28.547Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
@@ -75,8 +75,8 @@
     {
       "repository": "Aftergraph/.github",
       "pinned_sha": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
-      "remote_sha": "9680ff9a332c501dbf99d5fcdf72210426c0a1fd",
-      "status": "CURRENT",
+      "remote_sha": "4c004131386488cae85d98ddd59b35f39c81ded6",
+      "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
     }
