@@ -1,22 +1,54 @@
 name: knowledge-plane-ci
-on: { push: { branches: [main] }, pull_request: {} }
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+env:
+  KNOWLEDGE_ENV: ci
 jobs:
   gates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 24, cache: npm }
+        with:
+          node-version: 24
+          cache: npm
       - run: npm ci
       - run: npx astro sync
       - run: npx tsc --noEmit
-      - run: node scripts/llms.mjs
-      - run: node scripts/validate.mjs
       - run: npm run build
-      - run: node scripts/freshness.mjs
+      - run: node scripts/scan-public.mjs
+      - name: Local smoke (built dist via preview server)
+        run: |
+          npx astro preview --port 4321 &
+          sleep 5
+          node scripts/smoke.mjs http://localhost:4321
       - uses: actions/upload-artifact@v4
         with:
-          name: provenance
+          name: knowledge-plane-source-state
           path: |
             dist/build-manifest.json
-            public/freshness.json
+            public/source-state.json
+            public/status.json
+
+  deploy:
+    needs: gates
+    if: "github.event_name == 'push' && github.ref == 'refs/heads/main'"
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci && npm run build
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: "${{ secrets.CLOUDFLARE_API_TOKEN }}"
+          accountId: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          command: pages deploy dist --project-name=aftergraph-docs
+      - name: Production smoke
+        run: node scripts/smoke.mjs "https://docs.aftergraph.dev"

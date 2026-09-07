@@ -1,7 +1,9 @@
 ---
 import prov from '../data/provenance.json';
+import buildStatus from '../data/build-status.json';
 const { page } = Astro.props;
 const p: any = (prov as any)[page];
+const bs: any = buildStatus as any;
 ---
 {p && (
   <aside class="provenance" aria-label="Page provenance">
@@ -9,5 +11,6 @@ const p: any = (prov as any)[page];
     <span>Source: {p.repository.replace('Aftergraph/','')}@{p.commit.slice(0,8)}</span>
     {p.evidence_cut && <span>Evidence cut: {p.evidence_cut}</span>}
     <span>Owner: {p.canonical_owner}</span>
+    {bs && bs.verified_at && <span>{bs.page_line}</span>}
   </aside>
 )}

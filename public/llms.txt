@@ -1,6 +1,9 @@
 # Aftergraph Knowledge Plane
 
 > Compiler over canonical sources. Repos own truth; governance owns boundaries; evidence owns claim strength.
+>
+> Provenance: generated 2026-09-07T00:04:05.600Z from site commit 2dea3af1131b5748480ed7d67feb88c0cb8afde5.
+> Freshness boundary (do not treat this index as fresher than its build): 2026-09-06T23:59:40.582Z · 5 CURRENT, 3 SOURCE_MOVED, 1 SOURCE_MOVED_CONTENT_UNCHANGED
 
 - [Platform overview](https://docs.aftergraph.dev/platform/)
 - [Golden Mission route](https://docs.aftergraph.dev/platform/golden-mission/)

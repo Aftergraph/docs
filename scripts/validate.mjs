@@ -1,7 +1,7 @@
 // @ts-nocheck
 // Deterministic CI gates: schema, links, ownership, provenance,
 // private leakage, OpenAPI, catalog. Exit non-zero on any failure.
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
@@ -69,4 +69,17 @@ ok('catalog/contracts/claims: owners allowlisted, 13 contracts');
 // 6. llms.txt generated + scoped indexes referenced
 if (!existsSync(join(root, 'public/llms.txt'))) fail('public/llms.txt missing (run scripts/llms.mjs)');
 ok('llms.txt present');
-if (!process.exitCode) console.log('VALIDATE PASS');
+
+// 7. artifact fingerprints: full SHAs, allowlisted repos, consumed paths exist
+const arts = JSON.parse(readFileSync(join(root, 'src/data/artifacts.json'), 'utf8')).artifacts;
+for (const a of arts) {
+  if (!allowRepos.includes(a.repository)) fail(`artifacts.json: non-allowlisted ${a.repository}`);
+  if (!/^[0-9a-f]{40}$/.test(a.source_commit || '')) fail(`artifacts.json: bad source_commit for ${a.path}`);
+  if (!/^[0-9a-f]{40}$/.test(a.blob_sha || '')) fail(`artifacts.json: bad blob_sha for ${a.path}`);
+  if (!existsSync(join(root, a.consumed_as))) fail(`artifacts.json: consumed path missing ${a.consumed_as}`);
+}
+ok(`artifacts: ${arts.length} fingerprints valid`);
+if (!process.exitCode) {
+  writeFileSync(join(root, '.validation-pass.json'), JSON.stringify({ at: new Date().toISOString(), result: 'passed' }) + '\n');
+  console.log('VALIDATE PASS');
+}

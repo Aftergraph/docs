@@ -1,0 +1,48 @@
+name: knowledge-plane-verifier
+# Scheduled Live Truth verifier: pinned SHA vs canonical remote HEAD +
+# artifact blob compare. Auto-REPORT, never auto-update (ADR-004).
+# Appends a history line to public/source-state-history.jsonl.tail for
+# STALE threshold semantics (--previous), commits it as append-only log,
+# uploads an immutable artifact, and opens an adoption issue on
+# SOURCE_MOVED_CONTENT_CHANGED so pin updates stay explicit + reviewable.
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  issues: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Verify pinned sources vs remote HEAD + artifact blobs
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: node scripts/freshness.mjs --previous public/source-state-history.jsonl.tail || true
+      - name: Build history tail for next run
+        run: node scripts/history-tail.mjs
+      - name: Commit history tail (append-only verification log)
+        run: |
+          git config user.name "knowledge-plane-verifier"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/source-state-history.jsonl.tail
+          git diff --cached --quiet || git commit -m "chore(verifier): source verification log"
+          git push
+      - name: Upload immutable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "knowledge-plane-source-state-${{ github.run_id }}"
+          path: |
+            public/source-state.json
+            public/source-state-history.jsonl.tail
+      - name: Open adoption issue on semantic content change
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: node scripts/adopt-issue.mjs || true

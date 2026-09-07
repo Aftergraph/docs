@@ -14,6 +14,7 @@ export default defineConfig({
         { label: 'Platform', items: [
           { label: 'Overview', slug: 'platform' },
           { label: 'Golden Mission', slug: 'platform/golden-mission' },
+          { label: 'Live Status', slug: 'status' },
         ]},
         { label: 'Developers', items: [
           { label: 'Overview', slug: 'developers' },
