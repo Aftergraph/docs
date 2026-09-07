@@ -1,33 +1,26 @@
 {
-  "checked_at": "2026-09-07T05:41:22.771Z",
+  "checked_at": "2026-09-07T04:03:54.139Z",
   "sources": [
     {
       "repository": "Aftergraph/after-graph-governance",
       "pinned_sha": "412b7065581a11607958be7f5d04ebcce36753c2",
-      "remote_sha": "21b4fe4f6385620ca07f01a56aac7b09d87e0be2",
-      "status": "SOURCE_MOVED_CONTENT_CHANGED",
+      "remote_sha": "412b7065581a11607958be7f5d04ebcce36753c2",
+      "status": "CURRENT",
       "distance": null,
-      "artifacts": [
-        {
-          "path": "docs/cross-repo-contracts.md",
-          "pinned_blob": "f161b7cbdd6763d1581cb0cb08af44a9cb2cf679",
-          "live_blob": "a95da47369d3eedc7659235f50a43b620bc4534c",
-          "changed": true
-        }
-      ]
+      "artifacts": []
     },
     {
       "repository": "Aftergraph/aie",
       "pinned_sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
-      "remote_sha": "7ab61a2aa3891e407eed8d0ff3a91fb6947ff744",
-      "status": "SOURCE_MOVED",
+      "remote_sha": "4b4f921fa41aa1ba01162460f3aab66f1d420362",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
     {
       "repository": "Aftergraph/intelligence-systems-research",
       "pinned_sha": "72e115c642441e10dd88890edfac86b787315cf0",
-      "remote_sha": "59c61fd4bc313c68517a35c7fe5bfbc6f22103d0",
+      "remote_sha": "b3b04f936a3924355605dcdd58aa897e4db2a45d",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -35,15 +28,15 @@
     {
       "repository": "Aftergraph/trust-gateway",
       "pinned_sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
-      "remote_sha": "bfe126eb7e987ae607c7d1aae043b48f12b7d7e9",
-      "status": "SOURCE_MOVED",
+      "remote_sha": "6f3dc02b493f2f5dcc89cbaf6b247737d55f95d3",
+      "status": "CURRENT",
       "distance": null,
       "artifacts": []
     },
     {
       "repository": "Aftergraph/works-execution",
       "pinned_sha": "9551eaae1d24160056b9b2937da3919ee7ca52ae",
-      "remote_sha": "79914a514512766edd7032c9a74e63c0f9f87551",
+      "remote_sha": "7c2335c98a9abe85e0f9a050c319a0c52d15cbf4",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -51,7 +44,7 @@
     {
       "repository": "Aftergraph/work-intelligence-v2",
       "pinned_sha": "370a0b2029fb0f694a62d36ffdc390f16bf1040d",
-      "remote_sha": "72217b0f2720290d1a50b42b37b841227be74f1b",
+      "remote_sha": "588b0a316278b49e86f06e6f1c692f0d10e6366e",
       "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
       "artifacts": [
@@ -66,7 +59,7 @@
     {
       "repository": "Aftergraph/studio",
       "pinned_sha": "942074abb02551629bbfb3e461a5050030313718",
-      "remote_sha": "3b02f4a0194d0712d256a341ddd4f53d60af296c",
+      "remote_sha": "321772d6e5e48a31449ecd70cf5905a5dfc3c445",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -74,7 +67,7 @@
     {
       "repository": "Aftergraph/aftergraph.org",
       "pinned_sha": "3783195d527f62cc80204e33cb7c5b74b2aff837",
-      "remote_sha": "4c1e00fd358c3a2a42cc60490213bcac15d9c759",
+      "remote_sha": "dfd54567983412f341c3abb6ff78b0f216478a83",
       "status": "SOURCE_MOVED",
       "distance": null,
       "artifacts": []
@@ -82,7 +75,7 @@
     {
       "repository": "Aftergraph/brand",
       "pinned_sha": "cc1a22fd425c9a0f49ac1f301723d4e84a3ba469",
-      "remote_sha": "fe7485a498abfc02fc5b74faada819140425acf8",
+      "remote_sha": "28514873b9dc0d416a587e0806e03d69fb87dbe2",
       "status": "SOURCE_MOVED_CONTENT_UNCHANGED",
       "distance": null,
       "artifacts": [
