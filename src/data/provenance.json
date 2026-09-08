@@ -430,5 +430,13 @@
     "semantic_version": "V1.2 (try-it)",
     "evidence_cut": null,
     "canonical_owner": "Governance"
+  },
+  "community": {
+    "repository": "Aftergraph/.github",
+    "commit": "651c419aade33bb32b4503ee7d2065d2f78015a0",
+    "source": "DISCUSSIONS.md + PUBLIC-ROADMAP.md + RFC-PROCESS.md",
+    "semantic_version": "V0.1 (community routing projection)",
+    "evidence_cut": null,
+    "canonical_owner": "Aftergraph Community"
   }
 }
