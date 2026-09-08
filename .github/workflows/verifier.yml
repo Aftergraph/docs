@@ -2,8 +2,9 @@ name: knowledge-plane-verifier
 # Scheduled Live Truth verifier: pinned SHA vs canonical remote HEAD +
 # artifact blob compare. Auto-REPORT, never auto-update (ADR-004).
 # Appends a history line to public/source-state-history.jsonl.tail for
-# STALE threshold semantics (--previous), commits it as append-only log,
-# uploads an immutable artifact, and opens an adoption issue on
+# STALE threshold semantics (--previous), commits it as append-only log
+# (pushes to stable verifier-log branch when main is PR-only since
+# 2026-09-08), uploads an immutable artifact, and opens an adoption i...[truncated]
 # SOURCE_MOVED_CONTENT_CHANGED so pin updates stay explicit + reviewable.
 on:
   schedule:
@@ -12,6 +13,7 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -22,6 +24,15 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      # ---- restore previous threshold history from the stable ----
+      # ---- verifier-log branch so --previous continuity survives  ----
+      # ---- PR-only main (tail on main stopped advancing 2026-09-08). ----
+      - name: Restore previous verification history (verifier-log branch)
+        run: |
+          git fetch origin verifier-log:verifier-log 2>/dev/null || true
+          if git rev-parse --verify verifier-log >/dev/null 2>&1; then
+            git checkout verifier-log -- public/source-state-history.jsonl.tail 2>/dev/null || true
+          fi
       - name: Verify pinned sources vs remote HEAD + artifact blobs
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -41,13 +52,16 @@ jobs:
           fi
           git commit -m "chore(verifier): source verification log"
           # Direct push is the convention, but branch protection may forbid
-          # it for GITHUB_TOKEN. Fall back to a PR so the log is never lost
-          # and the job never goes red for a push-policy reason.
+          # it for GITHUB_TOKEN. Fall back to the stable verifier-log
+          # append-only branch so --previous keeps working and no per-run
+          # branch/PR spam is created; open a PR only as the last resort.
           if git push origin HEAD:main; then
             echo "history log pushed direct to main"
+          elif git push --force-with-lease origin HEAD:verifier-log; then
+            echo "history log appended to verifier-log branch"
           else
             BR="verifier/log-${{ github.run_id }}"
-            git push origin "HEAD:${BR}"
+            git push origin "HEAD:${BR}" || true
             gh pr create --head "${BR}" --base main \
               --title "chore(verifier): source verification log ${{ github.run_id }}" \
               --body "Automated fallback: direct push to protected main was declined. Append-only verification log, safe to merge." \
