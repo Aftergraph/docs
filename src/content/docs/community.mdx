@@ -1,0 +1,103 @@
+---
+title: "Community"
+description: "Public Discussions, roadmap, RFC intake, research reproduction and contribution routing."
+---
+import Provenance from '../../components/Provenance.astro';
+
+Aftergraph's public community surface is designed for work that is **not yet canonical implementation truth**: research reproduction, contradictory prior art, architecture critique, questions, early proposals, roadmap input and RFC formation.
+
+> **Discussion is not authority.** Specifications, benchmark results, release claims and governance decisions remain owned by their canonical repository and exact source version.
+
+## Start here
+
+- **[Organization Discussions](https://github.com/orgs/Aftergraph/discussions)** — the public deliberation surface.
+- **[Public roadmap](https://github.com/Aftergraph/.github/blob/main/PUBLIC-ROADMAP.md)** — gate-driven public priorities rather than ceremonial dates.
+- **[RFC process](https://github.com/Aftergraph/.github/blob/main/RFC-PROCESS.md)** — how cross-repository or normative proposals become bounded implementation work.
+- **[Contributing](https://github.com/Aftergraph/.github/blob/main/CONTRIBUTING.md)** — contribution and evidence expectations.
+- **[Security](https://github.com/Aftergraph/.github/blob/main/SECURITY.md)** — security reports do not belong in public Discussions.
+
+## The routing rule
+
+```text
+Discussion
+  -> evidence / prior art
+  -> owner + scope decision
+  -> Issue or RFC in owning repository
+  -> implementation
+  -> tests / conformance / migration evidence
+  -> versioned decision or release
+```
+
+Use a **Discussion** while the problem, evidence, owner or design is still uncertain. Use an **Issue** when the work is concrete, bounded and clearly owned. Use a **pull request** for the actual repository change with verification evidence.
+
+## Research and reproduction
+
+Aftergraph explicitly welcomes evidence that falsifies or narrows its claims.
+
+### [MISSION-Bench Reproduction Registry](https://github.com/orgs/Aftergraph/discussions/12)
+
+Report exact source version, workload and failure mode, runtime/model/provider where relevant, environment, sample size, exclusions, method, metrics, raw artifacts, deviations and limitations. A negative reproduction is a useful result.
+
+### [SPEC-001 Mission Contract: Request for Implementations](https://github.com/orgs/Aftergraph/discussions/11)
+
+Independent implementations and semantic deviations matter more than another in-tree adapter. Contributions should make it possible to distinguish implementation agreement from genuinely independent reproduction.
+
+### [Prior Art Challenge](https://github.com/orgs/Aftergraph/discussions/13)
+
+Bring papers, standards, patents, source code, release history or observable product behavior that materially overlaps an Aftergraph mechanism or claim. Preferred outcome: narrow the novelty boundary before the terminology becomes attached to anyone's ego.
+
+## Architecture and RFCs
+
+### [Aftergraph Architecture RFC](https://github.com/orgs/Aftergraph/discussions/14)
+
+Challenge repository ownership, control-plane boundaries, AIE/runtime separation, compatibility and the cost of the abstraction.
+
+### [RFC Intake](https://github.com/orgs/Aftergraph/discussions/17)
+
+Start an `[RFC]` Ideas discussion when a proposal changes public contracts, compatibility, cross-repository behavior, normative semantics, governance or a long-lived primitive.
+
+A serious RFC should expose:
+
+1. problem and scope;
+2. evidence;
+3. prior art and simpler alternatives;
+4. proposed semantics;
+5. compatibility and migration;
+6. authority/security impact;
+7. token, latency, compute and human-attention cost where material;
+8. verification or conformance plan;
+9. falsifiers.
+
+## Roadmap
+
+### [Aftergraph Public Roadmap: Evidence Before Dates](https://github.com/orgs/Aftergraph/discussions/16)
+
+Current public priorities are coordinated through evidence and gates. A repository's own release state remains authoritative. Roadmap wording must not silently upgrade a research result, prototype or internal validation into adoption or production readiness.
+
+## Product critique
+
+### [Sentinel: What Must a SHIP Verdict Prove?](https://github.com/orgs/Aftergraph/discussions/15)
+
+The open question is what evidence a code-review system must observe before a verdict can be bound to an exact code state. Counterexamples and cases where exact-HEAD verification is insufficient are particularly useful.
+
+## Active GitHub categories
+
+The organization currently routes work through GitHub's active categories such as **General**, **Ideas**, **Q&A**, **Show and tell** and **Announcements**. Additional structured forms exist in `Aftergraph/.github` for research reproduction, specifications/RFCs, prior art and integrations, but a form becomes active only when its matching Discussion category exists.
+
+The absence of extra category chrome is not a reason to block a useful reproduction or critique. Use the closest active category and state the contribution type in the title.
+
+## Evidence discipline
+
+Keep these classes distinct:
+
+- deterministic/in-tree tests;
+- controlled simulations;
+- live model or provider runs;
+- cross-runtime conformance;
+- independent implementation;
+- independent external reproduction;
+- observed adoption.
+
+None automatically implies another. The Knowledge Plane renders and routes source-owned information; it does not own or upgrade the underlying claim.
+
+<Provenance page="community" />
