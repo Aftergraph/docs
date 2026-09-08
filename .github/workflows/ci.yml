@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
   pull_request: {}
+  workflow_dispatch: {}
 env:
   KNOWLEDGE_ENV: ci
 permissions:
@@ -38,11 +39,15 @@ jobs:
 
   deploy:
     needs: gates
-    # Deploy stays opt-in: set repo variable ENABLE_DEPLOY=true + secrets
-    # CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID (CI-only, least privilege).
-    if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true'"
+    # Automatic production deployment remains opt-in through ENABLE_DEPLOY.
+    # Manual dispatch is permitted only from main, never from an arbitrary ref.
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_DEPLOY == 'true')
     runs-on: ubuntu-latest
     environment: production
+    env:
+      KNOWLEDGE_ENV: production
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -56,5 +61,7 @@ jobs:
           apiToken: "${{ secrets.CLOUDFLARE_API_TOKEN }}"
           accountId: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
           command: pages deploy dist --project-name=aftergraph-docs
-      - name: Production smoke
+      - name: Production exact-head smoke
+        env:
+          EXPECTED_SITE_COMMIT: ${{ github.sha }}
         run: node scripts/smoke.mjs "https://docs.aftergraph.org"
