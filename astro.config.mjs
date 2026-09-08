@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// V2 IA: Start (homepage) → Platform → Build → Standards → Evidence → Research → Trust.
+// V2 IA: Start → Platform → Build → Sentinel → Standards → Evidence → Research → Community → Trust.
 // URLs remain stable. Search is Starlight Pagefind; source ownership remains unchanged.
 // ThemeSelect is overridden to default to dark; Starlight 0.42 has no defaultTheme option.
 export default defineConfig({
@@ -87,6 +87,9 @@ export default defineConfig({
           { label: 'Research overview', slug: 'research' },
           { label: 'Benchmarks', slug: 'research/benchmarks' },
           { label: 'Examples', slug: 'examples' },
+        ]},
+        { label: 'Community', items: [
+          { label: 'Community home', slug: 'community' },
         ]},
         { label: 'Trust', items: [
           { label: 'Company', slug: 'company' },
