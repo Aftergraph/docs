@@ -16,9 +16,29 @@ for (const s of shas) if (s.length !== 40) fail('non-full SHA: ' + s);
 const vis = [...src.matchAll(/visibility: '(\w+)'/g)].map((m) => m[1]);
 if (!vis.length || vis.some((v) => v !== 'public')) fail('non-public visibility in manifest');
 const allow = JSON.parse(JSON.stringify(src.match(/PUBLIC_ALLOWLIST = \[([\s\S]*?)\]/)[1]));
-for (const priv of ['context-continuity','skills-vault','work-intelligence-web','llm-research-development','/afm','model-registry','autonomous-venture-company'])
+for (const priv of ['context-continuity','skills-vault','wi-frontend','llm-research-development','/afm','model-registry','autonomous-venture-company'])
   if (src.includes(priv)) fail('private repo referenced: ' + priv);
 ok(`sources: ${shas.length} pins, all full SHAs, no private refs`);
+
+// 1b. canonical repo identity: pins must name the live canonical slug, never a
+// rename-redirect alias. Retired slugs fail deterministically (offline-safe);
+// live redirect mismatches fail whenever the GitHub API is reachable.
+const RETIRED_SLUGS = ['Aftergraph/work-intelligence-v2', 'Aftergraph/work-intelligence-web'];
+for (const dead of RETIRED_SLUGS) if (src.includes(dead)) fail('retired repo slug pinned: ' + dead);
+{
+  const repos = [...src.matchAll(/repository: '(Aftergraph\/[^']+)'/g)].map((m) => m[1]);
+  let checked = 0, skipped = false;
+  const { execSync: ex } = await import('node:child_process');
+  for (const r of new Set(repos)) {
+    try {
+      const full = ex(`gh api repos/${r} --jq .full_name`, { encoding: 'utf8', timeout: 20000 }).trim();
+      if (full !== r) fail(`redirect-dependent pin: '${r}' resolves to canonical '${full}'`);
+      else checked++;
+    } catch { skipped = true; }
+  }
+  if (skipped) console.warn('warn: canonical-identity check skipped for unreachable repos (offline?)');
+  else ok(`canonical identity: ${checked} pins resolve to themselves (no redirects)`);
+}
 
 // 2. provenance coverage for every docs page
 const prov = JSON.parse(readFileSync(join(root, 'src/data/provenance.json'), 'utf8'));
@@ -100,7 +120,7 @@ ok(`openapi: ${api.info?.title} ${api.info?.version}, ${Object.keys(api.paths).l
 // a silent divergence would show two truths).
 {
   const schemas = JSON.parse(readFileSync(join(root, 'src/data/schemas.json'), 'utf8'));
-  const wiPin = (src.match(/repository: 'Aftergraph\/work-intelligence-v2'[\s\S]*?commitSha: '([0-9a-f]{40})'/) || [])[1];
+  const wiPin = (src.match(/repository: 'Aftergraph\/wi-backend'[\s\S]*?commitSha: '([0-9a-f]{40})'/) || [])[1];
   if (schemas.api?.commit !== wiPin) fail('schemas.json commit != WI pin (run scripts/schemas.mjs)');
   if (schemas.api?.paths !== Object.keys(api.paths ?? {}).length) fail('schemas.json paths != openapi paths');
   ok(`schemas: ${schemas.schemas.length} component schemas, pin + paths match`);

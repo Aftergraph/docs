@@ -1,10 +1,10 @@
 {
   "artifacts": [
     {
-      "repository": "Aftergraph/work-intelligence-v2",
+      "repository": "Aftergraph/wi-backend",
       "path": "openapi.json",
-      "source_commit": "a926f26b99b6aa265c02590249fa32b85941b73d",
-      "blob_sha": "f5ca4c818e76ca8c7d6cf347c4804d47cf657b37",
+      "source_commit": "f2c7843b30d3cffaa8756399463edfed90a01fc0",
+      "blob_sha": "284755c55c1c381a92df6dff74421f0dc791b24c",
       "content_sha256": "be9576195277b545",
       "semantic_version": "OpenAPI 3.1.0 / API v0.2.0",
       "consumed_as": "public/openapi.json",
