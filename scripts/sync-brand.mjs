@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @ts-nocheck
 // Sync canonical Brand OS bytes into the docs portal (fail-closed).
 //
 // Source: Aftergraph/brand tag v1.1.0 via raw.githubusercontent.com,
