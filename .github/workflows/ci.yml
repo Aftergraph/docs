@@ -19,6 +19,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: node scripts/sync-brand.mjs
       - run: npx astro sync
       - run: npx tsc --noEmit
       - run: npm run verify:v2-ui

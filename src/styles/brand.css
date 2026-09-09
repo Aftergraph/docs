@@ -1,4 +1,5 @@
-/* Aftergraph Brand OS tokens (brand v1.0.0) + Knowledge Plane immersive theme.
+/* Aftergraph Brand OS tokens (brand v1.1.0) + Knowledge Plane immersive theme.
+   Guard: scripts/sync-brand.mjs verifies these primitives against the release.
    Semantic mapping: control→controlCyan evidence→evidenceTeal authority→authorityViolet
    decision→decisionAmber infrastructure→systemBlue. Canvas #080C14. */
 :root {
