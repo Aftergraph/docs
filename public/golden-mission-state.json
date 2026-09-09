@@ -1,0 +1,58 @@
+{
+  "schema": "golden-mission.state/0.1",
+  "scenario": "golden-mission/0.1",
+  "ran_at": "2026-09-09T22:55:22.115Z",
+  "causal_id": "causal/golden-001",
+  "effect_payload": "digest:reading-list:884ed5e7c93f8fcf731b8d2672c94e3ac6364a39873eccd737cbdcb4587d27a4",
+  "steps": [
+    "goal_created",
+    "mission_proposed_admitted",
+    "authority_resolved",
+    "admission_granted",
+    "execution_context_created",
+    "work_accepted_executed",
+    "evidence_emitted",
+    "independently_verified",
+    "studio_projected",
+    "provenance_linked"
+  ],
+  "studio_states": [
+    "declared",
+    "execution_complete",
+    "verification_pending",
+    "verified"
+  ],
+  "faults": [
+    {
+      "fault": "restart",
+      "contained": true
+    },
+    {
+      "fault": "duplicate_delivery",
+      "contained": true
+    },
+    {
+      "fault": "stale_authority",
+      "contained": true
+    },
+    {
+      "fault": "revocation",
+      "contained": true
+    },
+    {
+      "fault": "budget_exhaustion",
+      "contained": true
+    },
+    {
+      "fault": "model_runtime_replacement",
+      "contained": true
+    },
+    {
+      "fault": "verifier_outage",
+      "contained": true
+    }
+  ],
+  "status": "PASS",
+  "failures": [],
+  "evidence_class": "contract-level conformance (deterministic, offline). Live cross-service execution requires deployed Studio/AIE/TG/Runtime/WORKS/verifier and is NOT claimed here."
+}

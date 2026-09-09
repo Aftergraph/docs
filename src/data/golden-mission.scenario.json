@@ -1,0 +1,48 @@
+{
+  "$schema": "golden-mission.scenario/0.1",
+  "scenario": "golden-mission/0.1",
+  "domain": {
+    "name": "reading-list digest",
+    "description": "Deterministic, harmless domain: compute the SHA-256 digest of a fixed reading list and publish it as the mission effect. No network, no secrets, no external side effects.",
+    "reading_list": ["platform-architecture-v4", "dispatch.acceptance-1.0", "runtime.lineage-0.1"],
+    "effect": "publish digest record digest:reading-list:<sha256>"
+  },
+  "identities": {
+    "mission_id": "mission/golden-001",
+    "authority_ref": "a/golden-001",
+    "authority_epoch": 7,
+    "correlation_id": "corr/golden-001",
+    "idempotency_key": "idem/golden-001",
+    "runtime_dispatch_id": "rdisp/golden-001",
+    "attempt_id": "attempt/golden-001",
+    "effect_id": "effect/golden-001",
+    "checkpoint_id": "checkpoint/golden-001",
+    "evidence_root": "evidence/golden-001",
+    "verification_subject": "subject/golden-001",
+    "causal_id": "causal/golden-001",
+    "budget_ref": "budget/golden-001",
+    "budget_ceiling": 100
+  },
+  "steps": [
+    {"n": 1, "name": "goal_created", "owner": "studio", "assert": "goal exists with mission_id"},
+    {"n": 2, "name": "mission_proposed_admitted", "owner": "studio", "assert": "mission carries goal causal id"},
+    {"n": 3, "name": "authority_resolved", "owner": "aie", "assert": "principal + lease + budget bound to mission"},
+    {"n": 4, "name": "admission_granted", "owner": "trust-gateway", "assert": "admission references authority epoch + purpose"},
+    {"n": 5, "name": "execution_context_created", "owner": "runtime", "assert": "isolated context bound to admission"},
+    {"n": 6, "name": "work_accepted_executed", "owner": "works-execution", "assert": "acceptance idempotent on (idempotency_key, causal_id)"},
+    {"n": 7, "name": "evidence_emitted", "owner": "works-execution", "assert": "quittance references effect id + evidence root"},
+    {"n": 8, "name": "independently_verified", "owner": "verifier", "assert": "verdict by non-executor over exact subject"},
+    {"n": 9, "name": "studio_projected", "owner": "studio", "assert": "four distinct states rendered"},
+    {"n": 10, "name": "provenance_linked", "owner": "studio", "assert": "outcome links evidence root + verdict"}
+  ],
+  "studio_states": ["declared", "execution_complete", "verification_pending", "verified"],
+  "fault_campaign": [
+    {"fault": "restart", "expect": "resume revalidates, same causal id, effect applied once"},
+    {"fault": "duplicate_delivery", "expect": "single effect, duplicate acknowledged without re-execution"},
+    {"fault": "stale_authority", "expect": "dispatch rejected at accept, no execution"},
+    {"fault": "revocation", "expect": "downstream protected work blocked"},
+    {"fault": "budget_exhaustion", "expect": "STOP at ceiling, no autonomous retry"},
+    {"fault": "model_runtime_replacement", "expect": "trajectory event recorded, fresh authority resolution required"},
+    {"fault": "verifier_outage", "expect": "UNVERIFIED pending, never auto-verified"}
+  ]
+}

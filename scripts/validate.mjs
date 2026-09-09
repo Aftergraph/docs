@@ -20,6 +20,17 @@ for (const priv of ['context-continuity','skills-vault','work-intelligence-web',
   if (src.includes(priv)) fail('private repo referenced: ' + priv);
 ok(`sources: ${shas.length} pins, all full SHAs, no private refs`);
 
+// 1c. golden mission: executable scenario state must exist and PASS.
+{
+  let gm = null;
+  try { gm = JSON.parse(readFileSync(join(root, 'public/golden-mission-state.json'), 'utf8')); } catch {}
+  if (!gm) fail('public/golden-mission-state.json missing (run scripts/golden-mission.mjs)');
+  else if (gm.schema !== 'golden-mission.state/0.1') fail('golden-mission state: wrong schema');
+  else if (gm.status !== 'PASS') fail('golden-mission scenario: ' + (gm.failures || []).join('; '));
+  else if ((gm.steps || []).length !== 10 || (gm.faults || []).length !== 7) fail('golden-mission scenario: expected 10 steps + 7 faults');
+  else ok('golden-mission: 10 steps PASS, 7 faults contained');
+}
+
 // 2. provenance coverage for every docs page
 const prov = JSON.parse(readFileSync(join(root, 'src/data/provenance.json'), 'utf8'));
 const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) => {
