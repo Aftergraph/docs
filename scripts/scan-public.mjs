@@ -12,7 +12,7 @@ const ok = (m) => console.log('ok: ' + m);
 
 // Private repos (mirrors validate.mjs allowlist negatives, plus explicit names)
 const PRIVATE = [
-  'context-continuity', 'skills-vault', 'work-intelligence-web',
+  'context-continuity', 'skills-vault', 'wi-frontend',
   'llm-research-development', 'autonomous-venture-company', 'model-registry',
   'Aftergraph/afm',
 ];

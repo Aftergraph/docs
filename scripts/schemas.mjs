@@ -14,7 +14,7 @@ try {
   process.exit(1);
 }
 const src = readFileSync(root + '/src/data/sources.ts', 'utf8');
-const pin = src.match(/repository: 'Aftergraph\/work-intelligence-v2'[\s\S]*?commitSha: '([0-9a-f]{40})'/);
+const pin = src.match(/repository: 'Aftergraph\/wi-backend'[\s\S]*?commitSha: '([0-9a-f]{40})'/);
 if (!pin) { console.error('WI pin not found in sources.ts'); process.exit(1); }
 const defs = api.components?.schemas ?? {};
 const schemas = Object.entries(defs).map(([name, s]) => ({
@@ -29,7 +29,7 @@ const schemas = Object.entries(defs).map(([name, s]) => ({
 }));
 const out = {
   api: {
-    repository: 'Aftergraph/work-intelligence-v2',
+    repository: 'Aftergraph/wi-backend',
     commit: pin[1],
     version: api.info?.version ?? null,
     openapi: api.openapi ?? null,

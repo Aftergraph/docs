@@ -1,10 +1,10 @@
 {
   "api": {
-    "repository": "Aftergraph/work-intelligence-v2",
-    "commit": "a926f26b99b6aa265c02590249fa32b85941b73d",
+    "repository": "Aftergraph/wi-backend",
+    "commit": "f2c7843b30d3cffaa8756399463edfed90a01fc0",
     "version": "0.2.0",
     "openapi": "3.1.0",
-    "paths": 51
+    "paths": 52
   },
   "schemas": [
     {
