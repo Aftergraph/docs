@@ -37,5 +37,13 @@ includes(contractGraph, 'Escape', 'Contract Graph must document/implement Escape
 includes(contractGraph, 'aria-pressed', 'Contract Graph selection must be exposed accessibly');
 includes(contractPage, 'WorkbenchLens', 'Contract Graph page must mount the shared lens control');
 
+includes(lens, 'aftergraph:lenschange', 'lens changes must be observable by workbench surfaces');
+includes(mission, 'ArrowRight', 'Golden Mission must support keyboard step traversal');
+includes(mission, 'ArrowDown', 'Golden Mission must support keyboard step traversal');
+includes(contractGraph, "event.key === 'Enter'", 'Contract Graph must support Enter selection');
+const styles = read('src/styles/v2.css');
+includes(styles, '.ag-graph-layout', 'Contract Graph must have a responsive inspection layout');
+includes(styles, '@media (max-width: 52rem)', 'Contract Graph must collapse for narrow/mobile viewports');
+
 if (failures) process.exit(1);
 console.log('WORKBENCH-VERIFY PASS: lenses + source/evidence states + interactive traces + contract inspection');
