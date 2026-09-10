@@ -1,0 +1,52 @@
+---
+const {
+  supported = ['SYSTEM', 'EVIDENCE', 'SOURCE'],
+  label = 'Workbench lens',
+} = Astro.props as { supported?: string[]; label?: string };
+const allowed = ['SYSTEM', 'AUTHORITY', 'EVIDENCE', 'COST', 'SOURCE'];
+const lenses = supported
+  .map((value) => String(value).toUpperCase())
+  .filter((value, index, values) => allowed.includes(value) && values.indexOf(value) === index);
+const initial = lenses[0] ?? 'SYSTEM';
+---
+<div class="ag-workbench-lenses" data-workbench-lenses data-supported={lenses.join(',')} role="group" aria-label={label}>
+  <span class="ag-lens-label">Lens</span>
+  {lenses.map((name) => (
+    <button type="button" class="ag-lens" data-lens={name} aria-pressed={name === initial ? 'true' : 'false'}>
+      {name}
+    </button>
+  ))}
+  <span class="ag-lens-note" data-lens-note aria-live="polite">{initial.toLowerCase()} view</span>
+</div>
+
+<script>
+  function bindWorkbenchLenses() {
+    document.querySelectorAll('[data-workbench-lenses]').forEach((root) => {
+      if (root.dataset.bound === 'true') return;
+      root.dataset.bound = 'true';
+      const supported = (root.dataset.supported || '').split(',').filter(Boolean);
+      const buttons = Array.from(root.querySelectorAll('[data-lens]'));
+      const note = root.querySelector('[data-lens-note]');
+      const params = new URLSearchParams(window.location.search);
+      const requested = String(params.get('lens') || '').toUpperCase();
+
+      function apply(name, writeUrl) {
+        const next = supported.includes(name) ? name : (supported[0] || 'SYSTEM');
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.lens === next)));
+        if (note) note.textContent = `${next.toLowerCase()} view`;
+        document.documentElement.dataset.aftergraphLens = next;
+        document.dispatchEvent(new CustomEvent('aftergraph:lenschange', { detail: { lens: next } }));
+        if (writeUrl) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('lens', next);
+          window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+        }
+      }
+
+      buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.lens || 'SYSTEM', true)));
+      apply(supported.includes(requested) ? requested : (supported[0] || 'SYSTEM'), false);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindWorkbenchLenses);
+  else bindWorkbenchLenses();
+</script>

@@ -150,3 +150,173 @@
   .ag-card,
   .ag-step { transition: none !important; transform: none !important; }
 }
+
+/* Experience Workbench: same evidence-aware interaction language as Atlas. */
+.ag-workbench-lenses {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 1rem 0 1.35rem;
+  padding: .65rem .75rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--sl-color-bg-nav) 84%, transparent);
+}
+.ag-lens-label,
+.ag-lens-note {
+  color: var(--ag-muted);
+  font: 600 .66rem/1 var(--sl-font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ag-lens-note { margin-left: auto; text-transform: none; letter-spacing: 0; }
+.ag-lens {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 999px;
+  padding: .4rem .65rem;
+  background: transparent;
+  color: var(--ag-muted);
+  font: 650 .66rem/1 var(--sl-font-mono);
+  cursor: pointer;
+}
+.ag-lens:hover,
+.ag-lens:focus-visible { color: var(--ag-text); border-color: var(--ag-control); }
+.ag-lens[aria-pressed='true'] {
+  color: var(--ag-text);
+  border-color: var(--ag-evidence);
+  background: color-mix(in srgb, var(--ag-evidence) 10%, transparent);
+}
+.ag-source-inspector {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .7rem;
+  background: color-mix(in srgb, var(--sl-color-bg-sidebar) 52%, transparent);
+}
+.ag-inspector-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.ag-inspector-head strong { color: var(--ag-text); }
+.ag-state {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 999px;
+  padding: .25rem .5rem;
+  color: var(--ag-muted);
+  font: 650 .62rem/1 var(--sl-font-mono);
+}
+.ag-state-available { border-color: var(--ag-evidence); color: var(--ag-evidence); }
+.ag-state-withheld { border-color: var(--ag-authority); color: var(--ag-authority); }
+.ag-inspector-grid {
+  display: grid;
+  grid-template-columns: minmax(6rem, .35fr) minmax(0, 1fr);
+  gap: .45rem 1rem;
+  margin: .9rem 0;
+  font-size: .8rem;
+}
+.ag-inspector-grid dt { color: var(--ag-muted); font-family: var(--sl-font-mono); }
+.ag-inspector-grid dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.ag-inspector-link { display: inline-block; margin: .3rem 1rem 0 0; font-size: .78rem; }
+@media (max-width: 42rem) {
+  .ag-lens-note { width: 100%; margin-left: 0; }
+  .ag-inspector-grid { grid-template-columns: 1fr; gap: .15rem; }
+  .ag-inspector-grid dd { margin-bottom: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ag-lens { transition: none !important; }
+}
+
+/* Golden Mission: generated route becomes a keyboard/touch trace explorer. */
+.ag-mission-explorer { margin: 1rem 0 1.8rem; }
+.ag-trace-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.ag-trace-heading h3 { margin: .15rem 0 0; }
+.ag-trace-kicker,
+.ag-trace-boundary,
+.ag-trace-note,
+.ag-trace-position { color: var(--ag-muted); font: 600 .68rem/1.5 var(--sl-font-mono); }
+.ag-trace-kicker { color: var(--ag-control); letter-spacing: .08em; text-transform: uppercase; }
+.ag-trace-boundary { color: var(--ag-evidence); }
+.ag-trace-note { margin: .5rem 0 1rem; }
+.ag-trace-rail .ag-step { padding: .35rem; min-height: 6.2rem; }
+.ag-trace-rail .ag-step::before { pointer-events: none; z-index: 2; }
+.ag-step-select {
+  width: 100%;
+  min-height: 5.4rem;
+  display: block;
+  text-align: left;
+  border: 0;
+  border-radius: .45rem;
+  padding: .5rem .45rem .5rem 2.05rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.ag-step-select:focus-visible { outline: 2px solid var(--ag-control); outline-offset: 2px; }
+.ag-step[data-active='true'] { border-color: var(--ag-evidence); background: color-mix(in srgb, var(--ag-evidence) 7%, var(--sl-color-bg)); }
+.ag-step-title { display: block; margin-bottom: .3rem; color: var(--ag-text); font-family: var(--ag-font-display); font-size: .88rem; font-weight: 650; }
+.ag-trace-inspector {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .7rem;
+  background: color-mix(in srgb, var(--sl-color-bg-sidebar) 58%, transparent);
+}
+.ag-trace-inspector h4 { margin: .2rem 0 .8rem; font-size: 1rem; }
+.ag-trace-inspector dl { display: grid; grid-template-columns: minmax(7rem,.35fr) minmax(0,1fr); gap: .4rem 1rem; margin: 0; font-size: .8rem; }
+.ag-trace-inspector dt { color: var(--ag-muted); font-family: var(--sl-font-mono); }
+.ag-trace-inspector dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 42rem) {
+  .ag-trace-heading { align-items: start; flex-direction: column; gap: .3rem; }
+  .ag-trace-inspector dl { grid-template-columns: 1fr; gap: .15rem; }
+  .ag-trace-inspector dd { margin-bottom: .45rem; }
+}
+
+/* Contract Graph inspection workbench. */
+.ag-graph-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .7rem;
+}
+.ag-graph-help {
+  flex: 0 0 auto;
+  color: var(--ag-muted);
+  font: 600 .66rem/1.5 var(--sl-font-mono);
+}
+.ag-graph-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(14rem, .6fr);
+  gap: 1rem;
+  align-items: start;
+}
+.ag-graph-inspector {
+  min-height: 12rem;
+  padding: .9rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--sl-color-bg-sidebar) 58%, transparent);
+}
+.ag-graph-inspector h4 { margin: .2rem 0 .55rem; }
+.ag-graph-inspector p { margin: 0 0 .7rem; color: var(--ag-muted); font-size: .8rem; }
+.ag-graph-inspector ul { margin: 0 0 .8rem; padding-left: 1.15rem; }
+.ag-graph-inspector li { margin: .25rem 0; font: .72rem/1.45 var(--sl-font-mono); }
+.ag-graph-inspector [aria-disabled='true'] {
+  color: var(--ag-muted);
+  pointer-events: none;
+  text-decoration: none;
+}
+.ag-graph-svg [data-node-id]:focus-visible circle {
+  stroke: var(--ag-control);
+  stroke-width: 3;
+}
+.ag-graph-svg [data-node-id][aria-pressed='true'] circle {
+  stroke: var(--ag-evidence);
+  stroke-width: 3;
+}
+@media (max-width: 52rem) {
+  .ag-graph-layout { grid-template-columns: 1fr; }
+  .ag-graph-head { flex-direction: column; gap: .4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ag-graph-svg .edge,
+  .ag-graph-svg .node circle { transition: none !important; }
+}

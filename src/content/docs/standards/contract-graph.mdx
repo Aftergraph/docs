@@ -1,16 +1,37 @@
 ---
 title: "Contract Graph"
-description: "Owner → contract → consumer edges across canonical repos."
+description: "Inspect owner → contract → consumer edges from the canonical governance projection."
 ---
 import Provenance from '../../../components/Provenance.astro';
+import WorkbenchLens from '../../../components/WorkbenchLens.astro';
+import SourceEvidenceInspector from '../../../components/SourceEvidenceInspector.astro';
 import graph from '../../../data/graph.json';
+import provenance from '../../../data/provenance.json';
 import ContractGraph from '../../../components/ContractGraph.astro';
 
-Registry: `after-graph-governance@57c681e9 docs/cross-repo-contracts.md` — derived locally by `scripts/graph.mjs` into `src/data/graph.json`. The graph is a *view*; governance owns the edges.
 
-Hover a node to trace its edges; click a contract chip to filter the graph.
+The graph below is a **generated view**, not a second registry. Governance owns the
+edges; this page exposes the current source-backed projection for inspection.
+
+<WorkbenchLens supported={['SYSTEM', 'EVIDENCE', 'SOURCE']} label="Contract Graph lens" />
+
+Select a repository node with click/touch or `Enter`/`Space`. `Escape` clears the
+selection. Contract chips keep the existing edge filter, while the inspector names
+only relationships present in `graph.json`.
 
 <ContractGraph />
+
+<SourceEvidenceInspector
+  title="Contract graph provenance"
+  source={{
+    repository: provenance['standards/contract-graph'].repository,
+    ref: provenance['standards/contract-graph'].commit,
+    path: provenance['standards/contract-graph'].source,
+    url: `https://github.com/Aftergraph/after-graph-governance/blob/${provenance['standards/contract-graph'].commit}/${provenance['standards/contract-graph'].source}`,
+    freshness: provenance['standards/contract-graph'].evidence_cut ?? 'build-pinned source',
+  }}
+  evidence={null}
+/>
 
 <h3>Edges ({graph.contract_graph.edges.length})</h3>
 

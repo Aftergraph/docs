@@ -1,9 +1,9 @@
 ---
-// Interactive contract graph: SVG pentagon layout, hover node → highlight
-// edges, contract chips filter. Vanilla JS, no dependencies.
+// Interactive contract graph derived from graph.json. Selection reveals only
+// edges already present in the generated projection; it never invents topology.
 import graph from '../data/graph.json';
 
-const nodeColors = {
+const nodeColors: Record<string, string> = {
   'after-graph-governance': 'var(--ag-authority)',
   aie: 'var(--ag-authority)',
   'intelligence-systems-research': 'var(--ag-evidence)',
@@ -13,97 +13,140 @@ const nodeColors = {
 const nodes = graph.contract_graph.nodes;
 const edges = graph.contract_graph.edges;
 const contractsList = [...new Set(edges.map((e) => e.contract))];
-
-// Pentagon layout, 320×300 viewBox with center hub (governance).
 const cx = 160, cy = 152, R = 118;
-const pos = new Map();
+const pos = new Map<string, {x:number; y:number}>();
 nodes.forEach((n, i) => {
   const a = -Math.PI / 2 + (i * 2 * Math.PI) / nodes.length;
   pos.set(n.id, { x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) });
 });
-function curve(p1, p2) {
+function curve(p1: {x:number;y:number}, p2: {x:number;y:number}) {
   const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
   const dx = p2.x - p1.x, dy = p2.y - p1.y;
-  const nx = -dy / 2 * 0.14, ny = dx / 2 * 0.14;
-  return `M ${p1.x} ${p1.y} Q ${mx + nx} ${my + ny} ${p2.x} ${p2.y}`;
+  return `M ${p1.x} ${p1.y} Q ${mx - dy * 0.07} ${my + dx * 0.07} ${p2.x} ${p2.y}`;
 }
 ---
-<div class="ag-graph-shell">
-  <div class="ag-graph-filters" role="group" aria-label="Filter edges by contract">
-    <button class="ag-chip" data-contract="*" aria-pressed="true">all 31</button>
-    {contractsList.map((c) => (
-      <button class="ag-chip" data-contract={c} aria-pressed="false">{c}</button>
-    ))}
+<div class="ag-graph-shell" data-contract-graph>
+  <div class="ag-graph-head">
+    <div class="ag-graph-filters" role="group" aria-label="Filter edges by contract">
+      <button class="ag-chip" data-contract="*" aria-pressed="true">all {edges.length}</button>
+      {contractsList.map((contract) => <button class="ag-chip" data-contract={contract} aria-pressed="false">{contract}</button>)}
+    </div>
+    <span class="ag-graph-help">Enter/Space selects · Escape clears</span>
   </div>
-  <svg class="ag-graph-svg" viewBox="0 0 320 304" role="img" aria-label="Contract graph: owners to consumers across canonical repos">
-    {edges.map((e, i) => {
-      const p1 = pos.get(e.from), p2 = pos.get(e.to);
-      const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
-      const dx = p2.x - p1.x, dy = p2.y - p1.y;
-      const lx = mx - dy * 0.07, ly = my + dx * 0.07;
-      return (
-        <g class="edge-g" data-from={e.from} data-to={e.to} data-contract={e.contract}>
-          <path class="edge" d={curve(p1, p2)} marker-end="url(#arrow)" />
-          <text class="edge-label" x={lx} y={ly} text-anchor="middle">{e.contract}</text>
+  <div class="ag-graph-layout">
+    <svg class="ag-graph-svg" viewBox="0 0 320 304" role="group" aria-label="Contract graph: owners to consumers across canonical repos">
+      {edges.map((edge) => {
+        const p1 = pos.get(edge.from)!; const p2 = pos.get(edge.to)!;
+        const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
+        const dx = p2.x - p1.x, dy = p2.y - p1.y;
+        return (
+          <g class="edge-g" data-from={edge.from} data-to={edge.to} data-contract={edge.contract} data-normative={String(edge.normative)}>
+            <path class="edge" d={curve(p1, p2)} marker-end="url(#arrow)" />
+            <text class="edge-label" x={mx - dy * 0.07} y={my + dx * 0.07} text-anchor="middle">{edge.contract}</text>
+          </g>
+        );
+      })}
+      <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(137,147,164,0.5)" /></marker></defs>
+      {nodes.map((node) => (
+        <g class="node" role="button" tabindex="0" aria-pressed="false" data-node-id={node.id} data-id={node.id} style={`--nc:${nodeColors[node.id] ?? 'var(--ag-system)'}`}>
+          <circle cx={pos.get(node.id)!.x} cy={pos.get(node.id)!.y} r="9" />
+          <text x={pos.get(node.id)!.x} y={pos.get(node.id)!.y + 24}>{node.id}</text>
         </g>
-      );
-    })}
-    <defs>
-      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-        <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(137,147,164,0.5)" />
-      </marker>
-    </defs>
-    {nodes.map((n) => (
-      <g class="node" data-id={n.id} style={`--nc:${nodeColors[n.id] ?? 'var(--ag-system)'}`}>
-        <circle cx={pos.get(n.id).x} cy={pos.get(n.id).y} r="9" />
-        <text x={pos.get(n.id).x} y={pos.get(n.id).y + 24}>{n.id}</text>
-      </g>
-    ))}
-  </svg>
+      ))}
+    </svg>
+    <aside class="ag-graph-inspector" data-graph-inspector aria-live="polite" aria-label="Selected contract node">
+      <span class="ag-trace-kicker">Source-backed selection</span>
+      <h4 data-graph-node>No node selected</h4>
+      <p data-graph-summary>Select a node to inspect owner/consumer edges present in <code>graph.json</code>.</p>
+      <ul data-graph-edges></ul>
+      <a class="ag-inspector-link" data-graph-atlas href="/atlas/?view=topology&amp;lens=SOURCE" aria-disabled="true">Inspect in Atlas →</a>
+    </aside>
+  </div>
 </div>
 
 <script>
-  const shell = document.currentScript?.parentElement as HTMLElement | null;
-  const root = shell?.querySelector('.ag-graph-shell') ?? document.querySelector('.ag-graph-shell');
-  if (root) {
-    const groups = root.querySelectorAll<SVGGraphicsElement>('.edge-g');
-    const nodesEl = root.querySelectorAll<SVGGraphicsElement>('.node');
-    const chips = root.querySelectorAll<HTMLButtonElement>('.ag-chip');
-    let active: string = '*';
+  function bindContractGraphs() {
+    document.querySelectorAll<HTMLElement>('[data-contract-graph]').forEach((root) => {
+      if (root.dataset.bound === 'true') return;
+      root.dataset.bound = 'true';
+      const groups = Array.from(root.querySelectorAll<SVGGElement>('.edge-g'));
+      const nodes = Array.from(root.querySelectorAll<SVGGElement>('[data-node-id]'));
+      const chips = Array.from(root.querySelectorAll<HTMLButtonElement>('.ag-chip'));
+      const inspector = root.querySelector<HTMLElement>('[data-graph-inspector]');
+      const atlas = root.querySelector<HTMLAnchorElement>('[data-graph-atlas]');
+      let activeContract = '*';
+      let selectedId: string | null = null;
 
-    function apply(hoverId?: string) {
-      groups.forEach((g) => {
-        const hit = hoverId
-          ? g.dataset.from === hoverId || g.dataset.to === hoverId
-          : active === '*' || g.dataset.contract === active;
-        g.querySelector('.edge')?.classList.toggle('hi', hit);
-        g.querySelector('.edge')?.classList.toggle('dim', !hit);
-        g.querySelector('.edge-label')?.classList.toggle('hi', hit);
-        g.querySelector('.edge-label')?.classList.toggle('dim', !hit);
+      function highlight(focusId: string | null = selectedId) {
+        groups.forEach((group) => {
+          const contractHit = activeContract === '*' || group.dataset.contract === activeContract;
+          const nodeHit = !focusId || group.dataset.from === focusId || group.dataset.to === focusId;
+          const hit = contractHit && nodeHit;
+          group.querySelector('.edge')?.classList.toggle('hi', hit);
+          group.querySelector('.edge')?.classList.toggle('dim', !hit);
+          group.querySelector('.edge-label')?.classList.toggle('hi', hit);
+          group.querySelector('.edge-label')?.classList.toggle('dim', !hit);
+        });
+        nodes.forEach((node) => {
+          const connected = !focusId || node.dataset.nodeId === focusId || groups.some((group) =>
+            (group.dataset.from === focusId && group.dataset.to === node.dataset.nodeId) ||
+            (group.dataset.to === focusId && group.dataset.from === node.dataset.nodeId));
+          node.classList.toggle('hi', connected);
+          node.classList.toggle('dim', !connected);
+          node.setAttribute('aria-pressed', String(node.dataset.nodeId === selectedId));
+        });
+      }
+
+      function renderSelection(id: string | null) {
+        selectedId = id;
+        highlight();
+        if (!inspector || !atlas) return;
+        const title = inspector.querySelector<HTMLElement>('[data-graph-node]');
+        const summary = inspector.querySelector<HTMLElement>('[data-graph-summary]');
+        const list = inspector.querySelector<HTMLElement>('[data-graph-edges]');
+        if (!id) {
+          if (title) title.textContent = 'No node selected';
+          if (summary) summary.textContent = 'Select a node to inspect source-backed relationships.';
+          if (list) list.replaceChildren();
+          atlas.href = '/atlas/?view=topology&lens=SOURCE';
+          atlas.setAttribute('aria-disabled', 'true');
+          return;
+        }
+        const related = groups.filter((group) => group.dataset.from === id || group.dataset.to === id);
+        if (title) title.textContent = id;
+        if (summary) summary.textContent = `${related.length} generated relationship${related.length === 1 ? '' : 's'} in this graph.`;
+        if (list) {
+          list.replaceChildren(...related.map((group) => {
+            const item = document.createElement('li');
+            const direction = group.dataset.from === id ? `→ ${group.dataset.to}` : `← ${group.dataset.from}`;
+            item.textContent = `${group.dataset.contract} ${direction}${group.dataset.normative === 'true' ? ' · normative' : ''}`;
+            return item;
+          }));
+        }
+        const params = new URLSearchParams({ node: `repo:Aftergraph/${id}`, view: 'topology', lens: 'SOURCE' });
+        atlas.href = `/atlas/?${params.toString()}`;
+        atlas.removeAttribute('aria-disabled');
+      }
+
+      nodes.forEach((node) => {
+        node.addEventListener('mouseenter', () => highlight(node.dataset.nodeId || null));
+        node.addEventListener('mouseleave', () => highlight());
+        node.addEventListener('focus', () => highlight(node.dataset.nodeId || null));
+        node.addEventListener('blur', () => highlight());
+        node.addEventListener('click', () => renderSelection(node.dataset.nodeId || null));
+        node.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); renderSelection(node.dataset.nodeId || null); }
+          if (event.key === 'Escape') { event.preventDefault(); renderSelection(null); }
+        });
       });
-      nodesEl.forEach((n) => {
-        const hit = hoverId
-          ? n.dataset.id === hoverId ||
-            [...groups].some((g) =>
-              (g.dataset.from === hoverId && g.dataset.to === n.dataset.id) ||
-              (g.dataset.to === hoverId && g.dataset.from === n.dataset.id))
-          : active === '*' || [...groups].some((g) => g.dataset.contract === active && (g.dataset.from === n.dataset.id || g.dataset.to === n.dataset.id));
-        n.classList.toggle('hi', hit);
-        n.classList.toggle('dim', !hit);
-      });
-    }
-    nodesEl.forEach((n) => {
-      n.addEventListener('mouseenter', () => apply(n.dataset.id));
-      n.addEventListener('mouseleave', () => apply());
-      n.addEventListener('focus', () => apply(n.dataset.id));
-      n.addEventListener('blur', () => apply());
-    });
-    chips.forEach((c) => {
-      c.addEventListener('click', () => {
-        active = c.dataset.contract ?? '*';
-        chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
-        apply();
-      });
+      chips.forEach((chip) => chip.addEventListener('click', () => {
+        activeContract = chip.dataset.contract || '*';
+        chips.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === chip)));
+        highlight();
+      }));
+      highlight(null);
     });
   }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindContractGraphs);
+  else bindContractGraphs();
 </script>
