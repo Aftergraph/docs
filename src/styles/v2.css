@@ -268,3 +268,55 @@
   .ag-trace-inspector dl { grid-template-columns: 1fr; gap: .15rem; }
   .ag-trace-inspector dd { margin-bottom: .45rem; }
 }
+
+/* Contract Graph inspection workbench. */
+.ag-graph-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .7rem;
+}
+.ag-graph-help {
+  flex: 0 0 auto;
+  color: var(--ag-muted);
+  font: 600 .66rem/1.5 var(--sl-font-mono);
+}
+.ag-graph-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(14rem, .6fr);
+  gap: 1rem;
+  align-items: start;
+}
+.ag-graph-inspector {
+  min-height: 12rem;
+  padding: .9rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--sl-color-bg-sidebar) 58%, transparent);
+}
+.ag-graph-inspector h4 { margin: .2rem 0 .55rem; }
+.ag-graph-inspector p { margin: 0 0 .7rem; color: var(--ag-muted); font-size: .8rem; }
+.ag-graph-inspector ul { margin: 0 0 .8rem; padding-left: 1.15rem; }
+.ag-graph-inspector li { margin: .25rem 0; font: .72rem/1.45 var(--sl-font-mono); }
+.ag-graph-inspector [aria-disabled='true'] {
+  color: var(--ag-muted);
+  pointer-events: none;
+  text-decoration: none;
+}
+.ag-graph-svg [data-node-id]:focus-visible circle {
+  stroke: var(--ag-control);
+  stroke-width: 3;
+}
+.ag-graph-svg [data-node-id][aria-pressed='true'] circle {
+  stroke: var(--ag-evidence);
+  stroke-width: 3;
+}
+@media (max-width: 52rem) {
+  .ag-graph-layout { grid-template-columns: 1fr; }
+  .ag-graph-head { flex-direction: column; gap: .4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ag-graph-svg .edge,
+  .ag-graph-svg .node circle { transition: none !important; }
+}

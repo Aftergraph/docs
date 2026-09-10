@@ -29,5 +29,13 @@ includes(mission, 'Route walkthrough', 'Golden Mission must identify itself as a
 includes(mission, 'Complete is not verified', 'Golden Mission must preserve completion != verification boundary');
 includes(missionPage, 'WorkbenchLens', 'Golden Mission page must mount the shared lens control');
 
+const contractGraph = read('src/components/ContractGraph.astro');
+const contractPage = read('src/content/docs/standards/contract-graph.mdx');
+includes(contractGraph, 'data-node-id', 'Contract Graph must expose selectable node ids');
+includes(contractGraph, 'Inspect in Atlas', 'Contract Graph must hand selection to Atlas');
+includes(contractGraph, 'Escape', 'Contract Graph must document/implement Escape clear behavior');
+includes(contractGraph, 'aria-pressed', 'Contract Graph selection must be exposed accessibly');
+includes(contractPage, 'WorkbenchLens', 'Contract Graph page must mount the shared lens control');
+
 if (failures) process.exit(1);
-console.log('WORKBENCH-VERIFY PASS: lenses + source/evidence states + interactive traces');
+console.log('WORKBENCH-VERIFY PASS: lenses + source/evidence states + interactive traces + contract inspection');
