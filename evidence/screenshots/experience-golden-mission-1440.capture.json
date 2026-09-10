@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "repo": "Aftergraph/docs",
+  "commit": "2c5c803f17486a510c8b49f27998c75058fffb2f",
+  "captured_at": "2026-09-10T05:52:58.222Z",
+  "route": "/platform/golden-mission/?lens=SOURCE",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "theme": "dark",
+  "environment": "local-built",
+  "product_version": "experience-atlas-v1",
+  "classification": "local-nonproduction-evidence"
+}
