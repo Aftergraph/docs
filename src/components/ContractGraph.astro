@@ -59,7 +59,7 @@ function curve(p1: {x:number;y:number}, p2: {x:number;y:number}) {
       <h4 data-graph-node>No node selected</h4>
       <p data-graph-summary>Select a node to inspect owner/consumer edges present in <code>graph.json</code>.</p>
       <ul data-graph-edges></ul>
-      <a class="ag-inspector-link" data-graph-atlas href="/atlas/?view=topology&amp;lens=SOURCE" aria-disabled="true">Inspect in Atlas →</a>
+      <a class="ag-inspector-link" data-graph-atlas href="https://aftergraph.org/atlas/?view=topology&amp;lens=SOURCE" aria-disabled="true">Inspect in Atlas →</a>
     </aside>
   </div>
 </div>
@@ -108,7 +108,7 @@ function curve(p1: {x:number;y:number}, p2: {x:number;y:number}) {
           if (title) title.textContent = 'No node selected';
           if (summary) summary.textContent = 'Select a node to inspect source-backed relationships.';
           if (list) list.replaceChildren();
-          atlas.href = '/atlas/?view=topology&lens=SOURCE';
+          atlas.href = 'https://aftergraph.org/atlas/?view=topology&lens=SOURCE';
           atlas.setAttribute('aria-disabled', 'true');
           return;
         }
@@ -124,7 +124,7 @@ function curve(p1: {x:number;y:number}, p2: {x:number;y:number}) {
           }));
         }
         const params = new URLSearchParams({ node: `repo:Aftergraph/${id}`, view: 'topology', lens: 'SOURCE' });
-        atlas.href = `/atlas/?${params.toString()}`;
+        atlas.href = `https://aftergraph.org/atlas/?${params.toString()}`;
         atlas.removeAttribute('aria-disabled');
       }
 
