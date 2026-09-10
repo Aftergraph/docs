@@ -1,36 +1,131 @@
 ---
-// Golden Mission walkthrough: 10 steps, each linking owner page + contract
-// (resolved to owner via system-map verified bindings) + API anchor.
+// Route walkthrough over generated Golden Mission bindings. This is a
+// navigation/provenance view, not an observed runtime trace.
 import mission from '../data/golden-mission.json';
 import map from '../data/system-map.json';
-const contractOwners = Object.fromEntries(
-  map.map.golden_mission.map((m) => [m.step, m])
-);
-const repoPages = {
+const contractOwners = Object.fromEntries(map.map.golden_mission.map((m) => [m.step, m]));
+const repoPages: Record<string, string> = {
   'work-intelligence-v2': '/developers/api-reference/',
-  'studio': '/platform/',
+  'wi-backend': '/developers/api-reference/',
+  studio: '/platform/',
   'works-execution': '/standards/contracts/',
-  'aie': '/standards/contracts/',
+  aie: '/standards/contracts/',
   'trust-gateway': '/standards/contracts/',
   'intelligence-systems-research': '/evidence/claim-graph/',
 };
+const steps = mission.steps.map((step, index) => {
+  const binding: any = contractOwners[step.step];
+  const ownerSlug = step.owner.replace('Aftergraph/', '');
+  return {
+    ...step,
+    index,
+    ownerSlug,
+    ownerHref: repoPages[ownerSlug] ?? '/catalog/',
+    contractOwner: binding?.contract_owner ?? null,
+    verifiedBinding: binding?.verified_binding ?? null,
+  };
+});
 ---
-<ol class="ag-flow">
-  {mission.steps.map((s) => {
-    const m = contractOwners[s.step];
-    return (
-      <li class="ag-step">
-        <h4>{s.step}</h4>
-        <a class="owner" href={repoPages[s.owner.replace('Aftergraph/', '')] ?? '/catalog/'}>
-          {s.owner.replace('Aftergraph/', '')}
-        </a>
-        {s.api && <a class="binding" href="/developers/api-reference/">{s.api}</a>}
-        {s.contract && (
-          <a class="binding" href="/standards/contracts/" title={`owner: ${m?.contract_owner ?? 'unknown'} (verified ${m?.verified_binding ? '✓' : '✗'})`}>
-            {s.contract} {m?.verified_binding ? '✓' : '✗'}
-          </a>
-        )}
+<section class="ag-mission-explorer" data-mission-explorer aria-label="Golden Mission route walkthrough">
+  <div class="ag-trace-heading">
+    <div>
+      <span class="ag-trace-kicker">Route walkthrough</span>
+      <h3>Golden Mission</h3>
+    </div>
+    <span class="ag-trace-boundary">Complete is not verified.</span>
+  </div>
+  <p class="ag-trace-note">Generated route bindings. This view does not claim that a live mission executed these steps.</p>
+
+  <ol class="ag-flow ag-trace-rail">
+    {steps.map((step) => (
+      <li class="ag-step" data-active={step.index === 0 ? 'true' : 'false'}>
+        <button
+          type="button"
+          class="ag-step-select"
+          data-mission-step
+          data-index={step.index}
+          data-name={step.step}
+          data-owner={step.ownerSlug}
+          data-owner-href={step.ownerHref}
+          data-api={step.api ?? ''}
+          data-contract={step.contract ?? ''}
+          data-contract-owner={step.contractOwner ?? ''}
+          data-verified-binding={step.verifiedBinding === null ? 'unknown' : String(step.verifiedBinding)}
+          aria-current={step.index === 0 ? 'step' : 'false'}
+        >
+          <span class="ag-step-title">{step.step}</span>
+          <span class="owner">{step.ownerSlug}</span>
+          {step.api && <span class="binding">{step.api}</span>}
+          {step.contract && <span class="binding">{step.contract} {step.verifiedBinding ? '✓' : step.verifiedBinding === false ? '✗' : ''}</span>}
+        </button>
       </li>
-    );
-  })}
-</ol>
+    ))}
+  </ol>
+
+  <aside class="ag-trace-inspector" data-mission-inspector aria-live="polite" aria-label="Selected route step">
+    <div class="ag-trace-position"><span data-step-position>01 / {steps.length}</span></div>
+    <h4 data-step-name>{steps[0]?.step}</h4>
+    <dl>
+      <dt>Owner</dt><dd><a data-step-owner href={steps[0]?.ownerHref}>{steps[0]?.ownerSlug}</a></dd>
+      <dt>API</dt><dd data-step-api>{steps[0]?.api ?? 'Not applicable'}</dd>
+      <dt>Contract</dt><dd data-step-contract>{steps[0]?.contract ?? 'Not applicable'}</dd>
+      <dt>Contract owner</dt><dd data-step-contract-owner>{steps[0]?.contractOwner ?? 'Not evidenced'}</dd>
+      <dt>Binding</dt><dd data-step-binding>{steps[0]?.verifiedBinding === true ? 'Verified binding ✓' : steps[0]?.verifiedBinding === false ? 'Unbound ✗' : 'Not applicable'}</dd>
+    </dl>
+  </aside>
+</section>
+
+<script>
+  function bindMissionExplorers() {
+    document.querySelectorAll('[data-mission-explorer]').forEach((root) => {
+      if (root.dataset.bound === 'true') return;
+      root.dataset.bound = 'true';
+      const buttons = Array.from(root.querySelectorAll('[data-mission-step]'));
+      const inspector = root.querySelector('[data-mission-inspector]');
+      if (!buttons.length || !inspector) return;
+
+      function select(button, focusInspector = false) {
+        const index = Number(button.dataset.index || 0);
+        buttons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.setAttribute('aria-current', active ? 'step' : 'false');
+          candidate.closest('.ag-step')?.setAttribute('data-active', String(active));
+        });
+        const set = (selector, value) => {
+          const target = inspector.querySelector(selector);
+          if (target) target.textContent = value;
+        };
+        set('[data-step-position]', `${String(index + 1).padStart(2, '0')} / ${buttons.length}`);
+        set('[data-step-name]', button.dataset.name || 'Unknown step');
+        set('[data-step-api]', button.dataset.api || 'Not applicable');
+        set('[data-step-contract]', button.dataset.contract || 'Not applicable');
+        set('[data-step-contract-owner]', button.dataset.contractOwner || 'Not evidenced');
+        const binding = button.dataset.verifiedBinding;
+        set('[data-step-binding]', binding === 'true' ? 'Verified binding ✓' : binding === 'false' ? 'Unbound ✗' : 'Not applicable');
+        const owner = inspector.querySelector('[data-step-owner]');
+        if (owner) {
+          owner.textContent = button.dataset.owner || 'Unknown';
+          owner.setAttribute('href', button.dataset.ownerHref || '/catalog/');
+        }
+        if (focusInspector) inspector.focus?.();
+      }
+
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => select(button));
+        button.addEventListener('keydown', (event) => {
+          if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = Math.min(buttons.length - 1, index + 1);
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = Math.max(0, index - 1);
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = buttons.length - 1;
+          buttons[next].focus();
+          select(buttons[next]);
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindMissionExplorers);
+  else bindMissionExplorers();
+</script>

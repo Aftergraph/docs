@@ -1,17 +1,35 @@
 ---
 title: "Golden Mission"
-description: "Canonical end-to-end route data model (V0: route, not animation)."
+description: "Canonical end-to-end route data model and interactive route walkthrough."
 ---
 import Provenance from '../../../components/Provenance.astro';
 import MissionFlow from '../../../components/MissionFlow.astro';
+import WorkbenchLens from '../../../components/WorkbenchLens.astro';
+import SourceEvidenceInspector from '../../../components/SourceEvidenceInspector.astro';
 
-V0 ships the route and its data model (`src/data/golden-mission.json`).
-Every step links owner → contract → API → schema → implementation → evidence
-as those bindings land.
+This page is a **route walkthrough**, not a live execution trace. It is generated
+from `src/data/golden-mission.json`, with owner/contract bindings checked through
+the System Map. A route reaching its final step is still not proof of a verified
+runtime outcome: **Complete is not verified.**
+
+<WorkbenchLens supported={['SYSTEM', 'AUTHORITY', 'EVIDENCE', 'SOURCE']} label="Golden Mission lens" />
 
 <MissionFlow />
 
-Step owners and bindings are declared in the data file; the full matrix is
+<SourceEvidenceInspector
+  title="Route source"
+  source={{
+    repository: 'Aftergraph/docs',
+    path: 'src/data/golden-mission.json',
+    freshness: 'generated at build time',
+  }}
+  evidence={{
+    status: 'bindings validated by the Knowledge Plane build',
+    href: '/platform/system-map/',
+  }}
+/>
+
+Step owners and bindings are declared in the generated data; the full matrix is
 tracked in the [Contract Explorer](/standards/contracts/).
 
 <Provenance page="platform/golden-mission" />

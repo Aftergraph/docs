@@ -21,5 +21,13 @@ includes(lens, 'URLSearchParams', 'lens state must restore through URL query sta
 includes(inspector, 'Not evidenced', 'inspector must render an explicit not-evidenced state');
 includes(inspector, 'Withheld', 'inspector must render an explicit withheld state');
 
+const mission = read('src/components/MissionFlow.astro');
+const missionPage = read('src/content/docs/platform/golden-mission.mdx');
+includes(mission, 'data-mission-step', 'Golden Mission must expose selectable trace steps');
+includes(mission, 'aria-current', 'Golden Mission must expose current-step semantics');
+includes(mission, 'Route walkthrough', 'Golden Mission must identify itself as a route walkthrough');
+includes(mission, 'Complete is not verified', 'Golden Mission must preserve completion != verification boundary');
+includes(missionPage, 'WorkbenchLens', 'Golden Mission page must mount the shared lens control');
+
 if (failures) process.exit(1);
-console.log('WORKBENCH-VERIFY PASS: lenses + source/evidence states');
+console.log('WORKBENCH-VERIFY PASS: lenses + source/evidence states + interactive traces');
