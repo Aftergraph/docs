@@ -150,3 +150,76 @@
   .ag-card,
   .ag-step { transition: none !important; transform: none !important; }
 }
+
+/* Experience Workbench: same evidence-aware interaction language as Atlas. */
+.ag-workbench-lenses {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 1rem 0 1.35rem;
+  padding: .65rem .75rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .65rem;
+  background: color-mix(in srgb, var(--sl-color-bg-nav) 84%, transparent);
+}
+.ag-lens-label,
+.ag-lens-note {
+  color: var(--ag-muted);
+  font: 600 .66rem/1 var(--sl-font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.ag-lens-note { margin-left: auto; text-transform: none; letter-spacing: 0; }
+.ag-lens {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 999px;
+  padding: .4rem .65rem;
+  background: transparent;
+  color: var(--ag-muted);
+  font: 650 .66rem/1 var(--sl-font-mono);
+  cursor: pointer;
+}
+.ag-lens:hover,
+.ag-lens:focus-visible { color: var(--ag-text); border-color: var(--ag-control); }
+.ag-lens[aria-pressed='true'] {
+  color: var(--ag-text);
+  border-color: var(--ag-evidence);
+  background: color-mix(in srgb, var(--ag-evidence) 10%, transparent);
+}
+.ag-source-inspector {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: .7rem;
+  background: color-mix(in srgb, var(--sl-color-bg-sidebar) 52%, transparent);
+}
+.ag-inspector-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.ag-inspector-head strong { color: var(--ag-text); }
+.ag-state {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 999px;
+  padding: .25rem .5rem;
+  color: var(--ag-muted);
+  font: 650 .62rem/1 var(--sl-font-mono);
+}
+.ag-state-available { border-color: var(--ag-evidence); color: var(--ag-evidence); }
+.ag-state-withheld { border-color: var(--ag-authority); color: var(--ag-authority); }
+.ag-inspector-grid {
+  display: grid;
+  grid-template-columns: minmax(6rem, .35fr) minmax(0, 1fr);
+  gap: .45rem 1rem;
+  margin: .9rem 0;
+  font-size: .8rem;
+}
+.ag-inspector-grid dt { color: var(--ag-muted); font-family: var(--sl-font-mono); }
+.ag-inspector-grid dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.ag-inspector-link { display: inline-block; margin: .3rem 1rem 0 0; font-size: .78rem; }
+@media (max-width: 42rem) {
+  .ag-lens-note { width: 100%; margin-left: 0; }
+  .ag-inspector-grid { grid-template-columns: 1fr; gap: .15rem; }
+  .ag-inspector-grid dd { margin-bottom: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ag-lens { transition: none !important; }
+}

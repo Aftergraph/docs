@@ -1,0 +1,57 @@
+---
+type SourceRecord = {
+  repository?: string | null;
+  ref?: string | null;
+  path?: string | null;
+  url?: string | null;
+  freshness?: string | null;
+};
+type EvidenceRecord = {
+  id?: string | null;
+  level?: string | null;
+  status?: string | null;
+  href?: string | null;
+};
+const {
+  title = 'Source & evidence',
+  source = null,
+  evidence = null,
+  state = null,
+} = Astro.props as {
+  title?: string;
+  source?: SourceRecord | null;
+  evidence?: EvidenceRecord | null;
+  state?: 'withheld' | 'unavailable' | 'not-evidenced' | null;
+};
+const resolvedState = state ?? (!source && !evidence ? 'not-evidenced' : 'available');
+const stateLabel = resolvedState === 'withheld'
+  ? 'Withheld'
+  : resolvedState === 'unavailable'
+    ? 'Unavailable'
+    : resolvedState === 'not-evidenced'
+      ? 'Not evidenced'
+      : 'Available';
+---
+<aside class="ag-source-inspector" data-source-evidence-inspector data-state={resolvedState} aria-label={title}>
+  <div class="ag-inspector-head">
+    <strong>{title}</strong>
+    <span class={`ag-state ag-state-${resolvedState}`}>{stateLabel}</span>
+  </div>
+  {resolvedState === 'withheld' ? (
+    <p>Withheld by the publication boundary. No private ref or hidden value is reconstructed here.</p>
+  ) : resolvedState === 'unavailable' ? (
+    <p>Source data is unavailable in this projection. The UI does not guess a replacement.</p>
+  ) : resolvedState === 'not-evidenced' ? (
+    <p>Not evidenced on this surface. Absence of evidence is not upgraded into a claim.</p>
+  ) : (
+    <dl class="ag-inspector-grid">
+      <dt>Repository</dt><dd>{source?.repository ?? 'Not evidenced'}</dd>
+      <dt>Ref</dt><dd><code>{source?.ref ?? 'Not evidenced'}</code></dd>
+      <dt>Path</dt><dd>{source?.path ?? 'Not evidenced'}</dd>
+      <dt>Freshness</dt><dd>{source?.freshness ?? 'Not evidenced'}</dd>
+      <dt>Evidence</dt><dd>{evidence?.id ?? 'Not evidenced'}{evidence?.level ? ` · ${evidence.level}` : ''}{evidence?.status ? ` · ${evidence.status}` : ''}</dd>
+    </dl>
+  )}
+  {resolvedState === 'available' && source?.url && <a class="ag-inspector-link" href={source.url}>Open canonical source →</a>}
+  {resolvedState === 'available' && evidence?.href && <a class="ag-inspector-link" href={evidence.href}>Inspect evidence →</a>}
+</aside>
