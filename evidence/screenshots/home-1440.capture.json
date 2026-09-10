@@ -1,0 +1,15 @@
+{
+ "schema_version": 1,
+ "repo": "Aftergraph/docs",
+ "commit": "1e019b9110b77f5b24c8eb10982469d60af615e5",
+ "captured_at": "2026-09-10T00:19:37Z",
+ "route": "/",
+ "viewport": {
+  "width": 1440,
+  "height": 900
+ },
+ "theme": "dark",
+ "environment": "production",
+ "product_version": "unknown",
+ "classification": "live-runtime"
+}
