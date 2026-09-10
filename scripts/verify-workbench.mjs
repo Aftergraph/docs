@@ -33,6 +33,7 @@ const contractGraph = read('src/components/ContractGraph.astro');
 const contractPage = read('src/content/docs/standards/contract-graph.mdx');
 includes(contractGraph, 'data-node-id', 'Contract Graph must expose selectable node ids');
 includes(contractGraph, 'Inspect in Atlas', 'Contract Graph must hand selection to Atlas');
+includes(contractGraph, 'https://aftergraph.org/atlas/', 'Contract Graph Atlas handoff must target the public Atlas origin');
 includes(contractGraph, 'Escape', 'Contract Graph must document/implement Escape clear behavior');
 includes(contractGraph, 'aria-pressed', 'Contract Graph selection must be exposed accessibly');
 includes(contractPage, 'WorkbenchLens', 'Contract Graph page must mount the shared lens control');
