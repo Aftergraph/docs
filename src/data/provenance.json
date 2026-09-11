@@ -64,9 +64,9 @@
     "canonical_owner": "Governance"
   },
   "developers/api-reference": {
-    "repository": "Aftergraph/work-intelligence-v2",
-    "commit": "a926f26b99b6aa265c02590249fa32b85941b73d",
-    "source": "canonical repo HEAD 2026-09-06",
+    "repository": "Aftergraph/wi-backend",
+    "commit": "cf7f26993450640951165aa6e6e0cd1481515938",
+    "source": "canonical wi-backend source adopted 2026-09-11",
     "semantic_version": "V0 (portal foundation)",
     "evidence_cut": null,
     "canonical_owner": "Work Intelligence"

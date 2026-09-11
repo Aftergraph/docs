@@ -3,12 +3,12 @@
   "steps": [
     {
       "step": "Observation",
-      "owner": "Aftergraph/work-intelligence-v2",
+      "owner": "Aftergraph/wi-backend",
       "api": "POST /v1/observations"
     },
     {
       "step": "WorkItem",
-      "owner": "Aftergraph/work-intelligence-v2",
+      "owner": "Aftergraph/wi-backend",
       "api": "GET /v1/work-items"
     },
     {

@@ -20,6 +20,19 @@ for (const priv of ['context-continuity','skills-vault','work-intelligence-web',
   if (src.includes(priv)) fail('private repo referenced: ' + priv);
 ok(`sources: ${shas.length} pins, all full SHAs, no private refs`);
 
+// 1b. retired repository identities must not re-enter current-facing projections.
+// Historical source-state history is intentionally excluded: provenance is not rewritten.
+for (const rel of [
+  'src/data/sources.ts', 'src/data/catalog.json', 'src/data/artifacts.json',
+  'src/data/provenance.json', 'src/data/golden-mission.json', 'src/data/schemas.json',
+  'src/data/system-map.json', 'src/components/SystemGrid.astro',
+  'src/components/MissionFlow.astro', 'src/content/docs/products.mdx'
+]) {
+  const current = readFileSync(join(root, rel), 'utf8');
+  if (current.includes('work-intelligence-v2')) fail(`retired Work Intelligence identity in current surface: ${rel}`);
+}
+ok('repository identity: retired work-intelligence-v2 absent from current surfaces');
+
 // 2. provenance coverage for every docs page
 const prov = JSON.parse(readFileSync(join(root, 'src/data/provenance.json'), 'utf8'));
 const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) => {
@@ -100,7 +113,7 @@ ok(`openapi: ${api.info?.title} ${api.info?.version}, ${Object.keys(api.paths).l
 // a silent divergence would show two truths).
 {
   const schemas = JSON.parse(readFileSync(join(root, 'src/data/schemas.json'), 'utf8'));
-  const wiPin = (src.match(/repository: 'Aftergraph\/work-intelligence-v2'[\s\S]*?commitSha: '([0-9a-f]{40})'/) || [])[1];
+  const wiPin = (src.match(/repository: 'Aftergraph\/wi-backend'[\s\S]*?commitSha: '([0-9a-f]{40})'/) || [])[1];
   if (schemas.api?.commit !== wiPin) fail('schemas.json commit != WI pin (run scripts/schemas.mjs)');
   if (schemas.api?.paths !== Object.keys(api.paths ?? {}).length) fail('schemas.json paths != openapi paths');
   ok(`schemas: ${schemas.schemas.length} component schemas, pin + paths match`);
