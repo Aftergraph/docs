@@ -49,10 +49,10 @@
       "sha": "d207485f84cad550d3a5306581c82d3328b15ec8"
     },
     {
-      "repo": "Aftergraph/work-intelligence-v2",
+      "repo": "Aftergraph/wi-backend",
       "class": "Repository",
       "role": "Source-neutral work intelligence (observations → WorkItems)",
-      "sha": "a926f26b99b6aa265c02590249fa32b85941b73d"
+      "sha": "cf7f26993450640951165aa6e6e0cd1481515938"
     },
     {
       "repo": "Aftergraph/works-execution",
@@ -91,15 +91,15 @@
     },
     {
       "name": "Work Intelligence",
-      "owner": "Aftergraph/work-intelligence-v2",
+      "owner": "Aftergraph/wi-backend",
       "api": "Aftergraph Work Intelligence v0.2.0 (OpenAPI 3.1.0)"
     }
   ],
   "apis": [
     {
       "name": "Aftergraph Work Intelligence v0.2.0",
-      "source": "Aftergraph/work-intelligence-v2@e50b21c4694935ba19af7cdfa9fe5d38b1fe44a0 openapi.json",
-      "paths": 51,
+      "source": "Aftergraph/wi-backend@cf7f26993450640951165aa6e6e0cd1481515938 openapi.json",
+      "paths": 52,
       "reference": "/developers/api-reference/"
     }
   ],
