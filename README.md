@@ -15,7 +15,7 @@ provenance + freshness, and fails the build on private-source leakage.
   Contributing, Changelog, Brand.
 - **Machine surfaces**: `llms.txt` + scoped indexes, 27 ACC-shaped context
   packs (`/context/`), `/status.json`, `/source-state.json`,
-  `/build-manifest.json`, and a read-only stdio **Docs MCP** (7 tools).
+  `/build-manifest.json`, and a read-only stdio **Docs MCP** (9 tools).
 - **Verification**: every page carries provenance (owner repo@full-SHA +
   semantic version + evidence cut); freshness distinguishes repository churn
   from semantic drift (ADR-004); claims render registry-verbatim, never
@@ -42,12 +42,25 @@ node scripts/adopt-source.mjs Aftergraph/<repo> <full-sha>   # explicit pin adop
 Windows: repo is LF-only (hard gate) — strip before committing:
 `sed -i 's/\r$//' <files>`.
 
+## Releases
+
+The Knowledge Plane is in production. Tags follow a portal-slice scheme;
+full history lives in [`CHANGELOG.md`](./CHANGELOG.md).
+
+- **Latest — [v1.1.0](https://github.com/Aftergraph/docs/releases/tag/v1.1.0)**
+  (production hardening: system-level UX, agent-surface depth,
+  operational polish)
+- [v1.0.0](https://github.com/Aftergraph/docs/releases/tag/v1.0.0)
+  (parity with Claude/OpenAI/Hermes developer docs)
+
+In-progress work is tracked in [`OVERNIGHT-STATE.md`](./OVERNIGHT-STATE.md).
+
 ## Decisions & state
 
 - Architecture decisions: `docs/ADR-001..005`
 - Parity feature list + DoD vs Claude/OpenAI/Hermes docs: `docs/PARITY-FEATURES.md`
 - Release history: [`CHANGELOG.md`](./CHANGELOG.md)
-- Overnight program state: `OVERNIGHT-STATE.md`
+- Overnight program state: [`OVERNIGHT-STATE.md`](./OVERNIGHT-STATE.md)
 
 ## Deploy
 
