@@ -6,6 +6,8 @@ name: knowledge-plane-verifier
 # (pushes to stable verifier-log branch when main is PR-only since
 # 2026-09-08), uploads an immutable artifact, and opens an adoption i...[truncated]
 # SOURCE_MOVED_CONTENT_CHANGED so pin updates stay explicit + reviewable.
+# Content-UNchanged moves are adopted as draft PRs (adopt-unchanged.mjs): the
+# pointer moves, no claim does, and a human still presses merge.
 on:
   schedule:
     - cron: '0 */6 * * *'
@@ -80,3 +82,12 @@ jobs:
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         run: node scripts/adopt-issue.mjs || true
+      # Content-unchanged drift is proven byte-identical, so adoption is a
+      # pointer move with no claim change: open a DRAFT pin-bump PR per source
+      # (ADR-004 deliberate exception — draft means a human still merges).
+      # Content-changed drift stays issue-only (the step above). Hard-fail
+      # visibility: a broken adoption loop must show red, not silently skip.
+      - name: Auto-adopt content-unchanged sources (draft PRs)
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: node scripts/adopt-unchanged.mjs
