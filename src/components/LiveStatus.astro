@@ -6,7 +6,7 @@ import status from '../data/build-status.json';
 const s = (status as any).summary;
 const tiles = [
   { n: s.source_count, l: 'Sources', tone: 'neutral' },
-  { n: s.current, l: 'Current', tone: 'ok' },
+  { n: s.current, l: 'Current at last check', tone: s.evidence_expired ? 'warn' : 'ok' },
   { n: s.source_moved_unchanged + s.source_moved_changed, l: 'Moved · pinned', tone: 'warn' },
   { n: s.source_moved, l: 'Moved · unverified', tone: 'warn' },
   { n: s.stale + s.unknown, l: 'Stale/Unknown', tone: s.stale + s.unknown > 0 ? 'bad' : 'ok' },
@@ -20,7 +20,7 @@ const tiles = [
   ))}
 </div>
 <p class="ag-live-note" data-live-note>
-  Pinned build values — live refresh from /status.json on the deployed site.
+  Snapshot values at the last check. Source verification may be out of date; do not treat CURRENT as a live assertion.
 </p>
 <script>
   // ponytail: naive fetch+render; ceiling = no polling/websocket, upgrade path = SSE.
@@ -32,9 +32,11 @@ const tiles = [
       const r = await fetch('/status.json', { cache: 'no-store' });
       if (!r.ok) return;
       const s = (await r.json()).summary;
+      const ageMs = Date.now() - Date.parse(s.last_verification || '')
+      const expired = !Number.isFinite(ageMs) || ageMs < -300_000 || ageMs > 7 * 86400_000
       const vals = [
         { n: s.source_count, tone: 'neutral' },
-        { n: s.current, tone: 'ok' },
+        { n: s.current, tone: expired ? 'warn' : 'ok' },
         { n: s.source_moved_unchanged + s.source_moved_changed, tone: 'warn' },
         { n: s.source_moved, tone: 'warn' },
         { n: s.stale + s.unknown, tone: s.stale + s.unknown > 0 ? 'bad' : 'ok' },
@@ -45,7 +47,9 @@ const tiles = [
         el.querySelector('b').textContent = String(v.n);
         el.dataset.tone = v.tone;
       });
-      if (note) note.textContent = `Live from /status.json · verified ${s.last_verification}`;
+      if (note) note.textContent = expired
+        ? `Source verification EXPIRED: last check ${s.last_verification || 'unknown'}. CURRENT counts describe only that historical check, not today's HEAD.`
+        : `Last source check ${s.last_verification} · within the 7-day evidence window; canonical repos still own truth.`;
     } catch { /* pinned fallback already rendered */ }
   })();
 </script>
