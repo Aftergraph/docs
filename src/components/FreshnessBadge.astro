@@ -1,5 +1,8 @@
 ---
+import buildStatus from '../data/build-status.json';
 const { status = 'UNKNOWN' } = Astro.props;
-const cls = { CURRENT: 'fresh-current', SOURCE_MOVED: 'fresh-moved', STALE: 'fresh-stale', UNKNOWN: 'fresh-unknown' }[status] ?? 'fresh-unknown';
+const evidenceExpired = (buildStatus as any)?.summary?.evidence_expired === true;
+const reported = evidenceExpired && status === 'CURRENT' ? 'CHECK EXPIRED' : status;
+const cls = { CURRENT: 'fresh-current', SOURCE_MOVED: 'fresh-moved', STALE: 'fresh-stale', UNKNOWN: 'fresh-unknown', 'CHECK EXPIRED': 'fresh-stale' }[reported] ?? 'fresh-unknown';
 ---
-<span class={`freshness ${cls}`} title="Freshness: rendered SHA vs live canonical HEAD">● {status}</span>
+<span class={`freshness ${cls}`} title="Repository status at historical evidence cut, not a live canonical HEAD claim">● {reported}</span>
