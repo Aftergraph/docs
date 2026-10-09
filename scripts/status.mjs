@@ -39,7 +39,7 @@ writeFileSync(root + '/dist/status.json', JSON.stringify(status, null, 2) + '\n'
 writeFileSync(root + '/src/data/build-status.json', JSON.stringify({
   site_commit: site, verified_at: summary.last_verification, summary,
   page_line: summary.last_verification
-    ? `${summary.evidence_expired ? 'Verification evidence EXPIRED' : 'Source verified'} ${summary.last_verification.slice(0, 16).replace('T', ' ')} UTC · ${summary.current}/${summary.source_count} CURRENT **at that evidence cut only**`
+    ? `${summary.evidence_expired ? 'Verification evidence EXPIRED' : 'Source verified'} ${summary.last_verification.slice(0, 16).replace('T', ' ')} UTC · ${summary.current}/${summary.source_count} CURRENT at historical evidence cut only`
     : 'Source verification UNKNOWN — no check recorded',
 }, null, 2) + '\n');
 const rows = sources.map((e) =>
