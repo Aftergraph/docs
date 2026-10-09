@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { assessSourceEvidence } from './source-freshness-age.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 let site = 'uncommitted';
 try { site = execSync('git rev-parse HEAD', { encoding: 'utf8', cwd: root }).trim(); } catch {}
@@ -12,7 +13,10 @@ let state = null;
 try { state = JSON.parse(readFileSync(root + '/public/source-state.json', 'utf8')); } catch {}
 const sources = (state && state.sources) || [];
 const count = (s) => sources.filter((e) => e.status === s).length;
+const evidence = assessSourceEvidence(state?.checked_at)
 const summary = {
+  evidence_age_days: evidence.age_days,
+  evidence_expired: evidence.expired,
   source_count: sources.length,
   current: count('CURRENT'),
   source_moved_unchanged: count('SOURCE_MOVED_CONTENT_UNCHANGED'),
@@ -35,8 +39,8 @@ writeFileSync(root + '/dist/status.json', JSON.stringify(status, null, 2) + '\n'
 writeFileSync(root + '/src/data/build-status.json', JSON.stringify({
   site_commit: site, verified_at: summary.last_verification, summary,
   page_line: summary.last_verification
-    ? `Source verified ${summary.last_verification.slice(0, 16).replace('T', ' ')} UTC · ${summary.current}/${summary.source_count} CURRENT`
-    : 'Source verification pending for this build',
+    ? `${summary.evidence_expired ? 'Verification evidence EXPIRED' : 'Source verified'} ${summary.last_verification.slice(0, 16).replace('T', ' ')} UTC · ${summary.current}/${summary.source_count} CURRENT at historical evidence cut only`
+    : 'Source verification UNKNOWN — no check recorded',
 }, null, 2) + '\n');
 const rows = sources.map((e) =>
   `| \`${e.repository.replace('Aftergraph/', '')}\` | ${e.status} | \`${(e.pinned_sha || '?').slice(0, 8)}\` | \`${(e.remote_sha || '?').slice(0, 8)}\` |`).join('\n');
@@ -51,6 +55,8 @@ import LiveStatus from '../../components/LiveStatus.astro';
 Site commit: \`${site}\`
 Built at: \`${status.build.generated_at}\`
 Last source verification: \`${summary.last_verification || 'pending'}\`
+
+Source verification evidence: **${summary.evidence_expired ? 'EXPIRED / UNKNOWN' : 'WITHIN 7-DAY WINDOW'}** — historical \`CURRENT\` values apply to the last check only, not today's canonical HEAD.
 
 <LiveStatus />
 

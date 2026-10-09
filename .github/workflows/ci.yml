@@ -22,6 +22,7 @@ jobs:
       - run: node scripts/sync-brand.mjs
       - run: npx astro sync
       - run: npx tsc --noEmit
+      - run: node --test tests/source-freshness-age.test.mjs
       - run: npm run verify:v2-ui
       - run: npm run build
       - run: node scripts/scan-public.mjs
