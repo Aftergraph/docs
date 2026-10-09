@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Knowledge Plane source verification is historical evidence, not a live lease.
 // Do not repin repositories or manufacture freshness when this threshold expires.
 export const SOURCE_EVIDENCE_MAX_AGE_DAYS = 7
