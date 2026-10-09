@@ -30,5 +30,17 @@ const verified = buildStatus?.page_line ?? '';
   <div class="ag-hero-stats" aria-label="Source-derived Knowledge Plane counts">
     {stats.map((s) => <div class="ag-stat"><b>{s.n}</b><span>{s.l}</span></div>)}
   </div>
-  {verified && <p class="ag-live-note">{verified}</p>}
+  {verified && <p class="ag-live-note" data-source-evidence-timestamp={buildStatus?.verified_at}>{verified}</p>}
 </div>
+
+<script>
+  // Protect even an old cached build after it ages past the evidence window.
+  const note = document.querySelector('[data-source-evidence-timestamp]');
+  const checkedAt = note?.getAttribute('data-source-evidence-timestamp') || '';
+  const elapsed = Date.now() - Date.parse(checkedAt);
+  if (note && (!Number.isFinite(elapsed) || elapsed < -300_000 || elapsed > 7 * 86400_000)) {
+    note.textContent = 'Source verification EXPIRED (last checked ' + (checkedAt || 'unknown') +
+      '). Repository CURRENT labels refer to the old evidence cut, not today.';
+    note.setAttribute('role', 'status');
+  }
+</script>
