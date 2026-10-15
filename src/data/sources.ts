@@ -4,7 +4,7 @@
 export interface KnowledgeSource {
   repository: string; // "Aftergraph/<name>"
   ref: string;
-  commitSha: string; // full 40-char SHA, fresh-verified 2026-09-06
+  commitSha: string; // full 40-char SHA, fresh-verified 2026-09-11
   owner: string; // canonical owning team/program
   kind:
     | 'documentation' | 'specification' | 'research' | 'contract'
@@ -23,7 +23,7 @@ export const PUBLIC_ALLOWLIST = [
   'Aftergraph/intelligence-systems-research',
   'Aftergraph/trust-gateway',
   'Aftergraph/works-execution',
-  'Aftergraph/work-intelligence-v2',
+  'Aftergraph/wi-backend',
   'Aftergraph/studio',
   'Aftergraph/brand',
   'Aftergraph/aftergraph.org',
@@ -37,7 +37,7 @@ export const SOURCES: KnowledgeSource[] = [
   { repository: 'Aftergraph/intelligence-systems-research', ref: 'main', commitSha: '08c98464a58cf16bb1a70f4f0c5516ad1410bd33', owner: 'ISR', kind: 'research', visibility: 'public', evidenceCut: 'AUDIT-EVID-001 (2026-09-04)' },
   { repository: 'Aftergraph/trust-gateway', ref: 'main', commitSha: 'd207485f84cad550d3a5306581c82d3328b15ec8', owner: 'Trust Gateway', kind: 'documentation', visibility: 'public' },
   { repository: 'Aftergraph/works-execution', ref: 'main', commitSha: '79914a514512766edd7032c9a74e63c0f9f87551', owner: 'WORKS', kind: 'contract', visibility: 'public' },
-  { repository: 'Aftergraph/work-intelligence-v2', ref: 'main', commitSha: 'a926f26b99b6aa265c02590249fa32b85941b73d', owner: 'Work Intelligence', kind: 'api', visibility: 'public', maturity: 'OpenAPI 3.1.0 / API v0.2.0' },
+  { repository: 'Aftergraph/wi-backend', ref: 'main', commitSha: 'cf7f26993450640951165aa6e6e0cd1481515938', owner: 'Work Intelligence', kind: 'api', visibility: 'public', maturity: 'OpenAPI 3.1.0 / API v0.2.0' },
   { repository: 'Aftergraph/studio', ref: 'main', commitSha: 'ca3da75e9cd3ecf783297c49ad79ed91a73d7120', owner: 'Studio', kind: 'documentation', visibility: 'public' },
   { repository: 'Aftergraph/sentinel', ref: 'main', commitSha: '1a8692b93cb3eb664e51bca7b43f5366244b30fa', owner: 'Sentinel', kind: 'documentation', visibility: 'public', maturity: 'prototype — strategy docs + prototype' },
   { repository: 'Aftergraph/aftergraph.org', ref: 'main', commitSha: '8276285aea2bee0f51765145097b4103f9671c83', owner: 'Platform Web', kind: 'documentation', visibility: 'public', maturity: 'public landing + launcher (v1.0.0)' },

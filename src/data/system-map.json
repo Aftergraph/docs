@@ -16,7 +16,7 @@
         "sentinel",
         "studio",
         "trust-gateway",
-        "work-intelligence-v2",
+        "wi-backend",
         "works-execution"
       ]
     },
@@ -146,10 +146,10 @@
         "claims": []
       },
       {
-        "id": "work-intelligence-v2",
+        "id": "wi-backend",
         "role": "Source-neutral work intelligence (observations → WorkItems)",
         "class": "Repository",
-        "sha": "a926f26b99b6aa265c02590249fa32b85941b73d",
+        "sha": "cf7f26993450640951165aa6e6e0cd1481515938",
         "contract_count": 0,
         "contracts": [],
         "edges": 0,
@@ -184,7 +184,7 @@
       {
         "order": 1,
         "step": "Observation",
-        "owner": "work-intelligence-v2",
+        "owner": "wi-backend",
         "api": "POST /v1/observations",
         "contract": null,
         "contract_owner": null,
@@ -193,7 +193,7 @@
       {
         "order": 2,
         "step": "WorkItem",
-        "owner": "work-intelligence-v2",
+        "owner": "wi-backend",
         "api": "GET /v1/work-items",
         "contract": null,
         "contract_owner": null,
